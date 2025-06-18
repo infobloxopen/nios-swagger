@@ -1,0 +1,384 @@
+name: Update Swagger UI
+on:
+  schedule:
+    - cron: '0 10 1,15 * *'  # Run on the 1st and 15th of each month at 10:00 UTC
+  workflow_dispatch:      # Allow manual triggering
+
+jobs:
+  updateSwagger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10    # Prevent long-running jobs
+    permissions:
+      contents: write      # For pushing changes
+      pull-requests: write # For creating PR
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true    # Cancel redundant runs
+    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for Version File
+        id: check-file
+        run: |
+          if [ ! -f swagger-ui/swagger-ui.version ]; then
+            echo "exists=false" >> $GITHUB_OUTPUT
+            mkdir -p swagger-ui
+            echo "none" > swagger-ui/swagger-ui.version
+          else
+            echo "exists=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Get Latest Swagger UI Release
+        id: swagger-ui
+        run: |
+          #
+          # Use retry logic for API requests
+          #
+          MAX_RETRIES=3
+          retry_count=0
+          while [ $retry_count -lt $MAX_RETRIES ]; do
+            if release_tag=$(curl -sL --retry 2 --connect-timeout 10 -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/swagger-api/swagger-ui/releases/latest | jq -r ".tag_name") && [ ! -z "$release_tag" ] && [ "$release_tag" != "null" ]; then
+              echo "release_tag=$release_tag" >> $GITHUB_OUTPUT
+              break
+            fi
+            retry_count=$(($retry_count + 1))
+            if [ $retry_count -eq $MAX_RETRIES ]; then
+              echo "ERROR: Failed to fetch latest release tag after $MAX_RETRIES attempts."
+              exit 1
+            fi
+            echo "Failed to get release tag. Retrying in 3 seconds..."
+            sleep 3
+          done
+          
+          current_tag=$(cat swagger-ui/swagger-ui.version)
+          echo "current_tag=$current_tag" >> $GITHUB_OUTPUT
+
+      - name: Cache Swagger UI downloads
+        uses: actions/cache@v4
+        id: cache-swagger
+        with:
+          path: swagger-ui.tar.gz
+          key: swagger-ui-${{ steps.swagger-ui.outputs.release_tag }}
+
+      - name: Update Swagger UI
+        if: steps.swagger-ui.outputs.current_tag != steps.swagger-ui.outputs.release_tag
+        env:
+          RELEASE_TAG: ${{ steps.swagger-ui.outputs.release_tag }}
+          URL: "https://infobloxopen.github.io/nios-swagger/"
+          # Add error handling environment variables
+          GITHUB_STEP_SUMMARY: ${{ env.GITHUB_STEP_SUMMARY }}
+        run: |
+          #
+          # Set error handling
+          #
+          set -e
+          
+          #
+          # Define timestamp for logs
+          #
+          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+          echo "::group::Swagger UI Update ($TIMESTAMP)"
+          
+          #
+          # Setup rollback function to recover from failures
+          #
+          function rollback {
+            echo "ERROR: Update failed, performing rollback."
+            if [ -d "temp_backup" ]; then
+              # Restore index.html if we have a backup
+              if [ -f "temp_backup/index.html.bak" ]; then
+                echo "Restoring previous index.html"
+                cp temp_backup/index.html.bak index.html
+              fi
+              
+              # Restore custom CSS if it exists
+              if [ -f "temp_backup/custom.css" ]; then
+                echo "Restoring custom CSS file"
+                mkdir -p styles
+                cp temp_backup/custom.css styles/
+              fi
+              
+              # Restore custom JS if it exists
+              if [ -f "temp_backup/custom.js" ]; then
+                echo "Restoring custom JS file"
+                mkdir -p styles
+                cp temp_backup/custom.js styles/
+              fi
+              
+              echo "Rollback completed"
+            else
+              echo "No backup directory found for rollback"
+            fi
+            
+            # Clean up temp directory after rollback
+            rm -rf temp_backup
+          }
+          
+          #
+          # Register the rollback function to run if the script exits with an error
+          #
+          trap rollback ERR
+          
+          #
+          # Log the update operation
+          #
+          echo "Updating Swagger UI from ${{ steps.swagger-ui.outputs.current_tag }} to ${{ steps.swagger-ui.outputs.release_tag }}"
+          
+          #
+          # Save a copy of our custom files temporarily
+          #
+          mkdir -p temp_backup
+          #
+          # Preserve custom CSS if it exists
+          #
+          if [ -f "styles/custom.css" ]; then
+            echo "Preserving custom CSS..."
+            cp styles/custom.css temp_backup/
+          else
+            echo "NOTICE: Custom CSS file not found at styles/custom.css."
+          fi
+          
+          #
+          # Preserve custom JS files
+          # Note: Based on project structure, custom.js is in styles/ folder, not scripts/
+          #
+          if [ -f "styles/custom.js" ]; then
+            echo "Preserving custom JS from styles folder..."
+            cp styles/custom.js temp_backup/
+          elif [ -f "scripts/custom.js" ]; then
+            echo "Preserving custom JS from scripts folder..."
+            cp scripts/custom.js temp_backup/
+          else
+            echo "NOTICE: Custom JS file not found in expected locations."
+          fi
+          
+          #
+          # Delete the dist directory and index.html if they exist
+          # Keep the swagger-ui directory but remove dist subdirectory
+          #
+          if [ -d "swagger-ui/dist" ]; then
+            echo "Removing existing swagger-ui/dist directory..."
+            rm -rf swagger-ui/dist
+          fi
+                   
+          #
+          # Ensure swagger-ui directory exists
+          #
+          mkdir -p swagger-ui
+          
+          #
+          # Download the release with optimized retry mechanism (if not cached)
+          #
+          echo "Downloading Swagger UI release $RELEASE_TAG..."
+          if [ "${{ steps.cache-swagger.outputs.cache-hit }}" != "true" ]; then
+            MAX_RETRIES=3
+            retry_count=0
+            
+            while [ $retry_count -lt $MAX_RETRIES ]; do
+              echo "Download attempt $(($retry_count + 1))/$MAX_RETRIES..."
+              
+              if curl -sL --fail --retry 3 --connect-timeout 15 -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o swagger-ui.tar.gz https://api.github.com/repos/swagger-api/swagger-ui/tarball/$RELEASE_TAG; then
+                # Validate downloaded file
+                if [ -f swagger-ui.tar.gz ] && [ $(stat -c%s swagger-ui.tar.gz 2>/dev/null || stat -f%z swagger-ui.tar.gz) -gt 100000 ]; then
+                  echo "SUCCESS: Download successful and file looks valid."
+                  break
+                else
+                  echo "Downloaded file appears to be invalid or too small"
+                fi
+              fi
+              
+              retry_count=$(($retry_count + 1))
+              if [ $retry_count -eq $MAX_RETRIES ]; then
+                echo "ERROR: Failed to download Swagger UI release after $MAX_RETRIES attempts."
+                exit 1
+              fi
+              echo "Download failed. Retrying in 5 seconds..."
+              sleep 5
+            done
+          else
+            echo "Using cached Swagger UI download"
+            # Validate cached file
+            if [ ! -f swagger-ui.tar.gz ] || [ $(stat -c%s swagger-ui.tar.gz 2>/dev/null || stat -f%z swagger-ui.tar.gz) -lt 100000 ]; then
+              echo "NOTICE: Cached file appears invalid, downloading fresh copy."
+              if ! curl -sL --fail --retry 3 --connect-timeout 15 -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o swagger-ui.tar.gz https://api.github.com/repos/swagger-api/swagger-ui/tarball/$RELEASE_TAG; then
+                echo "ERROR: Failed to download fresh copy after cache validation failed."
+                exit 1
+              fi
+            fi
+          fi
+          
+          #
+          # Extract the dist directory directly to swagger-ui folder
+          #
+          echo "Extracting distribution files..."
+          mkdir -p temp_extract
+          tar -xzf swagger-ui.tar.gz -C temp_extract --strip-components=1
+          if [ $? -ne 0 ]; then
+            echo "Failed to extract Swagger UI files"
+            exit 1
+          fi
+          
+          #
+          # Move only the dist directory to swagger-ui/
+          #
+          echo "Moving dist directory to swagger-ui/..."
+          mv temp_extract/dist swagger-ui/
+          rm -rf temp_extract
+          rm swagger-ui.tar.gz
+          
+          #
+          # Move index.html to the root
+          #
+          cp swagger-ui/dist/index.html .
+          
+          #
+          # Configure swagger-initializer.js with proper URLs
+          #
+          echo "Configuring Swagger UI initialization..."
+          
+          #
+          # Check if swagger-initializer.js exists
+          #
+          if [ -f "swagger-ui/dist/swagger-initializer.js" ]; then
+            # Default to first API (DNS) if no specific URL provided
+            sed -i "s|https://petstore.swagger.io/v2/swagger.json|$URL|g" swagger-ui/dist/swagger-initializer.js
+          else
+            echo "NOTICE: File swagger-ui/dist/swagger-initializer.js not found. Skipping URL configuration."
+          fi
+          
+          #
+          # Update references in index.html
+          #
+          if [ -f "index.html" ]; then
+            sed -i "s|href=\"./|href=\"./swagger-ui/dist/|g" index.html
+            sed -i "s|src=\"./|src=\"./swagger-ui/dist/|g" index.html
+            sed -i "s|href=\"index|href=\"./swagger-ui/dist/index|g" index.html
+            
+            #
+            # Add back our custom CSS and JS references
+            #
+            if [ -f "temp_backup/custom.css" ]; then
+              echo "Restoring custom CSS link..."
+              mkdir -p styles
+              mv temp_backup/custom.css styles/
+              # Add CSS link before closing head tag if not already there
+              grep -q 'href="./styles/custom.css"' index.html || sed -i 's|</head>| <link rel="stylesheet" type="text/css" href="./styles/custom.css" />\n</head>|' index.html
+            fi
+            
+            #
+            # Restore custom JS to the correct location (styles/ folder) based on project structure
+            #
+            if [ -f "temp_backup/custom.js" ]; then
+              echo "Restoring custom JS link..."
+              mkdir -p styles
+              mv temp_backup/custom.js styles/
+              # Add JS link before closing body tag if not already there
+              grep -q 'src="./styles/custom.js"' index.html || sed -i 's|</body>| <script src="./styles/custom.js" charset="UTF-8"></script>\n</body>|' index.html
+              
+              # Verify the JS reference was added correctly
+              if ! grep -q 'src="./styles/custom.js"' index.html; then
+                echo "ERROR: Failed to add custom JS reference to index.html."
+              else
+                echo "Custom JS reference successfully added to index.html."
+              fi
+            fi
+          else
+            echo "NOTICE: index.html not found. Skipping reference updates."
+          fi
+          
+          #
+          # Verify the installation was successful
+          #
+          echo "Running integrity checks..."
+          
+          #
+          # Define required files for faster checking
+          #
+          REQUIRED_FILES=(
+            "swagger-ui/dist/swagger-ui-bundle.js"
+            "swagger-ui/dist/swagger-ui.css"
+            "swagger-ui/dist/swagger-initializer.js"
+          )
+          
+          #
+          # Check for all required files in one loop
+          #
+          missing_files=0
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "ERROR: Required file missing: $file."
+              missing_files=1
+            fi
+          done
+          
+          if [ $missing_files -eq 1 ]; then
+            echo "ERROR: Installation verification failed - core Swagger UI files missing."
+            exit 1
+          else
+            echo "SUCCESS: Core Swagger UI files verified"
+          fi
+          
+          #
+          # Check if index.html contains proper references
+          #
+          if [ -f "index.html" ]; then
+            refs_missing=0
+            for ref in "swagger-ui-bundle.js" "swagger-ui.css" "swagger-initializer.js"; do
+              if ! grep -q "$ref" index.html; then
+                echo "WARNING: index.html missing reference to $ref."
+                refs_missing=1
+              fi
+            done
+            
+            if [ $refs_missing -eq 0 ]; then
+              echo "SUCCESS: index.html references verified"
+            fi
+            
+            #
+            # Also verify our custom file references are included
+            #
+            if [ -f "styles/custom.css" ] && ! grep -q "styles/custom.css" index.html; then
+              echo "WARNING: Custom CSS reference is missing from index.html."
+            fi
+            
+            if [ -f "styles/custom.js" ] && ! grep -q "styles/custom.js" index.html; then
+              echo "WARNING: Custom JS reference is missing from index.html."
+            fi
+          fi
+
+          #
+          # Clean up temp directory
+          #
+          rm -rf temp_backup
+          
+          #
+          # Update version file
+          #
+          echo "${{ steps.swagger-ui.outputs.release_tag }}" > swagger-ui/swagger-ui.version
+          
+          #
+          # Add version info to GitHub step summary
+          #
+          echo "## Swagger UI Update Successful" >> $GITHUB_STEP_SUMMARY
+          echo "Updated from \`${{ steps.swagger-ui.outputs.current_tag }}\` to \`${{ steps.swagger-ui.outputs.release_tag }}\`" >> $GITHUB_STEP_SUMMARY
+          
+          #
+          # Log completion
+          #
+          echo "::endgroup::"
+          echo "Update process completed successfully."
+    
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: Update swagger-ui to ${{ steps.swagger-ui.outputs.release_tag }}
+          title: Update SwaggerUI to ${{ steps.swagger-ui.outputs.release_tag }}
+          body: |
+            Updates [swagger-ui][1] to ${{ steps.swagger-ui.outputs.release_tag }}
+
+            Auto-generated by [create-pull-request][2]
+
+            [1]: https://github.com/swagger-api/swagger-ui
+            [2]: https://github.com/peter-evans/create-pull-request
+          labels: dependencies, automated pr
+          branch: swagger-ui-updates

@@ -1,0 +1,26 @@
+/* Styling for the WAPI version dropdown */
+.swagger-ui .topbar .wapi-version-wrapper .select-label {
+  align-items: center;
+  color: #f0f0f0;
+  display: flex;
+  margin: 0;
+}
+
+.swagger-ui .topbar .wapi-version-wrapper .select-label span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.swagger-ui .topbar .wapi-version-wrapper select {
+  border-radius: 4px;
+  border: 2px solid #41444e;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3b4151;
+  width: auto;
+}

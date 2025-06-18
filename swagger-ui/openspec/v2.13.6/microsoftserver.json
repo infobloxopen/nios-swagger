@@ -1,0 +1,3321 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox MICROSOFTSERVER API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI MICROSOFTSERVER objects",
+        "version": "2.13.6",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "Msserver",
+            "description": "Operations for msserver objects"
+        },
+        {
+            "name": "MsserverAdsitesDomain",
+            "description": "Operations for msserver:adsites:domain objects"
+        },
+        {
+            "name": "MsserverAdsitesSite",
+            "description": "Operations for msserver:adsites:site objects"
+        },
+        {
+            "name": "MsserverDhcp",
+            "description": "Operations for msserver:dhcp objects"
+        },
+        {
+            "name": "MsserverDns",
+            "description": "Operations for msserver:dns objects"
+        },
+        {
+            "name": "Mssuperscope",
+            "description": "Operations for mssuperscope objects"
+        }
+    ],
+    "paths": {
+        "/msserver": {
+            "get": {
+                "tags": [
+                    "Msserver"
+                ],
+                "operationId": "MsserverList",
+                "summary": "Retrieve msserver objects",
+                "description": "Returns a list of msserver objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMsserverResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Msserver"
+                ],
+                "operationId": "MsserverCreate",
+                "summary": "Create a msserver object",
+                "description": "Creates a new msserver object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Msserver"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateMsserverResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_microsoftserver_msserver",
+                "x-tf-datasource": "nios_microsoftserver_msserver",
+                "x-sdk-default-ext-attrs": true
+            }
+        },
+        "/msserver/{reference}": {
+            "get": {
+                "tags": [
+                    "Msserver"
+                ],
+                "operationId": "MsserverRead",
+                "summary": "Get a specific msserver object",
+                "description": "Returns a specific msserver object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMsserverResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Msserver"
+                ],
+                "operationId": "MsserverUpdate",
+                "summary": "Update a msserver object",
+                "description": "Updates a specific msserver object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Msserver"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateMsserverResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-sdk-default-ext-attrs": true
+            },
+            "delete": {
+                "tags": [
+                    "Msserver"
+                ],
+                "operationId": "MsserverDelete",
+                "summary": "Delete a msserver object",
+                "description": "Deletes a specific msserver object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/msserver:adsites:domain": {
+            "get": {
+                "tags": [
+                    "MsserverAdsitesDomain"
+                ],
+                "operationId": "MsserverAdsitesDomainList",
+                "summary": "Retrieve msserver:adsites:domain objects",
+                "description": "Returns a list of msserver:adsites:domain objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMsserverAdsitesDomainResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/msserver:adsites:domain/{reference}": {
+            "get": {
+                "tags": [
+                    "MsserverAdsitesDomain"
+                ],
+                "operationId": "MsserverAdsitesDomainRead",
+                "summary": "Get a specific msserver:adsites:domain object",
+                "description": "Returns a specific msserver:adsites:domain object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:adsites:domain object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMsserverAdsitesDomainResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/msserver:adsites:site": {
+            "get": {
+                "tags": [
+                    "MsserverAdsitesSite"
+                ],
+                "operationId": "MsserverAdsitesSiteList",
+                "summary": "Retrieve msserver:adsites:site objects",
+                "description": "Returns a list of msserver:adsites:site objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMsserverAdsitesSiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "MsserverAdsitesSite"
+                ],
+                "operationId": "MsserverAdsitesSiteCreate",
+                "summary": "Create a msserver:adsites:site object",
+                "description": "Creates a new msserver:adsites:site object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MsserverAdsitesSite"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateMsserverAdsitesSiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_microsoftserver_msserver_adsites_site",
+                "x-tf-datasource": "nios_microsoftserver_msserver_adsites_site"
+            }
+        },
+        "/msserver:adsites:site/{reference}": {
+            "get": {
+                "tags": [
+                    "MsserverAdsitesSite"
+                ],
+                "operationId": "MsserverAdsitesSiteRead",
+                "summary": "Get a specific msserver:adsites:site object",
+                "description": "Returns a specific msserver:adsites:site object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:adsites:site object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMsserverAdsitesSiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "MsserverAdsitesSite"
+                ],
+                "operationId": "MsserverAdsitesSiteUpdate",
+                "summary": "Update a msserver:adsites:site object",
+                "description": "Updates a specific msserver:adsites:site object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:adsites:site object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MsserverAdsitesSite"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateMsserverAdsitesSiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "MsserverAdsitesSite"
+                ],
+                "operationId": "MsserverAdsitesSiteDelete",
+                "summary": "Delete a msserver:adsites:site object",
+                "description": "Deletes a specific msserver:adsites:site object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:adsites:site object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/msserver:dhcp": {
+            "get": {
+                "tags": [
+                    "MsserverDhcp"
+                ],
+                "operationId": "MsserverDhcpList",
+                "summary": "Retrieve msserver:dhcp objects",
+                "description": "Returns a list of msserver:dhcp objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMsserverDhcpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "MsserverDhcp"
+                ],
+                "operationId": "MsserverDhcpCreate",
+                "summary": "Create a msserver:dhcp object",
+                "description": "Creates a new msserver:dhcp object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MsserverDhcp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateMsserverDhcpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_microsoftserver_msserver_dhcp",
+                "x-tf-datasource": "nios_microsoftserver_msserver_dhcp"
+            }
+        },
+        "/msserver:dhcp/{reference}": {
+            "get": {
+                "tags": [
+                    "MsserverDhcp"
+                ],
+                "operationId": "MsserverDhcpRead",
+                "summary": "Get a specific msserver:dhcp object",
+                "description": "Returns a specific msserver:dhcp object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:dhcp object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMsserverDhcpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "MsserverDhcp"
+                ],
+                "operationId": "MsserverDhcpUpdate",
+                "summary": "Update a msserver:dhcp object",
+                "description": "Updates a specific msserver:dhcp object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:dhcp object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MsserverDhcp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateMsserverDhcpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "MsserverDhcp"
+                ],
+                "operationId": "MsserverDhcpDelete",
+                "summary": "Delete a msserver:dhcp object",
+                "description": "Deletes a specific msserver:dhcp object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:dhcp object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/msserver:dns": {
+            "get": {
+                "tags": [
+                    "MsserverDns"
+                ],
+                "operationId": "MsserverDnsList",
+                "summary": "Retrieve msserver:dns objects",
+                "description": "Returns a list of msserver:dns objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMsserverDnsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "MsserverDns"
+                ],
+                "operationId": "MsserverDnsCreate",
+                "summary": "Create a msserver:dns object",
+                "description": "Creates a new msserver:dns object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MsserverDns"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateMsserverDnsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_microsoftserver_msserver_dns",
+                "x-tf-datasource": "nios_microsoftserver_msserver_dns"
+            }
+        },
+        "/msserver:dns/{reference}": {
+            "get": {
+                "tags": [
+                    "MsserverDns"
+                ],
+                "operationId": "MsserverDnsRead",
+                "summary": "Get a specific msserver:dns object",
+                "description": "Returns a specific msserver:dns object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:dns object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMsserverDnsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "MsserverDns"
+                ],
+                "operationId": "MsserverDnsUpdate",
+                "summary": "Update a msserver:dns object",
+                "description": "Updates a specific msserver:dns object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:dns object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MsserverDns"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateMsserverDnsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "MsserverDns"
+                ],
+                "operationId": "MsserverDnsDelete",
+                "summary": "Delete a msserver:dns object",
+                "description": "Deletes a specific msserver:dns object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the msserver:dns object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/mssuperscope": {
+            "get": {
+                "tags": [
+                    "Mssuperscope"
+                ],
+                "operationId": "MssuperscopeList",
+                "summary": "Retrieve mssuperscope objects",
+                "description": "Returns a list of mssuperscope objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMssuperscopeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Mssuperscope"
+                ],
+                "operationId": "MssuperscopeCreate",
+                "summary": "Create a mssuperscope object",
+                "description": "Creates a new mssuperscope object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Mssuperscope"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateMssuperscopeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_microsoftserver_mssuperscope",
+                "x-tf-datasource": "nios_microsoftserver_mssuperscope",
+                "x-sdk-default-ext-attrs": true
+            }
+        },
+        "/mssuperscope/{reference}": {
+            "get": {
+                "tags": [
+                    "Mssuperscope"
+                ],
+                "operationId": "MssuperscopeRead",
+                "summary": "Get a specific mssuperscope object",
+                "description": "Returns a specific mssuperscope object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the mssuperscope object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMssuperscopeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Mssuperscope"
+                ],
+                "operationId": "MssuperscopeUpdate",
+                "summary": "Update a mssuperscope object",
+                "description": "Updates a specific mssuperscope object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the mssuperscope object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Mssuperscope"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateMssuperscopeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-sdk-default-ext-attrs": true
+            },
+            "delete": {
+                "tags": [
+                    "Mssuperscope"
+                ],
+                "operationId": "MssuperscopeDelete",
+                "summary": "Delete a mssuperscope object",
+                "description": "Deletes a specific mssuperscope object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the mssuperscope object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "Msserver": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "ad_domain": {
+                        "type": "string",
+                        "description": "The Active Directory domain to which this server belongs (if applicable).",
+                        "readOnly": true,
+                        "example": "Example ad_domain"
+                    },
+                    "ad_sites": {
+                        "$ref": "#/components/schemas/MsserverAdSites"
+                    },
+                    "ad_user": {
+                        "$ref": "#/components/schemas/MsserverAdUser"
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The address or FQDN of the server.",
+                        "example": "Example address"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "User comments for this Microsoft Server",
+                        "example": "Example comment"
+                    },
+                    "connection_status": {
+                        "type": "string",
+                        "description": "Result of the last RPC connection attempt made",
+                        "readOnly": true,
+                        "example": "Example connection_status"
+                    },
+                    "connection_status_detail": {
+                        "type": "string",
+                        "description": "Detail of the last connection attempt made",
+                        "readOnly": true,
+                        "example": "Example connection_status_detail"
+                    },
+                    "dhcp_server": {
+                        "$ref": "#/components/schemas/MsserverDhcpServer"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Allow/forbids usage of this Microsoft Server",
+                        "example": false
+                    },
+                    "dns_server": {
+                        "$ref": "#/components/schemas/MsserverDnsServer"
+                    },
+                    "dns_view": {
+                        "type": "string",
+                        "description": "Reference to the DNS view",
+                        "example": "Example dns_view"
+                    },
+                    "extattrs": {
+                        "type": "object",
+                        "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ExtAttrs"
+                        }
+                    },
+                    "grid_member": {
+                        "type": "string",
+                        "description": "eference to the assigned grid member",
+                        "example": "Example grid_member"
+                    },
+                    "last_seen": {
+                        "type": "integer",
+                        "description": "Timestamp of the last message received",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "log_destination": {
+                        "type": "string",
+                        "description": "Directs logging of sync messages either to syslog or mslog",
+                        "enum": [
+                            "SYSLOG",
+                            "MSLOG"
+                        ],
+                        "example": "Example log_destination"
+                    },
+                    "log_level": {
+                        "type": "string",
+                        "description": "Log level for this Microsoft Server",
+                        "enum": [
+                            "MINIMUM",
+                            "NORMAL",
+                            "ADVANCED",
+                            "FULL"
+                        ],
+                        "example": "Example log_level"
+                    },
+                    "login_name": {
+                        "type": "string",
+                        "description": "Microsoft Server login name, with optional domainname",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "Microsoft Server login password",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "managing_member": {
+                        "type": "string",
+                        "description": "Hostname of grid member managing this Microsoft Server",
+                        "readOnly": true,
+                        "example": "Example managing_member"
+                    },
+                    "ms_max_connection": {
+                        "type": "integer",
+                        "description": "Maximum number of connections to MS server",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "ms_rpc_timeout_in_seconds": {
+                        "type": "integer",
+                        "description": "Timeout in seconds of RPC connections for this MS Server",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "Reference to the network view",
+                        "example": "Example network_view"
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Enable read-only management for this Microsoft Server",
+                        "example": false
+                    },
+                    "root_ad_domain": {
+                        "type": "string",
+                        "description": "The root Active Directory domain to which this server belongs (if applicable).",
+                        "readOnly": true,
+                        "example": "Example root_ad_domain"
+                    },
+                    "server_name": {
+                        "type": "string",
+                        "description": "Gives the server name as reported by itself",
+                        "readOnly": true,
+                        "example": "Example server_name"
+                    },
+                    "synchronization_min_delay": {
+                        "type": "integer",
+                        "description": "Minimum number of minutes between two synchronizations",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "synchronization_status": {
+                        "type": "string",
+                        "description": "Synchronization status summary",
+                        "enum": [
+                            "OK",
+                            "WARNING",
+                            "ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example synchronization_status"
+                    },
+                    "synchronization_status_detail": {
+                        "type": "string",
+                        "description": "Detail status if synchronization_status is ERROR",
+                        "readOnly": true,
+                        "example": "Example synchronization_status_detail"
+                    },
+                    "use_log_destination": {
+                        "type": "boolean",
+                        "description": "Override log_destination inherited from grid level",
+                        "example": false
+                    },
+                    "use_ms_max_connection": {
+                        "type": "boolean",
+                        "description": "Override grid ms_max_connection setting",
+                        "example": false
+                    },
+                    "use_ms_rpc_timeout_in_seconds": {
+                        "type": "boolean",
+                        "description": "Flag to override cluster RPC timeout",
+                        "example": false
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Version of the Microsoft Server",
+                        "readOnly": true,
+                        "example": "Example version"
+                    }
+                }
+            },
+            "MsserverAdSites": {
+                "type": "object",
+                "properties": {
+                    "use_default_ip_site_link": {
+                        "type": "boolean",
+                        "description": "Flag to override MS Server default IP site link",
+                        "example": false
+                    },
+                    "default_ip_site_link": {
+                        "type": "string",
+                        "description": "Default IP site link for sites created from NIOS",
+                        "example": "Example default_ip_site_link"
+                    },
+                    "use_login": {
+                        "type": "boolean",
+                        "description": "Flag to override login name and password from the MS Server",
+                        "example": false
+                    },
+                    "login_name": {
+                        "type": "string",
+                        "description": "Microsoft Server login name, with optional",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "Microsoft Server login password.",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "use_synchronization_min_delay": {
+                        "type": "boolean",
+                        "description": "Flag to override synchronization interval from the MS Server",
+                        "example": false
+                    },
+                    "synchronization_min_delay": {
+                        "type": "integer",
+                        "description": "Minimum number of minutes between two synchronizations",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "use_ldap_timeout": {
+                        "type": "boolean",
+                        "description": "Flag to override cluster LDAP timeoutMS Server",
+                        "example": false
+                    },
+                    "ldap_timeout": {
+                        "type": "integer",
+                        "description": "Timeout in seconds for LDAP connections for this MS Server",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "ldap_auth_port": {
+                        "type": "integer",
+                        "description": "TCP port for LDAP connections for this",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "ldap_encryption": {
+                        "type": "string",
+                        "description": "Encryption for LDAP connections for this MS Server",
+                        "enum": [
+                            "NONE",
+                            "SSL"
+                        ],
+                        "example": "Example ldap_encryption"
+                    },
+                    "managed": {
+                        "type": "boolean",
+                        "description": "Controls whether the Sites of this MS Server are to be synchronized by the assigned managing member or not",
+                        "example": false
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Enable/disable read-only synchronization of Sites for this Active Directory domain",
+                        "example": false
+                    },
+                    "last_sync_ts": {
+                        "type": "integer",
+                        "description": "Timestamp of the last synchronization attempt",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_sync_status": {
+                        "type": "string",
+                        "description": "Status of the last synchronization attempt",
+                        "enum": [
+                            "MS_SYNC_OK",
+                            "MS_SYNC_WARNING",
+                            "MS_SYNC_ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example last_sync_status"
+                    },
+                    "last_sync_detail": {
+                        "type": "string",
+                        "description": "The detailed status of the last synchronization attempt.",
+                        "readOnly": true,
+                        "example": "Example last_sync_detail"
+                    },
+                    "supports_ipv6": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports IPv6",
+                        "readOnly": true,
+                        "example": false
+                    }
+                }
+            },
+            "MsserverAdUser": {
+                "type": "object",
+                "properties": {
+                    "login_name": {
+                        "type": "string",
+                        "description": "The login name of the Microsoft Server.",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "The login password of the DHCP Microsoft Server.",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "enable_user_sync": {
+                        "type": "boolean",
+                        "description": "Determines whether the Active Directory user synchronization is enabled or not.",
+                        "example": false
+                    },
+                    "synchronization_interval": {
+                        "type": "integer",
+                        "description": "The minimum number of minutes between two synchronizations.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "last_sync_time": {
+                        "type": "integer",
+                        "description": "Timestamp of the last synchronization attempt.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_sync_status": {
+                        "type": "string",
+                        "description": "The status of the last synchronization attempt.",
+                        "readOnly": true,
+                        "example": "Example last_sync_status"
+                    },
+                    "last_sync_detail": {
+                        "type": "string",
+                        "description": "The detailed status of the last synchronization attempt.",
+                        "readOnly": true,
+                        "example": "Example last_sync_detail"
+                    },
+                    "last_success_sync_time": {
+                        "type": "integer",
+                        "description": "Timestamp of the last successful synchronization attempt.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "use_login": {
+                        "type": "boolean",
+                        "description": "Flag to override login name and password from MS server",
+                        "example": false
+                    },
+                    "use_enable_ad_user_sync": {
+                        "type": "boolean",
+                        "description": "Flag to override AD User sync from grid level",
+                        "example": false
+                    },
+                    "use_synchronization_min_delay": {
+                        "type": "boolean",
+                        "description": "Flag to override synchronization interval from the MS Server",
+                        "example": false
+                    },
+                    "use_enable_user_sync": {
+                        "type": "boolean",
+                        "description": "Use flag for: enable_user_sync",
+                        "example": false
+                    },
+                    "use_synchronization_interval": {
+                        "type": "boolean",
+                        "description": "Use flag for: synchronization_interval",
+                        "example": false
+                    }
+                }
+            },
+            "MsserverDhcpServer": {
+                "type": "object",
+                "properties": {
+                    "use_login": {
+                        "type": "boolean",
+                        "description": "Flag to override login name and password from the MS Server",
+                        "example": false
+                    },
+                    "login_name": {
+                        "type": "string",
+                        "description": "Microsoft Server login name",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "Microsoft Server login password",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "managed": {
+                        "type": "boolean",
+                        "description": "flag indicating if the DNS service is managed",
+                        "example": false
+                    },
+                    "next_sync_control": {
+                        "type": "string",
+                        "description": "Defines what control to apply on the DNS server",
+                        "enum": [
+                            "NONE",
+                            "START",
+                            "STOP"
+                        ],
+                        "example": "Example next_sync_control"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the Microsoft DNS Service",
+                        "enum": [
+                            "UNKNOWN",
+                            "OFFLINE"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "status_last_updated": {
+                        "type": "integer",
+                        "description": "Timestamp of the last update",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "use_enable_monitoring": {
+                        "type": "boolean",
+                        "description": "Override enable monitoring inherited from grid level",
+                        "example": false
+                    },
+                    "enable_monitoring": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the DNS service is monitored and controlled",
+                        "example": false
+                    },
+                    "use_enable_invalid_mac": {
+                        "type": "boolean",
+                        "description": "Override setting for Enable Invalid Mac Address",
+                        "example": false
+                    },
+                    "enable_invalid_mac": {
+                        "type": "boolean",
+                        "description": "Enable Invalid Mac Address",
+                        "example": false
+                    },
+                    "supports_failover": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the DHCP supports Failover",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "use_synchronization_min_delay": {
+                        "type": "boolean",
+                        "description": "Flag to override synchronization interval from the MS Server",
+                        "example": false
+                    },
+                    "synchronization_min_delay": {
+                        "type": "integer",
+                        "description": "Minimum number of minutes between two synchronizations",
+                        "format": "int64",
+                        "example": 1
+                    }
+                }
+            },
+            "MsserverDnsServer": {
+                "type": "object",
+                "properties": {
+                    "use_login": {
+                        "type": "boolean",
+                        "description": "Flag to override login name and password from the MS Server",
+                        "example": false
+                    },
+                    "login_name": {
+                        "type": "string",
+                        "description": "Microsoft Server login name",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "Microsoft Server login password",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "managed": {
+                        "type": "boolean",
+                        "description": "flag indicating if the DNS service is managed",
+                        "example": false
+                    },
+                    "next_sync_control": {
+                        "type": "string",
+                        "description": "Defines what control to apply on the DNS server",
+                        "enum": [
+                            "NONE",
+                            "START",
+                            "STOP"
+                        ],
+                        "example": "Example next_sync_control"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the Microsoft DNS Service",
+                        "enum": [
+                            "UNKNOWN",
+                            "OFFLINE"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "status_detail": {
+                        "type": "string",
+                        "description": "Detailed status of the DNS status",
+                        "readOnly": true,
+                        "example": "Example status_detail"
+                    },
+                    "status_last_updated": {
+                        "type": "integer",
+                        "description": "Timestamp of the last update",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_sync_ts": {
+                        "type": "integer",
+                        "description": "Timestamp of the last synchronization attempt",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_sync_status": {
+                        "type": "string",
+                        "description": "Status of the last synchronization attempt",
+                        "enum": [
+                            "MS_SYNC_OK",
+                            "MS_SYNC_WARNING",
+                            "MS_SYNC_ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example last_sync_status"
+                    },
+                    "last_sync_detail": {
+                        "type": "string",
+                        "description": "Detailled status of the last synchronization attempt",
+                        "readOnly": true,
+                        "example": "Example last_sync_detail"
+                    },
+                    "forwarders": {
+                        "type": "string",
+                        "description": "Ordered list of IP addresses to forward queries to",
+                        "readOnly": true,
+                        "example": "Example forwarders"
+                    },
+                    "supports_ipv6": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports IPv6",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "supports_ipv6_reverse": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports reverse IPv6 zones",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "supports_rr_dname": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports DNAME records",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "supports_dnssec": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "supports_active_directory": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports AD integrated zones",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "MS Server ip address",
+                        "readOnly": true,
+                        "example": "Example address"
+                    },
+                    "supports_rr_naptr": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the server supports NAPTR records",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "use_enable_monitoring": {
+                        "type": "boolean",
+                        "description": "Override enable monitoring inherited from grid level",
+                        "example": false
+                    },
+                    "enable_monitoring": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the DNS service is monitored and controlled",
+                        "example": false
+                    },
+                    "use_synchronization_min_delay": {
+                        "type": "boolean",
+                        "description": "Flag to override synchronization interval from the MS Server",
+                        "example": false
+                    },
+                    "synchronization_min_delay": {
+                        "type": "integer",
+                        "description": "Minimum number of minutes between two synchronizations",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "use_enable_dns_reports_sync": {
+                        "type": "boolean",
+                        "description": "Override enable reports data inherited from grid level",
+                        "example": false
+                    },
+                    "enable_dns_reports_sync": {
+                        "type": "boolean",
+                        "description": "Enable or Disable MS DNS data for reports from this MS Server",
+                        "example": false
+                    }
+                }
+            },
+            "ListMsserverResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Msserver__ objects.",
+                        "type": "array",
+                        "title": "ListMsserverResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Msserver"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Msserver__ objects.",
+                        "type": "object",
+                        "title": "ListMsserverResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Msserver"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateMsserverResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Msserver__ in object format.",
+                        "type": "object",
+                        "title": "CreateMsserverResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Msserver"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Msserver__.",
+                        "type": "string",
+                        "title": "CreateMsserverResponse"
+                    }
+                ]
+            },
+            "GetMsserverResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Msserver"
+                    },
+                    {
+                        "description": "The response format to retrieve __Msserver__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMsserverResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Msserver"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMsserverResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Msserver__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMsserverResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Msserver"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Msserver__ .",
+                        "type": "string",
+                        "title": "UpdateMsserverResponse"
+                    }
+                ]
+            },
+            "MsserverAdsitesDomain": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "ea_definition": {
+                        "type": "string",
+                        "description": "The name of the Extensible Attribute Definition object that is linked to the Active Directory Sites Domain.",
+                        "readOnly": true,
+                        "example": "Example ea_definition"
+                    },
+                    "ms_sync_master_name": {
+                        "type": "string",
+                        "description": "The IP address or FQDN of the managing master for the MS server, if applicable.",
+                        "readOnly": true,
+                        "example": "Example ms_sync_master_name"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Active Directory Domain properties object.",
+                        "readOnly": true,
+                        "example": "Example name"
+                    },
+                    "netbios": {
+                        "type": "string",
+                        "description": "The NetBIOS name of the Active Directory Domain properties object.",
+                        "readOnly": true,
+                        "example": "Example netbios"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the network view in which the Active Directory Domain resides.",
+                        "readOnly": true,
+                        "example": "Example network_view"
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Determines whether the Active Directory Domain properties object is a read-only object.",
+                        "readOnly": true,
+                        "example": false
+                    }
+                }
+            },
+            "ListMsserverAdsitesDomainResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __MsserverAdsitesDomain__ objects.",
+                        "type": "array",
+                        "title": "ListMsserverAdsitesDomainResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/MsserverAdsitesDomain"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverAdsitesDomain__ objects.",
+                        "type": "object",
+                        "title": "ListMsserverAdsitesDomainResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MsserverAdsitesDomain"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetMsserverAdsitesDomainResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/MsserverAdsitesDomain"
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverAdsitesDomain__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMsserverAdsitesDomainResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverAdsitesDomain"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMsserverAdsitesDomainResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __MsserverAdsitesDomain__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMsserverAdsitesDomainResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverAdsitesDomain"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __MsserverAdsitesDomain__ .",
+                        "type": "string",
+                        "title": "UpdateMsserverAdsitesDomainResponse"
+                    }
+                ]
+            },
+            "MsserverAdsitesSite": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "The reference to the Active Directory Domain to which the site belongs.",
+                        "example": "Example domain"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the site properties object for the Active Directory Sites.",
+                        "example": "Example name"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "description": "The list of networks to which the device interfaces belong.",
+                        "enum": [
+                            "network"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "network"
+                            ]
+                        }
+                    }
+                }
+            },
+            "ListMsserverAdsitesSiteResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __MsserverAdsitesSite__ objects.",
+                        "type": "array",
+                        "title": "ListMsserverAdsitesSiteResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/MsserverAdsitesSite"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverAdsitesSite__ objects.",
+                        "type": "object",
+                        "title": "ListMsserverAdsitesSiteResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MsserverAdsitesSite"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateMsserverAdsitesSiteResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __MsserverAdsitesSite__ in object format.",
+                        "type": "object",
+                        "title": "CreateMsserverAdsitesSiteResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverAdsitesSite"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __MsserverAdsitesSite__.",
+                        "type": "string",
+                        "title": "CreateMsserverAdsitesSiteResponse"
+                    }
+                ]
+            },
+            "GetMsserverAdsitesSiteResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/MsserverAdsitesSite"
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverAdsitesSite__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMsserverAdsitesSiteResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverAdsitesSite"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMsserverAdsitesSiteResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __MsserverAdsitesSite__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMsserverAdsitesSiteResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverAdsitesSite"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __MsserverAdsitesSite__ .",
+                        "type": "string",
+                        "title": "UpdateMsserverAdsitesSiteResponse"
+                    }
+                ]
+            },
+            "MsserverDhcp": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The address or FQDN of the DHCP Microsoft Server.",
+                        "readOnly": true,
+                        "example": "Example address"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Comment from Microsoft Server",
+                        "readOnly": true,
+                        "example": "Example comment"
+                    },
+                    "dhcp_utilization": {
+                        "type": "integer",
+                        "description": "The percentage of the total DHCP utilization of DHCP objects belonging to the DHCP Microsoft Server multiplied by 1000. This is the percentage of the total number of available IP addresses from all the DHCP objects belonging to the DHCP Microsoft Server versus the total number of all IP addresses in all of the DHCP objects on the DHCP Microsoft Server.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "dhcp_utilization_status": {
+                        "type": "string",
+                        "description": "A string describing the utilization level of DHCP objects that belong to the DHCP Microsoft Server.",
+                        "enum": [
+                            "FULL",
+                            "HIGH",
+                            "LOW",
+                            "NORMAL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example dhcp_utilization_status"
+                    },
+                    "dynamic_hosts": {
+                        "type": "integer",
+                        "description": "The total number of DHCP leases issued for the DHCP objects on the DHCP Microsoft Server.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_sync_ts": {
+                        "type": "integer",
+                        "description": "Timestamp of the last synchronization attempt",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "login_name": {
+                        "type": "string",
+                        "description": "The login name of the DHCP Microsoft Server.",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "The login password of the DHCP Microsoft Server.",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "Network view to update",
+                        "readOnly": true,
+                        "example": "Example network_view"
+                    },
+                    "next_sync_control": {
+                        "type": "string",
+                        "description": "Defines what control to apply on the DHCP server",
+                        "enum": [
+                            "NONE",
+                            "START",
+                            "STOP"
+                        ],
+                        "example": "Example next_sync_control"
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Whether Microsoft server is read only",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "server_name": {
+                        "type": "string",
+                        "description": "Microsoft server address",
+                        "readOnly": true,
+                        "example": "Example server_name"
+                    },
+                    "static_hosts": {
+                        "type": "integer",
+                        "description": "The number of static DHCP addresses configured in DHCP objects that belong to the DHCP Microsoft Server.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the Microsoft DHCP Service",
+                        "enum": [
+                            "FAILED",
+                            "WARNING",
+                            "WORKING",
+                            "INACTIVE",
+                            "UNKNOWN",
+                            "OFFLINE"
+                        ],
+                        "example": "Example status"
+                    },
+                    "status_detail": {
+                        "type": "string",
+                        "description": "Detailed status of the DHCP status",
+                        "readOnly": true,
+                        "example": "Example status_detail"
+                    },
+                    "status_last_updated": {
+                        "type": "integer",
+                        "description": "Timestamp of the last update",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "supports_failover": {
+                        "type": "boolean",
+                        "description": "Flag indicating if the DHCP supports Failover",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "synchronization_interval": {
+                        "type": "integer",
+                        "description": "The minimum number of minutes between two synchronizations.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "total_hosts": {
+                        "type": "integer",
+                        "description": "The total number of DHCP addresses configured in DHCP objects that belong to the DHCP Microsoft Server.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "use_login": {
+                        "type": "boolean",
+                        "description": "Use flag for: login_name , login_password",
+                        "example": false
+                    },
+                    "use_synchronization_interval": {
+                        "type": "boolean",
+                        "description": "Use flag for: synchronization_interval",
+                        "example": false
+                    }
+                }
+            },
+            "ListMsserverDhcpResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __MsserverDhcp__ objects.",
+                        "type": "array",
+                        "title": "ListMsserverDhcpResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/MsserverDhcp"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverDhcp__ objects.",
+                        "type": "object",
+                        "title": "ListMsserverDhcpResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MsserverDhcp"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateMsserverDhcpResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __MsserverDhcp__ in object format.",
+                        "type": "object",
+                        "title": "CreateMsserverDhcpResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverDhcp"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __MsserverDhcp__.",
+                        "type": "string",
+                        "title": "CreateMsserverDhcpResponse"
+                    }
+                ]
+            },
+            "GetMsserverDhcpResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/MsserverDhcp"
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverDhcp__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMsserverDhcpResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverDhcp"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMsserverDhcpResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __MsserverDhcp__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMsserverDhcpResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverDhcp"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __MsserverDhcp__ .",
+                        "type": "string",
+                        "title": "UpdateMsserverDhcpResponse"
+                    }
+                ]
+            },
+            "MsserverDns": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The address or FQDN of the DNS Microsoft Server.",
+                        "readOnly": true,
+                        "example": "Example address"
+                    },
+                    "enable_dns_reports_sync": {
+                        "type": "boolean",
+                        "description": "Determines if synchronization of DNS reporting data from the Microsoft server is enabled or not.",
+                        "example": false
+                    },
+                    "login_name": {
+                        "type": "string",
+                        "description": "The login name of the DNS Microsoft Server.",
+                        "example": "Example login_name"
+                    },
+                    "login_password": {
+                        "type": "string",
+                        "description": "The login password of the DNS Microsoft Server.",
+                        "writeOnly": true,
+                        "example": "Example login_password"
+                    },
+                    "synchronization_interval": {
+                        "type": "integer",
+                        "description": "The minimum number of minutes between two synchronizations.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "use_enable_dns_reports_sync": {
+                        "type": "boolean",
+                        "description": "Use flag for: enable_dns_reports_sync",
+                        "example": false
+                    },
+                    "use_login": {
+                        "type": "boolean",
+                        "description": "Use flag for: login_name , login_password",
+                        "example": false
+                    },
+                    "use_synchronization_interval": {
+                        "type": "boolean",
+                        "description": "Use flag for: synchronization_interval",
+                        "example": false
+                    }
+                }
+            },
+            "ListMsserverDnsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __MsserverDns__ objects.",
+                        "type": "array",
+                        "title": "ListMsserverDnsResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/MsserverDns"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverDns__ objects.",
+                        "type": "object",
+                        "title": "ListMsserverDnsResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MsserverDns"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateMsserverDnsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __MsserverDns__ in object format.",
+                        "type": "object",
+                        "title": "CreateMsserverDnsResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverDns"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __MsserverDns__.",
+                        "type": "string",
+                        "title": "CreateMsserverDnsResponse"
+                    }
+                ]
+            },
+            "GetMsserverDnsResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/MsserverDns"
+                    },
+                    {
+                        "description": "The response format to retrieve __MsserverDns__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMsserverDnsResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverDns"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMsserverDnsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __MsserverDns__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMsserverDnsResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MsserverDns"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __MsserverDns__ .",
+                        "type": "string",
+                        "title": "UpdateMsserverDnsResponse"
+                    }
+                ]
+            },
+            "Mssuperscope": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The superscope descriptive comment.",
+                        "example": "Example comment"
+                    },
+                    "dhcp_utilization": {
+                        "type": "integer",
+                        "description": "The percentage of the total DHCP usage of the ranges in the superscope.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "dhcp_utilization_status": {
+                        "type": "string",
+                        "description": "Utilization level of the DHCP range objects that belong to the superscope.",
+                        "enum": [
+                            "FULL",
+                            "HIGH",
+                            "LOW",
+                            "NORMAL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example dhcp_utilization_status"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Determines whether the superscope is disabled.",
+                        "example": false
+                    },
+                    "dynamic_hosts": {
+                        "type": "integer",
+                        "description": "The total number of DHCP leases issued for the DHCP range objects that belong to the superscope.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "extattrs": {
+                        "type": "object",
+                        "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ExtAttrs"
+                        }
+                    },
+                    "high_water_mark": {
+                        "type": "integer",
+                        "description": "The percentage value for DHCP range usage after which an alarm will be active.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "high_water_mark_reset": {
+                        "type": "integer",
+                        "description": "The percentage value for DHCP range usage after which an alarm will be reset.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "low_water_mark": {
+                        "type": "integer",
+                        "description": "The percentage value for DHCP range usage below which an alarm will be active.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "low_water_mark_reset": {
+                        "type": "integer",
+                        "description": "The percentage value for DHCP range usage below which an alarm will be reset.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Microsoft DHCP superscope.",
+                        "example": "Example name"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the network view in which the superscope resides.",
+                        "example": "Example network_view"
+                    },
+                    "ranges": {
+                        "type": "array",
+                        "description": "The list of DHCP ranges that are associated with the superscope.",
+                        "enum": [
+                            "range"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "range"
+                            ]
+                        }
+                    },
+                    "static_hosts": {
+                        "type": "integer",
+                        "description": "The number of static DHCP addresses configured in DHCP range objects that belong to the superscope.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "total_hosts": {
+                        "type": "integer",
+                        "description": "The total number of DHCP addresses configured in DHCP range objects that belong to the superscope.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    }
+                }
+            },
+            "ListMssuperscopeResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Mssuperscope__ objects.",
+                        "type": "array",
+                        "title": "ListMssuperscopeResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Mssuperscope"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Mssuperscope__ objects.",
+                        "type": "object",
+                        "title": "ListMssuperscopeResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Mssuperscope"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateMssuperscopeResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Mssuperscope__ in object format.",
+                        "type": "object",
+                        "title": "CreateMssuperscopeResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Mssuperscope"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Mssuperscope__.",
+                        "type": "string",
+                        "title": "CreateMssuperscopeResponse"
+                    }
+                ]
+            },
+            "GetMssuperscopeResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Mssuperscope"
+                    },
+                    {
+                        "description": "The response format to retrieve __Mssuperscope__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMssuperscopeResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Mssuperscope"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMssuperscopeResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Mssuperscope__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMssuperscopeResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Mssuperscope"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Mssuperscope__ .",
+                        "type": "string",
+                        "title": "UpdateMssuperscopeResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

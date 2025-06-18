@@ -1,0 +1,3663 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox CLOUD API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI CLOUD objects",
+        "version": "2.13.6",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "Awsrte53taskgroup",
+            "description": "Operations for awsrte53taskgroup objects"
+        },
+        {
+            "name": "Awsuser",
+            "description": "Operations for awsuser objects"
+        },
+        {
+            "name": "Azurednstaskgroup",
+            "description": "Operations for azurednstaskgroup objects"
+        },
+        {
+            "name": "Azureuser",
+            "description": "Operations for azureuser objects"
+        },
+        {
+            "name": "Gcpdnstaskgroup",
+            "description": "Operations for gcpdnstaskgroup objects"
+        },
+        {
+            "name": "Gcpuser",
+            "description": "Operations for gcpuser objects"
+        },
+        {
+            "name": "Multiregions",
+            "description": "Operations for multiregions objects"
+        }
+    ],
+    "paths": {
+        "/awsrte53taskgroup": {
+            "get": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupList",
+                "summary": "Retrieve awsrte53taskgroup objects",
+                "description": "Returns a list of awsrte53taskgroup objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupCreate",
+                "summary": "Create a awsrte53taskgroup object",
+                "description": "Creates a new awsrte53taskgroup object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_cloud_awsrte53taskgroup",
+                "x-tf-datasource": "nios_cloud_awsrte53taskgroup"
+            }
+        },
+        "/awsrte53taskgroup/{reference}": {
+            "get": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupRead",
+                "summary": "Get a specific awsrte53taskgroup object",
+                "description": "Returns a specific awsrte53taskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsrte53taskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupUpdate",
+                "summary": "Update a awsrte53taskgroup object",
+                "description": "Updates a specific awsrte53taskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsrte53taskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupDelete",
+                "summary": "Delete a awsrte53taskgroup object",
+                "description": "Deletes a specific awsrte53taskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsrte53taskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/awsuser": {
+            "get": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserList",
+                "summary": "Retrieve awsuser objects",
+                "description": "Returns a list of awsuser objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserCreate",
+                "summary": "Create a awsuser object",
+                "description": "Creates a new awsuser object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_cloud_awsuser",
+                "x-tf-datasource": "nios_cloud_awsuser"
+            }
+        },
+        "/awsuser/{reference}": {
+            "get": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserRead",
+                "summary": "Get a specific awsuser object",
+                "description": "Returns a specific awsuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserUpdate",
+                "summary": "Update a awsuser object",
+                "description": "Updates a specific awsuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserDelete",
+                "summary": "Delete a awsuser object",
+                "description": "Deletes a specific awsuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/azurednstaskgroup": {
+            "get": {
+                "tags": [
+                    "Azurednstaskgroup"
+                ],
+                "operationId": "AzurednstaskgroupList",
+                "summary": "Retrieve azurednstaskgroup objects",
+                "description": "Returns a list of azurednstaskgroup objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAzurednstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Azurednstaskgroup"
+                ],
+                "operationId": "AzurednstaskgroupCreate",
+                "summary": "Create a azurednstaskgroup object",
+                "description": "Creates a new azurednstaskgroup object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Azurednstaskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAzurednstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_cloud_azurednstaskgroup",
+                "x-tf-datasource": "nios_cloud_azurednstaskgroup"
+            }
+        },
+        "/azurednstaskgroup/{reference}": {
+            "get": {
+                "tags": [
+                    "Azurednstaskgroup"
+                ],
+                "operationId": "AzurednstaskgroupRead",
+                "summary": "Get a specific azurednstaskgroup object",
+                "description": "Returns a specific azurednstaskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the azurednstaskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAzurednstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Azurednstaskgroup"
+                ],
+                "operationId": "AzurednstaskgroupUpdate",
+                "summary": "Update a azurednstaskgroup object",
+                "description": "Updates a specific azurednstaskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the azurednstaskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Azurednstaskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAzurednstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Azurednstaskgroup"
+                ],
+                "operationId": "AzurednstaskgroupDelete",
+                "summary": "Delete a azurednstaskgroup object",
+                "description": "Deletes a specific azurednstaskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the azurednstaskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/azureuser": {
+            "get": {
+                "tags": [
+                    "Azureuser"
+                ],
+                "operationId": "AzureuserList",
+                "summary": "Retrieve azureuser objects",
+                "description": "Returns a list of azureuser objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAzureuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Azureuser"
+                ],
+                "operationId": "AzureuserCreate",
+                "summary": "Create a azureuser object",
+                "description": "Creates a new azureuser object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Azureuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAzureuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_cloud_azureuser",
+                "x-tf-datasource": "nios_cloud_azureuser"
+            }
+        },
+        "/azureuser/{reference}": {
+            "get": {
+                "tags": [
+                    "Azureuser"
+                ],
+                "operationId": "AzureuserRead",
+                "summary": "Get a specific azureuser object",
+                "description": "Returns a specific azureuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the azureuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAzureuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Azureuser"
+                ],
+                "operationId": "AzureuserUpdate",
+                "summary": "Update a azureuser object",
+                "description": "Updates a specific azureuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the azureuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Azureuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAzureuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Azureuser"
+                ],
+                "operationId": "AzureuserDelete",
+                "summary": "Delete a azureuser object",
+                "description": "Deletes a specific azureuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the azureuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/gcpdnstaskgroup": {
+            "get": {
+                "tags": [
+                    "Gcpdnstaskgroup"
+                ],
+                "operationId": "GcpdnstaskgroupList",
+                "summary": "Retrieve gcpdnstaskgroup objects",
+                "description": "Returns a list of gcpdnstaskgroup objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListGcpdnstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Gcpdnstaskgroup"
+                ],
+                "operationId": "GcpdnstaskgroupCreate",
+                "summary": "Create a gcpdnstaskgroup object",
+                "description": "Creates a new gcpdnstaskgroup object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateGcpdnstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_cloud_gcpdnstaskgroup",
+                "x-tf-datasource": "nios_cloud_gcpdnstaskgroup"
+            }
+        },
+        "/gcpdnstaskgroup/{reference}": {
+            "get": {
+                "tags": [
+                    "Gcpdnstaskgroup"
+                ],
+                "operationId": "GcpdnstaskgroupRead",
+                "summary": "Get a specific gcpdnstaskgroup object",
+                "description": "Returns a specific gcpdnstaskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the gcpdnstaskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGcpdnstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Gcpdnstaskgroup"
+                ],
+                "operationId": "GcpdnstaskgroupUpdate",
+                "summary": "Update a gcpdnstaskgroup object",
+                "description": "Updates a specific gcpdnstaskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the gcpdnstaskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateGcpdnstaskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Gcpdnstaskgroup"
+                ],
+                "operationId": "GcpdnstaskgroupDelete",
+                "summary": "Delete a gcpdnstaskgroup object",
+                "description": "Deletes a specific gcpdnstaskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the gcpdnstaskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/gcpuser": {
+            "get": {
+                "tags": [
+                    "Gcpuser"
+                ],
+                "operationId": "GcpuserList",
+                "summary": "Retrieve gcpuser objects",
+                "description": "Returns a list of gcpuser objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListGcpuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Gcpuser"
+                ],
+                "operationId": "GcpuserCreate",
+                "summary": "Create a gcpuser object",
+                "description": "Creates a new gcpuser object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Gcpuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateGcpuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_cloud_gcpuser",
+                "x-tf-datasource": "nios_cloud_gcpuser"
+            }
+        },
+        "/gcpuser/{reference}": {
+            "get": {
+                "tags": [
+                    "Gcpuser"
+                ],
+                "operationId": "GcpuserRead",
+                "summary": "Get a specific gcpuser object",
+                "description": "Returns a specific gcpuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the gcpuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGcpuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Gcpuser"
+                ],
+                "operationId": "GcpuserUpdate",
+                "summary": "Update a gcpuser object",
+                "description": "Updates a specific gcpuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the gcpuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Gcpuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateGcpuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Gcpuser"
+                ],
+                "operationId": "GcpuserDelete",
+                "summary": "Delete a gcpuser object",
+                "description": "Deletes a specific gcpuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the gcpuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/multiregions": {
+            "get": {
+                "tags": [
+                    "Multiregions"
+                ],
+                "operationId": "MultiregionsList",
+                "summary": "Retrieve multiregions objects",
+                "description": "Returns a list of multiregions objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMultiregionsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/multiregions/{reference}": {
+            "get": {
+                "tags": [
+                    "Multiregions"
+                ],
+                "operationId": "MultiregionsRead",
+                "summary": "Get a specific multiregions object",
+                "description": "Returns a specific multiregions object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the multiregions object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMultiregionsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Multiregions"
+                ],
+                "operationId": "MultiregionsUpdate",
+                "summary": "Update a multiregions object",
+                "description": "Updates a specific multiregions object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the multiregions object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Multiregions"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateMultiregionsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "Awsrte53taskgroup": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The AWS Account ID associated with this task group.",
+                        "readOnly": true,
+                        "example": "Example account_id"
+                    },
+                    "accounts_list": {
+                        "type": "string",
+                        "description": "The AWS Account IDs list associated with this task group.",
+                        "readOnly": true,
+                        "example": "Example accounts_list"
+                    },
+                    "aws_account_ids_file_token": {
+                        "type": "string",
+                        "description": "The AWS account IDs file's token.",
+                        "example": "Example aws_account_ids_file_token"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "example": "Example comment"
+                    },
+                    "consolidate_zones": {
+                        "type": "boolean",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "example": false
+                    },
+                    "consolidated_view": {
+                        "type": "string",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "example": "Example consolidated_view"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "example": false
+                    },
+                    "grid_member": {
+                        "type": "string",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "example": "Example grid_member"
+                    },
+                    "multiple_accounts_sync_policy": {
+                        "type": "string",
+                        "description": "Discover all child accounts or Upload child account ids to discover..",
+                        "enum": [
+                            "NONE",
+                            "DISCOVER_CHILDREN",
+                            "UPLOAD_CHILDREN"
+                        ],
+                        "example": "Example multiple_accounts_sync_policy"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this AWS Route53 sync task group.",
+                        "example": "Example name"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the tenant's network view.",
+                        "example": "Example network_view"
+                    },
+                    "network_view_mapping_policy": {
+                        "type": "string",
+                        "description": "The network view mapping policy.",
+                        "enum": [
+                            "AUTO_CREATE",
+                            "DIRECT"
+                        ],
+                        "example": "Example network_view_mapping_policy"
+                    },
+                    "role_arn": {
+                        "type": "string",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "example": "Example role_arn"
+                    },
+                    "sync_child_accounts": {
+                        "type": "boolean",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "example": false
+                    },
+                    "sync_status": {
+                        "type": "string",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "enum": [
+                            "NEW",
+                            "OK",
+                            "WARNING",
+                            "ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example sync_status"
+                    },
+                    "task_list": {
+                        "type": "array",
+                        "description": "List of AWS Route53 tasks in this group.",
+                        "enum": [
+                            "awsrte53task"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/Awsrte53taskgroupTaskList"
+                        }
+                    }
+                }
+            },
+            "Awsrte53taskgroupTaskList": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this task.",
+                        "example": "Example name"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task is enabled or disabled.",
+                        "example": false
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Indicate the sync status of this task.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example state"
+                    },
+                    "state_msg": {
+                        "type": "string",
+                        "description": "State message for the task.",
+                        "readOnly": true,
+                        "example": "Example state_msg"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter for this task.",
+                        "example": "Example filter"
+                    },
+                    "schedule_interval": {
+                        "type": "integer",
+                        "description": "Periodic interval for this task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "schedule_units": {
+                        "type": "string",
+                        "description": "Units for the schedule interval.",
+                        "enum": [
+                            "MINS",
+                            "HOURS",
+                            "DAYS"
+                        ],
+                        "example": "Example schedule_units"
+                    },
+                    "aws_user": {
+                        "type": "string",
+                        "description": "Reference to associated AWS user whose credentials are to be used for this task.",
+                        "example": "Example aws_user"
+                    },
+                    "status_timestamp": {
+                        "type": "integer",
+                        "description": "The timestamp when the last state was logged.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_run": {
+                        "type": "integer",
+                        "description": "The timestamp when the task was started last.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "sync_public_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether public zones are synchronized.",
+                        "example": false
+                    },
+                    "sync_private_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether private zones are synchronized.",
+                        "example": false
+                    },
+                    "zone_count": {
+                        "type": "integer",
+                        "description": "The number of zones synchronized by this task.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "credentials_type": {
+                        "type": "string",
+                        "description": "Credentials type used for connecting to the cloud management platform.",
+                        "enum": [
+                            "DIRECT",
+                            "INDIRECT"
+                        ],
+                        "example": "Example credentials_type"
+                    }
+                }
+            },
+            "ListAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
+                        "type": "array",
+                        "title": "ListAwsrte53taskgroupResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Awsrte53taskgroup"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
+                        "type": "object",
+                        "title": "ListAwsrte53taskgroupResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Awsrte53taskgroup"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Awsrte53taskgroup__ in object format.",
+                        "type": "object",
+                        "title": "CreateAwsrte53taskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Awsrte53taskgroup__.",
+                        "type": "string",
+                        "title": "CreateAwsrte53taskgroupResponse"
+                    }
+                ]
+            },
+            "GetAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Awsrte53taskgroup"
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAwsrte53taskgroupResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Awsrte53taskgroup__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAwsrte53taskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Awsrte53taskgroup__ .",
+                        "type": "string",
+                        "title": "UpdateAwsrte53taskgroupResponse"
+                    }
+                ]
+            },
+            "Awsuser": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "access_key_id": {
+                        "type": "string",
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
+                        "example": "Example access_key_id"
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "example": "Example account_id"
+                    },
+                    "govcloud_enabled": {
+                        "type": "boolean",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "example": false
+                    },
+                    "last_used": {
+                        "type": "integer",
+                        "description": "The timestamp when this AWS user credentials was last used.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The AWS user name. Maximum 64 characters.",
+                        "example": "Example name"
+                    },
+                    "nios_user_name": {
+                        "type": "string",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "example": "Example nios_user_name"
+                    },
+                    "secret_access_key": {
+                        "type": "string",
+                        "description": "The Secret Access Key for the Access Key ID of this user. Maximum 255 characters.",
+                        "writeOnly": true,
+                        "example": "Example secret_access_key"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Indicate the validity status of this AWS user.",
+                        "enum": [
+                            "UNUSED",
+                            "SUCCESSFUL",
+                            "UNSUCCESSFUL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    }
+                }
+            },
+            "ListAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Awsuser__ objects.",
+                        "type": "array",
+                        "title": "ListAwsuserResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Awsuser"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsuser__ objects.",
+                        "type": "object",
+                        "title": "ListAwsuserResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Awsuser"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Awsuser__ in object format.",
+                        "type": "object",
+                        "title": "CreateAwsuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Awsuser__.",
+                        "type": "string",
+                        "title": "CreateAwsuserResponse"
+                    }
+                ]
+            },
+            "GetAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Awsuser"
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsuser__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAwsuserResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Awsuser__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAwsuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Awsuser__ .",
+                        "type": "string",
+                        "title": "UpdateAwsuserResponse"
+                    }
+                ]
+            },
+            "Azurednstaskgroup": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "azure_subscription_ids_file_token": {
+                        "type": "string",
+                        "description": "The Azure Subscription IDs file's token.",
+                        "example": "Example azure_subscription_ids_file_token"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "example": "Example comment"
+                    },
+                    "consolidate_zones": {
+                        "type": "boolean",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "example": false
+                    },
+                    "consolidated_view": {
+                        "type": "string",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "example": "Example consolidated_view"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "example": false
+                    },
+                    "grid_member": {
+                        "type": "string",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "example": "Example grid_member"
+                    },
+                    "multiple_subscriptions_sync_policy": {
+                        "type": "string",
+                        "description": "Discover all child subscriptions or Upload child subscription ids to discover.",
+                        "enum": [
+                            "DISCOVER_SUBSCRIPTIONS",
+                            "UPLOAD_SUBSCRIPTIONS"
+                        ],
+                        "example": "Example multiple_subscriptions_sync_policy"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this Azure DNS sync task group.",
+                        "example": "Example name"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the tenant's network view.",
+                        "example": "Example network_view"
+                    },
+                    "network_view_mapping_policy": {
+                        "type": "string",
+                        "description": "The network view mapping policy.",
+                        "enum": [
+                            "AUTO_CREATE",
+                            "DIRECT"
+                        ],
+                        "example": "Example network_view_mapping_policy"
+                    },
+                    "subscriptions_list": {
+                        "type": "string",
+                        "description": "The Azure Subscription IDs list associated with this task.",
+                        "readOnly": true,
+                        "example": "Example subscriptions_list"
+                    },
+                    "sync_status": {
+                        "type": "string",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "enum": [
+                            "NEW",
+                            "OK",
+                            "WARNING",
+                            "ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example sync_status"
+                    },
+                    "task_list": {
+                        "type": "array",
+                        "description": "List of Azure DNS tasks in this group.",
+                        "enum": [
+                            "azurednstask"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/AzurednstaskgroupTaskList"
+                        }
+                    },
+                    "tenant_id": {
+                        "type": "string",
+                        "description": "The Azure tenant ID associated with this task group.",
+                        "readOnly": true,
+                        "example": "Example tenant_id"
+                    }
+                }
+            },
+            "AzurednstaskgroupTaskList": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this task.",
+                        "example": "Example name"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task is enabled or disabled.",
+                        "example": false
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Indicate the sync status of this task.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example state"
+                    },
+                    "state_msg": {
+                        "type": "string",
+                        "description": "State message for the task.",
+                        "readOnly": true,
+                        "example": "Example state_msg"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter for this task.",
+                        "example": "Example filter"
+                    },
+                    "schedule_interval": {
+                        "type": "integer",
+                        "description": "Periodic interval for this task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "schedule_units": {
+                        "type": "string",
+                        "description": "Units for the schedule interval.",
+                        "enum": [
+                            "MINS",
+                            "HOURS",
+                            "DAYS"
+                        ],
+                        "example": "Example schedule_units"
+                    },
+                    "azure_user": {
+                        "type": "string",
+                        "description": "Reference to associated Azure user whose credentials are to be used for this task.",
+                        "example": "Example azure_user"
+                    },
+                    "status_timestamp": {
+                        "type": "integer",
+                        "description": "The timestamp when the last state was logged.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_run": {
+                        "type": "integer",
+                        "description": "The timestamp when the task was started last.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "sync_public_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether public zones are synchronized.",
+                        "example": false
+                    },
+                    "sync_private_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether private zones are synchronized.",
+                        "example": false
+                    },
+                    "zone_count": {
+                        "type": "integer",
+                        "description": "The number of zones synchronized by this task.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "credentials_type": {
+                        "type": "string",
+                        "description": "Credentials type used for connecting to the cloud management platform.",
+                        "enum": [
+                            "DIRECT",
+                            "INDIRECT"
+                        ],
+                        "example": "Example credentials_type"
+                    }
+                }
+            },
+            "ListAzurednstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Azurednstaskgroup__ objects.",
+                        "type": "array",
+                        "title": "ListAzurednstaskgroupResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Azurednstaskgroup"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Azurednstaskgroup__ objects.",
+                        "type": "object",
+                        "title": "ListAzurednstaskgroupResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Azurednstaskgroup"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAzurednstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Azurednstaskgroup__ in object format.",
+                        "type": "object",
+                        "title": "CreateAzurednstaskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Azurednstaskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Azurednstaskgroup__.",
+                        "type": "string",
+                        "title": "CreateAzurednstaskgroupResponse"
+                    }
+                ]
+            },
+            "GetAzurednstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Azurednstaskgroup"
+                    },
+                    {
+                        "description": "The response format to retrieve __Azurednstaskgroup__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAzurednstaskgroupResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Azurednstaskgroup"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAzurednstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Azurednstaskgroup__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAzurednstaskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Azurednstaskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Azurednstaskgroup__ .",
+                        "type": "string",
+                        "title": "UpdateAzurednstaskgroupResponse"
+                    }
+                ]
+            },
+            "Azureuser": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "The unique Client ID of this Azure user. Maximum 255 characters.",
+                        "example": "Example client_id"
+                    },
+                    "client_secret_key": {
+                        "type": "string",
+                        "description": "The Client Secret Key for the Client ID of this user. Maximum 255 characters.",
+                        "writeOnly": true,
+                        "example": "Example client_secret_key"
+                    },
+                    "last_used": {
+                        "type": "integer",
+                        "description": "The timestamp when this Azure user credentials was last used.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The Azure user name. Maximum 64 characters.",
+                        "example": "Example name"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Indicate the validity status of this Azure user.",
+                        "enum": [
+                            "UNUSED",
+                            "SUCCESSFUL",
+                            "UNSUCCESSFUL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "tenant_id": {
+                        "type": "string",
+                        "description": "The Azure Tenant ID of this Azure user. Maximum 64 characters.",
+                        "example": "Example tenant_id"
+                    }
+                }
+            },
+            "ListAzureuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Azureuser__ objects.",
+                        "type": "array",
+                        "title": "ListAzureuserResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Azureuser"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Azureuser__ objects.",
+                        "type": "object",
+                        "title": "ListAzureuserResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Azureuser"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAzureuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Azureuser__ in object format.",
+                        "type": "object",
+                        "title": "CreateAzureuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Azureuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Azureuser__.",
+                        "type": "string",
+                        "title": "CreateAzureuserResponse"
+                    }
+                ]
+            },
+            "GetAzureuserResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Azureuser"
+                    },
+                    {
+                        "description": "The response format to retrieve __Azureuser__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAzureuserResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Azureuser"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAzureuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Azureuser__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAzureuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Azureuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Azureuser__ .",
+                        "type": "string",
+                        "title": "UpdateAzureuserResponse"
+                    }
+                ]
+            },
+            "Gcpdnstaskgroup": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "example": "Example comment"
+                    },
+                    "consolidate_zones": {
+                        "type": "boolean",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "example": false
+                    },
+                    "consolidated_view": {
+                        "type": "string",
+                        "description": "Consolidate all zones into one view.",
+                        "example": "Example consolidated_view"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "example": false
+                    },
+                    "gcp_project_ids_file_token": {
+                        "type": "string",
+                        "description": "The Gcp project IDs file's token.",
+                        "example": "Example gcp_project_ids_file_token"
+                    },
+                    "grid_member": {
+                        "type": "string",
+                        "description": "Grid member configured to run this task group.",
+                        "example": "Example grid_member"
+                    },
+                    "multiple_projects_sync_policy": {
+                        "type": "string",
+                        "description": "Discover all child projects or Upload child project ids to discover.",
+                        "enum": [
+                            "NONE",
+                            "DISCOVER_PROJECTS",
+                            "UPLOAD_PROJECTS"
+                        ],
+                        "example": "Example multiple_projects_sync_policy"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this Gcp DNS sync task group.",
+                        "example": "Example name"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the tenant's network view.",
+                        "example": "Example network_view"
+                    },
+                    "network_view_mapping_policy": {
+                        "type": "string",
+                        "description": "The network view mapping policy.",
+                        "enum": [
+                            "AUTO_CREATE",
+                            "DIRECT"
+                        ],
+                        "example": "Example network_view_mapping_policy"
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "The Gcp project ID associated with this task group.",
+                        "readOnly": true,
+                        "example": "Example project_id"
+                    },
+                    "projects_list": {
+                        "type": "string",
+                        "description": "The Gcp Project IDs list associated with this task.",
+                        "readOnly": true,
+                        "example": "Example projects_list"
+                    },
+                    "sync_child_projects": {
+                        "type": "boolean",
+                        "description": "Synchronizing child projects is enabled or disabled.",
+                        "example": false
+                    },
+                    "sync_status": {
+                        "type": "string",
+                        "description": "Sync status for this task.",
+                        "enum": [
+                            "OK",
+                            "SYNC_ERROR",
+                            "OFFLINE",
+                            "NOT_SYNCING"
+                        ],
+                        "readOnly": true,
+                        "example": "Example sync_status"
+                    },
+                    "task_list": {
+                        "type": "array",
+                        "description": "List of Gcp DNS tasks in this group.",
+                        "enum": [
+                            "gcpdnstask"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/GcpdnstaskgroupTaskList"
+                        }
+                    }
+                }
+            },
+            "GcpdnstaskgroupTaskList": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this task.",
+                        "example": "Example name"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task is enabled or disabled.",
+                        "example": false
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Current overall state of this task.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example state"
+                    },
+                    "state_msg": {
+                        "type": "string",
+                        "description": "State message of the complete process.",
+                        "readOnly": true,
+                        "example": "Example state_msg"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Zone filter for this task.",
+                        "example": "Example filter"
+                    },
+                    "schedule_interval": {
+                        "type": "integer",
+                        "description": "Periodic interval for this task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "schedule_units": {
+                        "type": "string",
+                        "description": "Units for the schedule interval.",
+                        "enum": [
+                            "MINS",
+                            "HOURS",
+                            "DAYS"
+                        ],
+                        "example": "Example schedule_units"
+                    },
+                    "gcp_user": {
+                        "type": "string",
+                        "description": "Reference to associated Gcp user whose credentials are to be used for this task.",
+                        "example": "Example gcp_user"
+                    },
+                    "status_timestamp": {
+                        "type": "integer",
+                        "description": "The timestamp when the last state was logged.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_run": {
+                        "type": "integer",
+                        "description": "The timestamp when the task was started last.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "overlay_state": {
+                        "type": "string",
+                        "description": "Current overlay state of this task.",
+                        "enum": [
+                            "IDLE",
+                            "RUNNING",
+                            "WARNING",
+                            "FAILED",
+                            "COMPLETED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example overlay_state"
+                    },
+                    "overlay_status_timestamp": {
+                        "type": "integer",
+                        "description": "Timestamp when the last overlay state was updated.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "dns_sync_state": {
+                        "type": "string",
+                        "description": "Current state of this task. Not accounting child tasks.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example dns_sync_state"
+                    },
+                    "dns_sync_status_timestamp": {
+                        "type": "integer",
+                        "description": "Timestamp when the last state was updated. Not accounting child tasks.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "project_sync_state": {
+                        "type": "string",
+                        "description": "Current state of project sync for this task.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example project_sync_state"
+                    },
+                    "project_sync_status_timestamp": {
+                        "type": "integer",
+                        "description": "Timestamp when the last state was updated. Not accounting child tasks.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "sync_public_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether public zones are synchronized.",
+                        "example": false
+                    },
+                    "sync_private_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether private zones are synchronized.",
+                        "example": false
+                    },
+                    "sync_interval": {
+                        "type": "integer",
+                        "description": "Minimum delay between synchronization with Gcp DNS (in seconds).",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "zone_count": {
+                        "type": "integer",
+                        "description": "Number of overall zones successfully synced by this Gcp DNS sync task and it's child tasks.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "dns_sync_zone_count": {
+                        "type": "integer",
+                        "description": "Number of zones successfully synced by this Gcp DNS sync task.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "credentials_type": {
+                        "type": "string",
+                        "description": "Credentials type used for connecting to the cloud management platform.",
+                        "enum": [
+                            "DIRECT",
+                            "INDIRECT"
+                        ],
+                        "example": "Example credentials_type"
+                    }
+                }
+            },
+            "ListGcpdnstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Gcpdnstaskgroup__ objects.",
+                        "type": "array",
+                        "title": "ListGcpdnstaskgroupResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Gcpdnstaskgroup__ objects.",
+                        "type": "object",
+                        "title": "ListGcpdnstaskgroupResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateGcpdnstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Gcpdnstaskgroup__ in object format.",
+                        "type": "object",
+                        "title": "CreateGcpdnstaskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Gcpdnstaskgroup__.",
+                        "type": "string",
+                        "title": "CreateGcpdnstaskgroupResponse"
+                    }
+                ]
+            },
+            "GetGcpdnstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                    },
+                    {
+                        "description": "The response format to retrieve __Gcpdnstaskgroup__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetGcpdnstaskgroupResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateGcpdnstaskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Gcpdnstaskgroup__ in object format.",
+                        "type": "object",
+                        "title": "UpdateGcpdnstaskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Gcpdnstaskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Gcpdnstaskgroup__ .",
+                        "type": "string",
+                        "title": "UpdateGcpdnstaskgroupResponse"
+                    }
+                ]
+            },
+            "Gcpuser": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "auth_provider_x509_cert_url": {
+                        "type": "string",
+                        "description": "The URL where the public key certificates provided by the authentication provider can be retrieved.. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example auth_provider_x509_cert_url"
+                    },
+                    "auth_uri": {
+                        "type": "string",
+                        "description": "The URI where authentication requests should be directed.. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example auth_uri"
+                    },
+                    "client_email": {
+                        "type": "string",
+                        "description": "The email address associated with the service account. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example client_email"
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "The unique identifier for the service account. Maximum 64 characts.er",
+                        "readOnly": true,
+                        "example": "Example client_id"
+                    },
+                    "client_x509_cert_url": {
+                        "type": "string",
+                        "description": "The URL where the public key certificate for the service account can be retrieved. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example client_x509_cert_url"
+                    },
+                    "file_name": {
+                        "type": "string",
+                        "description": "GCP client credentials file name.. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example file_name"
+                    },
+                    "last_used": {
+                        "type": "integer",
+                        "description": "The timestamp when this Azure user credentials was last used.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "private_key": {
+                        "type": "string",
+                        "description": "The private key used for authentication. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example private_key"
+                    },
+                    "private_key_id": {
+                        "type": "string",
+                        "description": "The identifier for the private key associated with the service account. Maximum 64 characters.",
+                        "readOnly": true,
+                        "example": "Example private_key_id"
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "The ID of the GCP project associated with the service account. Maximum 64 characters.",
+                        "readOnly": true,
+                        "example": "Example project_id"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Indicate the validity status of this GCP user.",
+                        "enum": [
+                            "UNUSED",
+                            "SUCCESSFUL",
+                            "UNSUCCESSFUL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "token_uri": {
+                        "type": "string",
+                        "description": "The URI where token requests should be directed.. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example token_uri"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the type of the credential. Maximum 255 characters.",
+                        "readOnly": true,
+                        "example": "Example type"
+                    },
+                    "user_name": {
+                        "type": "string",
+                        "description": "The GCP client's user name. Maximum 64 characters.",
+                        "writeOnly": true,
+                        "example": "Example user_name"
+                    }
+                }
+            },
+            "ListGcpuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Gcpuser__ objects.",
+                        "type": "array",
+                        "title": "ListGcpuserResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Gcpuser"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Gcpuser__ objects.",
+                        "type": "object",
+                        "title": "ListGcpuserResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Gcpuser"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateGcpuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Gcpuser__ in object format.",
+                        "type": "object",
+                        "title": "CreateGcpuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Gcpuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Gcpuser__.",
+                        "type": "string",
+                        "title": "CreateGcpuserResponse"
+                    }
+                ]
+            },
+            "GetGcpuserResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Gcpuser"
+                    },
+                    {
+                        "description": "The response format to retrieve __Gcpuser__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetGcpuserResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Gcpuser"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateGcpuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Gcpuser__ in object format.",
+                        "type": "object",
+                        "title": "UpdateGcpuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Gcpuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Gcpuser__ .",
+                        "type": "string",
+                        "title": "UpdateGcpuserResponse"
+                    }
+                ]
+            },
+            "Multiregions": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "cloud_platform": {
+                        "type": "string",
+                        "description": "Type of cloud_platform to get the supported regions.",
+                        "example": "Example cloud_platform"
+                    },
+                    "govcloud_regions": {
+                        "type": "string",
+                        "description": "Comma separated sting containing only GovCloud supported regions.",
+                        "example": "Example govcloud_regions"
+                    },
+                    "regions": {
+                        "type": "string",
+                        "description": "Comma separated string which contains all supported regions.",
+                        "example": "Example regions"
+                    }
+                }
+            },
+            "ListMultiregionsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Multiregions__ objects.",
+                        "type": "array",
+                        "title": "ListMultiregionsResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Multiregions"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Multiregions__ objects.",
+                        "type": "object",
+                        "title": "ListMultiregionsResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Multiregions"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetMultiregionsResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Multiregions"
+                    },
+                    {
+                        "description": "The response format to retrieve __Multiregions__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMultiregionsResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Multiregions"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMultiregionsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Multiregions__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMultiregionsResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Multiregions"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Multiregions__ .",
+                        "type": "string",
+                        "title": "UpdateMultiregionsResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

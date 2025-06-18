@@ -1,0 +1,2011 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox NOTIFICATION API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI NOTIFICATION objects",
+        "version": "2.13.6",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "NotificationRestEndpoint",
+            "description": "Operations for notification:rest:endpoint objects"
+        },
+        {
+            "name": "NotificationRestTemplate",
+            "description": "Operations for notification:rest:template objects"
+        },
+        {
+            "name": "NotificationRule",
+            "description": "Operations for notification:rule objects"
+        }
+    ],
+    "paths": {
+        "/notification:rest:endpoint": {
+            "get": {
+                "tags": [
+                    "NotificationRestEndpoint"
+                ],
+                "operationId": "NotificationRestEndpointList",
+                "summary": "Retrieve notification:rest:endpoint objects",
+                "description": "Returns a list of notification:rest:endpoint objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListNotificationRestEndpointResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "NotificationRestEndpoint"
+                ],
+                "operationId": "NotificationRestEndpointCreate",
+                "summary": "Create a notification:rest:endpoint object",
+                "description": "Creates a new notification:rest:endpoint object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotificationRestEndpoint"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateNotificationRestEndpointResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_notification_notification_rest_endpoint",
+                "x-tf-datasource": "nios_notification_notification_rest_endpoint",
+                "x-sdk-default-ext-attrs": true
+            }
+        },
+        "/notification:rest:endpoint/{reference}": {
+            "get": {
+                "tags": [
+                    "NotificationRestEndpoint"
+                ],
+                "operationId": "NotificationRestEndpointRead",
+                "summary": "Get a specific notification:rest:endpoint object",
+                "description": "Returns a specific notification:rest:endpoint object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rest:endpoint object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetNotificationRestEndpointResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "NotificationRestEndpoint"
+                ],
+                "operationId": "NotificationRestEndpointUpdate",
+                "summary": "Update a notification:rest:endpoint object",
+                "description": "Updates a specific notification:rest:endpoint object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rest:endpoint object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotificationRestEndpoint"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateNotificationRestEndpointResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-sdk-default-ext-attrs": true
+            },
+            "delete": {
+                "tags": [
+                    "NotificationRestEndpoint"
+                ],
+                "operationId": "NotificationRestEndpointDelete",
+                "summary": "Delete a notification:rest:endpoint object",
+                "description": "Deletes a specific notification:rest:endpoint object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rest:endpoint object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/notification:rest:template": {
+            "get": {
+                "tags": [
+                    "NotificationRestTemplate"
+                ],
+                "operationId": "NotificationRestTemplateList",
+                "summary": "Retrieve notification:rest:template objects",
+                "description": "Returns a list of notification:rest:template objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListNotificationRestTemplateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/notification:rest:template/{reference}": {
+            "get": {
+                "tags": [
+                    "NotificationRestTemplate"
+                ],
+                "operationId": "NotificationRestTemplateRead",
+                "summary": "Get a specific notification:rest:template object",
+                "description": "Returns a specific notification:rest:template object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rest:template object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetNotificationRestTemplateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "NotificationRestTemplate"
+                ],
+                "operationId": "NotificationRestTemplateUpdate",
+                "summary": "Update a notification:rest:template object",
+                "description": "Updates a specific notification:rest:template object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rest:template object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotificationRestTemplate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateNotificationRestTemplateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "NotificationRestTemplate"
+                ],
+                "operationId": "NotificationRestTemplateDelete",
+                "summary": "Delete a notification:rest:template object",
+                "description": "Deletes a specific notification:rest:template object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rest:template object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/notification:rule": {
+            "get": {
+                "tags": [
+                    "NotificationRule"
+                ],
+                "operationId": "NotificationRuleList",
+                "summary": "Retrieve notification:rule objects",
+                "description": "Returns a list of notification:rule objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListNotificationRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "NotificationRule"
+                ],
+                "operationId": "NotificationRuleCreate",
+                "summary": "Create a notification:rule object",
+                "description": "Creates a new notification:rule object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotificationRule"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateNotificationRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_notification_notification_rule",
+                "x-tf-datasource": "nios_notification_notification_rule"
+            }
+        },
+        "/notification:rule/{reference}": {
+            "get": {
+                "tags": [
+                    "NotificationRule"
+                ],
+                "operationId": "NotificationRuleRead",
+                "summary": "Get a specific notification:rule object",
+                "description": "Returns a specific notification:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetNotificationRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "NotificationRule"
+                ],
+                "operationId": "NotificationRuleUpdate",
+                "summary": "Update a notification:rule object",
+                "description": "Updates a specific notification:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NotificationRule"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateNotificationRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "NotificationRule"
+                ],
+                "operationId": "NotificationRuleDelete",
+                "summary": "Delete a notification:rule object",
+                "description": "Deletes a specific notification:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the notification:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "NotificationRestEndpoint": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "client_certificate_subject": {
+                        "type": "string",
+                        "description": "The client certificate subject of a notification REST endpoint.",
+                        "readOnly": true,
+                        "example": "Example client_certificate_subject"
+                    },
+                    "client_certificate_token": {
+                        "type": "string",
+                        "description": "The token returned by the uploadinit function call in object fileop for a notification REST endpoit client certificate.",
+                        "writeOnly": true,
+                        "example": "Example client_certificate_token"
+                    },
+                    "client_certificate_valid_from": {
+                        "type": "integer",
+                        "description": "The timestamp when client certificate for a notification REST endpoint was created.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "client_certificate_valid_to": {
+                        "type": "integer",
+                        "description": "The timestamp when client certificate for a notification REST endpoint expires.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The comment of a notification REST endpoint.",
+                        "example": "Example comment"
+                    },
+                    "extattrs": {
+                        "type": "object",
+                        "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ExtAttrs"
+                        }
+                    },
+                    "log_level": {
+                        "type": "string",
+                        "description": "The log level for a notification REST endpoint.",
+                        "enum": [
+                            "ERROR",
+                            "WARNING",
+                            "INFO",
+                            "DEBUG"
+                        ],
+                        "example": "Example log_level"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of a notification REST endpoint.",
+                        "example": "Example name"
+                    },
+                    "outbound_member_type": {
+                        "type": "string",
+                        "description": "The outbound member which will generate an event.",
+                        "enum": [
+                            "MEMBER",
+                            "GM"
+                        ],
+                        "example": "Example outbound_member_type"
+                    },
+                    "outbound_members": {
+                        "type": "array",
+                        "description": "The list of members for outbound events.",
+                        "enum": [
+                            "string"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password of the user that can log into a notification REST endpoint.",
+                        "writeOnly": true,
+                        "example": "Example password"
+                    },
+                    "server_cert_validation": {
+                        "type": "string",
+                        "description": "The server certificate validation type.",
+                        "enum": [
+                            "NO_VALIDATION",
+                            "CA_CERT",
+                            "CA_CERT_NO_HOSTNAME"
+                        ],
+                        "example": "Example server_cert_validation"
+                    },
+                    "sync_disabled": {
+                        "type": "boolean",
+                        "description": "Determines if the sync process is disabled for a notification REST endpoint.",
+                        "example": false
+                    },
+                    "template_instance": {
+                        "$ref": "#/components/schemas/NotificationRestEndpointTemplateInstance"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "The timeout of session management (in seconds).",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "uri": {
+                        "type": "string",
+                        "description": "The URI of a notification REST endpoint.",
+                        "example": "Example uri"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The username of the user that can log into a notification REST endpoint.",
+                        "example": "Example username"
+                    },
+                    "vendor_identifier": {
+                        "type": "string",
+                        "description": "The vendor identifier.",
+                        "example": "Example vendor_identifier"
+                    },
+                    "wapi_user_name": {
+                        "type": "string",
+                        "description": "The user name for WAPI integration.",
+                        "example": "Example wapi_user_name"
+                    },
+                    "wapi_user_password": {
+                        "type": "string",
+                        "description": "The user password for WAPI integration.",
+                        "writeOnly": true,
+                        "example": "Example wapi_user_password"
+                    }
+                }
+            },
+            "NotificationRestEndpointTemplateInstance": {
+                "type": "object",
+                "properties": {
+                    "template": {
+                        "type": "string",
+                        "description": "The name of the REST API template parameter.",
+                        "example": "Example template"
+                    },
+                    "parameters": {
+                        "description": "The notification REST template parameters.",
+                        "enum": [
+                            "notification:rest:templateparameter"
+                        ],
+                        "$ref": "#/components/schemas/NotificationrestendpointtemplateinstanceParameters"
+                    }
+                }
+            },
+            "NotificationrestendpointtemplateinstanceParameters": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the REST API template parameter.",
+                        "example": "Example name"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The value of the REST API template parameter.",
+                        "example": "Example value"
+                    },
+                    "default_value": {
+                        "type": "string",
+                        "description": "The default value of the REST API template parameter.",
+                        "readOnly": true,
+                        "example": "Example default_value"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The syntax of the REST API template parameter.",
+                        "enum": [
+                            "STR",
+                            "BOOL",
+                            "INT"
+                        ],
+                        "example": "Example syntax"
+                    }
+                }
+            },
+            "ListNotificationRestEndpointResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __NotificationRestEndpoint__ objects.",
+                        "type": "array",
+                        "title": "ListNotificationRestEndpointResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRestEndpoint"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __NotificationRestEndpoint__ objects.",
+                        "type": "object",
+                        "title": "ListNotificationRestEndpointResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/NotificationRestEndpoint"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateNotificationRestEndpointResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __NotificationRestEndpoint__ in object format.",
+                        "type": "object",
+                        "title": "CreateNotificationRestEndpointResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRestEndpoint"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __NotificationRestEndpoint__.",
+                        "type": "string",
+                        "title": "CreateNotificationRestEndpointResponse"
+                    }
+                ]
+            },
+            "GetNotificationRestEndpointResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/NotificationRestEndpoint"
+                    },
+                    {
+                        "description": "The response format to retrieve __NotificationRestEndpoint__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetNotificationRestEndpointResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRestEndpoint"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateNotificationRestEndpointResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __NotificationRestEndpoint__ in object format.",
+                        "type": "object",
+                        "title": "UpdateNotificationRestEndpointResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRestEndpoint"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __NotificationRestEndpoint__ .",
+                        "type": "string",
+                        "title": "UpdateNotificationRestEndpointResponse"
+                    }
+                ]
+            },
+            "NotificationRestTemplate": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "action_name": {
+                        "type": "string",
+                        "description": "The action name.",
+                        "readOnly": true,
+                        "example": "Example action_name"
+                    },
+                    "added_on": {
+                        "type": "integer",
+                        "description": "The time stamp when a template was added.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The comment for this REST API template.",
+                        "example": "Example comment"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The JSON formatted content of a template. The data passed by content creates parameters for a template.",
+                        "example": "Example content"
+                    },
+                    "event_type": {
+                        "type": "array",
+                        "description": "The event type.",
+                        "enum": [
+                            "DNS_RPZ",
+                            "DHCP_LEASE",
+                            "ANALYTICS_DNS_TUNNEL",
+                            "SECURITY_ADP",
+                            "SCHEDULE",
+                            "SESSION",
+                            "DXL_EVENT_SUBSCRIBER",
+                            "DB_CHANGE_DHCP_NETWORK_IPV4",
+                            "DB_CHANGE_DHCP_NETWORK_IPV6",
+                            "DB_CHANGE_DHCP_RANGE_IPV4",
+                            "DB_CHANGE_DHCP_RANGE_IPV6",
+                            "DB_CHANGE_DHCP_FIXED_ADDRESS_IPV4",
+                            "DB_CHANGE_DHCP_FIXED_ADDRESS_IPV6",
+                            "DB_CHANGE_DNS_HOST_ADDRESS_IPV4",
+                            "DB_CHANGE_DNS_HOST_ADDRESS_IPV6",
+                            "DB_CHANGE_DNS_DISCOVERY_DATA",
+                            "DB_CHANGE_DNS_RECORD",
+                            "DB_CHANGE_DNS_ZONE"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of a notification REST template.",
+                        "example": "Example name"
+                    },
+                    "outbound_type": {
+                        "type": "string",
+                        "description": "The outbound type for the template.",
+                        "enum": [
+                            "DXL",
+                            "REST",
+                            "SYSLOG"
+                        ],
+                        "readOnly": true,
+                        "example": "Example outbound_type"
+                    },
+                    "parameters": {
+                        "type": "array",
+                        "description": "The notification REST template parameters.",
+                        "enum": [
+                            "notification:rest:templateparameter"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRestTemplateParameters"
+                        }
+                    },
+                    "template_type": {
+                        "type": "string",
+                        "description": "The template type.",
+                        "enum": [
+                            "REST_ENDPOINT",
+                            "REST_EVENT"
+                        ],
+                        "readOnly": true,
+                        "example": "Example template_type"
+                    },
+                    "vendor_identifier": {
+                        "type": "string",
+                        "description": "The vendor identifier.",
+                        "readOnly": true,
+                        "example": "Example vendor_identifier"
+                    }
+                }
+            },
+            "NotificationRestTemplateParameters": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the REST API template parameter.",
+                        "example": "Example name"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The value of the REST API template parameter.",
+                        "example": "Example value"
+                    },
+                    "default_value": {
+                        "type": "string",
+                        "description": "The default value of the REST API template parameter.",
+                        "readOnly": true,
+                        "example": "Example default_value"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The syntax of the REST API template parameter.",
+                        "enum": [
+                            "STR",
+                            "BOOL",
+                            "INT"
+                        ],
+                        "example": "Example syntax"
+                    }
+                }
+            },
+            "ListNotificationRestTemplateResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __NotificationRestTemplate__ objects.",
+                        "type": "array",
+                        "title": "ListNotificationRestTemplateResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRestTemplate"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __NotificationRestTemplate__ objects.",
+                        "type": "object",
+                        "title": "ListNotificationRestTemplateResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/NotificationRestTemplate"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetNotificationRestTemplateResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/NotificationRestTemplate"
+                    },
+                    {
+                        "description": "The response format to retrieve __NotificationRestTemplate__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetNotificationRestTemplateResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRestTemplate"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateNotificationRestTemplateResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __NotificationRestTemplate__ in object format.",
+                        "type": "object",
+                        "title": "UpdateNotificationRestTemplateResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRestTemplate"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __NotificationRestTemplate__ .",
+                        "type": "string",
+                        "title": "UpdateNotificationRestTemplateResponse"
+                    }
+                ]
+            },
+            "NotificationRule": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "all_members": {
+                        "type": "boolean",
+                        "description": "Determines whether the notification rule is applied on all members or not. When this is set to False, the notification rule is applied only on selected_members.",
+                        "example": false
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The notification rule descriptive comment.",
+                        "example": "Example comment"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Determines whether a notification rule is disabled or not. When this is set to False, the notification rule is enabled.",
+                        "example": false
+                    },
+                    "enable_event_deduplication": {
+                        "type": "boolean",
+                        "description": "Determines whether the notification rule for event deduplication is enabled. Note that to enable event deduplication, you must set at least one deduplication field.",
+                        "example": false
+                    },
+                    "enable_event_deduplication_log": {
+                        "type": "boolean",
+                        "description": "Determines whether the notification rule for the event deduplication syslog is enabled.",
+                        "example": false
+                    },
+                    "event_deduplication_fields": {
+                        "type": "array",
+                        "description": "The list of fields that must be used in the notification rule for event deduplication.",
+                        "enum": [
+                            "DXL_TOPIC",
+                            "DISCOVERER",
+                            "DUID",
+                            "IP_ADDRESS",
+                            "MAC_ADDRESS",
+                            "NETWORK",
+                            "NETWORK_VIEW",
+                            "QUERY_FQDN",
+                            "QUERY_NAME",
+                            "QUERY_TYPE",
+                            "RPZ_POLICY",
+                            "RPZ_TYPE",
+                            "RULE_ACTION",
+                            "RULE_CATEGORY",
+                            "RULE_SEVERITY",
+                            "RULE_SID",
+                            "SOURCE_IP",
+                            "SOURCE_PORT",
+                            "OPERATION_TYPE"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "event_deduplication_lookback_period": {
+                        "type": "integer",
+                        "description": "The lookback period for the notification rule for event deduplication.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "event_priority": {
+                        "type": "string",
+                        "description": "Event priority.",
+                        "example": "Example event_priority"
+                    },
+                    "event_type": {
+                        "type": "string",
+                        "description": "The notification rule event type.",
+                        "enum": [
+                            "DXL_EVENT_SUBSCRIBER",
+                            "DB_CHANGE_DNS_RECORD",
+                            "DB_CHANGE_DNS_ZONE",
+                            "DNS_RPZ",
+                            "DHCP_LEASES",
+                            "SECURITY_ADP",
+                            "IPAM",
+                            "ANALYTICS_DNS_TUNNEL",
+                            "DB_CHANGE_DHCP_FIXED_ADDRESS_IPV4",
+                            "DB_CHANGE_DHCP_FIXED_ADDRESS_IPV6",
+                            "DB_CHANGE_DHCP_NETWORK_IPV4",
+                            "DB_CHANGE_DHCP_NETWORK_IPV6",
+                            "DB_CHANGE_DHCP_RANGE_IPV4",
+                            "DB_CHANGE_DHCP_RANGE_IPV6",
+                            "DB_CHANGE_DNS_HOST_ADDRESS_IPV4",
+                            "DB_CHANGE_DNS_HOST_ADDRESS_IPV6",
+                            "DB_CHANGE_DNS_DISCOVERY_DATA",
+                            "SCHEDULE"
+                        ],
+                        "example": "Example event_type"
+                    },
+                    "expression_list": {
+                        "type": "array",
+                        "description": "The notification rule expression list.",
+                        "enum": [
+                            "notification:ruleexpressionop"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRuleExpressionList"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The notification rule name.",
+                        "example": "Example name"
+                    },
+                    "notification_action": {
+                        "type": "string",
+                        "description": "The notification rule action is applied if expression list evaluates to True.",
+                        "enum": [
+                            "CISCOISE_QUARANTINE",
+                            "CISCOISE_PUBLISH",
+                            "RESTAPI_TEMPLATE_INSTANCE"
+                        ],
+                        "example": "Example notification_action"
+                    },
+                    "notification_target": {
+                        "type": "string",
+                        "description": "The notification target.",
+                        "example": "Example notification_target"
+                    },
+                    "publish_settings": {
+                        "$ref": "#/components/schemas/NotificationRulePublishSettings"
+                    },
+                    "scheduled_event": {
+                        "$ref": "#/components/schemas/NotificationRuleScheduledEvent"
+                    },
+                    "selected_members": {
+                        "type": "array",
+                        "description": "The list of the members on which the notification rule is applied.",
+                        "enum": [
+                            "string"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "template_instance": {
+                        "$ref": "#/components/schemas/NotificationRuleTemplateInstance"
+                    },
+                    "use_publish_settings": {
+                        "type": "boolean",
+                        "description": "Use flag for: publish_settings",
+                        "example": false
+                    }
+                }
+            },
+            "NotificationRuleExpressionList": {
+                "type": "object",
+                "properties": {
+                    "op": {
+                        "type": "string",
+                        "description": "Rule expression type.",
+                        "enum": [
+                            "AND",
+                            "CONTAINED_IN",
+                            "ENDLIST",
+                            "EQ",
+                            "EXISTS",
+                            "GE",
+                            "GT",
+                            "LE",
+                            "LT",
+                            "MATCH_CIDR",
+                            "MATCH_RANGE",
+                            "NOT_EQ",
+                            "NOT_EXISTS",
+                            "NREGEX",
+                            "OR",
+                            "REGEX"
+                        ],
+                        "example": "Example op"
+                    },
+                    "op1": {
+                        "type": "string",
+                        "description": "Rule expression first operand value.",
+                        "enum": [
+                            "DXL_TOPIC",
+                            "ZONE_NAME",
+                            "ZONE_TYPE",
+                            "DNS_VIEW",
+                            "DB_CHANGE_USER_NAME",
+                            "DB_CHANGE_GROUP_NAME",
+                            "RECORD_NAME",
+                            "RECORD_TYPE",
+                            "AUTO_CREATED_RECORDS",
+                            "ADDRESS_TYPE",
+                            "DHCP_FINGERPRINT",
+                            "DHCP_IP_ADDRESS",
+                            "DHCP_LEASE_STATE",
+                            "DISABLE",
+                            "DISCOVERER",
+                            "DNS_RPZ_ACTION_POLICY",
+                            "DNS_RPZ_NAME",
+                            "DNS_RPZ_RULE_NAME",
+                            "DNS_RPZ_TYPE",
+                            "DUID",
+                            "HOST",
+                            "IPV4_ADDRESS",
+                            "IPV6_ADDRESS",
+                            "IPV6_PREFIX",
+                            "IPV6_PREFIX_BITS",
+                            "IP_ADDRESS",
+                            "IS_IPV4",
+                            "MAC",
+                            "MEMBER_IP",
+                            "MEMBER_NAME",
+                            "NAME",
+                            "NETWORK",
+                            "NETWORK_VIEW",
+                            "OPERATION_TYPE",
+                            "QUERY_FQDN",
+                            "SECURITY_ADP_HITS_COUNT",
+                            "SECURITY_ADP_RULE_ACTION",
+                            "SECURITY_ADP_RULE_CATEGORY",
+                            "SECURITY_ADP_RULE_MESSAGE",
+                            "SECURITY_ADP_RULE_SEVERITY",
+                            "SECURITY_ADP_SID",
+                            "SERVER_ASSOC_TYPE_IPV4",
+                            "SERVER_ASSOC_TYPE_IPV6",
+                            "SOURCE_IP",
+                            "THREAT_ORIGIN",
+                            "ATC_HIT_TYPE",
+                            "ATC_HIT_CLASS",
+                            "ATC_HIT_PROPERTY",
+                            "UNMANAGED"
+                        ],
+                        "example": "Example op1"
+                    },
+                    "op1_type": {
+                        "type": "string",
+                        "description": "Rule expression first operand type.",
+                        "enum": [
+                            "FIELD",
+                            "LIST",
+                            "STRING"
+                        ],
+                        "example": "Example op1_type"
+                    },
+                    "op2": {
+                        "type": "string",
+                        "description": "Rule expression second operand.",
+                        "example": "Example op2"
+                    },
+                    "op2_type": {
+                        "type": "string",
+                        "description": "Rule expression second operand type.",
+                        "enum": [
+                            "FIELD",
+                            "LIST",
+                            "STRING"
+                        ],
+                        "example": "Example op2_type"
+                    }
+                }
+            },
+            "NotificationRulePublishSettings": {
+                "type": "object",
+                "properties": {
+                    "enabled_attributes": {
+                        "type": "array",
+                        "description": "The list of NIOS extensible attributes enalbed for publishsing to Cisco ISE endpoint.",
+                        "enum": [
+                            "CLIENT_ID",
+                            "FINGERPRINT",
+                            "HOSTNAME",
+                            "INFOBLOX_MEMBER",
+                            "IPADDRESS",
+                            "LEASE_END_TIME",
+                            "LEASE_START_TIME",
+                            "LEASE_STATE",
+                            "MAC_OR_DUID",
+                            "NETBIOS_NAME"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "NotificationRuleScheduledEvent": {
+                "type": "object",
+                "properties": {
+                    "weekdays": {
+                        "type": "array",
+                        "description": "Days of the week when scheduling is triggered.",
+                        "enum": [
+                            "SATURDAY",
+                            "SUNDAY",
+                            "MONDAY",
+                            "TUESDAY",
+                            "WEDNESDAY",
+                            "THURSDAY",
+                            "FRIDAY"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "time_zone": {
+                        "type": "string",
+                        "description": "The time zone for the schedule.",
+                        "example": "Example time_zone"
+                    },
+                    "recurring_time": {
+                        "type": "integer",
+                        "description": "The recurring time for the schedule in Epoch seconds format. This field is obsolete and is preserved only for backward compatibility purposes. Please use other applicable fields to define the recurring schedule. DO NOT use recurring_time together with these fields. If you use recurring_time with other fields to define the recurring schedule, recurring_time has priority over year, hour_of_day, and minutes_past_hour and will override the values of these fields, although it does not override month and day_of_month. In this case, the recurring time value might be different than the intended value that you define.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "frequency": {
+                        "type": "string",
+                        "description": "The frequency for the scheduled task.",
+                        "enum": [
+                            "DAILY",
+                            "HOURLY",
+                            "MONTHLY",
+                            "WEEKLY"
+                        ],
+                        "example": "Example frequency"
+                    },
+                    "every": {
+                        "type": "integer",
+                        "description": "The number of frequency to wait before repeating the scheduled task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "minutes_past_hour": {
+                        "type": "integer",
+                        "description": "The minutes past the hour for the scheduled task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "hour_of_day": {
+                        "type": "integer",
+                        "description": "The hour of day for the scheduled task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "year": {
+                        "type": "integer",
+                        "description": "The year for the scheduled task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "month": {
+                        "type": "integer",
+                        "description": "The month for the scheduled task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "day_of_month": {
+                        "type": "integer",
+                        "description": "The day of the month for the scheduled task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "repeat": {
+                        "type": "string",
+                        "description": "Indicates if the scheduled task will be repeated or run only once.",
+                        "enum": [
+                            "ONCE",
+                            "RECUR"
+                        ],
+                        "example": "Example repeat"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "If set to True, the scheduled task is disabled.",
+                        "example": false
+                    }
+                }
+            },
+            "NotificationRuleTemplateInstance": {
+                "type": "object",
+                "properties": {
+                    "template": {
+                        "type": "string",
+                        "description": "The name of the REST API template parameter.",
+                        "example": "Example template"
+                    },
+                    "parameters": {
+                        "description": "The notification REST template parameters.",
+                        "enum": [
+                            "notification:rest:templateparameter"
+                        ],
+                        "$ref": "#/components/schemas/NotificationruletemplateinstanceParameters"
+                    }
+                }
+            },
+            "NotificationruletemplateinstanceParameters": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the REST API template parameter.",
+                        "example": "Example name"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The value of the REST API template parameter.",
+                        "example": "Example value"
+                    },
+                    "default_value": {
+                        "type": "string",
+                        "description": "The default value of the REST API template parameter.",
+                        "readOnly": true,
+                        "example": "Example default_value"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The syntax of the REST API template parameter.",
+                        "enum": [
+                            "STR",
+                            "BOOL",
+                            "INT"
+                        ],
+                        "example": "Example syntax"
+                    }
+                }
+            },
+            "ListNotificationRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __NotificationRule__ objects.",
+                        "type": "array",
+                        "title": "ListNotificationRuleResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRule"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __NotificationRule__ objects.",
+                        "type": "object",
+                        "title": "ListNotificationRuleResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/NotificationRule"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateNotificationRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __NotificationRule__ in object format.",
+                        "type": "object",
+                        "title": "CreateNotificationRuleResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRule"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __NotificationRule__.",
+                        "type": "string",
+                        "title": "CreateNotificationRuleResponse"
+                    }
+                ]
+            },
+            "GetNotificationRuleResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/NotificationRule"
+                    },
+                    {
+                        "description": "The response format to retrieve __NotificationRule__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetNotificationRuleResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRule"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateNotificationRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __NotificationRule__ in object format.",
+                        "type": "object",
+                        "title": "UpdateNotificationRuleResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/NotificationRule"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __NotificationRule__ .",
+                        "type": "string",
+                        "title": "UpdateNotificationRuleResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,2670 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox PARENTALCONTROL API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI PARENTALCONTROL objects",
+        "version": "2.13.6",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "ParentalcontrolAvp",
+            "description": "Operations for parentalcontrol:avp objects"
+        },
+        {
+            "name": "ParentalcontrolBlockingpolicy",
+            "description": "Operations for parentalcontrol:blockingpolicy objects"
+        },
+        {
+            "name": "ParentalcontrolSubscriber",
+            "description": "Operations for parentalcontrol:subscriber objects"
+        },
+        {
+            "name": "ParentalcontrolSubscriberrecord",
+            "description": "Operations for parentalcontrol:subscriberrecord objects"
+        },
+        {
+            "name": "ParentalcontrolSubscribersite",
+            "description": "Operations for parentalcontrol:subscribersite objects"
+        }
+    ],
+    "paths": {
+        "/parentalcontrol:avp": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolAvp"
+                ],
+                "operationId": "ParentalcontrolAvpList",
+                "summary": "Retrieve parentalcontrol:avp objects",
+                "description": "Returns a list of parentalcontrol:avp objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListParentalcontrolAvpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ParentalcontrolAvp"
+                ],
+                "operationId": "ParentalcontrolAvpCreate",
+                "summary": "Create a parentalcontrol:avp object",
+                "description": "Creates a new parentalcontrol:avp object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolAvp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateParentalcontrolAvpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_parentalcontrol_parentalcontrol_avp",
+                "x-tf-datasource": "nios_parentalcontrol_parentalcontrol_avp"
+            }
+        },
+        "/parentalcontrol:avp/{reference}": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolAvp"
+                ],
+                "operationId": "ParentalcontrolAvpRead",
+                "summary": "Get a specific parentalcontrol:avp object",
+                "description": "Returns a specific parentalcontrol:avp object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:avp object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetParentalcontrolAvpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ParentalcontrolAvp"
+                ],
+                "operationId": "ParentalcontrolAvpUpdate",
+                "summary": "Update a parentalcontrol:avp object",
+                "description": "Updates a specific parentalcontrol:avp object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:avp object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolAvp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateParentalcontrolAvpResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ParentalcontrolAvp"
+                ],
+                "operationId": "ParentalcontrolAvpDelete",
+                "summary": "Delete a parentalcontrol:avp object",
+                "description": "Deletes a specific parentalcontrol:avp object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:avp object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/parentalcontrol:blockingpolicy": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolBlockingpolicy"
+                ],
+                "operationId": "ParentalcontrolBlockingpolicyList",
+                "summary": "Retrieve parentalcontrol:blockingpolicy objects",
+                "description": "Returns a list of parentalcontrol:blockingpolicy objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListParentalcontrolBlockingpolicyResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ParentalcontrolBlockingpolicy"
+                ],
+                "operationId": "ParentalcontrolBlockingpolicyCreate",
+                "summary": "Create a parentalcontrol:blockingpolicy object",
+                "description": "Creates a new parentalcontrol:blockingpolicy object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateParentalcontrolBlockingpolicyResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_parentalcontrol_parentalcontrol_blockingpolicy",
+                "x-tf-datasource": "nios_parentalcontrol_parentalcontrol_blockingpolicy"
+            }
+        },
+        "/parentalcontrol:blockingpolicy/{reference}": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolBlockingpolicy"
+                ],
+                "operationId": "ParentalcontrolBlockingpolicyRead",
+                "summary": "Get a specific parentalcontrol:blockingpolicy object",
+                "description": "Returns a specific parentalcontrol:blockingpolicy object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:blockingpolicy object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetParentalcontrolBlockingpolicyResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ParentalcontrolBlockingpolicy"
+                ],
+                "operationId": "ParentalcontrolBlockingpolicyUpdate",
+                "summary": "Update a parentalcontrol:blockingpolicy object",
+                "description": "Updates a specific parentalcontrol:blockingpolicy object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:blockingpolicy object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateParentalcontrolBlockingpolicyResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ParentalcontrolBlockingpolicy"
+                ],
+                "operationId": "ParentalcontrolBlockingpolicyDelete",
+                "summary": "Delete a parentalcontrol:blockingpolicy object",
+                "description": "Deletes a specific parentalcontrol:blockingpolicy object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:blockingpolicy object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/parentalcontrol:subscriber": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolSubscriber"
+                ],
+                "operationId": "ParentalcontrolSubscriberList",
+                "summary": "Retrieve parentalcontrol:subscriber objects",
+                "description": "Returns a list of parentalcontrol:subscriber objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListParentalcontrolSubscriberResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/parentalcontrol:subscriber/{reference}": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolSubscriber"
+                ],
+                "operationId": "ParentalcontrolSubscriberRead",
+                "summary": "Get a specific parentalcontrol:subscriber object",
+                "description": "Returns a specific parentalcontrol:subscriber object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscriber object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetParentalcontrolSubscriberResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ParentalcontrolSubscriber"
+                ],
+                "operationId": "ParentalcontrolSubscriberUpdate",
+                "summary": "Update a parentalcontrol:subscriber object",
+                "description": "Updates a specific parentalcontrol:subscriber object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscriber object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriber"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateParentalcontrolSubscriberResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/parentalcontrol:subscriberrecord": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolSubscriberrecord"
+                ],
+                "operationId": "ParentalcontrolSubscriberrecordList",
+                "summary": "Retrieve parentalcontrol:subscriberrecord objects",
+                "description": "Returns a list of parentalcontrol:subscriberrecord objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListParentalcontrolSubscriberrecordResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ParentalcontrolSubscriberrecord"
+                ],
+                "operationId": "ParentalcontrolSubscriberrecordCreate",
+                "summary": "Create a parentalcontrol:subscriberrecord object",
+                "description": "Creates a new parentalcontrol:subscriberrecord object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateParentalcontrolSubscriberrecordResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_parentalcontrol_parentalcontrol_subscriberrecord",
+                "x-tf-datasource": "nios_parentalcontrol_parentalcontrol_subscriberrecord"
+            }
+        },
+        "/parentalcontrol:subscriberrecord/{reference}": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolSubscriberrecord"
+                ],
+                "operationId": "ParentalcontrolSubscriberrecordRead",
+                "summary": "Get a specific parentalcontrol:subscriberrecord object",
+                "description": "Returns a specific parentalcontrol:subscriberrecord object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscriberrecord object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetParentalcontrolSubscriberrecordResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ParentalcontrolSubscriberrecord"
+                ],
+                "operationId": "ParentalcontrolSubscriberrecordUpdate",
+                "summary": "Update a parentalcontrol:subscriberrecord object",
+                "description": "Updates a specific parentalcontrol:subscriberrecord object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscriberrecord object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateParentalcontrolSubscriberrecordResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ParentalcontrolSubscriberrecord"
+                ],
+                "operationId": "ParentalcontrolSubscriberrecordDelete",
+                "summary": "Delete a parentalcontrol:subscriberrecord object",
+                "description": "Deletes a specific parentalcontrol:subscriberrecord object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscriberrecord object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/parentalcontrol:subscribersite": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolSubscribersite"
+                ],
+                "operationId": "ParentalcontrolSubscribersiteList",
+                "summary": "Retrieve parentalcontrol:subscribersite objects",
+                "description": "Returns a list of parentalcontrol:subscribersite objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListParentalcontrolSubscribersiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ParentalcontrolSubscribersite"
+                ],
+                "operationId": "ParentalcontrolSubscribersiteCreate",
+                "summary": "Create a parentalcontrol:subscribersite object",
+                "description": "Creates a new parentalcontrol:subscribersite object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateParentalcontrolSubscribersiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_parentalcontrol_parentalcontrol_subscribersite",
+                "x-tf-datasource": "nios_parentalcontrol_parentalcontrol_subscribersite",
+                "x-sdk-default-ext-attrs": true
+            }
+        },
+        "/parentalcontrol:subscribersite/{reference}": {
+            "get": {
+                "tags": [
+                    "ParentalcontrolSubscribersite"
+                ],
+                "operationId": "ParentalcontrolSubscribersiteRead",
+                "summary": "Get a specific parentalcontrol:subscribersite object",
+                "description": "Returns a specific parentalcontrol:subscribersite object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscribersite object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetParentalcontrolSubscribersiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ParentalcontrolSubscribersite"
+                ],
+                "operationId": "ParentalcontrolSubscribersiteUpdate",
+                "summary": "Update a parentalcontrol:subscribersite object",
+                "description": "Updates a specific parentalcontrol:subscribersite object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscribersite object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateParentalcontrolSubscribersiteResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-sdk-default-ext-attrs": true
+            },
+            "delete": {
+                "tags": [
+                    "ParentalcontrolSubscribersite"
+                ],
+                "operationId": "ParentalcontrolSubscribersiteDelete",
+                "summary": "Delete a parentalcontrol:subscribersite object",
+                "description": "Deletes a specific parentalcontrol:subscribersite object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the parentalcontrol:subscribersite object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "ParentalcontrolAvp": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The comment for the AVP.",
+                        "example": "Example comment"
+                    },
+                    "domain_types": {
+                        "type": "array",
+                        "description": "The list of domains applicable to AVP.",
+                        "enum": [
+                            "SUBS_ID",
+                            "ANCILLARY",
+                            "NAS_CONTEXT",
+                            "IP_SPACE_DIS"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "is_restricted": {
+                        "type": "boolean",
+                        "description": "Determines if AVP is restricted to domains.",
+                        "example": false
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of AVP.",
+                        "example": "Example name"
+                    },
+                    "type": {
+                        "type": "integer",
+                        "description": "The type of AVP as per RFC 2865/2866.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "user_defined": {
+                        "type": "boolean",
+                        "description": "Determines if AVP was defined by user.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "value_type": {
+                        "type": "string",
+                        "description": "The type of value.",
+                        "enum": [
+                            "IPV6ADDR",
+                            "STRING",
+                            "DATE",
+                            "INTEGER",
+                            "BYTE",
+                            "IPV6IFID",
+                            "IPADDR",
+                            "SHORT",
+                            "IPV6PREFIX",
+                            "OCTETS",
+                            "INTEGER64"
+                        ],
+                        "example": "Example value_type"
+                    },
+                    "vendor_id": {
+                        "type": "integer",
+                        "description": "The vendor ID as per RFC 2865/2866.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "vendor_type": {
+                        "type": "integer",
+                        "description": "The vendor type as per RFC 2865/2866.",
+                        "format": "int64",
+                        "example": 1
+                    }
+                }
+            },
+            "ListParentalcontrolAvpResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolAvp__ objects.",
+                        "type": "array",
+                        "title": "ListParentalcontrolAvpResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolAvp"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolAvp__ objects.",
+                        "type": "object",
+                        "title": "ListParentalcontrolAvpResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ParentalcontrolAvp"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateParentalcontrolAvpResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ParentalcontrolAvp__ in object format.",
+                        "type": "object",
+                        "title": "CreateParentalcontrolAvpResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolAvp"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ParentalcontrolAvp__.",
+                        "type": "string",
+                        "title": "CreateParentalcontrolAvpResponse"
+                    }
+                ]
+            },
+            "GetParentalcontrolAvpResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParentalcontrolAvp"
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolAvp__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetParentalcontrolAvpResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolAvp"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateParentalcontrolAvpResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ParentalcontrolAvp__ in object format.",
+                        "type": "object",
+                        "title": "UpdateParentalcontrolAvpResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolAvp"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ParentalcontrolAvp__ .",
+                        "type": "string",
+                        "title": "UpdateParentalcontrolAvpResponse"
+                    }
+                ]
+            },
+            "ParentalcontrolBlockingpolicy": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the blocking policy.",
+                        "example": "Example name"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The 32 bit hex value of the blocking policy.",
+                        "example": "Example value"
+                    }
+                }
+            },
+            "ListParentalcontrolBlockingpolicyResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolBlockingpolicy__ objects.",
+                        "type": "array",
+                        "title": "ListParentalcontrolBlockingpolicyResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolBlockingpolicy__ objects.",
+                        "type": "object",
+                        "title": "ListParentalcontrolBlockingpolicyResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateParentalcontrolBlockingpolicyResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ParentalcontrolBlockingpolicy__ in object format.",
+                        "type": "object",
+                        "title": "CreateParentalcontrolBlockingpolicyResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ParentalcontrolBlockingpolicy__.",
+                        "type": "string",
+                        "title": "CreateParentalcontrolBlockingpolicyResponse"
+                    }
+                ]
+            },
+            "GetParentalcontrolBlockingpolicyResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolBlockingpolicy__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetParentalcontrolBlockingpolicyResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateParentalcontrolBlockingpolicyResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ParentalcontrolBlockingpolicy__ in object format.",
+                        "type": "object",
+                        "title": "UpdateParentalcontrolBlockingpolicyResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolBlockingpolicy"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ParentalcontrolBlockingpolicy__ .",
+                        "type": "string",
+                        "title": "UpdateParentalcontrolBlockingpolicyResponse"
+                    }
+                ]
+            },
+            "ParentalcontrolSubscriber": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "alt_subscriber_id": {
+                        "type": "string",
+                        "description": "The name of AVP to be used as an alternate subscriber ID for fixed lines.",
+                        "example": "Example alt_subscriber_id"
+                    },
+                    "alt_subscriber_id_regexp": {
+                        "type": "string",
+                        "description": "A character string to control aspects of rewriting of the fields.",
+                        "example": "Example alt_subscriber_id_regexp"
+                    },
+                    "alt_subscriber_id_subexpression": {
+                        "type": "integer",
+                        "description": "The subexpression indicates which subexpression to extract. If zero, then the text matching the entire regular expression is extracted. If non-zero, then the regex must contain at least that many sub-expression groups. It takes values from 0 to 8.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "ancillaries": {
+                        "type": "array",
+                        "description": "The list of ordered AVP Ancillary Fields.",
+                        "enum": [
+                            "string"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "cat_acctname": {
+                        "type": "string",
+                        "description": "Category content account name using the categorization service.",
+                        "example": "Example cat_acctname"
+                    },
+                    "cat_password": {
+                        "type": "string",
+                        "description": "Category content account password to access the categorization service.",
+                        "example": "Example cat_password"
+                    },
+                    "cat_update_frequency": {
+                        "type": "integer",
+                        "description": "Category content updates every number of hours.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "category_url": {
+                        "type": "string",
+                        "description": "Category content vendor url to download category data from and upload feedback to, configure for parental control.",
+                        "example": "Example category_url"
+                    },
+                    "enable_mgmt_only_nas": {
+                        "type": "boolean",
+                        "description": "Determines if NAS RADIUS traffic is accepted over MGMT only.",
+                        "example": false
+                    },
+                    "enable_parental_control": {
+                        "type": "boolean",
+                        "description": "Determines if parental control is enabled.",
+                        "example": false
+                    },
+                    "interim_accounting_interval": {
+                        "type": "integer",
+                        "description": "The time for collector to be fully populated. Valid values are from 1 to 65535.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "ip_anchors": {
+                        "type": "array",
+                        "description": "The ordered list of IP Anchors AVPs. The list content cannot be changed, but the order of elements.",
+                        "enum": [
+                            "string"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ip_space_disc_regexp": {
+                        "type": "string",
+                        "description": "A character string to control aspects of rewriting of the fields.",
+                        "example": "Example ip_space_disc_regexp"
+                    },
+                    "ip_space_disc_subexpression": {
+                        "type": "integer",
+                        "description": "The subexpression indicates which subexpression to extract. If zero, then the text matching the entire regular expression is extracted. If non-zero, then the regex must contain at least that many sub-expression groups. It takes values from 0 to 8.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "ip_space_discriminator": {
+                        "type": "string",
+                        "description": "The name of AVP to be used as IP address discriminator.",
+                        "example": "Example ip_space_discriminator"
+                    },
+                    "local_id": {
+                        "type": "string",
+                        "description": "The name of AVP to be used as local ID.",
+                        "example": "Example local_id"
+                    },
+                    "local_id_regexp": {
+                        "type": "string",
+                        "description": "A character string to control aspects of rewriting of the fields.",
+                        "example": "Example local_id_regexp"
+                    },
+                    "local_id_subexpression": {
+                        "type": "integer",
+                        "description": "The subexpression indicates which subexpression to extract. If zero, then the text matching the entire regular expression is extracted. If non-zero, then the regex must contain at least that many sub-expression groups. It takes values from 0 to 8.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "log_guest_lookups": {
+                        "type": "boolean",
+                        "description": "CEF log all guest lookups, will produce two logs in case of a violation.",
+                        "example": false
+                    },
+                    "nas_context_info": {
+                        "type": "string",
+                        "description": "NAS contextual information AVP.",
+                        "example": "Example nas_context_info"
+                    },
+                    "pc_zone_name": {
+                        "type": "string",
+                        "description": "The SOA to store parental control records.",
+                        "example": "Example pc_zone_name"
+                    },
+                    "proxy_password": {
+                        "type": "string",
+                        "description": "Proxy server password used for authentication.",
+                        "example": "Example proxy_password"
+                    },
+                    "proxy_url": {
+                        "type": "string",
+                        "description": "Proxy url to download category data from and upload feedback to, configure for parental control. The default value 'None' is no longer valid as it match url regex pattern \"^http|https://\". The new default value does not get saved in database, but rather used for comparision with object created in unit test cases.",
+                        "example": "Example proxy_url"
+                    },
+                    "proxy_username": {
+                        "type": "string",
+                        "description": "Proxy server username used for authentication.",
+                        "example": "Example proxy_username"
+                    },
+                    "subscriber_id": {
+                        "type": "string",
+                        "description": "The name of AVP to be used as a subscriber.",
+                        "example": "Example subscriber_id"
+                    },
+                    "subscriber_id_regexp": {
+                        "type": "string",
+                        "description": "A character string to control aspects of rewriting of the fields.",
+                        "example": "Example subscriber_id_regexp"
+                    },
+                    "subscriber_id_subexpression": {
+                        "type": "integer",
+                        "description": "The subexpression indicates which subexpression to extract. If zero, then the text matching the entire regular expression is extracted. If non-zero, then the regex must contain at least that many sub-expression groups. It takes values from 0 to 8.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "zvelo_update_failure_in_days": {
+                        "type": "integer",
+                        "description": "Number of days since zvelo DB failed to update.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    }
+                }
+            },
+            "ListParentalcontrolSubscriberResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscriber__ objects.",
+                        "type": "array",
+                        "title": "ListParentalcontrolSubscriberResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscriber"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscriber__ objects.",
+                        "type": "object",
+                        "title": "ListParentalcontrolSubscriberResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ParentalcontrolSubscriber"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetParentalcontrolSubscriberResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParentalcontrolSubscriber"
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscriber__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetParentalcontrolSubscriberResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriber"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateParentalcontrolSubscriberResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ParentalcontrolSubscriber__ in object format.",
+                        "type": "object",
+                        "title": "UpdateParentalcontrolSubscriberResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriber"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ParentalcontrolSubscriber__ .",
+                        "type": "string",
+                        "title": "UpdateParentalcontrolSubscriberResponse"
+                    }
+                ]
+            },
+            "ParentalcontrolSubscriberrecord": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "accounting_session_id": {
+                        "type": "string",
+                        "description": "accounting_session_id",
+                        "example": "Example accounting_session_id"
+                    },
+                    "alt_ip_addr": {
+                        "type": "string",
+                        "description": "alt_ip_addr",
+                        "example": "Example alt_ip_addr"
+                    },
+                    "ans0": {
+                        "type": "string",
+                        "description": "ans0",
+                        "example": "Example ans0"
+                    },
+                    "ans1": {
+                        "type": "string",
+                        "description": "ans1",
+                        "example": "Example ans1"
+                    },
+                    "ans2": {
+                        "type": "string",
+                        "description": "ans2",
+                        "example": "Example ans2"
+                    },
+                    "ans3": {
+                        "type": "string",
+                        "description": "ans3",
+                        "example": "Example ans3"
+                    },
+                    "ans4": {
+                        "type": "string",
+                        "description": "ans4",
+                        "example": "Example ans4"
+                    },
+                    "black_list": {
+                        "type": "string",
+                        "description": "black_list",
+                        "example": "Example black_list"
+                    },
+                    "bwflag": {
+                        "type": "boolean",
+                        "description": "bwflag",
+                        "example": false
+                    },
+                    "dynamic_category_policy": {
+                        "type": "boolean",
+                        "description": "dynamic_category_policy",
+                        "example": false
+                    },
+                    "flags": {
+                        "type": "string",
+                        "description": "flags",
+                        "example": "Example flags"
+                    },
+                    "ip_addr": {
+                        "type": "string",
+                        "description": "ip_addr",
+                        "example": "Example ip_addr"
+                    },
+                    "ipsd": {
+                        "type": "string",
+                        "description": "ipsd",
+                        "example": "Example ipsd"
+                    },
+                    "localid": {
+                        "type": "string",
+                        "description": "localid",
+                        "example": "Example localid"
+                    },
+                    "nas_contextual": {
+                        "type": "string",
+                        "description": "nas_contextual",
+                        "example": "Example nas_contextual"
+                    },
+                    "op_code": {
+                        "type": "string",
+                        "description": "op_code",
+                        "example": "Example op_code"
+                    },
+                    "parental_control_policy": {
+                        "type": "string",
+                        "description": "parental_control_policy",
+                        "example": "Example parental_control_policy"
+                    },
+                    "prefix": {
+                        "type": "integer",
+                        "description": "prefix",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "proxy_all": {
+                        "type": "boolean",
+                        "description": "proxy_all",
+                        "example": false
+                    },
+                    "site": {
+                        "type": "string",
+                        "description": "site",
+                        "example": "Example site"
+                    },
+                    "subscriber_id": {
+                        "type": "string",
+                        "description": "subscriber_id",
+                        "example": "Example subscriber_id"
+                    },
+                    "subscriber_secure_policy": {
+                        "type": "string",
+                        "description": "subscriber_secure_policy",
+                        "example": "Example subscriber_secure_policy"
+                    },
+                    "unknown_category_policy": {
+                        "type": "boolean",
+                        "description": "unknown_category_policy",
+                        "example": false
+                    },
+                    "white_list": {
+                        "type": "string",
+                        "description": "white_list",
+                        "example": "Example white_list"
+                    },
+                    "wpc_category_policy": {
+                        "type": "string",
+                        "description": "wpc_category_policy",
+                        "example": "Example wpc_category_policy"
+                    }
+                }
+            },
+            "ListParentalcontrolSubscriberrecordResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscriberrecord__ objects.",
+                        "type": "array",
+                        "title": "ListParentalcontrolSubscriberrecordResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscriberrecord__ objects.",
+                        "type": "object",
+                        "title": "ListParentalcontrolSubscriberrecordResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateParentalcontrolSubscriberrecordResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ParentalcontrolSubscriberrecord__ in object format.",
+                        "type": "object",
+                        "title": "CreateParentalcontrolSubscriberrecordResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ParentalcontrolSubscriberrecord__.",
+                        "type": "string",
+                        "title": "CreateParentalcontrolSubscriberrecordResponse"
+                    }
+                ]
+            },
+            "GetParentalcontrolSubscriberrecordResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscriberrecord__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetParentalcontrolSubscriberrecordResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateParentalcontrolSubscriberrecordResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ParentalcontrolSubscriberrecord__ in object format.",
+                        "type": "object",
+                        "title": "UpdateParentalcontrolSubscriberrecordResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscriberrecord"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ParentalcontrolSubscriberrecord__ .",
+                        "type": "string",
+                        "title": "UpdateParentalcontrolSubscriberrecordResponse"
+                    }
+                ]
+            },
+            "ParentalcontrolSubscribersite": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "abss": {
+                        "type": "array",
+                        "description": "The list of ABS for the site.",
+                        "enum": [
+                            "parentalcontrol:abs"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteAbss"
+                        }
+                    },
+                    "api_members": {
+                        "type": "array",
+                        "description": "The list of API members for the site.",
+                        "enum": [
+                            "parentalcontrol:siteapimember"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteApiMembers"
+                        }
+                    },
+                    "api_port": {
+                        "type": "integer",
+                        "description": "The port number for gRPC API server.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "block_size": {
+                        "type": "integer",
+                        "description": "The size of the Deterministic NAT block-size.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "blocking_ipv4_vip1": {
+                        "type": "string",
+                        "description": "The IPv4 Address of the blocking server.",
+                        "example": "Example blocking_ipv4_vip1"
+                    },
+                    "blocking_ipv4_vip2": {
+                        "type": "string",
+                        "description": "The IPv4 Address of the blocking server.",
+                        "example": "Example blocking_ipv4_vip2"
+                    },
+                    "blocking_ipv6_vip1": {
+                        "type": "string",
+                        "description": "The IPv6 Address of the blocking server.",
+                        "example": "Example blocking_ipv6_vip1"
+                    },
+                    "blocking_ipv6_vip2": {
+                        "type": "string",
+                        "description": "The IPv6 Address of the blocking server.",
+                        "example": "Example blocking_ipv6_vip2"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The human readable comment for the site.",
+                        "example": "Example comment"
+                    },
+                    "dca_sub_bw_list": {
+                        "type": "boolean",
+                        "description": "Enable/disable the DCA subscriber B/W list support.",
+                        "example": false
+                    },
+                    "dca_sub_query_count": {
+                        "type": "boolean",
+                        "description": "Enable/disable the DCA subscriber query count.",
+                        "example": false
+                    },
+                    "enable_global_allow_list_rpz": {
+                        "type": "boolean",
+                        "description": "Enable/disable global allow list RPZ setting.",
+                        "example": false
+                    },
+                    "enable_rpz_filtering_bypass": {
+                        "type": "boolean",
+                        "description": "Enable/disable Subscriber Secure Policy Bypass for Allowed list.",
+                        "example": false
+                    },
+                    "extattrs": {
+                        "type": "object",
+                        "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ExtAttrs"
+                        }
+                    },
+                    "first_port": {
+                        "type": "integer",
+                        "description": "The start of the first Deterministic block.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "global_allow_list_rpz": {
+                        "type": "integer",
+                        "description": "Global allow list RPZ index. Valid values are between 0 and 63.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "maximum_subscribers": {
+                        "type": "integer",
+                        "description": "The max number of subscribers for the site. It is used to configure the cache size.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "members": {
+                        "type": "array",
+                        "description": "The list of members for the site.",
+                        "enum": [
+                            "parentalcontrol:sitemember"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteMembers"
+                        }
+                    },
+                    "msps": {
+                        "type": "array",
+                        "description": "The list of MSP for the site.",
+                        "enum": [
+                            "parentalcontrol:msp"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteMsps"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the site.",
+                        "example": "Example name"
+                    },
+                    "nas_gateways": {
+                        "type": "array",
+                        "description": "The list of accounting log servers.",
+                        "enum": [
+                            "parentalcontrol:nasgateway"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteNasGateways"
+                        }
+                    },
+                    "nas_port": {
+                        "type": "integer",
+                        "description": "The port number to reach the collector.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "proxy_rpz_passthru": {
+                        "type": "boolean",
+                        "description": "Enforce the global proxy list.",
+                        "example": false
+                    },
+                    "spms": {
+                        "type": "array",
+                        "description": "The list of SPM for the site.",
+                        "enum": [
+                            "parentalcontrol:spm"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteSpms"
+                        }
+                    },
+                    "stop_anycast": {
+                        "type": "boolean",
+                        "description": "Stop the anycast service when the subscriber service is in the interim state.",
+                        "example": false
+                    },
+                    "strict_nat": {
+                        "type": "boolean",
+                        "description": "Restrict subscriber cache entries to NATed clients.",
+                        "example": false
+                    },
+                    "subscriber_collection_type": {
+                        "type": "string",
+                        "description": "Subscriber collection type either RADIUS or API.",
+                        "enum": [
+                            "RADIUS",
+                            "API"
+                        ],
+                        "example": "Example subscriber_collection_type"
+                    }
+                }
+            },
+            "ParentalcontrolSubscribersiteAbss": {
+                "type": "object",
+                "properties": {
+                    "ip_address": {
+                        "type": "string",
+                        "description": "The IP address of addional blocking server.",
+                        "example": "Example ip_address"
+                    },
+                    "blocking_policy": {
+                        "type": "string",
+                        "description": "The blocking policy for the addional blocking server.",
+                        "example": "Example blocking_policy"
+                    }
+                }
+            },
+            "ParentalcontrolSubscribersiteApiMembers": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The Grid member name.",
+                        "example": "Example name"
+                    }
+                }
+            },
+            "ParentalcontrolSubscribersiteMembers": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The Grid member name.",
+                        "example": "Example name"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of member.",
+                        "enum": [
+                            "CLIENT",
+                            "COLLECTOR",
+                            "BOTH",
+                            "NONE"
+                        ],
+                        "readOnly": true,
+                        "example": "Example type"
+                    }
+                }
+            },
+            "ParentalcontrolSubscribersiteMsps": {
+                "type": "object",
+                "properties": {
+                    "ip_address": {
+                        "type": "string",
+                        "description": "The IP Address of MSP.",
+                        "example": "Example ip_address"
+                    }
+                }
+            },
+            "ParentalcontrolSubscribersiteNasGateways": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of NAS gateway.",
+                        "example": "Example name"
+                    },
+                    "ip_address": {
+                        "type": "string",
+                        "description": "The IP address of NAS gateway.",
+                        "example": "Example ip_address"
+                    },
+                    "shared_secret": {
+                        "type": "string",
+                        "description": "The protocol MD5 phrase.",
+                        "writeOnly": true,
+                        "example": "Example shared_secret"
+                    },
+                    "send_ack": {
+                        "type": "boolean",
+                        "description": "Determines whether an acknowledge needs to be sent.",
+                        "example": false
+                    },
+                    "message_rate": {
+                        "type": "integer",
+                        "description": "The message rate per server.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The human readable comment for NAS gateway.",
+                        "example": "Example comment"
+                    }
+                }
+            },
+            "ParentalcontrolSubscribersiteSpms": {
+                "type": "object",
+                "properties": {
+                    "ip_address": {
+                        "type": "string",
+                        "description": "The IP Address of SPM.",
+                        "example": "Example ip_address"
+                    }
+                }
+            },
+            "ListParentalcontrolSubscribersiteResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscribersite__ objects.",
+                        "type": "array",
+                        "title": "ListParentalcontrolSubscribersiteResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscribersite__ objects.",
+                        "type": "object",
+                        "title": "ListParentalcontrolSubscribersiteResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateParentalcontrolSubscribersiteResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ParentalcontrolSubscribersite__ in object format.",
+                        "type": "object",
+                        "title": "CreateParentalcontrolSubscribersiteResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ParentalcontrolSubscribersite__.",
+                        "type": "string",
+                        "title": "CreateParentalcontrolSubscribersiteResponse"
+                    }
+                ]
+            },
+            "GetParentalcontrolSubscribersiteResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                    },
+                    {
+                        "description": "The response format to retrieve __ParentalcontrolSubscribersite__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetParentalcontrolSubscribersiteResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateParentalcontrolSubscribersiteResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ParentalcontrolSubscribersite__ in object format.",
+                        "type": "object",
+                        "title": "UpdateParentalcontrolSubscribersiteResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ParentalcontrolSubscribersite"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ParentalcontrolSubscribersite__ .",
+                        "type": "string",
+                        "title": "UpdateParentalcontrolSubscribersiteResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

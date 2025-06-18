@@ -1,0 +1,1539 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox SMARTFOLDER API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI SMARTFOLDER objects",
+        "version": "2.13.6",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "SmartfolderChildren",
+            "description": "Operations for smartfolder:children objects"
+        },
+        {
+            "name": "SmartfolderGlobal",
+            "description": "Operations for smartfolder:global objects"
+        },
+        {
+            "name": "SmartfolderPersonal",
+            "description": "Operations for smartfolder:personal objects"
+        }
+    ],
+    "paths": {
+        "/smartfolder:children": {
+            "get": {
+                "tags": [
+                    "SmartfolderChildren"
+                ],
+                "operationId": "SmartfolderChildrenList",
+                "summary": "Retrieve smartfolder:children objects",
+                "description": "Returns a list of smartfolder:children objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListSmartfolderChildrenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/smartfolder:children/{reference}": {
+            "get": {
+                "tags": [
+                    "SmartfolderChildren"
+                ],
+                "operationId": "SmartfolderChildrenRead",
+                "summary": "Get a specific smartfolder:children object",
+                "description": "Returns a specific smartfolder:children object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:children object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetSmartfolderChildrenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/smartfolder:global": {
+            "get": {
+                "tags": [
+                    "SmartfolderGlobal"
+                ],
+                "operationId": "SmartfolderGlobalList",
+                "summary": "Retrieve smartfolder:global objects",
+                "description": "Returns a list of smartfolder:global objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListSmartfolderGlobalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "SmartfolderGlobal"
+                ],
+                "operationId": "SmartfolderGlobalCreate",
+                "summary": "Create a smartfolder:global object",
+                "description": "Creates a new smartfolder:global object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateSmartfolderGlobalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_smartfolder_smartfolder_global",
+                "x-tf-datasource": "nios_smartfolder_smartfolder_global"
+            }
+        },
+        "/smartfolder:global/{reference}": {
+            "get": {
+                "tags": [
+                    "SmartfolderGlobal"
+                ],
+                "operationId": "SmartfolderGlobalRead",
+                "summary": "Get a specific smartfolder:global object",
+                "description": "Returns a specific smartfolder:global object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:global object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetSmartfolderGlobalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "SmartfolderGlobal"
+                ],
+                "operationId": "SmartfolderGlobalUpdate",
+                "summary": "Update a smartfolder:global object",
+                "description": "Updates a specific smartfolder:global object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:global object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateSmartfolderGlobalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "SmartfolderGlobal"
+                ],
+                "operationId": "SmartfolderGlobalDelete",
+                "summary": "Delete a smartfolder:global object",
+                "description": "Deletes a specific smartfolder:global object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:global object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/smartfolder:personal": {
+            "get": {
+                "tags": [
+                    "SmartfolderPersonal"
+                ],
+                "operationId": "SmartfolderPersonalList",
+                "summary": "Retrieve smartfolder:personal objects",
+                "description": "Returns a list of smartfolder:personal objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListSmartfolderPersonalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "SmartfolderPersonal"
+                ],
+                "operationId": "SmartfolderPersonalCreate",
+                "summary": "Create a smartfolder:personal object",
+                "description": "Creates a new smartfolder:personal object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateSmartfolderPersonalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_smartfolder_smartfolder_personal",
+                "x-tf-datasource": "nios_smartfolder_smartfolder_personal"
+            }
+        },
+        "/smartfolder:personal/{reference}": {
+            "get": {
+                "tags": [
+                    "SmartfolderPersonal"
+                ],
+                "operationId": "SmartfolderPersonalRead",
+                "summary": "Get a specific smartfolder:personal object",
+                "description": "Returns a specific smartfolder:personal object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:personal object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetSmartfolderPersonalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "SmartfolderPersonal"
+                ],
+                "operationId": "SmartfolderPersonalUpdate",
+                "summary": "Update a smartfolder:personal object",
+                "description": "Updates a specific smartfolder:personal object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:personal object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateSmartfolderPersonalResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "SmartfolderPersonal"
+                ],
+                "operationId": "SmartfolderPersonalDelete",
+                "summary": "Delete a smartfolder:personal object",
+                "description": "Deletes a specific smartfolder:personal object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the smartfolder:personal object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "SmartfolderChildren": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "resource": {
+                        "type": "string",
+                        "description": "The object retuned by the Smart Folder query.",
+                        "readOnly": true,
+                        "example": "Example resource"
+                    },
+                    "value": {
+                        "$ref": "#/components/schemas/SmartfolderChildrenValue"
+                    },
+                    "value_type": {
+                        "type": "string",
+                        "description": "The type of the returned value.",
+                        "enum": [
+                            "STRING",
+                            "INTEGER",
+                            "BOOLEAN",
+                            "DATE",
+                            "ENUM",
+                            "EMAIL",
+                            "URL",
+                            "OBJTYPE"
+                        ],
+                        "readOnly": true,
+                        "example": "Example value_type"
+                    }
+                }
+            },
+            "SmartfolderChildrenValue": {
+                "type": "object",
+                "properties": {
+                    "value_integer": {
+                        "type": "integer",
+                        "description": "The integer value of the Smart Folder query.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value_string": {
+                        "type": "string",
+                        "description": "The string value of the Smart Folder query.",
+                        "example": "Example value_string"
+                    },
+                    "value_date": {
+                        "type": "integer",
+                        "description": "The timestamp value of the Smart Folder query.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value_boolean": {
+                        "type": "boolean",
+                        "description": "The boolean value of the Smart Folder query.",
+                        "example": false
+                    }
+                }
+            },
+            "ListSmartfolderChildrenResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __SmartfolderChildren__ objects.",
+                        "type": "array",
+                        "title": "ListSmartfolderChildrenResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderChildren"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __SmartfolderChildren__ objects.",
+                        "type": "object",
+                        "title": "ListSmartfolderChildrenResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SmartfolderChildren"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetSmartfolderChildrenResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/SmartfolderChildren"
+                    },
+                    {
+                        "description": "The response format to retrieve __SmartfolderChildren__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetSmartfolderChildrenResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderChildren"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateSmartfolderChildrenResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __SmartfolderChildren__ in object format.",
+                        "type": "object",
+                        "title": "UpdateSmartfolderChildrenResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderChildren"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __SmartfolderChildren__ .",
+                        "type": "string",
+                        "title": "UpdateSmartfolderChildrenResponse"
+                    }
+                ]
+            },
+            "SmartfolderGlobal": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The global Smart Folder descriptive comment.",
+                        "example": "Example comment"
+                    },
+                    "group_bys": {
+                        "type": "array",
+                        "description": "Global Smart Folder grouping rules.",
+                        "enum": [
+                            "smartfolder:groupby"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderGlobalGroupBys"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The global Smart Folder name.",
+                        "example": "Example name"
+                    },
+                    "query_items": {
+                        "type": "array",
+                        "description": "The global Smart Folder filter queries.",
+                        "enum": [
+                            "smartfolder:queryitem"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderGlobalQueryItems"
+                        }
+                    }
+                }
+            },
+            "SmartfolderGlobalGroupBys": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "The name of the Smart Folder grouping attribute.",
+                        "example": "Example value"
+                    },
+                    "value_type": {
+                        "type": "string",
+                        "description": "The type of the Smart Folder grouping attribute value.",
+                        "enum": [
+                            "NORMAL",
+                            "EXTATTR"
+                        ],
+                        "example": "Example value_type"
+                    },
+                    "enable_grouping": {
+                        "type": "boolean",
+                        "description": "Determines whether the grouping is enabled.",
+                        "example": false
+                    }
+                }
+            },
+            "SmartfolderGlobalQueryItems": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The Smart Folder query name.",
+                        "example": "Example name"
+                    },
+                    "field_type": {
+                        "type": "string",
+                        "description": "The Smart Folder query field type.",
+                        "enum": [
+                            "NORMAL",
+                            "EXTATTR"
+                        ],
+                        "example": "Example field_type"
+                    },
+                    "operator": {
+                        "type": "string",
+                        "description": "The Smart Folder operator used in query.",
+                        "enum": [
+                            "EQ",
+                            "GT",
+                            "GEQ",
+                            "LT",
+                            "LEQ",
+                            "HAS_VALUE",
+                            "BEGINS_WITH",
+                            "ENDS_WITH",
+                            "CONTAINS",
+                            "RELATIVE_DATE",
+                            "RISES_BY",
+                            "DROPS_BY",
+                            "INHERITANCE_STATE_EQUALS",
+                            "IP_ADDR_WITHIN",
+                            "SUFFIX_MATCH",
+                            "MATCH_EXPR"
+                        ],
+                        "example": "Example operator"
+                    },
+                    "op_match": {
+                        "type": "boolean",
+                        "description": "Determines whether the query operator should match.",
+                        "example": false
+                    },
+                    "value_type": {
+                        "type": "string",
+                        "description": "The Smart Folder query value type.",
+                        "enum": [
+                            "STRING",
+                            "INTEGER",
+                            "BOOLEAN",
+                            "DATE",
+                            "ENUM",
+                            "EMAIL",
+                            "URL",
+                            "OBJTYPE"
+                        ],
+                        "example": "Example value_type"
+                    },
+                    "value": {
+                        "description": "The Smart Folder query value.",
+                        "enum": [
+                            "smartfolder:queryitemvalue"
+                        ],
+                        "$ref": "#/components/schemas/SmartfolderglobalqueryitemsValue"
+                    }
+                }
+            },
+            "SmartfolderglobalqueryitemsValue": {
+                "type": "object",
+                "properties": {
+                    "value_integer": {
+                        "type": "integer",
+                        "description": "The integer value of the Smart Folder query.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value_string": {
+                        "type": "string",
+                        "description": "The string value of the Smart Folder query.",
+                        "example": "Example value_string"
+                    },
+                    "value_date": {
+                        "type": "integer",
+                        "description": "The timestamp value of the Smart Folder query.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value_boolean": {
+                        "type": "boolean",
+                        "description": "The boolean value of the Smart Folder query.",
+                        "example": false
+                    }
+                }
+            },
+            "ListSmartfolderGlobalResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __SmartfolderGlobal__ objects.",
+                        "type": "array",
+                        "title": "ListSmartfolderGlobalResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderGlobal"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __SmartfolderGlobal__ objects.",
+                        "type": "object",
+                        "title": "ListSmartfolderGlobalResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SmartfolderGlobal"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateSmartfolderGlobalResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __SmartfolderGlobal__ in object format.",
+                        "type": "object",
+                        "title": "CreateSmartfolderGlobalResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __SmartfolderGlobal__.",
+                        "type": "string",
+                        "title": "CreateSmartfolderGlobalResponse"
+                    }
+                ]
+            },
+            "GetSmartfolderGlobalResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/SmartfolderGlobal"
+                    },
+                    {
+                        "description": "The response format to retrieve __SmartfolderGlobal__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetSmartfolderGlobalResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateSmartfolderGlobalResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __SmartfolderGlobal__ in object format.",
+                        "type": "object",
+                        "title": "UpdateSmartfolderGlobalResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __SmartfolderGlobal__ .",
+                        "type": "string",
+                        "title": "UpdateSmartfolderGlobalResponse"
+                    }
+                ]
+            },
+            "SmartfolderPersonal": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The personal Smart Folder descriptive comment.",
+                        "example": "Example comment"
+                    },
+                    "group_bys": {
+                        "type": "array",
+                        "description": "The personal Smart Folder groupping rules.",
+                        "enum": [
+                            "smartfolder:groupby"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderPersonalGroupBys"
+                        }
+                    },
+                    "is_shortcut": {
+                        "type": "boolean",
+                        "description": "Determines whether the personal Smart Folder is a shortcut.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The personal Smart Folder name.",
+                        "example": "Example name"
+                    },
+                    "query_items": {
+                        "type": "array",
+                        "description": "The personal Smart Folder filter queries.",
+                        "enum": [
+                            "smartfolder:queryitem"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderPersonalQueryItems"
+                        }
+                    }
+                }
+            },
+            "SmartfolderPersonalGroupBys": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "The name of the Smart Folder grouping attribute.",
+                        "example": "Example value"
+                    },
+                    "value_type": {
+                        "type": "string",
+                        "description": "The type of the Smart Folder grouping attribute value.",
+                        "enum": [
+                            "NORMAL",
+                            "EXTATTR"
+                        ],
+                        "example": "Example value_type"
+                    },
+                    "enable_grouping": {
+                        "type": "boolean",
+                        "description": "Determines whether the grouping is enabled.",
+                        "example": false
+                    }
+                }
+            },
+            "SmartfolderPersonalQueryItems": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The Smart Folder query name.",
+                        "example": "Example name"
+                    },
+                    "field_type": {
+                        "type": "string",
+                        "description": "The Smart Folder query field type.",
+                        "enum": [
+                            "NORMAL",
+                            "EXTATTR"
+                        ],
+                        "example": "Example field_type"
+                    },
+                    "operator": {
+                        "type": "string",
+                        "description": "The Smart Folder operator used in query.",
+                        "enum": [
+                            "EQ",
+                            "GT",
+                            "GEQ",
+                            "LT",
+                            "LEQ",
+                            "HAS_VALUE",
+                            "BEGINS_WITH",
+                            "ENDS_WITH",
+                            "CONTAINS",
+                            "RELATIVE_DATE",
+                            "RISES_BY",
+                            "DROPS_BY",
+                            "INHERITANCE_STATE_EQUALS",
+                            "IP_ADDR_WITHIN",
+                            "SUFFIX_MATCH",
+                            "MATCH_EXPR"
+                        ],
+                        "example": "Example operator"
+                    },
+                    "op_match": {
+                        "type": "boolean",
+                        "description": "Determines whether the query operator should match.",
+                        "example": false
+                    },
+                    "value_type": {
+                        "type": "string",
+                        "description": "The Smart Folder query value type.",
+                        "enum": [
+                            "STRING",
+                            "INTEGER",
+                            "BOOLEAN",
+                            "DATE",
+                            "ENUM",
+                            "EMAIL",
+                            "URL",
+                            "OBJTYPE"
+                        ],
+                        "example": "Example value_type"
+                    },
+                    "value": {
+                        "description": "The Smart Folder query value.",
+                        "enum": [
+                            "smartfolder:queryitemvalue"
+                        ],
+                        "$ref": "#/components/schemas/SmartfolderpersonalqueryitemsValue"
+                    }
+                }
+            },
+            "SmartfolderpersonalqueryitemsValue": {
+                "type": "object",
+                "properties": {
+                    "value_integer": {
+                        "type": "integer",
+                        "description": "The integer value of the Smart Folder query.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value_string": {
+                        "type": "string",
+                        "description": "The string value of the Smart Folder query.",
+                        "example": "Example value_string"
+                    },
+                    "value_date": {
+                        "type": "integer",
+                        "description": "The timestamp value of the Smart Folder query.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "value_boolean": {
+                        "type": "boolean",
+                        "description": "The boolean value of the Smart Folder query.",
+                        "example": false
+                    }
+                }
+            },
+            "ListSmartfolderPersonalResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __SmartfolderPersonal__ objects.",
+                        "type": "array",
+                        "title": "ListSmartfolderPersonalResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/SmartfolderPersonal"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __SmartfolderPersonal__ objects.",
+                        "type": "object",
+                        "title": "ListSmartfolderPersonalResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SmartfolderPersonal"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateSmartfolderPersonalResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __SmartfolderPersonal__ in object format.",
+                        "type": "object",
+                        "title": "CreateSmartfolderPersonalResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __SmartfolderPersonal__.",
+                        "type": "string",
+                        "title": "CreateSmartfolderPersonalResponse"
+                    }
+                ]
+            },
+            "GetSmartfolderPersonalResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/SmartfolderPersonal"
+                    },
+                    {
+                        "description": "The response format to retrieve __SmartfolderPersonal__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetSmartfolderPersonalResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateSmartfolderPersonalResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __SmartfolderPersonal__ in object format.",
+                        "type": "object",
+                        "title": "UpdateSmartfolderPersonalResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __SmartfolderPersonal__ .",
+                        "type": "string",
+                        "title": "UpdateSmartfolderPersonalResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

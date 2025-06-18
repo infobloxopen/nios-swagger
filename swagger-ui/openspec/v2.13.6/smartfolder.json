@@ -4,13 +4,8 @@
         "title": "Infoblox SMARTFOLDER API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI SMARTFOLDER objects",
         "version": "2.13.6",
-        "termsOfService": "https://www.infoblox.com",
         "contact": {
             "name": "Infoblox",
-            "url": "https://www.infoblox.com"
-        },
-        "license": {
-            "name": "Infoblox License",
             "url": "https://www.infoblox.com"
         }
     },

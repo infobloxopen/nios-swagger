@@ -4,13 +4,8 @@
         "title": "Infoblox DHCP API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI DHCP objects",
         "version": "2.13.6",
-        "termsOfService": "https://www.infoblox.com",
         "contact": {
             "name": "Infoblox",
-            "url": "https://www.infoblox.com"
-        },
-        "license": {
-            "name": "Infoblox License",
             "url": "https://www.infoblox.com"
         }
     },
@@ -3003,7 +2998,11 @@
                 ],
                 "x-tf-resource": "nios_dhcp_fixedaddress",
                 "x-tf-datasource": "nios_dhcp_fixedaddress",
-                "x-sdk-default-ext-attrs": true
+                "x-sdk-default-ext-attrs": true,
+                "x-sdk-post-function-call": [
+                    "Ipv4addr"
+                ],
+                "x-tf-function-call": true
             }
         },
         "/fixedaddress/{reference}": {
@@ -3131,7 +3130,11 @@
                         "basicAuth": []
                     }
                 ],
-                "x-sdk-default-ext-attrs": true
+                "x-sdk-default-ext-attrs": true,
+                "x-sdk-put-function-call": [
+                    "Ipv4addr"
+                ],
+                "x-tf-function-call": true
             },
             "delete": {
                 "tags": [
@@ -4464,7 +4467,11 @@
                 ],
                 "x-tf-resource": "nios_dhcp_ipv6fixedaddress",
                 "x-tf-datasource": "nios_dhcp_ipv6fixedaddress",
-                "x-sdk-default-ext-attrs": true
+                "x-sdk-default-ext-attrs": true,
+                "x-sdk-post-function-call": [
+                    "Ipv6addr"
+                ],
+                "x-tf-function-call": true
             }
         },
         "/ipv6fixedaddress/{reference}": {
@@ -4592,7 +4599,11 @@
                         "basicAuth": []
                     }
                 ],
-                "x-sdk-default-ext-attrs": true
+                "x-sdk-default-ext-attrs": true,
+                "x-sdk-put-function-call": [
+                    "Ipv6addr"
+                ],
+                "x-tf-function-call": true
             },
             "delete": {
                 "tags": [
@@ -9675,9 +9686,37 @@
                         "example": false
                     },
                     "ipv4addr": {
-                        "type": "string",
                         "description": "The IPv4 Address of the fixed address.",
-                        "example": "Example ipv4addr"
+                        "oneOf": [
+                            {
+                                "type": "string",
+                                "description": "fixedaddress: The IPv4 Address of the fixed address."
+                            },
+                            {
+                                "type": "object",
+                                "description": "fixedaddress: The IPv4 Address of the fixed address.",
+                                "properties": {
+                                    "_object_function": {
+                                        "type": "string"
+                                    },
+                                    "_parameters": {
+                                        "type": "object"
+                                    },
+                                    "_result_field": {
+                                        "type": "string"
+                                    },
+                                    "_object": {
+                                        "type": "string"
+                                    },
+                                    "_object_parameters": {
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "func_call": {
+                        "$ref": "#/components/schemas/FuncCall"
                     },
                     "is_invalid_mac": {
                         "type": "boolean",
@@ -9856,6 +9895,39 @@
                         "type": "boolean",
                         "description": "If set to true, the SNMP credential will override member-level settings.",
                         "example": false
+                    }
+                }
+            },
+            "FuncCall": {
+                "type": "object",
+                "description": "Function Call attribute",
+                "required": [
+                    "attribute_name"
+                ],
+                "properties": {
+                    "attribute_name": {
+                        "type": "string",
+                        "description": "The attribute to be called."
+                    },
+                    "_object_function": {
+                        "type": "string",
+                        "description": "The function to be called."
+                    },
+                    "_parameters": {
+                        "type": "object",
+                        "description": "The parameters for the function."
+                    },
+                    "_result_field": {
+                        "type": "string",
+                        "description": "The result field of the function."
+                    },
+                    "_object": {
+                        "type": "string",
+                        "description": "The object to be called."
+                    },
+                    "_object_parameters": {
+                        "type": "object",
+                        "description": "The parameters for the object."
                     }
                 }
             },
@@ -11711,9 +11783,37 @@
                         }
                     },
                     "ipv6addr": {
-                        "type": "string",
                         "description": "The IPv6 Address of the DHCP IPv6 fixed address.",
-                        "example": "Example ipv6addr"
+                        "oneOf": [
+                            {
+                                "type": "string",
+                                "description": "ipv6fixedaddress: The IPv6 Address of the DHCP IPv6 fixed address."
+                            },
+                            {
+                                "type": "object",
+                                "description": "ipv6fixedaddress: The IPv6 Address of the DHCP IPv6 fixed address.",
+                                "properties": {
+                                    "_object_function": {
+                                        "type": "string"
+                                    },
+                                    "_parameters": {
+                                        "type": "object"
+                                    },
+                                    "_result_field": {
+                                        "type": "string"
+                                    },
+                                    "_object": {
+                                        "type": "string"
+                                    },
+                                    "_object_parameters": {
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "func_call": {
+                        "$ref": "#/components/schemas/FuncCall"
                     },
                     "ipv6prefix": {
                         "type": "string",

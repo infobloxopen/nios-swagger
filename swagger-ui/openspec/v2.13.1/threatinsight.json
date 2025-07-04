@@ -1,0 +1,1326 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox THREATINSIGHT API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI THREATINSIGHT objects",
+        "version": "2.13.1",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "ThreatanalyticsAnalyticsWhitelist",
+            "description": "Operations for threatanalytics:analytics_whitelist objects"
+        },
+        {
+            "name": "ThreatinsightCloudclient",
+            "description": "Operations for threatinsight:cloudclient objects"
+        },
+        {
+            "name": "ThreatanalyticsModuleset",
+            "description": "Operations for threatanalytics:moduleset objects"
+        },
+        {
+            "name": "ThreatanalyticsWhitelist",
+            "description": "Operations for threatanalytics:whitelist objects"
+        }
+    ],
+    "paths": {
+        "/threatanalytics:analytics_whitelist": {
+            "get": {
+                "tags": [
+                    "ThreatanalyticsAnalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsAnalyticsWhitelistList",
+                "summary": "Retrieve threatanalytics:analytics_whitelist objects",
+                "description": "Returns a list of threatanalytics:analytics_whitelist objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatanalyticsAnalyticsWhitelistResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatanalytics:analytics_whitelist/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatanalyticsAnalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsAnalyticsWhitelistRead",
+                "summary": "Get a specific threatanalytics:analytics_whitelist object",
+                "description": "Returns a specific threatanalytics:analytics_whitelist object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatanalytics:analytics_whitelist object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatanalyticsAnalyticsWhitelistResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatinsight:cloudclient": {
+            "get": {
+                "tags": [
+                    "ThreatinsightCloudclient"
+                ],
+                "operationId": "ThreatinsightCloudclientList",
+                "summary": "Retrieve threatinsight:cloudclient objects",
+                "description": "Returns a list of threatinsight:cloudclient objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatinsightCloudclientResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatinsight:cloudclient/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatinsightCloudclient"
+                ],
+                "operationId": "ThreatinsightCloudclientRead",
+                "summary": "Get a specific threatinsight:cloudclient object",
+                "description": "Returns a specific threatinsight:cloudclient object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatinsight:cloudclient object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatinsightCloudclientResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatinsightCloudclient"
+                ],
+                "operationId": "ThreatinsightCloudclientUpdate",
+                "summary": "Update a threatinsight:cloudclient object",
+                "description": "Updates a specific threatinsight:cloudclient object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatinsight:cloudclient object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatinsightCloudclient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatinsightCloudclientResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatanalytics:moduleset": {
+            "get": {
+                "tags": [
+                    "ThreatanalyticsModuleset"
+                ],
+                "operationId": "ThreatanalyticsModulesetList",
+                "summary": "Retrieve threatanalytics:moduleset objects",
+                "description": "Returns a list of threatanalytics:moduleset objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatanalyticsModulesetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatanalytics:moduleset/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatanalyticsModuleset"
+                ],
+                "operationId": "ThreatanalyticsModulesetRead",
+                "summary": "Get a specific threatanalytics:moduleset object",
+                "description": "Returns a specific threatanalytics:moduleset object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatanalytics:moduleset object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatanalyticsModulesetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatanalytics:whitelist": {
+            "get": {
+                "tags": [
+                    "ThreatanalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsWhitelistList",
+                "summary": "Retrieve threatanalytics:whitelist objects",
+                "description": "Returns a list of threatanalytics:whitelist objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatanalyticsWhitelistResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ThreatanalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsWhitelistCreate",
+                "summary": "Create a threatanalytics:whitelist object",
+                "description": "Creates a new threatanalytics:whitelist object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateThreatanalyticsWhitelistResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "nios_threatinsight_threatanalytics_whitelist",
+                "x-tf-datasource": "nios_threatinsight_threatanalytics_whitelist"
+            }
+        },
+        "/threatanalytics:whitelist/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatanalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsWhitelistRead",
+                "summary": "Get a specific threatanalytics:whitelist object",
+                "description": "Returns a specific threatanalytics:whitelist object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatanalytics:whitelist object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatanalyticsWhitelistResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatanalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsWhitelistUpdate",
+                "summary": "Update a threatanalytics:whitelist object",
+                "description": "Updates a specific threatanalytics:whitelist object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatanalytics:whitelist object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatanalyticsWhitelistResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ThreatanalyticsWhitelist"
+                ],
+                "operationId": "ThreatanalyticsWhitelistDelete",
+                "summary": "Delete a threatanalytics:whitelist object",
+                "description": "Deletes a specific threatanalytics:whitelist object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatanalytics:whitelist object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "ThreatanalyticsAnalyticsWhitelist": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Whitelist version string.",
+                        "readOnly": true,
+                        "example": "Example version"
+                    }
+                }
+            },
+            "ListThreatanalyticsAnalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsAnalyticsWhitelist__ objects.",
+                        "type": "array",
+                        "title": "ListThreatanalyticsAnalyticsWhitelistResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatanalyticsAnalyticsWhitelist"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsAnalyticsWhitelist__ objects.",
+                        "type": "object",
+                        "title": "ListThreatanalyticsAnalyticsWhitelistResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatanalyticsAnalyticsWhitelist"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatanalyticsAnalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatanalyticsAnalyticsWhitelist"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsAnalyticsWhitelist__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatanalyticsAnalyticsWhitelistResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsAnalyticsWhitelist"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatanalyticsAnalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatanalyticsAnalyticsWhitelist__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatanalyticsAnalyticsWhitelistResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsAnalyticsWhitelist"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatanalyticsAnalyticsWhitelist__ .",
+                        "type": "string",
+                        "title": "UpdateThreatanalyticsAnalyticsWhitelistResponse"
+                    }
+                ]
+            },
+            "ThreatinsightCloudclient": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "blacklist_rpz_list": {
+                        "type": "array",
+                        "description": "The RPZs to which you apply newly detected domains through the Infoblox Threat Insight Cloud Client.",
+                        "enum": [
+                            "zone_rp"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "zone_rp"
+                            ]
+                        }
+                    },
+                    "enable": {
+                        "type": "boolean",
+                        "description": "Determines whether the Threat Insight in Cloud Client is enabled.",
+                        "example": false
+                    },
+                    "force_refresh": {
+                        "type": "boolean",
+                        "description": "Force a refresh if at least one RPZ is configured.",
+                        "writeOnly": true,
+                        "example": false
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "The time interval (in seconds) for requesting newly detected domains by the Infoblox Threat Insight Cloud Client and applying them to the list of configured RPZs.",
+                        "format": "int64",
+                        "example": 1
+                    }
+                }
+            },
+            "ListThreatinsightCloudclientResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatinsightCloudclient__ objects.",
+                        "type": "array",
+                        "title": "ListThreatinsightCloudclientResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatinsightCloudclient"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatinsightCloudclient__ objects.",
+                        "type": "object",
+                        "title": "ListThreatinsightCloudclientResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatinsightCloudclient"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatinsightCloudclientResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatinsightCloudclient"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatinsightCloudclient__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatinsightCloudclientResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatinsightCloudclient"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatinsightCloudclientResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatinsightCloudclient__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatinsightCloudclientResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatinsightCloudclient"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatinsightCloudclient__ .",
+                        "type": "string",
+                        "title": "UpdateThreatinsightCloudclientResponse"
+                    }
+                ]
+            },
+            "ThreatanalyticsModuleset": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version number of the threat analytics module set.",
+                        "readOnly": true,
+                        "example": "Example version"
+                    }
+                }
+            },
+            "ListThreatanalyticsModulesetResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsModuleset__ objects.",
+                        "type": "array",
+                        "title": "ListThreatanalyticsModulesetResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatanalyticsModuleset"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsModuleset__ objects.",
+                        "type": "object",
+                        "title": "ListThreatanalyticsModulesetResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatanalyticsModuleset"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatanalyticsModulesetResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatanalyticsModuleset"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsModuleset__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatanalyticsModulesetResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsModuleset"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatanalyticsModulesetResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatanalyticsModuleset__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatanalyticsModulesetResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsModuleset"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatanalyticsModuleset__ .",
+                        "type": "string",
+                        "title": "UpdateThreatanalyticsModulesetResponse"
+                    }
+                ]
+            },
+            "ThreatanalyticsWhitelist": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The descriptive comment for the threat analytics whitelist.",
+                        "example": "Example comment"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Determines whether the threat analytics whitelist is disabled.",
+                        "example": false
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "The FQDN of the threat analytics whitelist.",
+                        "example": "Example fqdn"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the threat analytics whitelist.",
+                        "enum": [
+                            "SYSTEM",
+                            "CUSTOM",
+                            "BOTH"
+                        ],
+                        "readOnly": true,
+                        "example": "Example type"
+                    }
+                }
+            },
+            "ListThreatanalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsWhitelist__ objects.",
+                        "type": "array",
+                        "title": "ListThreatanalyticsWhitelistResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsWhitelist__ objects.",
+                        "type": "object",
+                        "title": "ListThreatanalyticsWhitelistResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateThreatanalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ThreatanalyticsWhitelist__ in object format.",
+                        "type": "object",
+                        "title": "CreateThreatanalyticsWhitelistResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ThreatanalyticsWhitelist__.",
+                        "type": "string",
+                        "title": "CreateThreatanalyticsWhitelistResponse"
+                    }
+                ]
+            },
+            "GetThreatanalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatanalyticsWhitelist__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatanalyticsWhitelistResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatanalyticsWhitelistResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatanalyticsWhitelist__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatanalyticsWhitelistResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatanalyticsWhitelist"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatanalyticsWhitelist__ .",
+                        "type": "string",
+                        "title": "UpdateThreatanalyticsWhitelistResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

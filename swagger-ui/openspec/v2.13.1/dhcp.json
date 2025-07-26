@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox DHCP API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI DHCP objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -5089,24 +5089,6 @@
                         }
                     },
                     {
-                        "name": "mac_address",
-                        "in": "query",
-                        "description": "The MAC address for this IPv6 fixed address.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "match_client",
-                        "in": "query",
-                        "description": "The match_client value for this fixed address. Valid values are: \"DUID\": The fixed IP address is leased to the matching DUID. \"MAC_ADDRESS\": The fixed IP address is leased to the matching MAC address.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "network",
                         "in": "query",
                         "description": "The network to which this IPv6 fixed address belongs, in IPv6 Address/CIDR format.",
@@ -6858,15 +6840,6 @@
                         }
                     },
                     {
-                        "name": "binding_state",
-                        "in": "query",
-                        "description": "The binding state for the current lease. Following are some of the values this field can be set to: * ABANDONED: The Infoblox appliance cannot lease this IP address because the appliance received a response when it pinged the address. * ACTIVE: The lease is currently in use by a DHCP client. * EXPIRED: The lease was in use, but the DHCP client never renewed it, so it is no longer valid. * FREE: The lease is available for clients to use. * RELEASED: The DHCP client returned the lease to the appliance.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "client_hostname",
                         "in": "query",
                         "description": "The client_hostname of a DHCP Lease object. This field specifies the host name that the DHCP client sends to the Infoblox appliance using DHCP option 12.",
@@ -6942,15 +6915,6 @@
                         "name": "remote_id",
                         "in": "query",
                         "description": "This field represents the \"Remote ID\" sub-option of DHCP option 82. Remote ID can be in ASCII form (e.g. ``\"abcd\"``) or in colon-separated HEX form (e.g. ``1:2:ab:cd``). HEX representation is used only when the sub-option value contains unprintable characters. If a remote ID sub-option value is in ASCII form, it is always enclosed in quotes to prevent ambiguous values (e.g. ``\"10:20\"`` - ASCII 5-byte string; ``10:20`` - HEX 2-byte value). * ASCII representation is used if the remote ID sub-option contains only printable ASCII characters (ASCII characters in range ``x20-0x7E``). * The backslash symbol (``\\``) is used as an escape symbol to escape the quote symbol (``\"``) in an ASCII string. * Double backslashes (``\\\\``) are used to represent the backslash symbol (``\\``) in an ASCII string. * HEX representation is used only when the remote ID sub-option value contains unprintable characters and is normalized as follows: * starting zero is removed from digits: ``1``, ``a`` - Valid; ``01``, ``0a`` - Invalid; * lowercase characters are used for symbols: ``fa`` - Valid; ``FA`` - Invalid. NIOS does not support the convertion between HEX and ASCII formats. Searches are performed using the exact same format and value as the sub-option is represented. Query examples assume the following leases are stored in the database: .. tabularcolumns:: |p{1in}|p{3in}|p{2in}| ========= ========================== ============================ Number Option field Extracted remote ID field ========= ========================== ============================ Lease01 agent.remote-id= \"00152654358700\" \"00152654358700\" agent.circuit-id= \"BX1-PORT-003\" Lease02 agent.remote-id=\"Dhcp \"Dhcp Relay 10\" Relay 10\" agent.circuit-id=\"Port008\" Lease03 agent.remote-id=\"00:01:02\" \"00:01:02\" Lease04 agent.remote-id=0:1:2 0:1:2 Lease05 agent.remote-id=02:03 2:3 Lease06 agent.remote-id=10:20 10:20 Lease07 agent.circuit-id= \"no-remote-id\" ========= ========================== ============================ Expected results: .. tabularcolumns:: |p{1.5in}|p{1.5in}|p{3in}| ========================= ==================== ============================= Query Returned leases Comments ========================= ==================== ============================= remote_id=01:02 None EXACT query. No results are expected. remote_id=\"Dhcp Relay 10\" Lease02 EXACT query for an ASCII value. remote_id=0:1:2 Lease04 EXACT query for a HEX value. remote_id=00:01:02 None EXACT query for a HEX value. No results are expected as the search value is not normalized to the same format used in the database. remote_id~=10 Lease02, Lease06 REGEX query. remote_id~=^\".*1 Lease01, Lease02, REGEX query. Only ASCII Lease03 values are expected due to the starting quote (``\"``) in the search value. remote_id~=^[^\"]*2 Lease04, Lease05, REGEX query. Only HEX values Lease06 are expected as the starting quote (``\"``) is excluded from the search value. remote_id=\"\" None EXACT query. No results are expected as no leases that contain an empty remote ID value exist in the database. ID value in the database. remote_id~=\"\" Lease01, Lease02, REGEX query. This query is Lease03, Lease04, expected to match any Lease05, Lease06 lease that contain remote ID set to any value. ========================= ==================== ============================= **NOTE:** Lease07 is not expected to be returned when searching for the remote ID sub-option.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "requested_options",
-                        "in": "query",
-                        "description": "This field contains the option request list received from the client. For DHCPv4, it includes \"Parameter Request List\" data and for DHCPv6, it includes \"Option Request Option\" data.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -8394,15 +8358,6 @@
                         "name": "ipv6_duid",
                         "in": "query",
                         "description": "The DUID value for this roaming host.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ipv6_mac_address",
-                        "in": "query",
-                        "description": "The MAC address for this roaming host.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -13401,20 +13356,6 @@
                             "$ref": "#/components/schemas/Ipv6fixedaddressLogicFilterRules"
                         }
                     },
-                    "mac_address": {
-                        "type": "string",
-                        "description": "The MAC address for this IPv6 fixed address.",
-                        "example": "Example mac_address"
-                    },
-                    "match_client": {
-                        "type": "string",
-                        "description": "The match_client value for this fixed address. Valid values are: \"DUID\": The fixed IP address is leased to the matching DUID. \"MAC_ADDRESS\": The fixed IP address is leased to the matching MAC address.",
-                        "enum": [
-                            "DUID",
-                            "MAC_ADDRESS"
-                        ],
-                        "example": "Example match_client"
-                    },
                     "ms_ad_user_data": {
                         "$ref": "#/components/schemas/Ipv6fixedaddressMsAdUserData"
                     },
@@ -15127,16 +15068,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -16465,12 +16396,6 @@
                         "description": "This field represents the \"Remote ID\" sub-option of DHCP option 82. Remote ID can be in ASCII form (e.g. ``\"abcd\"``) or in colon-separated HEX form (e.g. ``1:2:ab:cd``). HEX representation is used only when the sub-option value contains unprintable characters. If a remote ID sub-option value is in ASCII form, it is always enclosed in quotes to prevent ambiguous values (e.g. ``\"10:20\"`` - ASCII 5-byte string; ``10:20`` - HEX 2-byte value). * ASCII representation is used if the remote ID sub-option contains only printable ASCII characters (ASCII characters in range ``x20-0x7E``). * The backslash symbol (``\\``) is used as an escape symbol to escape the quote symbol (``\"``) in an ASCII string. * Double backslashes (``\\\\``) are used to represent the backslash symbol (``\\``) in an ASCII string. * HEX representation is used only when the remote ID sub-option value contains unprintable characters and is normalized as follows: * starting zero is removed from digits: ``1``, ``a`` - Valid; ``01``, ``0a`` - Invalid; * lowercase characters are used for symbols: ``fa`` - Valid; ``FA`` - Invalid. NIOS does not support the convertion between HEX and ASCII formats. Searches are performed using the exact same format and value as the sub-option is represented. Query examples assume the following leases are stored in the database: .. tabularcolumns:: |p{1in}|p{3in}|p{2in}| ========= ========================== ============================ Number Option field Extracted remote ID field ========= ========================== ============================ Lease01 agent.remote-id= \"00152654358700\" \"00152654358700\" agent.circuit-id= \"BX1-PORT-003\" Lease02 agent.remote-id=\"Dhcp \"Dhcp Relay 10\" Relay 10\" agent.circuit-id=\"Port008\" Lease03 agent.remote-id=\"00:01:02\" \"00:01:02\" Lease04 agent.remote-id=0:1:2 0:1:2 Lease05 agent.remote-id=02:03 2:3 Lease06 agent.remote-id=10:20 10:20 Lease07 agent.circuit-id= \"no-remote-id\" ========= ========================== ============================ Expected results: .. tabularcolumns:: |p{1.5in}|p{1.5in}|p{3in}| ========================= ==================== ============================= Query Returned leases Comments ========================= ==================== ============================= remote_id=01:02 None EXACT query. No results are expected. remote_id=\"Dhcp Relay 10\" Lease02 EXACT query for an ASCII value. remote_id=0:1:2 Lease04 EXACT query for a HEX value. remote_id=00:01:02 None EXACT query for a HEX value. No results are expected as the search value is not normalized to the same format used in the database. remote_id~=10 Lease02, Lease06 REGEX query. remote_id~=^\".*1 Lease01, Lease02, REGEX query. Only ASCII Lease03 values are expected due to the starting quote (``\"``) in the search value. remote_id~=^[^\"]*2 Lease04, Lease05, REGEX query. Only HEX values Lease06 are expected as the starting quote (``\"``) is excluded from the search value. remote_id=\"\" None EXACT query. No results are expected as no leases that contain an empty remote ID value exist in the database. ID value in the database. remote_id~=\"\" Lease01, Lease02, REGEX query. This query is Lease03, Lease04, expected to match any Lease05, Lease06 lease that contain remote ID set to any value. ========================= ==================== ============================= **NOTE:** Lease07 is not expected to be returned when searching for the remote ID sub-option.",
                         "readOnly": true,
                         "example": "Example remote_id"
-                    },
-                    "requested_options": {
-                        "type": "string",
-                        "description": "This field contains the option request list received from the client. For DHCPv4, it includes \"Parameter Request List\" data and for DHCPv6, it includes \"Option Request Option\" data.",
-                        "readOnly": true,
-                        "example": "Example requested_options"
                     },
                     "served_by": {
                         "type": "string",
@@ -18164,16 +18089,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -19751,11 +19666,6 @@
                         "type": "boolean",
                         "description": "Set this to True to use the roaming host name as its ddns_hostname.",
                         "example": false
-                    },
-                    "ipv6_mac_address": {
-                        "type": "string",
-                        "description": "The MAC address for this roaming host.",
-                        "example": "Example ipv6_mac_address"
                     },
                     "ipv6_match_option": {
                         "type": "string",

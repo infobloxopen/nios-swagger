@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox PARENTALCONTROL API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI PARENTALCONTROL objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -2382,11 +2382,6 @@
                         "description": "nas_contextual",
                         "example": "Example nas_contextual"
                     },
-                    "op_code": {
-                        "type": "string",
-                        "description": "op_code",
-                        "example": "Example op_code"
-                    },
                     "parental_control_policy": {
                         "type": "string",
                         "description": "parental_control_policy",
@@ -2534,23 +2529,6 @@
                             "$ref": "#/components/schemas/ParentalcontrolSubscribersiteAbss"
                         }
                     },
-                    "api_members": {
-                        "type": "array",
-                        "description": "The list of API members for the site.",
-                        "enum": [
-                            "parentalcontrol:siteapimember"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/ParentalcontrolSubscribersiteApiMembers"
-                        }
-                    },
-                    "api_port": {
-                        "type": "integer",
-                        "description": "The port number for gRPC API server.",
-                        "format": "int64",
-                        "readOnly": true,
-                        "example": 1
-                    },
                     "block_size": {
                         "type": "integer",
                         "description": "The size of the Deterministic NAT block-size.",
@@ -2692,15 +2670,6 @@
                         "type": "boolean",
                         "description": "Restrict subscriber cache entries to NATed clients.",
                         "example": false
-                    },
-                    "subscriber_collection_type": {
-                        "type": "string",
-                        "description": "Subscriber collection type either RADIUS or API.",
-                        "enum": [
-                            "RADIUS",
-                            "API"
-                        ],
-                        "example": "Example subscriber_collection_type"
                     }
                 }
             },
@@ -2716,16 +2685,6 @@
                         "type": "string",
                         "description": "The blocking policy for the addional blocking server.",
                         "example": "Example blocking_policy"
-                    }
-                }
-            },
-            "ParentalcontrolSubscribersiteApiMembers": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The Grid member name.",
-                        "example": "Example name"
                     }
                 }
             },

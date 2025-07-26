@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox DISCOVERY API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI DISCOVERY objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -2889,24 +2889,6 @@
                         "$ref": "#/components/parameters/Inheritance"
                     },
                     {
-                        "name": "accounts_list",
-                        "in": "query",
-                        "description": "The AWS Account IDs or GCP Project IDs list associated with this task.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "cdiscovery_file_token",
-                        "in": "query",
-                        "description": "The AWS account IDs or GCP Project IDs file's token.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "dns_view_private_ip",
                         "in": "query",
                         "description": "The DNS view name for private IPs.",
@@ -2970,15 +2952,6 @@
                         }
                     },
                     {
-                        "name": "govcloud_enabled",
-                        "in": "query",
-                        "description": "Indicates if gov cloud is enabled or disabled.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean"
-                        }
-                    },
-                    {
                         "name": "identity_version",
                         "in": "query",
                         "description": "Identity service version.",
@@ -2991,15 +2964,6 @@
                         "name": "member",
                         "in": "query",
                         "description": "Member on which cloud discovery will be run.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "multiple_accounts_sync_policy",
-                        "in": "query",
-                        "description": "Discover all child accounts or Upload child account ids to discover..",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -3078,36 +3042,9 @@
                         }
                     },
                     {
-                        "name": "role_arn",
-                        "in": "query",
-                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "selected_regions",
-                        "in": "query",
-                        "description": "String containing selected regions for discovery in comma separated format.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "service_account_file",
                         "in": "query",
                         "description": "The service_account_file for GCP.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "service_account_file_token",
-                        "in": "query",
-                        "description": "Service account file's token.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -3120,15 +3057,6 @@
                         "required": false,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "sync_child_accounts",
-                        "in": "query",
-                        "description": "Synchronizing child accounts is enabled or disabled.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean"
                         }
                     },
                     {
@@ -5335,16 +5263,6 @@
                             "$ref": "#/components/schemas/DiscoveryGridpropertiesCliCredentials"
                         }
                     },
-                    "device_hints": {
-                        "type": "array",
-                        "description": "Device Hints.",
-                        "enum": [
-                            "discovery:devicehint"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/DiscoveryGridpropertiesDeviceHints"
-                        }
-                    },
                     "diagnostic": {
                         "$ref": "#/components/schemas/DiscoveryGridpropertiesDiagnostic"
                     },
@@ -5846,16 +5764,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -6124,26 +6032,6 @@
                         "type": "string",
                         "description": "Group for the CLI credential.",
                         "example": "Example credential_group"
-                    }
-                }
-            },
-            "DiscoveryGridpropertiesDeviceHints": {
-                "type": "object",
-                "properties": {
-                    "device_type": {
-                        "type": "string",
-                        "description": "The type of Device",
-                        "example": "Example device_type"
-                    },
-                    "criteria": {
-                        "type": "string",
-                        "description": "Pattern or extended POSIX regular expression matching the Device Hint. The regular expression string should contain the leading caret anchor ^ and the trailing dollar anchor $ symbols.",
-                        "example": "Example criteria"
-                    },
-                    "comment": {
-                        "type": "string",
-                        "description": "The comment.",
-                        "example": "Example comment"
                     }
                 }
             },
@@ -7675,12 +7563,6 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
-                    "accounts_list": {
-                        "type": "string",
-                        "description": "The AWS Account IDs or GCP Project IDs list associated with this task.",
-                        "readOnly": true,
-                        "example": "Example accounts_list"
-                    },
                     "allow_unsecured_connection": {
                         "type": "boolean",
                         "description": "Allow unsecured connection over HTTPS and bypass validation of the remote SSL certificate.",
@@ -7719,11 +7601,6 @@
                             "A_PTR_RECORD"
                         ],
                         "example": "Example auto_create_dns_record_type"
-                    },
-                    "cdiscovery_file_token": {
-                        "type": "string",
-                        "description": "The AWS account IDs or GCP Project IDs file's token.",
-                        "example": "Example cdiscovery_file_token"
                     },
                     "comment": {
                         "type": "string",
@@ -7781,11 +7658,6 @@
                         "description": "FQDN or IP of the cloud management platform.",
                         "example": "Example fqdn_or_ip"
                     },
-                    "govcloud_enabled": {
-                        "type": "boolean",
-                        "description": "Indicates if gov cloud is enabled or disabled.",
-                        "example": false
-                    },
                     "identity_version": {
                         "type": "string",
                         "description": "Identity service version.",
@@ -7811,15 +7683,6 @@
                         "type": "boolean",
                         "description": "Whether to replace the old data with new or not.",
                         "example": false
-                    },
-                    "multiple_accounts_sync_policy": {
-                        "type": "string",
-                        "description": "Discover all child accounts or Upload child account ids to discover..",
-                        "enum": [
-                            "DISCOVER",
-                            "UPLOAD"
-                        ],
-                        "example": "Example multiple_accounts_sync_policy"
                     },
                     "name": {
                         "type": "string",
@@ -7895,28 +7758,13 @@
                         ],
                         "example": "Example public_network_view_mapping_policy"
                     },
-                    "role_arn": {
-                        "type": "string",
-                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
-                        "example": "Example role_arn"
-                    },
                     "scheduled_run": {
                         "$ref": "#/components/schemas/VdiscoverytaskScheduledRun"
-                    },
-                    "selected_regions": {
-                        "type": "string",
-                        "description": "String containing selected regions for discovery in comma separated format.",
-                        "example": "Example selected_regions"
                     },
                     "service_account_file": {
                         "type": "string",
                         "description": "The service_account_file for GCP.",
                         "example": "Example service_account_file"
-                    },
-                    "service_account_file_token": {
-                        "type": "string",
-                        "description": "Service account file's token.",
-                        "example": "Example service_account_file_token"
                     },
                     "state": {
                         "type": "string",
@@ -7939,11 +7787,6 @@
                         "description": "State message of the complete discovery process.",
                         "readOnly": true,
                         "example": "Example state_msg"
-                    },
-                    "sync_child_accounts": {
-                        "type": "boolean",
-                        "description": "Synchronizing child accounts is enabled or disabled.",
-                        "example": false
                     },
                     "update_dns_view_private_ip": {
                         "type": "boolean",

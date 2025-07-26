@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Infoblox SMARTFOLDER API",
-        "description": "OpenAPI specification for Infoblox NIOS WAPI SMARTFOLDER objects",
-        "version": "2.13.6",
+        "title": "Infoblox CLOUD API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI CLOUD objects",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -11,27 +11,23 @@
     },
     "tags": [
         {
-            "name": "SmartfolderChildren",
-            "description": "Operations for smartfolder:children objects"
+            "name": "Awsrte53taskgroup",
+            "description": "Operations for awsrte53taskgroup objects"
         },
         {
-            "name": "SmartfolderGlobal",
-            "description": "Operations for smartfolder:global objects"
-        },
-        {
-            "name": "SmartfolderPersonal",
-            "description": "Operations for smartfolder:personal objects"
+            "name": "Awsuser",
+            "description": "Operations for awsuser objects"
         }
     ],
     "paths": {
-        "/smartfolder:children": {
+        "/awsrte53taskgroup": {
             "get": {
                 "tags": [
-                    "SmartfolderChildren"
+                    "Awsrte53taskgroup"
                 ],
-                "operationId": "SmartfolderChildrenList",
-                "summary": "Retrieve smartfolder:children objects",
-                "description": "Returns a list of smartfolder:children objects matching the search criteria",
+                "operationId": "Awsrte53taskgroupList",
+                "summary": "Retrieve awsrte53taskgroup objects",
+                "description": "Returns a list of awsrte53taskgroup objects matching the search criteria",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/ReturnFields"
@@ -68,150 +64,56 @@
                     },
                     {
                         "$ref": "#/components/parameters/Inheritance"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListSmartfolderChildrenResponse"
-                                }
-                            }
-                        }
                     },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
                     {
-                        "basicAuth": []
-                    }
-                ]
-            }
-        },
-        "/smartfolder:children/{reference}": {
-            "get": {
-                "tags": [
-                    "SmartfolderChildren"
-                ],
-                "operationId": "SmartfolderChildrenRead",
-                "summary": "Get a specific smartfolder:children object",
-                "description": "Returns a specific smartfolder:children object by reference",
-                "parameters": [
-                    {
-                        "name": "reference",
-                        "in": "path",
-                        "description": "Reference of the smartfolder:children object",
-                        "required": true,
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID associated with this task group.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Inheritance"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GetSmartfolderChildrenResponse"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
-                    {
-                        "basicAuth": []
-                    }
-                ]
-            }
-        },
-        "/smartfolder:global": {
-            "get": {
-                "tags": [
-                    "SmartfolderGlobal"
-                ],
-                "operationId": "SmartfolderGlobalList",
-                "summary": "Retrieve smartfolder:global objects",
-                "description": "Returns a list of smartfolder:global objects matching the search criteria",
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/MaxResults"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Paging"
-                    },
-                    {
-                        "$ref": "#/components/parameters/PageId"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ProxySearch"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Schema"
-                    },
-                    {
-                        "$ref": "#/components/parameters/SchemaVersion"
-                    },
-                    {
-                        "$ref": "#/components/parameters/GetDoc"
-                    },
-                    {
-                        "$ref": "#/components/parameters/SchemaSearchable"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Inheritance"
-                    },
-                    {
                         "name": "comment",
                         "in": "query",
-                        "description": "The global Smart Folder descriptive comment.",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "consolidate_zones",
+                        "in": "query",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "consolidated_view",
+                        "in": "query",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "Member on which the tasks in this task group will be run.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -220,7 +122,52 @@
                     {
                         "name": "name",
                         "in": "query",
-                        "description": "The global Smart Folder name.",
+                        "description": "The name of this AWS Route53 sync task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the tenant's network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view_mapping_policy",
+                        "in": "query",
+                        "description": "The network view mapping policy.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role_arn",
+                        "in": "query",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_child_accounts",
+                        "in": "query",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "sync_status",
+                        "in": "query",
+                        "description": "Indicate the overall sync status of this task group.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -233,7 +180,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ListSmartfolderGlobalResponse"
+                                    "$ref": "#/components/schemas/ListAwsrte53taskgroupResponse"
                                 }
                             }
                         }
@@ -259,11 +206,11 @@
             },
             "post": {
                 "tags": [
-                    "SmartfolderGlobal"
+                    "Awsrte53taskgroup"
                 ],
-                "operationId": "SmartfolderGlobalCreate",
-                "summary": "Create a smartfolder:global object",
-                "description": "Creates a new smartfolder:global object",
+                "operationId": "Awsrte53taskgroupCreate",
+                "summary": "Create a awsrte53taskgroup object",
+                "description": "Creates a new awsrte53taskgroup object",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/ReturnFields"
@@ -284,7 +231,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
                             }
                         }
                     }
@@ -295,7 +242,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CreateSmartfolderGlobalResponse"
+                                    "$ref": "#/components/schemas/CreateAwsrte53taskgroupResponse"
                                 }
                             }
                         }
@@ -317,19 +264,19 @@
                 ]
             }
         },
-        "/smartfolder:global/{reference}": {
+        "/awsrte53taskgroup/{reference}": {
             "get": {
                 "tags": [
-                    "SmartfolderGlobal"
+                    "Awsrte53taskgroup"
                 ],
-                "operationId": "SmartfolderGlobalRead",
-                "summary": "Get a specific smartfolder:global object",
-                "description": "Returns a specific smartfolder:global object by reference",
+                "operationId": "Awsrte53taskgroupRead",
+                "summary": "Get a specific awsrte53taskgroup object",
+                "description": "Returns a specific awsrte53taskgroup object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the smartfolder:global object",
+                        "description": "Reference of the awsrte53taskgroup object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -354,7 +301,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetSmartfolderGlobalResponse"
+                                    "$ref": "#/components/schemas/GetAwsrte53taskgroupResponse"
                                 }
                             }
                         }
@@ -380,16 +327,16 @@
             },
             "put": {
                 "tags": [
-                    "SmartfolderGlobal"
+                    "Awsrte53taskgroup"
                 ],
-                "operationId": "SmartfolderGlobalUpdate",
-                "summary": "Update a smartfolder:global object",
-                "description": "Updates a specific smartfolder:global object by reference",
+                "operationId": "Awsrte53taskgroupUpdate",
+                "summary": "Update a awsrte53taskgroup object",
+                "description": "Updates a specific awsrte53taskgroup object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the smartfolder:global object",
+                        "description": "Reference of the awsrte53taskgroup object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -411,7 +358,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
                             }
                         }
                     }
@@ -422,7 +369,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateSmartfolderGlobalResponse"
+                                    "$ref": "#/components/schemas/UpdateAwsrte53taskgroupResponse"
                                 }
                             }
                         }
@@ -448,16 +395,16 @@
             },
             "delete": {
                 "tags": [
-                    "SmartfolderGlobal"
+                    "Awsrte53taskgroup"
                 ],
-                "operationId": "SmartfolderGlobalDelete",
-                "summary": "Delete a smartfolder:global object",
-                "description": "Deletes a specific smartfolder:global object by reference",
+                "operationId": "Awsrte53taskgroupDelete",
+                "summary": "Delete a awsrte53taskgroup object",
+                "description": "Deletes a specific awsrte53taskgroup object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the smartfolder:global object",
+                        "description": "Reference of the awsrte53taskgroup object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -488,14 +435,14 @@
                 ]
             }
         },
-        "/smartfolder:personal": {
+        "/awsuser": {
             "get": {
                 "tags": [
-                    "SmartfolderPersonal"
+                    "Awsuser"
                 ],
-                "operationId": "SmartfolderPersonalList",
-                "summary": "Retrieve smartfolder:personal objects",
-                "description": "Returns a list of smartfolder:personal objects matching the search criteria",
+                "operationId": "AwsuserList",
+                "summary": "Retrieve awsuser objects",
+                "description": "Returns a list of awsuser objects matching the search criteria",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/ReturnFields"
@@ -534,18 +481,27 @@
                         "$ref": "#/components/parameters/Inheritance"
                     },
                     {
-                        "name": "comment",
+                        "name": "access_key_id",
                         "in": "query",
-                        "description": "The personal Smart Folder descriptive comment.",
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
                         "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "is_shortcut",
+                        "name": "account_id",
                         "in": "query",
-                        "description": "Determines whether the personal Smart Folder is a shortcut.",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "govcloud_enabled",
+                        "in": "query",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
                         "required": false,
                         "schema": {
                             "type": "boolean"
@@ -554,7 +510,25 @@
                     {
                         "name": "name",
                         "in": "query",
-                        "description": "The personal Smart Folder name.",
+                        "description": "The AWS user name. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nios_user_name",
+                        "in": "query",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Indicate the validity status of this AWS user.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -567,7 +541,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ListSmartfolderPersonalResponse"
+                                    "$ref": "#/components/schemas/ListAwsuserResponse"
                                 }
                             }
                         }
@@ -593,11 +567,11 @@
             },
             "post": {
                 "tags": [
-                    "SmartfolderPersonal"
+                    "Awsuser"
                 ],
-                "operationId": "SmartfolderPersonalCreate",
-                "summary": "Create a smartfolder:personal object",
-                "description": "Creates a new smartfolder:personal object",
+                "operationId": "AwsuserCreate",
+                "summary": "Create a awsuser object",
+                "description": "Creates a new awsuser object",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/ReturnFields"
@@ -618,7 +592,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                                "$ref": "#/components/schemas/Awsuser"
                             }
                         }
                     }
@@ -629,7 +603,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CreateSmartfolderPersonalResponse"
+                                    "$ref": "#/components/schemas/CreateAwsuserResponse"
                                 }
                             }
                         }
@@ -651,19 +625,19 @@
                 ]
             }
         },
-        "/smartfolder:personal/{reference}": {
+        "/awsuser/{reference}": {
             "get": {
                 "tags": [
-                    "SmartfolderPersonal"
+                    "Awsuser"
                 ],
-                "operationId": "SmartfolderPersonalRead",
-                "summary": "Get a specific smartfolder:personal object",
-                "description": "Returns a specific smartfolder:personal object by reference",
+                "operationId": "AwsuserRead",
+                "summary": "Get a specific awsuser object",
+                "description": "Returns a specific awsuser object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the smartfolder:personal object",
+                        "description": "Reference of the awsuser object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -688,7 +662,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetSmartfolderPersonalResponse"
+                                    "$ref": "#/components/schemas/GetAwsuserResponse"
                                 }
                             }
                         }
@@ -714,16 +688,16 @@
             },
             "put": {
                 "tags": [
-                    "SmartfolderPersonal"
+                    "Awsuser"
                 ],
-                "operationId": "SmartfolderPersonalUpdate",
-                "summary": "Update a smartfolder:personal object",
-                "description": "Updates a specific smartfolder:personal object by reference",
+                "operationId": "AwsuserUpdate",
+                "summary": "Update a awsuser object",
+                "description": "Updates a specific awsuser object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the smartfolder:personal object",
+                        "description": "Reference of the awsuser object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -745,7 +719,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                                "$ref": "#/components/schemas/Awsuser"
                             }
                         }
                     }
@@ -756,7 +730,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateSmartfolderPersonalResponse"
+                                    "$ref": "#/components/schemas/UpdateAwsuserResponse"
                                 }
                             }
                         }
@@ -782,16 +756,16 @@
             },
             "delete": {
                 "tags": [
-                    "SmartfolderPersonal"
+                    "Awsuser"
                 ],
-                "operationId": "SmartfolderPersonalDelete",
-                "summary": "Delete a smartfolder:personal object",
-                "description": "Deletes a specific smartfolder:personal object by reference",
+                "operationId": "AwsuserDelete",
+                "summary": "Delete a awsuser object",
+                "description": "Deletes a specific awsuser object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the smartfolder:personal object",
+                        "description": "Reference of the awsuser object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -973,7 +947,7 @@
                 ],
                 "description": "Extensible attributes associated with the object."
             },
-            "SmartfolderChildren": {
+            "Awsrte53taskgroup": {
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
@@ -981,371 +955,281 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
-                    "resource": {
+                    "account_id": {
                         "type": "string",
-                        "description": "The object retuned by the Smart Folder query.",
+                        "description": "The AWS Account ID associated with this task group.",
                         "readOnly": true,
-                        "example": "Example resource"
-                    },
-                    "value": {
-                        "$ref": "#/components/schemas/SmartfolderChildrenValue"
-                    },
-                    "value_type": {
-                        "type": "string",
-                        "description": "The type of the returned value.",
-                        "enum": [
-                            "STRING",
-                            "INTEGER",
-                            "BOOLEAN",
-                            "DATE",
-                            "ENUM",
-                            "EMAIL",
-                            "URL",
-                            "OBJTYPE"
-                        ],
-                        "readOnly": true,
-                        "example": "Example value_type"
-                    }
-                }
-            },
-            "SmartfolderChildrenValue": {
-                "type": "object",
-                "properties": {
-                    "value_integer": {
-                        "type": "integer",
-                        "description": "The integer value of the Smart Folder query.",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "value_string": {
-                        "type": "string",
-                        "description": "The string value of the Smart Folder query.",
-                        "example": "Example value_string"
-                    },
-                    "value_date": {
-                        "type": "integer",
-                        "description": "The timestamp value of the Smart Folder query.",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "value_boolean": {
-                        "type": "boolean",
-                        "description": "The boolean value of the Smart Folder query.",
-                        "example": false
-                    }
-                }
-            },
-            "ListSmartfolderChildrenResponse": {
-                "oneOf": [
-                    {
-                        "description": "The response format to retrieve __SmartfolderChildren__ objects.",
-                        "type": "array",
-                        "title": "ListSmartfolderChildrenResponseArray",
-                        "items": {
-                            "$ref": "#/components/schemas/SmartfolderChildren"
-                        }
-                    },
-                    {
-                        "description": "The response format to retrieve __SmartfolderChildren__ objects.",
-                        "type": "object",
-                        "title": "ListSmartfolderChildrenResponseObject",
-                        "properties": {
-                            "result": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/SmartfolderChildren"
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            "GetSmartfolderChildrenResponse": {
-                "oneOf": [
-                    {
-                        "$ref": "#/components/schemas/SmartfolderChildren"
-                    },
-                    {
-                        "description": "The response format to retrieve __SmartfolderChildren__ objects.",
-                        "type": "object",
-                        "additionalProperties": false,
-                        "title": "GetSmartfolderChildrenResponseObjectAsResult",
-                        "properties": {
-                            "result": {
-                                "$ref": "#/components/schemas/SmartfolderChildren"
-                            }
-                        }
-                    }
-                ]
-            },
-            "UpdateSmartfolderChildrenResponse": {
-                "oneOf": [
-                    {
-                        "description": "The response format to update __SmartfolderChildren__ in object format.",
-                        "type": "object",
-                        "title": "UpdateSmartfolderChildrenResponseAsObject",
-                        "properties": {
-                            "result": {
-                                "$ref": "#/components/schemas/SmartfolderChildren"
-                            }
-                        }
-                    },
-                    {
-                        "description": "The response format to update __SmartfolderChildren__ .",
-                        "type": "string",
-                        "title": "UpdateSmartfolderChildrenResponse"
-                    }
-                ]
-            },
-            "SmartfolderGlobal": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "_ref": {
-                        "type": "string",
-                        "description": "The reference to the object."
+                        "example": "Example account_id"
                     },
                     "comment": {
                         "type": "string",
-                        "description": "The global Smart Folder descriptive comment.",
+                        "description": "Comment for the task group; maximum 256 characters.",
                         "example": "Example comment"
                     },
-                    "group_bys": {
-                        "type": "array",
-                        "description": "Global Smart Folder grouping rules.",
-                        "enum": [
-                            "smartfolder:groupby"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/SmartfolderGlobalGroupBys"
-                        }
+                    "consolidate_zones": {
+                        "type": "boolean",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "example": false
+                    },
+                    "consolidated_view": {
+                        "type": "string",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "example": "Example consolidated_view"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "example": false
+                    },
+                    "grid_member": {
+                        "type": "string",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "example": "Example grid_member"
                     },
                     "name": {
                         "type": "string",
-                        "description": "The global Smart Folder name.",
+                        "description": "The name of this AWS Route53 sync task group.",
                         "example": "Example name"
                     },
-                    "query_items": {
-                        "type": "array",
-                        "description": "The global Smart Folder filter queries.",
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the tenant's network view.",
+                        "example": "Example network_view"
+                    },
+                    "network_view_mapping_policy": {
+                        "type": "string",
+                        "description": "The network view mapping policy.",
                         "enum": [
-                            "smartfolder:queryitem"
+                            "AUTO_CREATE",
+                            "DIRECT"
+                        ],
+                        "example": "Example network_view_mapping_policy"
+                    },
+                    "role_arn": {
+                        "type": "string",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "example": "Example role_arn"
+                    },
+                    "sync_child_accounts": {
+                        "type": "boolean",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "example": false
+                    },
+                    "sync_status": {
+                        "type": "string",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "enum": [
+                            "NEW",
+                            "OK",
+                            "WARNING",
+                            "ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example sync_status"
+                    },
+                    "task_control": {
+                        "$ref": "#/components/schemas/Awsrte53taskgroupTaskControl"
+                    },
+                    "task_list": {
+                        "type": "array",
+                        "description": "List of AWS Route53 tasks in this group.",
+                        "enum": [
+                            "awsrte53task"
                         ],
                         "items": {
-                            "$ref": "#/components/schemas/SmartfolderGlobalQueryItems"
+                            "$ref": "#/components/schemas/Awsrte53taskgroupTaskList"
                         }
-                    },
-                    "save_as": {
-                        "$ref": "#/components/schemas/SmartfolderGlobalSaveAs"
                     }
                 }
             },
-            "SmartfolderGlobalGroupBys": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "The name of the Smart Folder grouping attribute.",
-                        "example": "Example value"
-                    },
-                    "value_type": {
-                        "type": "string",
-                        "description": "The type of the Smart Folder grouping attribute value.",
-                        "enum": [
-                            "NORMAL",
-                            "EXTATTR"
-                        ],
-                        "example": "Example value_type"
-                    },
-                    "enable_grouping": {
-                        "type": "boolean",
-                        "description": "Determines whether the grouping is enabled.",
-                        "example": false
-                    }
-                }
-            },
-            "SmartfolderGlobalQueryItems": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The Smart Folder query name.",
-                        "example": "Example name"
-                    },
-                    "field_type": {
-                        "type": "string",
-                        "description": "The Smart Folder query field type.",
-                        "enum": [
-                            "NORMAL",
-                            "EXTATTR"
-                        ],
-                        "example": "Example field_type"
-                    },
-                    "operator": {
-                        "type": "string",
-                        "description": "The Smart Folder operator used in query.",
-                        "enum": [
-                            "EQ",
-                            "GT",
-                            "GEQ",
-                            "LT",
-                            "LEQ",
-                            "HAS_VALUE",
-                            "BEGINS_WITH",
-                            "ENDS_WITH",
-                            "CONTAINS",
-                            "RELATIVE_DATE",
-                            "RISES_BY",
-                            "DROPS_BY",
-                            "INHERITANCE_STATE_EQUALS",
-                            "IP_ADDR_WITHIN",
-                            "SUFFIX_MATCH",
-                            "MATCH_EXPR"
-                        ],
-                        "example": "Example operator"
-                    },
-                    "op_match": {
-                        "type": "boolean",
-                        "description": "Determines whether the query operator should match.",
-                        "example": false
-                    },
-                    "value_type": {
-                        "type": "string",
-                        "description": "The Smart Folder query value type.",
-                        "enum": [
-                            "STRING",
-                            "INTEGER",
-                            "BOOLEAN",
-                            "DATE",
-                            "ENUM",
-                            "EMAIL",
-                            "URL",
-                            "OBJTYPE"
-                        ],
-                        "example": "Example value_type"
-                    },
-                    "value": {
-                        "description": "The Smart Folder query value.",
-                        "enum": [
-                            "smartfolder:queryitemvalue"
-                        ],
-                        "$ref": "#/components/schemas/SmartfolderglobalqueryitemsValue"
-                    }
-                }
-            },
-            "SmartfolderglobalqueryitemsValue": {
-                "type": "object",
-                "properties": {
-                    "value_integer": {
-                        "type": "integer",
-                        "description": "The integer value of the Smart Folder query.",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "value_string": {
-                        "type": "string",
-                        "description": "The string value of the Smart Folder query.",
-                        "example": "Example value_string"
-                    },
-                    "value_date": {
-                        "type": "integer",
-                        "description": "The timestamp value of the Smart Folder query.",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "value_boolean": {
-                        "type": "boolean",
-                        "description": "The boolean value of the Smart Folder query.",
-                        "example": false
-                    }
-                }
-            },
-            "SmartfolderGlobalSaveAs": {
+            "Awsrte53taskgroupTaskControl": {
                 "type": "object",
                 "properties": {}
             },
-            "ListSmartfolderGlobalResponse": {
+            "Awsrte53taskgroupTaskList": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this task.",
+                        "example": "Example name"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task is enabled or disabled.",
+                        "example": false
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Indicate the sync status of this task.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example state"
+                    },
+                    "state_msg": {
+                        "type": "string",
+                        "description": "State message for the task.",
+                        "readOnly": true,
+                        "example": "Example state_msg"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter for this task.",
+                        "example": "Example filter"
+                    },
+                    "schedule_interval": {
+                        "type": "integer",
+                        "description": "Periodic interval for this task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "schedule_units": {
+                        "type": "string",
+                        "description": "Units for the schedule interval.",
+                        "enum": [
+                            "MINS",
+                            "HOURS",
+                            "DAYS"
+                        ],
+                        "example": "Example schedule_units"
+                    },
+                    "aws_user": {
+                        "type": "string",
+                        "description": "Reference to associated AWS user whose credentials are to be used for this task.",
+                        "example": "Example aws_user"
+                    },
+                    "status_timestamp": {
+                        "type": "integer",
+                        "description": "The timestamp when the last state was logged.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_run": {
+                        "type": "integer",
+                        "description": "The timestamp when the task was started last.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "sync_public_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether public zones are synchronized.",
+                        "example": false
+                    },
+                    "sync_private_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether private zones are synchronized.",
+                        "example": false
+                    },
+                    "zone_count": {
+                        "type": "integer",
+                        "description": "The number of zones synchronized by this task.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "credentials_type": {
+                        "type": "string",
+                        "description": "Credentials type used for connecting to the cloud management platform.",
+                        "enum": [
+                            "DIRECT",
+                            "INDIRECT"
+                        ],
+                        "example": "Example credentials_type"
+                    }
+                }
+            },
+            "ListAwsrte53taskgroupResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to retrieve __SmartfolderGlobal__ objects.",
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
                         "type": "array",
-                        "title": "ListSmartfolderGlobalResponseArray",
+                        "title": "ListAwsrte53taskgroupResponseArray",
                         "items": {
-                            "$ref": "#/components/schemas/SmartfolderGlobal"
+                            "$ref": "#/components/schemas/Awsrte53taskgroup"
                         }
                     },
                     {
-                        "description": "The response format to retrieve __SmartfolderGlobal__ objects.",
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
                         "type": "object",
-                        "title": "ListSmartfolderGlobalResponseObject",
+                        "title": "ListAwsrte53taskgroupResponseObject",
                         "properties": {
                             "result": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/SmartfolderGlobal"
+                                    "$ref": "#/components/schemas/Awsrte53taskgroup"
                                 }
                             }
                         }
                     }
                 ]
             },
-            "CreateSmartfolderGlobalResponse": {
+            "CreateAwsrte53taskgroupResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to create __SmartfolderGlobal__ in object format.",
+                        "description": "The response format to create __Awsrte53taskgroup__ in object format.",
                         "type": "object",
-                        "title": "CreateSmartfolderGlobalResponseAsObject",
+                        "title": "CreateAwsrte53taskgroupResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
                             }
                         }
                     },
                     {
-                        "description": "The response format to create __SmartfolderGlobal__.",
+                        "description": "The response format to create __Awsrte53taskgroup__.",
                         "type": "string",
-                        "title": "CreateSmartfolderGlobalResponse"
+                        "title": "CreateAwsrte53taskgroupResponse"
                     }
                 ]
             },
-            "GetSmartfolderGlobalResponse": {
+            "GetAwsrte53taskgroupResponse": {
                 "oneOf": [
                     {
-                        "$ref": "#/components/schemas/SmartfolderGlobal"
+                        "$ref": "#/components/schemas/Awsrte53taskgroup"
                     },
                     {
-                        "description": "The response format to retrieve __SmartfolderGlobal__ objects.",
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
                         "type": "object",
                         "additionalProperties": false,
-                        "title": "GetSmartfolderGlobalResponseObjectAsResult",
+                        "title": "GetAwsrte53taskgroupResponseObjectAsResult",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
                             }
                         }
                     }
                 ]
             },
-            "UpdateSmartfolderGlobalResponse": {
+            "UpdateAwsrte53taskgroupResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to update __SmartfolderGlobal__ in object format.",
+                        "description": "The response format to update __Awsrte53taskgroup__ in object format.",
                         "type": "object",
-                        "title": "UpdateSmartfolderGlobalResponseAsObject",
+                        "title": "UpdateAwsrte53taskgroupResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/SmartfolderGlobal"
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
                             }
                         }
                     },
                     {
-                        "description": "The response format to update __SmartfolderGlobal__ .",
+                        "description": "The response format to update __Awsrte53taskgroup__ .",
                         "type": "string",
-                        "title": "UpdateSmartfolderGlobalResponse"
+                        "title": "UpdateAwsrte53taskgroupResponse"
                     }
                 ]
             },
-            "SmartfolderPersonal": {
+            "Awsuser": {
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
@@ -1353,249 +1237,135 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
-                    "comment": {
+                    "access_key_id": {
                         "type": "string",
-                        "description": "The personal Smart Folder descriptive comment.",
-                        "example": "Example comment"
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
+                        "example": "Example access_key_id"
                     },
-                    "group_bys": {
-                        "type": "array",
-                        "description": "The personal Smart Folder groupping rules.",
-                        "enum": [
-                            "smartfolder:groupby"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/SmartfolderPersonalGroupBys"
-                        }
+                    "account_id": {
+                        "type": "string",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "example": "Example account_id"
                     },
-                    "is_shortcut": {
+                    "govcloud_enabled": {
                         "type": "boolean",
-                        "description": "Determines whether the personal Smart Folder is a shortcut.",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "example": false
+                    },
+                    "last_used": {
+                        "type": "integer",
+                        "description": "The timestamp when this AWS user credentials was last used.",
+                        "format": "int64",
                         "readOnly": true,
-                        "example": false
+                        "example": 1
                     },
                     "name": {
                         "type": "string",
-                        "description": "The personal Smart Folder name.",
+                        "description": "The AWS user name. Maximum 64 characters.",
                         "example": "Example name"
                     },
-                    "query_items": {
-                        "type": "array",
-                        "description": "The personal Smart Folder filter queries.",
-                        "enum": [
-                            "smartfolder:queryitem"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/SmartfolderPersonalQueryItems"
-                        }
+                    "nios_user_name": {
+                        "type": "string",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "example": "Example nios_user_name"
                     },
-                    "save_as": {
-                        "$ref": "#/components/schemas/SmartfolderPersonalSaveAs"
+                    "secret_access_key": {
+                        "type": "string",
+                        "description": "The Secret Access Key for the Access Key ID of this user. Maximum 255 characters.",
+                        "writeOnly": true,
+                        "example": "Example secret_access_key"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Indicate the validity status of this AWS user.",
+                        "enum": [
+                            "UNUSED",
+                            "SUCCESSFUL",
+                            "UNSUCCESSFUL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
                     }
                 }
             },
-            "SmartfolderPersonalGroupBys": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "The name of the Smart Folder grouping attribute.",
-                        "example": "Example value"
-                    },
-                    "value_type": {
-                        "type": "string",
-                        "description": "The type of the Smart Folder grouping attribute value.",
-                        "enum": [
-                            "NORMAL",
-                            "EXTATTR"
-                        ],
-                        "example": "Example value_type"
-                    },
-                    "enable_grouping": {
-                        "type": "boolean",
-                        "description": "Determines whether the grouping is enabled.",
-                        "example": false
-                    }
-                }
-            },
-            "SmartfolderPersonalQueryItems": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The Smart Folder query name.",
-                        "example": "Example name"
-                    },
-                    "field_type": {
-                        "type": "string",
-                        "description": "The Smart Folder query field type.",
-                        "enum": [
-                            "NORMAL",
-                            "EXTATTR"
-                        ],
-                        "example": "Example field_type"
-                    },
-                    "operator": {
-                        "type": "string",
-                        "description": "The Smart Folder operator used in query.",
-                        "enum": [
-                            "EQ",
-                            "GT",
-                            "GEQ",
-                            "LT",
-                            "LEQ",
-                            "HAS_VALUE",
-                            "BEGINS_WITH",
-                            "ENDS_WITH",
-                            "CONTAINS",
-                            "RELATIVE_DATE",
-                            "RISES_BY",
-                            "DROPS_BY",
-                            "INHERITANCE_STATE_EQUALS",
-                            "IP_ADDR_WITHIN",
-                            "SUFFIX_MATCH",
-                            "MATCH_EXPR"
-                        ],
-                        "example": "Example operator"
-                    },
-                    "op_match": {
-                        "type": "boolean",
-                        "description": "Determines whether the query operator should match.",
-                        "example": false
-                    },
-                    "value_type": {
-                        "type": "string",
-                        "description": "The Smart Folder query value type.",
-                        "enum": [
-                            "STRING",
-                            "INTEGER",
-                            "BOOLEAN",
-                            "DATE",
-                            "ENUM",
-                            "EMAIL",
-                            "URL",
-                            "OBJTYPE"
-                        ],
-                        "example": "Example value_type"
-                    },
-                    "value": {
-                        "description": "The Smart Folder query value.",
-                        "enum": [
-                            "smartfolder:queryitemvalue"
-                        ],
-                        "$ref": "#/components/schemas/SmartfolderpersonalqueryitemsValue"
-                    }
-                }
-            },
-            "SmartfolderpersonalqueryitemsValue": {
-                "type": "object",
-                "properties": {
-                    "value_integer": {
-                        "type": "integer",
-                        "description": "The integer value of the Smart Folder query.",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "value_string": {
-                        "type": "string",
-                        "description": "The string value of the Smart Folder query.",
-                        "example": "Example value_string"
-                    },
-                    "value_date": {
-                        "type": "integer",
-                        "description": "The timestamp value of the Smart Folder query.",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "value_boolean": {
-                        "type": "boolean",
-                        "description": "The boolean value of the Smart Folder query.",
-                        "example": false
-                    }
-                }
-            },
-            "SmartfolderPersonalSaveAs": {
-                "type": "object",
-                "properties": {}
-            },
-            "ListSmartfolderPersonalResponse": {
+            "ListAwsuserResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to retrieve __SmartfolderPersonal__ objects.",
+                        "description": "The response format to retrieve __Awsuser__ objects.",
                         "type": "array",
-                        "title": "ListSmartfolderPersonalResponseArray",
+                        "title": "ListAwsuserResponseArray",
                         "items": {
-                            "$ref": "#/components/schemas/SmartfolderPersonal"
+                            "$ref": "#/components/schemas/Awsuser"
                         }
                     },
                     {
-                        "description": "The response format to retrieve __SmartfolderPersonal__ objects.",
+                        "description": "The response format to retrieve __Awsuser__ objects.",
                         "type": "object",
-                        "title": "ListSmartfolderPersonalResponseObject",
+                        "title": "ListAwsuserResponseObject",
                         "properties": {
                             "result": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/SmartfolderPersonal"
+                                    "$ref": "#/components/schemas/Awsuser"
                                 }
                             }
                         }
                     }
                 ]
             },
-            "CreateSmartfolderPersonalResponse": {
+            "CreateAwsuserResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to create __SmartfolderPersonal__ in object format.",
+                        "description": "The response format to create __Awsuser__ in object format.",
                         "type": "object",
-                        "title": "CreateSmartfolderPersonalResponseAsObject",
+                        "title": "CreateAwsuserResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                                "$ref": "#/components/schemas/Awsuser"
                             }
                         }
                     },
                     {
-                        "description": "The response format to create __SmartfolderPersonal__.",
+                        "description": "The response format to create __Awsuser__.",
                         "type": "string",
-                        "title": "CreateSmartfolderPersonalResponse"
+                        "title": "CreateAwsuserResponse"
                     }
                 ]
             },
-            "GetSmartfolderPersonalResponse": {
+            "GetAwsuserResponse": {
                 "oneOf": [
                     {
-                        "$ref": "#/components/schemas/SmartfolderPersonal"
+                        "$ref": "#/components/schemas/Awsuser"
                     },
                     {
-                        "description": "The response format to retrieve __SmartfolderPersonal__ objects.",
+                        "description": "The response format to retrieve __Awsuser__ objects.",
                         "type": "object",
                         "additionalProperties": false,
-                        "title": "GetSmartfolderPersonalResponseObjectAsResult",
+                        "title": "GetAwsuserResponseObjectAsResult",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                                "$ref": "#/components/schemas/Awsuser"
                             }
                         }
                     }
                 ]
             },
-            "UpdateSmartfolderPersonalResponse": {
+            "UpdateAwsuserResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to update __SmartfolderPersonal__ in object format.",
+                        "description": "The response format to update __Awsuser__ in object format.",
                         "type": "object",
-                        "title": "UpdateSmartfolderPersonalResponseAsObject",
+                        "title": "UpdateAwsuserResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/SmartfolderPersonal"
+                                "$ref": "#/components/schemas/Awsuser"
                             }
                         }
                     },
                     {
-                        "description": "The response format to update __SmartfolderPersonal__ .",
+                        "description": "The response format to update __Awsuser__ .",
                         "type": "string",
-                        "title": "UpdateSmartfolderPersonalResponse"
+                        "title": "UpdateAwsuserResponse"
                     }
                 ]
             }

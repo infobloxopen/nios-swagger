@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox MISC API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI MISC objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -6300,9 +6300,6 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
-                    "creategcpuser": {
-                        "$ref": "#/components/schemas/FileopCreategcpuser"
-                    },
                     "csv_error_log": {
                         "$ref": "#/components/schemas/FileopCsvErrorLog"
                     },
@@ -6420,9 +6417,6 @@
                     "update_licenses": {
                         "$ref": "#/components/schemas/FileopUpdateLicenses"
                     },
-                    "updategcpuser": {
-                        "$ref": "#/components/schemas/FileopUpdategcpuser"
-                    },
                     "uploadcertificate": {
                         "$ref": "#/components/schemas/FileopUploadcertificate"
                     },
@@ -6433,10 +6427,6 @@
                         "$ref": "#/components/schemas/FileopUploadserviceaccount"
                     }
                 }
-            },
-            "FileopCreategcpuser": {
-                "type": "object",
-                "properties": {}
             },
             "FileopCsvErrorLog": {
                 "type": "object",
@@ -6591,10 +6581,6 @@
                 "properties": {}
             },
             "FileopUpdateLicenses": {
-                "type": "object",
-                "properties": {}
-            },
-            "FileopUpdategcpuser": {
                 "type": "object",
                 "properties": {}
             },

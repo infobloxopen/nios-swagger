@@ -120,10 +120,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The Grid endpoint IPv4 Address or IPv6 Address or Fully-Qualified Domain Name (FQDN).",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The Grid endpoint descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subscribing_member",
+                        "in": "query",
+                        "description": "The name of the Grid Member object that is serving Grid endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The Grid endpoint type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "version",
+                        "in": "query",
+                        "description": "The Grid endpoint version.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -183,6 +240,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -244,10 +304,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the BFD template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -296,6 +377,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -334,9 +418,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_bfdtemplate",
-                "x-tf-datasource": "nios_misc_bfdtemplate"
+                ]
             }
         },
         "/bfdtemplate/{reference}": {
@@ -365,6 +447,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -535,10 +620,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "import_id",
+                        "in": "query",
+                        "description": "The ID of the current import task.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -598,6 +704,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -727,10 +836,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -779,6 +900,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -817,9 +941,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_datacollectioncluster",
-                "x-tf-datasource": "nios_misc_datacollectioncluster"
+                ]
             }
         },
         "/datacollectioncluster/{reference}": {
@@ -848,6 +970,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1018,10 +1143,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1081,6 +1218,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1142,10 +1282,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1205,6 +1357,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1214,6 +1369,74 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/GetDbsnapshotResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Dbsnapshot"
+                ],
+                "operationId": "DbsnapshotUpdate",
+                "summary": "Update a dbsnapshot object",
+                "description": "Updates a specific dbsnapshot object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the dbsnapshot object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Dbsnapshot"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateDbsnapshotResponse"
                                 }
                             }
                         }
@@ -1266,10 +1489,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1329,6 +1564,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1390,10 +1628,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "log_level",
+                        "in": "query",
+                        "description": "The log level for a DXL endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DXL endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outbound_member_type",
+                        "in": "query",
+                        "description": "The outbound member that will generate events.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_identifier",
+                        "in": "query",
+                        "description": "The vendor identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1442,6 +1728,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1480,10 +1769,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_dxl_endpoint",
-                "x-tf-datasource": "nios_misc_dxl_endpoint",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/dxl:endpoint/{reference}": {
@@ -1512,6 +1798,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1610,8 +1899,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1683,10 +1971,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1746,6 +2046,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1755,6 +2058,74 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/GetFileopResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Fileop"
+                ],
+                "operationId": "FileopUpdate",
+                "summary": "Update a fileop object",
+                "description": "Updates a specific fileop object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the fileop object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Fileop"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateFileopResponse"
                                 }
                             }
                         }
@@ -1807,10 +2178,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "description": "The Kerberos domain name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "enctype",
+                        "in": "query",
+                        "description": "The Kerberos key encryption type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "in_use",
+                        "in": "query",
+                        "description": "Determines whether the Kerberos key is assigned to the Grid or Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "principal",
+                        "in": "query",
+                        "description": "The principal of the Kerberos key object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "version",
+                        "in": "query",
+                        "description": "The Kerberos key version number (KVNO).",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -1870,6 +2298,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1972,10 +2403,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The Grid member name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2035,6 +2487,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2096,10 +2551,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "The Grid member where our outbound is running.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2159,6 +2635,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2288,10 +2767,85 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The pxgrid endpoint IPv4 Address or IPv6 Address or Fully-Qualified Domain Name (FQDN)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The Cisco ISE endpoint descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "log_level",
+                        "in": "query",
+                        "description": "The log level for a notification pxgrid endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the pxgrid endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The pxgrid network view name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outbound_member_type",
+                        "in": "query",
+                        "description": "The outbound member that will generate events.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_identifier",
+                        "in": "query",
+                        "description": "The vendor identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2340,6 +2894,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2378,10 +2935,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_pxgrid_endpoint",
-                "x-tf-datasource": "nios_misc_pxgrid_endpoint",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/pxgrid:endpoint/{reference}": {
@@ -2410,6 +2964,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2508,8 +3065,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2581,10 +3137,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Descriptive comment about the Ruleset object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "The flag that indicates if the Ruleset object is disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this Ruleset object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of this Ruleset object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2633,6 +3237,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2671,9 +3278,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_ruleset",
-                "x-tf-datasource": "nios_misc_ruleset"
+                ]
             }
         },
         "/ruleset/{reference}": {
@@ -2702,6 +3307,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2872,10 +3480,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "action",
+                        "in": "query",
+                        "description": "The scavenging action.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "associated_object",
+                        "in": "query",
+                        "description": "The reference to the object associated with the scavenging task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "The scavenging process status. This is a read-only attribute.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2935,6 +3582,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2996,10 +3646,103 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "approval_status",
+                        "in": "query",
+                        "description": "The approval status of the task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "approver",
+                        "in": "query",
+                        "description": "The approver of the task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "execution_status",
+                        "in": "query",
+                        "description": "The execution status of the task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "execution_time",
+                        "in": "query",
+                        "description": "The time when the appliance executed the task.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The member where this task was created.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "scheduled_time",
+                        "in": "query",
+                        "description": "The time when the task is scheduled to occur.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "submit_time",
+                        "in": "query",
+                        "description": "The time when the task was submitted.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "submitter",
+                        "in": "query",
+                        "description": "The submitter of the task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "task_id",
+                        "in": "query",
+                        "description": "The task ID.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -3059,6 +3802,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3229,10 +3975,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3292,6 +4050,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3353,10 +4114,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "log_level",
+                        "in": "query",
+                        "description": "The log level for a notification REST endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a Syslog endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outbound_member_type",
+                        "in": "query",
+                        "description": "The outbound member that will generate events.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_identifier",
+                        "in": "query",
+                        "description": "The vendor identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3405,6 +4214,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3443,10 +4255,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_syslog_endpoint",
-                "x-tf-datasource": "nios_misc_syslog_endpoint",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/syslog:endpoint/{reference}": {
@@ -3475,6 +4284,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3573,8 +4385,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3646,10 +4457,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "ipv4addr",
+                        "in": "query",
+                        "description": "The IPv4 Address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6addr",
+                        "in": "query",
+                        "description": "The IPv6 Address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the Taxii Member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3709,6 +4559,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3838,10 +4691,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "directory",
+                        "in": "query",
+                        "description": "The path to the directory that contains file or subdirectory.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The TFTP directory or file name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of TFTP file system entity (directory or file).",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3890,6 +4782,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3928,9 +4823,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_misc_tftpfiledir",
-                "x-tf-datasource": "nios_misc_tftpfiledir"
+                ]
             }
         },
         "/tftpfiledir/{reference}": {
@@ -3959,6 +4852,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4236,42 +5132,6 @@
                 "required": false,
                 "schema": {
                     "type": "boolean"
-                }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
                 }
             }
         },
@@ -4669,6 +5529,9 @@
                         "readOnly": true,
                         "example": "Example status"
                     },
+                    "stop": {
+                        "$ref": "#/components/schemas/CsvimporttaskStop"
+                    },
                     "update_method": {
                         "type": "string",
                         "description": "The update method to be used for the operation.",
@@ -4679,6 +5542,10 @@
                         "example": "Example update_method"
                     }
                 }
+            },
+            "CsvimporttaskStop": {
+                "type": "object",
+                "properties": {}
             },
             "ListCsvimporttaskResponse": {
                 "oneOf": [
@@ -4954,6 +5821,12 @@
                         "readOnly": true,
                         "example": "Example comment"
                     },
+                    "rollback_db_snapshot": {
+                        "$ref": "#/components/schemas/DbsnapshotRollbackDbSnapshot"
+                    },
+                    "save_db_snapshot": {
+                        "$ref": "#/components/schemas/DbsnapshotSaveDbSnapshot"
+                    },
                     "timestamp": {
                         "type": "integer",
                         "description": "The time when the latest OneDB snapshot was taken in Epoch seconds format.",
@@ -4962,6 +5835,14 @@
                         "example": 1
                     }
                 }
+            },
+            "DbsnapshotRollbackDbSnapshot": {
+                "type": "object",
+                "properties": {}
+            },
+            "DbsnapshotSaveDbSnapshot": {
+                "type": "object",
+                "properties": {}
             },
             "ListDbsnapshotResponse": {
                 "oneOf": [
@@ -5127,6 +6008,9 @@
                         "writeOnly": true,
                         "example": "Example brokers_import_token"
                     },
+                    "clear_outbound_worker_log": {
+                        "$ref": "#/components/schemas/DxlEndpointClearOutboundWorkerLog"
+                    },
                     "client_certificate_subject": {
                         "type": "string",
                         "description": "The client certificate subject of a DXL endpoint.",
@@ -5208,6 +6092,9 @@
                     "template_instance": {
                         "$ref": "#/components/schemas/DxlEndpointTemplateInstance"
                     },
+                    "test_broker_connectivity": {
+                        "$ref": "#/components/schemas/DxlEndpointTestBrokerConnectivity"
+                    },
                     "timeout": {
                         "type": "integer",
                         "description": "The timeout of session management (in seconds).",
@@ -5268,6 +6155,10 @@
                     }
                 }
             },
+            "DxlEndpointClearOutboundWorkerLog": {
+                "type": "object",
+                "properties": {}
+            },
             "DxlEndpointTemplateInstance": {
                 "type": "object",
                 "properties": {
@@ -5277,11 +6168,11 @@
                         "example": "Example template"
                     },
                     "parameters": {
+                        "type": "array",
                         "description": "The notification REST template parameters.",
-                        "enum": [
-                            "notification:rest:templateparameter"
-                        ],
-                        "$ref": "#/components/schemas/DxlendpointtemplateinstanceParameters"
+                        "items": {
+                            "$ref": "#/components/schemas/DxlendpointtemplateinstanceParameters"
+                        }
                     }
                 }
             },
@@ -5315,6 +6206,10 @@
                         "example": "Example syntax"
                     }
                 }
+            },
+            "DxlEndpointTestBrokerConnectivity": {
+                "type": "object",
+                "properties": {}
             },
             "ListDxlEndpointResponse": {
                 "oneOf": [
@@ -5404,8 +6299,302 @@
                     "_ref": {
                         "type": "string",
                         "description": "The reference to the object."
+                    },
+                    "csv_error_log": {
+                        "$ref": "#/components/schemas/FileopCsvErrorLog"
+                    },
+                    "csv_export": {
+                        "$ref": "#/components/schemas/FileopCsvExport"
+                    },
+                    "csv_import": {
+                        "$ref": "#/components/schemas/FileopCsvImport"
+                    },
+                    "csv_snapshot_file": {
+                        "$ref": "#/components/schemas/FileopCsvSnapshotFile"
+                    },
+                    "csv_uploaded_file": {
+                        "$ref": "#/components/schemas/FileopCsvUploadedFile"
+                    },
+                    "download_atp_rule_update": {
+                        "$ref": "#/components/schemas/FileopDownloadAtpRuleUpdate"
+                    },
+                    "download_pool_status": {
+                        "$ref": "#/components/schemas/FileopDownloadPoolStatus"
+                    },
+                    "downloadcertificate": {
+                        "$ref": "#/components/schemas/FileopDownloadcertificate"
+                    },
+                    "downloadcomplete": {
+                        "$ref": "#/components/schemas/FileopDownloadcomplete"
+                    },
+                    "generatecsr": {
+                        "$ref": "#/components/schemas/FileopGeneratecsr"
+                    },
+                    "generatedxlendpointcerts": {
+                        "$ref": "#/components/schemas/FileopGeneratedxlendpointcerts"
+                    },
+                    "generateselfsignedcert": {
+                        "$ref": "#/components/schemas/FileopGenerateselfsignedcert"
+                    },
+                    "generatethaleslunaclientcert": {
+                        "$ref": "#/components/schemas/FileopGeneratethaleslunaclientcert"
+                    },
+                    "get_file_url": {
+                        "$ref": "#/components/schemas/FileopGetFileUrl"
+                    },
+                    "get_last_uploaded_atp_ruleset": {
+                        "$ref": "#/components/schemas/FileopGetLastUploadedAtpRuleset"
+                    },
+                    "get_log_files": {
+                        "$ref": "#/components/schemas/FileopGetLogFiles"
+                    },
+                    "get_support_bundle": {
+                        "$ref": "#/components/schemas/FileopGetSupportBundle"
+                    },
+                    "getgriddata": {
+                        "$ref": "#/components/schemas/FileopGetgriddata"
+                    },
+                    "getleasehistoryfiles": {
+                        "$ref": "#/components/schemas/FileopGetleasehistoryfiles"
+                    },
+                    "getmemberdata": {
+                        "$ref": "#/components/schemas/FileopGetmemberdata"
+                    },
+                    "getthaleslunaclientcert": {
+                        "$ref": "#/components/schemas/FileopGetthaleslunaclientcert"
+                    },
+                    "read": {
+                        "$ref": "#/components/schemas/FileopRead"
+                    },
+                    "restapi_template_export": {
+                        "$ref": "#/components/schemas/FileopRestapiTemplateExport"
+                    },
+                    "restapi_template_export_schema": {
+                        "$ref": "#/components/schemas/FileopRestapiTemplateExportSchema"
+                    },
+                    "restapi_template_import": {
+                        "$ref": "#/components/schemas/FileopRestapiTemplateImport"
+                    },
+                    "restoredatabase": {
+                        "$ref": "#/components/schemas/FileopRestoredatabase"
+                    },
+                    "restoredtcconfig": {
+                        "$ref": "#/components/schemas/FileopRestoredtcconfig"
+                    },
+                    "set_captive_portal_file": {
+                        "$ref": "#/components/schemas/FileopSetCaptivePortalFile"
+                    },
+                    "set_dhcp_leases": {
+                        "$ref": "#/components/schemas/FileopSetDhcpLeases"
+                    },
+                    "set_downgrade_file": {
+                        "$ref": "#/components/schemas/FileopSetDowngradeFile"
+                    },
+                    "set_last_uploaded_atp_ruleset": {
+                        "$ref": "#/components/schemas/FileopSetLastUploadedAtpRuleset"
+                    },
+                    "set_tls_certificate_file": {
+                        "$ref": "#/components/schemas/FileopSetTlsCertificateFile"
+                    },
+                    "set_upgrade_file": {
+                        "$ref": "#/components/schemas/FileopSetUpgradeFile"
+                    },
+                    "setdiscoverycsv": {
+                        "$ref": "#/components/schemas/FileopSetdiscoverycsv"
+                    },
+                    "setfiledest": {
+                        "$ref": "#/components/schemas/FileopSetfiledest"
+                    },
+                    "setleasehistoryfiles": {
+                        "$ref": "#/components/schemas/FileopSetleasehistoryfiles"
+                    },
+                    "setmemberdata": {
+                        "$ref": "#/components/schemas/FileopSetmemberdata"
+                    },
+                    "update_atp_ruleset": {
+                        "$ref": "#/components/schemas/FileopUpdateAtpRuleset"
+                    },
+                    "update_licenses": {
+                        "$ref": "#/components/schemas/FileopUpdateLicenses"
+                    },
+                    "uploadcertificate": {
+                        "$ref": "#/components/schemas/FileopUploadcertificate"
+                    },
+                    "uploadinit": {
+                        "$ref": "#/components/schemas/FileopUploadinit"
+                    },
+                    "uploadserviceaccount": {
+                        "$ref": "#/components/schemas/FileopUploadserviceaccount"
                     }
                 }
+            },
+            "FileopCsvErrorLog": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopCsvExport": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopCsvImport": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopCsvSnapshotFile": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopCsvUploadedFile": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopDownloadAtpRuleUpdate": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopDownloadPoolStatus": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopDownloadcertificate": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopDownloadcomplete": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGeneratecsr": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGeneratedxlendpointcerts": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGenerateselfsignedcert": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGeneratethaleslunaclientcert": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetFileUrl": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetLastUploadedAtpRuleset": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetLogFiles": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetSupportBundle": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetgriddata": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetleasehistoryfiles": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetmemberdata": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopGetthaleslunaclientcert": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopRead": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopRestapiTemplateExport": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopRestapiTemplateExportSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopRestapiTemplateImport": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopRestoredatabase": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopRestoredtcconfig": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetCaptivePortalFile": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetDhcpLeases": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetDowngradeFile": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetLastUploadedAtpRuleset": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetTlsCertificateFile": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetUpgradeFile": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetdiscoverycsv": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetfiledest": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetleasehistoryfiles": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopSetmemberdata": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopUpdateAtpRuleset": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopUpdateLicenses": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopUploadcertificate": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopUploadinit": {
+                "type": "object",
+                "properties": {}
+            },
+            "FileopUploadserviceaccount": {
+                "type": "object",
+                "properties": {}
             },
             "ListFileopResponse": {
                 "oneOf": [
@@ -5959,6 +7148,9 @@
                     "template_instance": {
                         "$ref": "#/components/schemas/PxgridEndpointTemplateInstance"
                     },
+                    "test_connection": {
+                        "$ref": "#/components/schemas/PxgridEndpointTestConnection"
+                    },
                     "timeout": {
                         "type": "integer",
                         "description": "The timeout of session management (in seconds).",
@@ -6027,11 +7219,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/PxgridendpointsubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/PxgridendpointsubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -6070,11 +7262,11 @@
                         "example": "Example template"
                     },
                     "parameters": {
+                        "type": "array",
                         "description": "The notification REST template parameters.",
-                        "enum": [
-                            "notification:rest:templateparameter"
-                        ],
-                        "$ref": "#/components/schemas/PxgridendpointtemplateinstanceParameters"
+                        "items": {
+                            "$ref": "#/components/schemas/PxgridendpointtemplateinstanceParameters"
+                        }
                     }
                 }
             },
@@ -6108,6 +7300,10 @@
                         "example": "Example syntax"
                     }
                 }
+            },
+            "PxgridEndpointTestConnection": {
+                "type": "object",
+                "properties": {}
             },
             "ListPxgridEndpointResponse": {
                 "oneOf": [
@@ -6901,6 +8097,9 @@
                     "template_instance": {
                         "$ref": "#/components/schemas/SyslogEndpointTemplateInstance"
                     },
+                    "test_syslog_connection": {
+                        "$ref": "#/components/schemas/SyslogEndpointTestSyslogConnection"
+                    },
                     "timeout": {
                         "type": "integer",
                         "description": "The timeout of session management (in seconds).",
@@ -7021,11 +8220,11 @@
                         "example": "Example template"
                     },
                     "parameters": {
+                        "type": "array",
                         "description": "The notification REST template parameters.",
-                        "enum": [
-                            "notification:rest:templateparameter"
-                        ],
-                        "$ref": "#/components/schemas/SyslogendpointtemplateinstanceParameters"
+                        "items": {
+                            "$ref": "#/components/schemas/SyslogendpointtemplateinstanceParameters"
+                        }
                     }
                 }
             },
@@ -7059,6 +8258,10 @@
                         "example": "Example syntax"
                     }
                 }
+            },
+            "SyslogEndpointTestSyslogConnection": {
+                "type": "object",
+                "properties": {}
             },
             "ListSyslogEndpointResponse": {
                 "oneOf": [

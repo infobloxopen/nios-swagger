@@ -120,10 +120,148 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the address; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dhcp_client_identifier",
+                        "in": "query",
+                        "description": "The client unique identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fingerprint",
+                        "in": "query",
+                        "description": "DHCP fingerprint for the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ip_address",
+                        "in": "query",
+                        "description": "The IP address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_conflict",
+                        "in": "query",
+                        "description": "If set to True, the IP address has either a MAC address conflict or a DHCP lease conflict detected through a network discovery.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "lease_state",
+                        "in": "query",
+                        "description": "The lease state of the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mac_address",
+                        "in": "query",
+                        "description": "The MAC address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "names",
+                        "in": "query",
+                        "description": "The DNS names. For example, if the IP address belongs to a host record, this field contains the hostname. This field supports both single and array search.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network to which this address belongs, in FQDN/CIDR format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "The current status of the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "description": "The types of associated objects. This field supports both single and array search.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "usage",
+                        "in": "query",
+                        "description": "Indicates whether the IP address is configured for DNS or DHCP. This field supports both single and array search.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "The name of the user who created or modified the record.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -183,6 +321,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -281,8 +422,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -354,10 +494,130 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the address; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "duid",
+                        "in": "query",
+                        "description": "DHCPv6 Unique Identifier (DUID) of the address object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fingerprint",
+                        "in": "query",
+                        "description": "DHCP fingerprint for the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ip_address",
+                        "in": "query",
+                        "description": "IPv6 addresses of the address object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_conflict",
+                        "in": "query",
+                        "description": "IP address has either a duid conflict or a DHCP lease conflict detected through a network discovery.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "lease_state",
+                        "in": "query",
+                        "description": "The lease state of the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "names",
+                        "in": "query",
+                        "description": "The DNS names. For example, if the IP address belongs to a host record, this field contains the hostname. This field supports both single and array search.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network to which this address belongs, in FQDN/CIDR format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "The current status of the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "description": "The types of associated objects. This field supports both single and array search.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "usage",
+                        "in": "query",
+                        "description": "Indicates whether the IP address is configured for DNS or DHCP. This field supports both single and array search.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 ],
                 "responses": {
@@ -417,6 +677,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -515,8 +778,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -588,10 +850,175 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network, maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_bgp_as",
+                        "in": "query",
+                        "description": "Number of the discovered BGP AS. When multiple BGP autonomous systems are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_bridge_domain",
+                        "in": "query",
+                        "description": "Discovered bridge domain.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_tenant",
+                        "in": "query",
+                        "description": "Discovered tenant.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vlan_id",
+                        "in": "query",
+                        "description": "The identifier of the discovered VLAN. When multiple VLANs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vlan_name",
+                        "in": "query",
+                        "description": "The name of the discovered VLAN. When multiple VLANs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vrf_description",
+                        "in": "query",
+                        "description": "Description of the discovered VRF. When multiple VRFs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vrf_name",
+                        "in": "query",
+                        "description": "The name of the discovered VRF. When multiple VRFs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vrf_rd",
+                        "in": "query",
+                        "description": "Route distinguisher of the discovered VRF. When multiple VRFs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovery_engine_type",
+                        "in": "query",
+                        "description": "The network discovery engine type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4addr",
+                        "in": "query",
+                        "description": "The IPv4 Address of the network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network address in IPv4 Address/CIDR format. For regular expression searches, only the IPv4 Address portion is supported. Searches for the CIDR portion is always an exact match. For example, both network containers 10.0.0.0/8 and 20.1.0.0/16 are matched by expression '.0' and only 20.1.0.0/16 is matched by '.0/16'.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_container",
+                        "in": "query",
+                        "description": "The network container to which this network belongs (if any).",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this network resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "The registry (RIR) that allocated the network address space.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir_organization",
+                        "in": "query",
+                        "description": "The RIR organization assoicated with the network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "unmanaged",
+                        "in": "query",
+                        "description": "Determines whether the DHCP IPv4 Network is unmanaged or not.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -640,6 +1067,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -678,14 +1108,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_network",
-                "x-tf-datasource": "nios_ipam_network",
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-post-function-call": [
-                    "Network"
-                ],
-                "x-tf-function-call": true
+                ]
             }
         },
         "/network/{reference}": {
@@ -714,6 +1137,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -812,12 +1238,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-put-function-call": [
-                    "Network"
-                ],
-                "x-tf-function-call": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -889,10 +1310,94 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network container; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovery_engine_type",
+                        "in": "query",
+                        "description": "The network discovery engine type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network address in IPv4 Address/CIDR format. For regular expression searches, only the IPv4 Address portion is supported. Searches for the CIDR portion is always an exact match. For example, both network containers 10.0.0.0/8 and 20.1.0.0/16 are matched by expression '.0' and only 20.1.0.0/16 is matched by '.0/16'.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_container",
+                        "in": "query",
+                        "description": "The network container to which this network belongs, if any.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this network resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "The registry (RIR) that allocated the network container address space.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir_organization",
+                        "in": "query",
+                        "description": "The RIR organization assoicated with the network container.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "unmanaged",
+                        "in": "query",
+                        "description": "Determines whether the network container is unmanaged or not.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -941,6 +1446,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -979,14 +1487,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_networkcontainer",
-                "x-tf-datasource": "nios_ipam_networkcontainer",
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-post-function-call": [
-                    "Network"
-                ],
-                "x-tf-function-call": true
+                ]
             }
         },
         "/networkcontainer/{reference}": {
@@ -1015,6 +1516,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1113,12 +1617,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-put-function-call": [
-                    "Network"
-                ],
-                "x-tf-function-call": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1199,10 +1698,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this network template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "THe registry (RIR) that allocated the network address space.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir_organization",
+                        "in": "query",
+                        "description": "The RIR organization assoicated with the network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1251,6 +1798,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1289,10 +1839,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_networktemplate",
-                "x-tf-datasource": "nios_ipam_networktemplate",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/networktemplate/{reference}": {
@@ -1321,6 +1868,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1419,8 +1969,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1492,10 +2041,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network view; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_default",
+                        "in": "query",
+                        "description": "The NIOS appliance provides one default network view. You can rename the default view and change its settings, but you cannot delete it. There must always be at least one network view in the appliance.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1544,6 +2132,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1582,10 +2173,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_networkview",
-                "x-tf-datasource": "nios_ipam_networkview",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/networkview/{reference}": {
@@ -1614,6 +2202,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1712,8 +2303,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1785,10 +2375,166 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_bgp_as",
+                        "in": "query",
+                        "description": "Number of the discovered BGP AS. When multiple BGP autonomous systems are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_bridge_domain",
+                        "in": "query",
+                        "description": "Discovered bridge domain.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_tenant",
+                        "in": "query",
+                        "description": "Discovered tenant.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vlan_id",
+                        "in": "query",
+                        "description": "The identifier of the discovered VLAN. When multiple VLANs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vlan_name",
+                        "in": "query",
+                        "description": "The name of the discovered VLAN. When multiple VLANs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vrf_description",
+                        "in": "query",
+                        "description": "Description of the discovered VRF. When multiple VRFs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vrf_name",
+                        "in": "query",
+                        "description": "The name of the discovered VRF. When multiple VRFs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovered_vrf_rd",
+                        "in": "query",
+                        "description": "Route distinguisher of the discovered VRF. When multiple VRFs are discovered in the network, this field displays \"Multiple\".",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovery_engine_type",
+                        "in": "query",
+                        "description": "The network discovery engine type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network address in IPv6 Address/CIDR format. For regular expression searches, only the IPv6 Address portion is supported. Searches for the CIDR portion is always an exact match. For example, both network containers 16::0/28 and 26::0/24 are matched by expression '.6' and only 26::0/24 is matched by '.6/24'.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_container",
+                        "in": "query",
+                        "description": "The network container to which this network belongs, if any.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this network resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "The registry (RIR) that allocated the IPv6 network address space.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir_organization",
+                        "in": "query",
+                        "description": "The RIR organization associated with the IPv6 network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "unmanaged",
+                        "in": "query",
+                        "description": "Determines whether the DHCP IPv6 Network is unmanaged or not.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -1837,6 +2583,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1875,10 +2624,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_ipv6network",
-                "x-tf-datasource": "nios_ipam_ipv6network",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6network/{reference}": {
@@ -1907,6 +2653,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2005,8 +2754,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2078,10 +2826,94 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discovery_engine_type",
+                        "in": "query",
+                        "description": "The network discovery engine type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network address in IPv6 Address/CIDR format. For regular expression searches, only the IPv6 Address portion is supported. Searches for the CIDR portion is always an exact match. For example, both network containers 16::0/28 and 26::0/24 are matched by expression '.6' and only 26::0/24 is matched by '.6/24'.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_container",
+                        "in": "query",
+                        "description": "The network container to which this network belongs, if any.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this network resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "The registry (RIR) that allocated the IPv6 network container address space.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir_organization",
+                        "in": "query",
+                        "description": "The RIR organization associated with the IPv6 network container.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "unmanaged",
+                        "in": "query",
+                        "description": "Determines whether the network container is unmanaged or not.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
                     }
                 ],
                 "responses": {
@@ -2130,6 +2962,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2168,10 +3003,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_ipv6networkcontainer",
-                "x-tf-datasource": "nios_ipam_ipv6networkcontainer",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6networkcontainer/{reference}": {
@@ -2200,6 +3032,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2298,8 +3133,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2380,10 +3214,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the network; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6prefix",
+                        "in": "query",
+                        "description": "The IPv6 Address prefix of the DHCP IPv6 network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this IPv6 network template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "The registry (RIR) that allocated the IPv6 network address space.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir_organization",
+                        "in": "query",
+                        "description": "The RIR organization associated with the IPv6 network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2432,6 +3323,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2470,10 +3364,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_ipv6networktemplate",
-                "x-tf-datasource": "nios_ipam_ipv6networktemplate",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6networktemplate/{reference}": {
@@ -2502,6 +3393,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2600,8 +3494,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2673,10 +3566,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2736,6 +3659,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2797,10 +3723,112 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "assigned_to",
+                        "in": "query",
+                        "description": "List of objects VLAN is assigned to.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment for this VLAN.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "contact",
+                        "in": "query",
+                        "description": "Contact information for person/team managing or using VLAN.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "department",
+                        "in": "query",
+                        "description": "Department where VLAN is used.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "Description for the VLAN object, may be potentially used for longer VLAN names.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "VLAN ID value.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the VLAN.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent",
+                        "in": "query",
+                        "description": "The VLAN View or VLAN Range to which this VLAN belongs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "reserved",
+                        "in": "query",
+                        "description": "When set VLAN can only be assigned to IPAM object manually.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status of VLAN object. Can be Assigned, Unassigned, Reserved.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2849,6 +3877,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2887,10 +3918,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_vlan",
-                "x-tf-datasource": "nios_ipam_vlan",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/vlan/{reference}": {
@@ -2919,6 +3947,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3017,8 +4048,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3090,10 +4120,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "allow_range_overlapping",
+                        "in": "query",
+                        "description": "When set to true VLAN Ranges under VLAN View can have overlapping ID.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment for this VLAN View.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end_vlan_id",
+                        "in": "query",
+                        "description": "End ID for VLAN View.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the VLAN View.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_vlan_id",
+                        "in": "query",
+                        "description": "Start ID for VLAN View.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -3142,6 +4229,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3180,10 +4270,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_vlanview",
-                "x-tf-datasource": "nios_ipam_vlanview",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/vlanview/{reference}": {
@@ -3212,6 +4299,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3310,8 +4400,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3383,10 +4472,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment for this VLAN Range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end_vlan_id",
+                        "in": "query",
+                        "description": "End ID for VLAN Range.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the VLAN Range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_vlan_id",
+                        "in": "query",
+                        "description": "Start ID for VLAN Range.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "vlan_view",
+                        "in": "query",
+                        "description": "The VLAN View to which this VLAN Range belongs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3435,6 +4581,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3473,10 +4622,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_vlanrange",
-                "x-tf-datasource": "nios_ipam_vlanrange",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/vlanrange/{reference}": {
@@ -3505,6 +4651,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3603,8 +4752,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3685,10 +4833,121 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disable",
+                        "in": "query",
+                        "description": "The disable flag of a DNS BulkHost record.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "end_addr",
+                        "in": "query",
+                        "description": "The last IP address in the address range for the bulk host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name_template",
+                        "in": "query",
+                        "description": "The bulk host name template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "prefix",
+                        "in": "query",
+                        "description": "The prefix for the bulk host. The prefix is the name (or a series of characters) inserted at the beginning of each host name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "reverse",
+                        "in": "query",
+                        "description": "The reverse flag of the BulkHost record.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "start_addr",
+                        "in": "query",
+                        "description": "The first IP address in the address range for the bulk host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ttl",
+                        "in": "query",
+                        "description": "The Time to Live (TTL) value.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "use_name_template",
+                        "in": "query",
+                        "description": "Use flag for: name_template",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "view",
+                        "in": "query",
+                        "description": "The view for the bulk host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "zone",
+                        "in": "query",
+                        "description": "The zone name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3737,6 +4996,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3775,10 +5037,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_bulkhost",
-                "x-tf-datasource": "nios_ipam_bulkhost",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/bulkhost/{reference}": {
@@ -3807,6 +5066,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3905,8 +5167,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3978,10 +5239,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "template_format",
+                        "in": "query",
+                        "description": "The format of bulk host name template. It should follow certain rules (please use Administration Guide as reference).",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "template_name",
+                        "in": "query",
+                        "description": "The name of bulk host name template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4030,6 +5321,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4068,9 +5362,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_bulkhostnametemplate",
-                "x-tf-datasource": "nios_ipam_bulkhostnametemplate"
+                ]
             }
         },
         "/bulkhostnametemplate/{reference}": {
@@ -4099,6 +5391,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4269,10 +5564,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "discovery_task_oid",
+                        "in": "query",
+                        "description": "The discovery task identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4332,6 +5648,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4461,10 +5780,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4524,6 +5855,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4533,6 +5867,74 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/GetNetworkDiscoveryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "NetworkDiscovery"
+                ],
+                "operationId": "NetworkDiscoveryUpdate",
+                "summary": "Update a network_discovery object",
+                "description": "Updates a specific network_discovery object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the network_discovery object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NetworkDiscovery"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateNetworkDiscoveryResponse"
                                 }
                             }
                         }
@@ -4585,10 +5987,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The comment for Super Host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Disable all DNS/DHCP associated objects with Super Host if True, False by default.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the Superhost.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4637,6 +6078,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4675,10 +6119,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_ipam_superhost",
-                "x-tf-datasource": "nios_ipam_superhost",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/superhost/{reference}": {
@@ -4707,6 +6148,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4805,8 +6249,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -4878,10 +6321,103 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The record comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "creation_timestamp",
+                        "in": "query",
+                        "description": "Time at which DNS RR was created.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Specific data of DNS/DHCP records.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the associated DNS/DHCP object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this network record resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent",
+                        "in": "query",
+                        "description": "Name of the Super Host object in which record resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "record_parent",
+                        "in": "query",
+                        "description": "Name of a parent zone/network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The record type. When searching for an unspecified record type, the search is performed for all records.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "view",
+                        "in": "query",
+                        "description": "Name of the DNS View in which the record resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4941,6 +6477,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5002,10 +6541,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a hostname rewrite policy object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5065,6 +6625,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5301,42 +6864,6 @@
                 "required": false,
                 "schema": {
                     "type": "boolean"
-                }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
                 }
             }
         },
@@ -7334,6 +8861,9 @@
                             ]
                         }
                     },
+                    "expand_network": {
+                        "$ref": "#/components/schemas/NetworkExpandNetwork"
+                    },
                     "extattrs": {
                         "type": "object",
                         "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
@@ -7444,7 +8974,7 @@
                         "type": "array",
                         "description": "A list of members or Microsoft (r) servers that serve DHCP for this network. All members in the array must be of the same type. The struct type must be indicated in each element, by setting the \"_struct\" member to the struct type.",
                         "enum": [
-                            "msdhcpserver"
+                            "dhcpmember"
                         ],
                         "items": {
                             "$ref": "#/components/schemas/NetworkMembers"
@@ -7504,9 +9034,6 @@
                             }
                         ]
                     },
-                    "func_call": {
-                        "$ref": "#/components/schemas/FuncCall"
-                    },
                     "network_container": {
                         "type": "string",
                         "description": "The network container to which this network belongs (if any).",
@@ -7517,6 +9044,15 @@
                         "type": "string",
                         "description": "The name of the network view in which this network resides.",
                         "example": "Example network_view"
+                    },
+                    "next_available_ip": {
+                        "$ref": "#/components/schemas/NetworkNextAvailableIp"
+                    },
+                    "next_available_network": {
+                        "$ref": "#/components/schemas/NetworkNextAvailableNetwork"
+                    },
+                    "next_available_vlan": {
+                        "$ref": "#/components/schemas/NetworkNextAvailableVlan"
                     },
                     "nextserver": {
                         "type": "string",
@@ -7546,6 +9082,9 @@
                         "type": "boolean",
                         "description": "If the field is set to True, the leases are kept in the Recycle Bin until one week after expiration. Otherwise, the leases are permanently deleted.",
                         "example": false
+                    },
+                    "resize": {
+                        "$ref": "#/components/schemas/NetworkResize"
                     },
                     "restart_if_needed": {
                         "type": "boolean",
@@ -7599,6 +9138,9 @@
                         "description": "Determines whether to send the RIR registration request.",
                         "writeOnly": true,
                         "example": false
+                    },
+                    "split_network": {
+                        "$ref": "#/components/schemas/NetworkSplitNetwork"
                     },
                     "static_hosts": {
                         "type": "integer",
@@ -7828,43 +9370,6 @@
                         "items": {
                             "$ref": "#/components/schemas/NetworkZoneAssociations"
                         }
-                    }
-                }
-            },
-            "FuncCall": {
-                "type": "object",
-                "description": "Function Call attribute",
-                "required": [
-                    "attribute_name"
-                ],
-                "properties": {
-                    "attribute_name": {
-                        "type": "string",
-                        "description": "The attribute to be called."
-                    },
-                    "_object_function": {
-                        "type": "string",
-                        "description": "The function to be called."
-                    },
-                    "_parameters": {
-                        "type": "object",
-                        "description": "The parameters for the function."
-                    },
-                    "_result_field": {
-                        "type": "string",
-                        "description": "The result field of the function."
-                    },
-                    "_object": {
-                        "type": "string",
-                        "description": "The object to be called."
-                    },
-                    "_object_parameters": {
-                        "type": "object",
-                        "description": "The parameters for the object."
-                    },
-                    "_object_ref": {
-                        "type": "string",
-                        "description": "A WAPI object reference on which the function calls. Either _object or _object_ref must be set."
                     }
                 }
             },
@@ -8241,6 +9746,10 @@
                     }
                 }
             },
+            "NetworkExpandNetwork": {
+                "type": "object",
+                "properties": {}
+            },
             "NetworkIpamThresholdSettings": {
                 "type": "object",
                 "properties": {
@@ -8293,7 +9802,7 @@
                 "properties": {
                     "ipv4addr": {
                         "type": "string",
-                        "description": "The IPv4 Address of the Grid Member.",
+                        "description": "The IPv4 Address or FQDN of the Microsoft server.",
                         "example": "Example ipv4addr"
                     },
                     "ipv6addr": {
@@ -8319,6 +9828,18 @@
                         "example": 1
                     }
                 }
+            },
+            "NetworkNextAvailableIp": {
+                "type": "object",
+                "properties": {}
+            },
+            "NetworkNextAvailableNetwork": {
+                "type": "object",
+                "properties": {}
+            },
+            "NetworkNextAvailableVlan": {
+                "type": "object",
+                "properties": {}
             },
             "NetworkOptions": {
                 "type": "object",
@@ -8467,6 +9988,14 @@
                     }
                 }
             },
+            "NetworkResize": {
+                "type": "object",
+                "properties": {}
+            },
+            "NetworkSplitNetwork": {
+                "type": "object",
+                "properties": {}
+            },
             "NetworkSubscribeSettings": {
                 "type": "object",
                 "properties": {
@@ -8487,11 +10016,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/NetworksubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/NetworksubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -8972,9 +10501,6 @@
                             }
                         ]
                     },
-                    "func_call": {
-                        "$ref": "#/components/schemas/FuncCall"
-                    },
                     "network_container": {
                         "type": "string",
                         "description": "The network container to which this network belongs, if any.",
@@ -8985,6 +10511,9 @@
                         "type": "string",
                         "description": "The name of the network view in which this network resides.",
                         "example": "Example network_view"
+                    },
+                    "next_available_network": {
+                        "$ref": "#/components/schemas/NetworkcontainerNextAvailableNetwork"
                     },
                     "nextserver": {
                         "type": "string",
@@ -9019,6 +10548,9 @@
                         "type": "boolean",
                         "description": "Remove subnets delete option. Determines whether all child objects should be removed alongside with the network container or child objects should be assigned to another parental container. By default child objects are deleted with the network container.",
                         "example": false
+                    },
+                    "resize": {
+                        "$ref": "#/components/schemas/NetworkcontainerResize"
                     },
                     "restart_if_needed": {
                         "type": "boolean",
@@ -9687,6 +11219,10 @@
                     }
                 }
             },
+            "NetworkcontainerNextAvailableNetwork": {
+                "type": "object",
+                "properties": {}
+            },
             "NetworkcontainerOptions": {
                 "type": "object",
                 "properties": {
@@ -9834,6 +11370,10 @@
                     }
                 }
             },
+            "NetworkcontainerResize": {
+                "type": "object",
+                "properties": {}
+            },
             "NetworkcontainerSubscribeSettings": {
                 "type": "object",
                 "properties": {
@@ -9854,11 +11394,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/NetworkcontainersubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/NetworkcontainersubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -10188,7 +11728,7 @@
                         "type": "array",
                         "description": "A list of members or Microsoft (r) servers that serve DHCP for this network. All members in the array must be of the same type. The struct type must be indicated in each element, by setting the \"_struct\" member to the struct type.",
                         "enum": [
-                            "msdhcpserver"
+                            "dhcpmember"
                         ],
                         "items": {
                             "$ref": "#/components/schemas/NetworktemplateMembers"
@@ -10473,7 +12013,7 @@
                 "properties": {
                     "ipv4addr": {
                         "type": "string",
-                        "description": "The IPv4 Address of the Grid Member.",
+                        "description": "The IPv4 Address or FQDN of the Microsoft server.",
                         "example": "Example ipv4addr"
                     },
                     "ipv6addr": {
@@ -11256,6 +12796,9 @@
                             ]
                         }
                     },
+                    "expand_network": {
+                        "$ref": "#/components/schemas/Ipv6networkExpandNetwork"
+                    },
                     "extattrs": {
                         "type": "object",
                         "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
@@ -11325,6 +12868,15 @@
                         "type": "string",
                         "description": "The name of the network view in which this network resides.",
                         "example": "Example network_view"
+                    },
+                    "next_available_ip": {
+                        "$ref": "#/components/schemas/Ipv6networkNextAvailableIp"
+                    },
+                    "next_available_network": {
+                        "$ref": "#/components/schemas/Ipv6networkNextAvailableNetwork"
+                    },
+                    "next_available_vlan": {
+                        "$ref": "#/components/schemas/Ipv6networkNextAvailableVlan"
                     },
                     "options": {
                         "type": "array",
@@ -11402,6 +12954,9 @@
                         "description": "Determines whether to send the RIR registration request.",
                         "writeOnly": true,
                         "example": false
+                    },
+                    "split_network": {
+                        "$ref": "#/components/schemas/Ipv6networkSplitNetwork"
                     },
                     "subscribe_settings": {
                         "$ref": "#/components/schemas/Ipv6networkSubscribeSettings"
@@ -11930,6 +13485,10 @@
                     }
                 }
             },
+            "Ipv6networkExpandNetwork": {
+                "type": "object",
+                "properties": {}
+            },
             "Ipv6networkLogicFilterRules": {
                 "type": "object",
                 "properties": {
@@ -11976,6 +13535,18 @@
                         "example": 1
                     }
                 }
+            },
+            "Ipv6networkNextAvailableIp": {
+                "type": "object",
+                "properties": {}
+            },
+            "Ipv6networkNextAvailableNetwork": {
+                "type": "object",
+                "properties": {}
+            },
+            "Ipv6networkNextAvailableVlan": {
+                "type": "object",
+                "properties": {}
             },
             "Ipv6networkOptions": {
                 "type": "object",
@@ -12124,6 +13695,10 @@
                     }
                 }
             },
+            "Ipv6networkSplitNetwork": {
+                "type": "object",
+                "properties": {}
+            },
             "Ipv6networkSubscribeSettings": {
                 "type": "object",
                 "properties": {
@@ -12144,11 +13719,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/Ipv6networksubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/Ipv6networksubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -12494,6 +14069,9 @@
                         "type": "string",
                         "description": "The name of the network view in which this network resides.",
                         "example": "Example network_view"
+                    },
+                    "next_available_network": {
+                        "$ref": "#/components/schemas/Ipv6networkcontainerNextAvailableNetwork"
                     },
                     "options": {
                         "type": "array",
@@ -13095,6 +14673,10 @@
                     }
                 }
             },
+            "Ipv6networkcontainerNextAvailableNetwork": {
+                "type": "object",
+                "properties": {}
+            },
             "Ipv6networkcontainerOptions": {
                 "type": "object",
                 "properties": {
@@ -13262,11 +14844,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/Ipv6networkcontainersubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/Ipv6networkcontainersubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -14175,6 +15757,9 @@
                         "description": "Name of the VLAN View.",
                         "example": "Example name"
                     },
+                    "next_available_vlan_id": {
+                        "$ref": "#/components/schemas/VlanviewNextAvailableVlanId"
+                    },
                     "pre_create_vlan": {
                         "type": "boolean",
                         "description": "If set on creation VLAN objects will be created once VLAN View created.",
@@ -14192,6 +15777,10 @@
                         "example": "Example vlan_name_prefix"
                     }
                 }
+            },
+            "VlanviewNextAvailableVlanId": {
+                "type": "object",
+                "properties": {}
             },
             "ListVlanviewResponse": {
                 "oneOf": [
@@ -14310,6 +15899,9 @@
                         "description": "Name of the VLAN Range.",
                         "example": "Example name"
                     },
+                    "next_available_vlan_id": {
+                        "$ref": "#/components/schemas/VlanrangeNextAvailableVlanId"
+                    },
                     "pre_create_vlan": {
                         "type": "boolean",
                         "description": "If set on creation VLAN objects will be created once VLAN Range created.",
@@ -14332,6 +15924,10 @@
                         "example": "Example vlan_view"
                     }
                 }
+            },
+            "VlanrangeNextAvailableVlanId": {
+                "type": "object",
+                "properties": {}
             },
             "ListVlanrangeResponse": {
                 "oneOf": [
@@ -14863,6 +16459,9 @@
                         ],
                         "example": "Example mode"
                     },
+                    "network_discovery_control": {
+                        "$ref": "#/components/schemas/DiscoverytaskNetworkDiscoveryControl"
+                    },
                     "network_view": {
                         "type": "string",
                         "description": "Name of the network view in which target networks for network discovery reside.",
@@ -14971,6 +16570,10 @@
                         "example": "Example warning"
                     }
                 }
+            },
+            "DiscoverytaskNetworkDiscoveryControl": {
+                "type": "object",
+                "properties": {}
             },
             "DiscoverytaskScheduledRun": {
                 "type": "object",
@@ -15191,8 +16794,15 @@
                     "_ref": {
                         "type": "string",
                         "description": "The reference to the object."
+                    },
+                    "clear_discovery_data": {
+                        "$ref": "#/components/schemas/NetworkDiscoveryClearDiscoveryData"
                     }
                 }
+            },
+            "NetworkDiscoveryClearDiscoveryData": {
+                "type": "object",
+                "properties": {}
             },
             "ListNetworkDiscoveryResponse": {
                 "oneOf": [

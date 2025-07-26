@@ -216,10 +216,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The grid name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -279,6 +300,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -408,10 +432,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -471,6 +507,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -600,10 +639,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -663,6 +714,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -724,10 +778,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the Grid Cloud API Tenant object; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Unique ID associated with the tenant. This is set only when the tenant is first created.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the tenant.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -787,6 +880,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -916,10 +1012,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the vm object; maximum 1024 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "elastic_ip_address",
+                        "in": "query",
+                        "description": "Elastic IP address associated with the VM's primary interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Unique ID associated with the VM. This is set only when the VM is first created.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the VM.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "primary_mac_address",
+                        "in": "query",
+                        "description": "MAC address associated with the VM's primary interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -979,6 +1132,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1077,8 +1233,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/grid:cloudapi:vmaddress": {
@@ -1109,10 +1264,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The IP address of the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mac_address",
+                        "in": "query",
+                        "description": "The MAC address of the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vm_id",
+                        "in": "query",
+                        "description": "The UUID of the Virtual Machine.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vm_name",
+                        "in": "query",
+                        "description": "The name of the Virtual Machine.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1172,6 +1375,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1233,10 +1439,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1296,6 +1514,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1394,8 +1615,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/grid:dhcpproperties": {
@@ -1426,10 +1646,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "grid",
+                        "in": "query",
+                        "description": "Determines the Grid that serves DHCP. This specifies a group of Infoblox appliances that are connected together to provide a single point of device administration and service configuration in a secure, highly available environment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1489,6 +1730,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1618,10 +1862,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the Restart Group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "is_default",
+                        "in": "query",
+                        "description": "Determines if this Restart Group is the default group.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this Restart Group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "service",
+                        "in": "query",
+                        "description": "The applicable service for this Restart Group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1670,6 +1962,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1708,10 +2003,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_grid_servicerestart_group",
-                "x-tf-datasource": "nios_grid_grid_servicerestart_group",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/grid:servicerestart:group/{reference}": {
@@ -1740,6 +2032,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1838,8 +2133,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1911,10 +2205,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "parent",
+                        "in": "query",
+                        "description": "A reference to the grid or grid:servicerestart:group object associated with the request.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1974,6 +2289,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2035,10 +2353,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "group",
+                        "in": "query",
+                        "description": "The name of the Restart Group associated with the request.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The member to restart.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2098,6 +2446,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2159,10 +2510,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The domain name or IP address for the Master Grid.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "port",
+                        "in": "query",
+                        "description": "The Master Grid port to which the Grid connects.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -2222,6 +2603,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2351,10 +2735,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2414,6 +2810,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2543,10 +2942,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2606,6 +3017,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2735,10 +3149,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The Grid name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2798,6 +3233,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2927,10 +3365,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2990,6 +3440,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3119,10 +3572,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The Grid name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3182,6 +3656,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3311,10 +3788,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The license string for the license pool.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The limitation of dynamic license that can be allocated from the license pool.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model",
+                        "in": "query",
+                        "description": "The supported vNIOS virtual appliance model.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The license type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3374,6 +3899,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3435,10 +3963,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "issuer",
+                        "in": "query",
+                        "description": "Certificate issuer.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "serial",
+                        "in": "query",
+                        "description": "X509Certificate serial number.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subject",
+                        "in": "query",
+                        "description": "A Distinguished Name that is made of multiple relative distinguished names (RDNs).",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "valid_not_after",
+                        "in": "query",
+                        "description": "Certificate expiry date.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "valid_not_before",
+                        "in": "query",
+                        "description": "Certificate validity start date.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -3498,6 +4083,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3559,10 +4147,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The hostname of the Grid member that hosts the captive portal.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3622,6 +4231,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3751,10 +4363,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3814,6 +4438,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3823,6 +4450,74 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/GetGridLicensePoolContainerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "GridLicensePoolContainer"
+                ],
+                "operationId": "GridLicensePoolContainerUpdate",
+                "summary": "Update a grid:license_pool_container object",
+                "description": "Updates a specific grid:license_pool_container object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the grid:license_pool_container object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GridLicensePoolContainer"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateGridLicensePoolContainerResponse"
                                 }
                             }
                         }
@@ -3875,10 +4570,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "topology_type",
+                        "in": "query",
+                        "description": "The topology type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3938,6 +4654,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3999,10 +4718,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4051,6 +4782,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4089,9 +4823,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_grid_servicerestart_group_order",
-                "x-tf-datasource": "nios_grid_grid_servicerestart_group_order"
+                ]
             }
         },
         "/grid:servicerestart:group:order/{reference}": {
@@ -4120,6 +4852,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4249,10 +4984,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "user_name",
+                        "in": "query",
+                        "description": "The name of the user who changed the object properties.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4312,6 +5068,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4373,10 +5132,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The name of this Grid member in FQDN format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4436,6 +5216,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4497,10 +5280,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The NAT group descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a NAT group object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4549,6 +5362,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4587,9 +5403,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_natgroup",
-                "x-tf-datasource": "nios_grid_natgroup"
+                ]
             }
         },
         "/natgroup/{reference}": {
@@ -4618,6 +5432,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4788,10 +5605,112 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "config_addr_type",
+                        "in": "query",
+                        "description": "Address configuration type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "enable_ha",
+                        "in": "query",
+                        "description": "If set to True, the member has two physical nodes (HA pair).",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "enable_ro_api_access",
+                        "in": "query",
+                        "description": "If set to True and the member object is a Grid Master Candidate, then read-only API access is enabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "host_name",
+                        "in": "query",
+                        "description": "The host name of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "master_candidate",
+                        "in": "query",
+                        "description": "Determines if a Grid member is a Grid Master Candidate or not. This flag enables the Grid member to assume the role of the Grid Master as a disaster recovery measure.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "platform",
+                        "in": "query",
+                        "description": "Hardware Platform.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "preserve_if_owns_delegation",
+                        "in": "query",
+                        "description": "Set this flag to \"true\" to prevent the deletion of the member if any delegated object remains attached to it.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "router_id",
+                        "in": "query",
+                        "description": "Virutal router identifier. Provide this ID if \"ha_enabled\" is set to \"true\". This is a unique VRID number (from 1 to 255) for the local subnet.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "service_type_configuration",
+                        "in": "query",
+                        "description": "Configure all services to the given type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4840,6 +5759,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4878,10 +5800,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_member",
-                "x-tf-datasource": "nios_grid_member",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/member/{reference}": {
@@ -4910,6 +5829,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5008,8 +5930,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -5081,10 +6002,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "host_name",
+                        "in": "query",
+                        "description": "Host name of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4addr",
+                        "in": "query",
+                        "description": "The IPv4 Address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6addr",
+                        "in": "query",
+                        "description": "The IPv6 Address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5144,6 +6104,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5242,8 +6205,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/member:dns": {
@@ -5274,10 +6236,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "host_name",
+                        "in": "query",
+                        "description": "The host name of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4addr",
+                        "in": "query",
+                        "description": "The IPv4 Address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6addr",
+                        "in": "query",
+                        "description": "The IPv6 Address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5337,6 +6338,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5435,8 +6439,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/member:filedistribution": {
@@ -5467,10 +6470,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The Grid member descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "host_name",
+                        "in": "query",
+                        "description": "The Grid member host name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4_address",
+                        "in": "query",
+                        "description": "The IPv4 address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_address",
+                        "in": "query",
+                        "description": "The IPv6 address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5530,6 +6581,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5659,10 +6713,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "hwid",
+                        "in": "query",
+                        "description": "The hardware ID of the physical node on which the license is installed.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "License string.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "kind",
+                        "in": "query",
+                        "description": "The overall type of license: static or dynamic.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The license limit value.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The license type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5722,6 +6833,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5824,10 +6938,94 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The human readable comment for member threat protection properties.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "current_ruleset",
+                        "in": "query",
+                        "description": "The ruleset used for threat protection.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hardware_model",
+                        "in": "query",
+                        "description": "The hardware model of the member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hardware_type",
+                        "in": "query",
+                        "description": "The hardware type of the member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "host_name",
+                        "in": "query",
+                        "description": "A Grid member name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4address",
+                        "in": "query",
+                        "description": "The IPv4 address of member threat protection service.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6address",
+                        "in": "query",
+                        "description": "The IPv6 address of member threat protection service.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "The Threat Protection profile associated with the member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5887,6 +7085,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6016,10 +7217,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The parental control member hostname.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6079,6 +7301,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6208,10 +7433,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The Grid member descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "host_name",
+                        "in": "query",
+                        "description": "The Grid member host name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4_address",
+                        "in": "query",
+                        "description": "The IPv4 Address address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_address",
+                        "in": "query",
+                        "description": "The IPv6 Address address of the Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6271,6 +7544,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6400,10 +7676,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6463,6 +7751,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6592,10 +7883,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6644,6 +7947,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -6682,10 +7988,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_memberdfp",
-                "x-tf-datasource": "nios_grid_memberdfp",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/memberdfp/{reference}": {
@@ -6714,6 +8017,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6812,8 +8118,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -6885,10 +8190,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Description of the group",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Group name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6937,6 +8272,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -6975,9 +8313,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_gmcgroup",
-                "x-tf-datasource": "nios_grid_gmcgroup"
+                ]
             }
         },
         "/gmcgroup/{reference}": {
@@ -7006,6 +8342,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7176,10 +8515,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7239,6 +8590,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7368,10 +8722,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7431,6 +8797,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7560,10 +8929,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The upgrade group descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The upgrade group name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -7612,6 +9011,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -7650,9 +9052,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_upgradegroup",
-                "x-tf-datasource": "nios_grid_upgradegroup"
+                ]
             }
         },
         "/upgradegroup/{reference}": {
@@ -7681,6 +9081,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7851,10 +9254,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7914,6 +9329,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -8043,10 +9461,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "Member that participates in the upgrade process.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subelement_type",
+                        "in": "query",
+                        "description": "The type of subelements to be requested. If 'type' is 'GROUP', or 'VNODE', then 'upgrade_group' or 'member' should have proper values for an operation to return data specific for the values passed. Otherwise, overall data is returned for every group or physical node.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of upper level elements to be requested.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "upgrade_group",
+                        "in": "query",
+                        "description": "Upgrade group that participates in the upgrade process.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -8106,6 +9572,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -8235,10 +9704,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The license string.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The license limit value.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The license type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -8298,6 +9806,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -8400,10 +9911,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the Extensible Attribute Definition; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the Extensible Attribute Definition.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "in": "query",
+                        "description": "Namespace for the Extensible Attribute Definition.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Type for the Extensible Attribute Definition.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -8452,6 +10011,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -8490,9 +10052,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_grid_extensibleattributedef",
-                "x-tf-datasource": "nios_grid_extensibleattributedef"
+                ]
             }
         },
         "/extensibleattributedef/{reference}": {
@@ -8521,6 +10081,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -8799,42 +10362,6 @@
                 "schema": {
                     "type": "boolean"
                 }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
-                }
             }
         },
         "schemas": {
@@ -8889,6 +10416,9 @@
                     "consent_banner_setting": {
                         "$ref": "#/components/schemas/GridConsentBannerSetting"
                     },
+                    "control_ip_address": {
+                        "$ref": "#/components/schemas/GridControlIpAddress"
+                    },
                     "csp_api_config": {
                         "$ref": "#/components/schemas/GridCspApiConfig"
                     },
@@ -8914,6 +10444,9 @@
                     },
                     "email_setting": {
                         "$ref": "#/components/schemas/GridEmailSetting"
+                    },
+                    "empty_recycle_bin": {
+                        "$ref": "#/components/schemas/GridEmptyRecycleBin"
                     },
                     "enable_federation": {
                         "type": "boolean",
@@ -8965,6 +10498,21 @@
                         "description": "If set to True, external syslog servers are enabled.",
                         "example": false
                     },
+                    "generate_tsig_key": {
+                        "$ref": "#/components/schemas/GridGenerateTsigKey"
+                    },
+                    "get_all_template_vendor_id": {
+                        "$ref": "#/components/schemas/GridGetAllTemplateVendorId"
+                    },
+                    "get_grid_revert_status": {
+                        "$ref": "#/components/schemas/GridGetGridRevertStatus"
+                    },
+                    "get_rpz_threat_details": {
+                        "$ref": "#/components/schemas/GridGetRpzThreatDetails"
+                    },
+                    "get_template_schema_versions": {
+                        "$ref": "#/components/schemas/GridGetTemplateSchemaVersions"
+                    },
                     "http_proxy_server_setting": {
                         "$ref": "#/components/schemas/GridHttpProxyServerSetting"
                     },
@@ -8975,6 +10523,18 @@
                         "type": "boolean",
                         "description": "If set to True, graphical visualization of the Grid is enabled.",
                         "example": false
+                    },
+                    "join": {
+                        "$ref": "#/components/schemas/GridJoin"
+                    },
+                    "join_mgm": {
+                        "$ref": "#/components/schemas/GridJoinMgm"
+                    },
+                    "join_mgm_mod2": {
+                        "$ref": "#/components/schemas/GridJoinMgmMod2"
+                    },
+                    "leave_mgm": {
+                        "$ref": "#/components/schemas/GridLeaveMgm"
                     },
                     "lockout_setting": {
                         "$ref": "#/components/schemas/GridLockoutSetting"
@@ -8988,6 +10548,9 @@
                         "items": {
                             "$ref": "#/components/schemas/GridLomUsers"
                         }
+                    },
+                    "member_upgrade": {
+                        "$ref": "#/components/schemas/GridMemberUpgrade"
                     },
                     "mgm_strict_delegate_mode": {
                         "type": "boolean",
@@ -9021,6 +10584,15 @@
                     "password_setting": {
                         "$ref": "#/components/schemas/GridPasswordSetting"
                     },
+                    "publish_changes": {
+                        "$ref": "#/components/schemas/GridPublishChanges"
+                    },
+                    "query_fqdn_on_member": {
+                        "$ref": "#/components/schemas/GridQueryFqdnOnMember"
+                    },
+                    "requestrestartservicestatus": {
+                        "$ref": "#/components/schemas/GridRequestrestartservicestatus"
+                    },
                     "restart_banner_setting": {
                         "$ref": "#/components/schemas/GridRestartBannerSetting"
                     },
@@ -9029,6 +10601,9 @@
                         "description": "The restart status for the Grid.",
                         "readOnly": true,
                         "example": "Example restart_status"
+                    },
+                    "restartservices": {
+                        "$ref": "#/components/schemas/GridRestartservices"
                     },
                     "rpz_hit_rate_interval": {
                         "type": "integer",
@@ -9077,8 +10652,14 @@
                         "readOnly": true,
                         "example": "Example service_status"
                     },
+                    "skip_member_upgrade": {
+                        "$ref": "#/components/schemas/GridSkipMemberUpgrade"
+                    },
                     "snmp_setting": {
                         "$ref": "#/components/schemas/GridSnmpSetting"
+                    },
+                    "start_discovery": {
+                        "$ref": "#/components/schemas/GridStartDiscovery"
                     },
                     "support_bundle_download_timeout": {
                         "type": "integer",
@@ -9117,6 +10698,12 @@
                         "description": "The maximum size for the syslog file expressed in megabytes.",
                         "format": "int64",
                         "example": 1
+                    },
+                    "test_syslog_backup_server_connection": {
+                        "$ref": "#/components/schemas/GridTestSyslogBackupServerConnection"
+                    },
+                    "test_syslog_connection": {
+                        "$ref": "#/components/schemas/GridTestSyslogConnection"
                     },
                     "threshold_traps": {
                         "type": "array",
@@ -9173,6 +10760,18 @@
                         "items": {
                             "$ref": "#/components/schemas/GridUpdatesDownloadMemberConfig"
                         }
+                    },
+                    "upgrade": {
+                        "$ref": "#/components/schemas/GridUpgrade"
+                    },
+                    "upgrade_group_now": {
+                        "$ref": "#/components/schemas/GridUpgradeGroupNow"
+                    },
+                    "upload_keytab": {
+                        "$ref": "#/components/schemas/GridUploadKeytab"
+                    },
+                    "validatecertificates": {
+                        "$ref": "#/components/schemas/GridValidatecertificates"
                     },
                     "vpn_port": {
                         "type": "integer",
@@ -9258,6 +10857,10 @@
                         "example": "Example message"
                     }
                 }
+            },
+            "GridControlIpAddress": {
+                "type": "object",
+                "properties": {}
             },
             "GridCspApiConfig": {
                 "type": "object",
@@ -9411,6 +11014,10 @@
                     }
                 }
             },
+            "GridEmptyRecycleBin": {
+                "type": "object",
+                "properties": {}
+            },
             "GridExternalSyslogBackupServers": {
                 "type": "object",
                 "properties": {
@@ -9456,6 +11063,26 @@
                         "example": "Example username"
                     }
                 }
+            },
+            "GridGenerateTsigKey": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridGetAllTemplateVendorId": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridGetGridRevertStatus": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridGetRpzThreatDetails": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridGetTemplateSchemaVersions": {
+                "type": "object",
+                "properties": {}
             },
             "GridHttpProxyServerSetting": {
                 "type": "object",
@@ -9547,6 +11174,22 @@
                     }
                 }
             },
+            "GridJoin": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridJoinMgm": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridJoinMgmMod2": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridLeaveMgm": {
+                "type": "object",
+                "properties": {}
+            },
             "GridLockoutSetting": {
                 "type": "object",
                 "properties": {
@@ -9608,6 +11251,10 @@
                         "example": "Example comment"
                     }
                 }
+            },
+            "GridMemberUpgrade": {
+                "type": "object",
+                "properties": {}
             },
             "GridMsSetting": {
                 "type": "object",
@@ -9691,18 +11338,18 @@
                         "example": false
                     },
                     "ntp_servers": {
+                        "type": "array",
                         "description": "The list of NTP servers configured on a Grid.",
-                        "enum": [
-                            "ntpserver"
-                        ],
-                        "$ref": "#/components/schemas/GridntpsettingNtpServers"
+                        "items": {
+                            "$ref": "#/components/schemas/GridntpsettingNtpServers"
+                        }
                     },
                     "ntp_keys": {
+                        "type": "array",
                         "description": "The list of NTP authentication keys used to authenticate NTP clients.",
-                        "enum": [
-                            "ntpkey"
-                        ],
-                        "$ref": "#/components/schemas/GridntpsettingNtpKeys"
+                        "items": {
+                            "$ref": "#/components/schemas/GridntpsettingNtpKeys"
+                        }
                     },
                     "ntp_acl": {
                         "description": "The NTP access control settings.",
@@ -9813,11 +11460,11 @@
                         "example": "Example acl_type"
                     },
                     "ac_list": {
+                        "type": "array",
                         "description": "The list of NTP access control items.",
-                        "enum": [
-                            "ntpac"
-                        ],
-                        "$ref": "#/components/schemas/GridntpsettingntpaclAcList"
+                        "items": {
+                            "$ref": "#/components/schemas/GridntpsettingntpaclAcList"
+                        }
                     },
                     "named_acl": {
                         "type": "string",
@@ -9996,6 +11643,18 @@
                     }
                 }
             },
+            "GridPublishChanges": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridQueryFqdnOnMember": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridRequestrestartservicestatus": {
+                "type": "object",
+                "properties": {}
+            },
             "GridRestartBannerSetting": {
                 "type": "object",
                 "properties": {
@@ -10010,6 +11669,10 @@
                         "example": false
                     }
                 }
+            },
+            "GridRestartservices": {
+                "type": "object",
+                "properties": {}
             },
             "GridScheduledBackup": {
                 "type": "object",
@@ -10253,11 +11916,11 @@
                         "example": false
                     },
                     "admin_access_items": {
+                        "type": "array",
                         "description": "A list of access control settings used for security access.",
-                        "enum": [
-                            "addressac"
-                        ],
-                        "$ref": "#/components/schemas/GridsecuritysettingAdminAccessItems"
+                        "items": {
+                            "$ref": "#/components/schemas/GridsecuritysettingAdminAccessItems"
+                        }
                     },
                     "http_redirect_enable": {
                         "type": "boolean",
@@ -10400,6 +12063,10 @@
                     }
                 }
             },
+            "GridSkipMemberUpgrade": {
+                "type": "object",
+                "properties": {}
+            },
             "GridSnmpSetting": {
                 "type": "object",
                 "properties": {
@@ -10430,11 +12097,11 @@
                         "example": false
                     },
                     "snmpv3_queries_users": {
+                        "type": "array",
                         "description": "A list of SNMPv3 queries users.",
-                        "enum": [
-                            "queriesuser"
-                        ],
-                        "$ref": "#/components/schemas/GridsnmpsettingSnmpv3QueriesUsers"
+                        "items": {
+                            "$ref": "#/components/schemas/GridsnmpsettingSnmpv3QueriesUsers"
+                        }
                     },
                     "snmpv3_traps_enable": {
                         "type": "boolean",
@@ -10482,11 +12149,11 @@
                         }
                     },
                     "trap_receivers": {
+                        "type": "array",
                         "description": "A list of trap receivers.",
-                        "enum": [
-                            "trapreceiver"
-                        ],
-                        "$ref": "#/components/schemas/GridsnmpsettingTrapReceivers"
+                        "items": {
+                            "$ref": "#/components/schemas/GridsnmpsettingTrapReceivers"
+                        }
                     },
                     "traps_community_string": {
                         "type": "string",
@@ -10534,6 +12201,10 @@
                         "example": "Example comment"
                     }
                 }
+            },
+            "GridStartDiscovery": {
+                "type": "object",
+                "properties": {}
             },
             "GridSyslogServers": {
                 "type": "object",
@@ -10675,6 +12346,14 @@
                         "example": false
                     }
                 }
+            },
+            "GridTestSyslogBackupServerConnection": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridTestSyslogConnection": {
+                "type": "object",
+                "properties": {}
             },
             "GridThresholdTraps": {
                 "type": "object",
@@ -10840,11 +12519,11 @@
                         "example": "Example rec_dns_latency_listen_on_source"
                     },
                     "kpi_monitored_domains": {
+                        "type": "array",
                         "description": "List of domains monitored by 'Recursive DNS Latency Threshold' trigger.",
-                        "enum": [
-                            "monitoreddomains"
-                        ],
-                        "$ref": "#/components/schemas/GridtrafficcapturerecdnssettingKpiMonitoredDomains"
+                        "items": {
+                            "$ref": "#/components/schemas/GridtrafficcapturerecdnssettingKpiMonitoredDomains"
+                        }
                     }
                 }
             },
@@ -11003,6 +12682,22 @@
                     }
                 }
             },
+            "GridUpgrade": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridUpgradeGroupNow": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridUploadKeytab": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridValidatecertificates": {
+                "type": "object",
+                "properties": {}
+            },
             "ListGridResponse": {
                 "oneOf": [
                     {
@@ -11138,11 +12833,11 @@
                         "example": 1
                     },
                     "endpoint_mapping": {
+                        "type": "array",
                         "description": "List of Gateway FQDN to AWS Endpoint Mapping.",
-                        "enum": [
-                            "grid:cloudapi:gateway:endpointmapping"
-                        ],
-                        "$ref": "#/components/schemas/GridcloudapigatewayconfigEndpointMapping"
+                        "items": {
+                            "$ref": "#/components/schemas/GridcloudapigatewayconfigEndpointMapping"
+                        }
                     }
                 }
             },
@@ -12383,11 +14078,11 @@
                         "example": 1
                     },
                     "endpoint_mapping": {
+                        "type": "array",
                         "description": "List of Gateway FQDN to AWS Endpoint Mapping.",
-                        "enum": [
-                            "grid:cloudapi:gateway:endpointmapping"
-                        ],
-                        "$ref": "#/components/schemas/GridmembercloudapigatewayconfigEndpointMapping"
+                        "items": {
+                            "$ref": "#/components/schemas/GridmembercloudapigatewayconfigEndpointMapping"
+                        }
                     }
                 }
             },
@@ -15150,6 +16845,9 @@
                         "description": "Determines if recursive RPZ lookups are enabled.",
                         "example": false
                     },
+                    "run_scavenging": {
+                        "$ref": "#/components/schemas/GridDnsRunScavenging"
+                    },
                     "scavenging_settings": {
                         "$ref": "#/components/schemas/GridDnsScavengingSettings"
                     },
@@ -15720,11 +17418,11 @@
                         "example": "Example ksk_algorithm"
                     },
                     "ksk_algorithms": {
+                        "type": "array",
                         "description": "A list of Key Signing Key Algorithms.",
-                        "enum": [
-                            "dnsseckeyalgorithm"
-                        ],
-                        "$ref": "#/components/schemas/GriddnsdnsseckeyparamsKskAlgorithms"
+                        "items": {
+                            "$ref": "#/components/schemas/GriddnsdnsseckeyparamsKskAlgorithms"
+                        }
                     },
                     "ksk_rollover": {
                         "type": "integer",
@@ -15805,11 +17503,11 @@
                         "example": "Example zsk_algorithm"
                     },
                     "zsk_algorithms": {
+                        "type": "array",
                         "description": "A list of Zone Signing Key Algorithms.",
-                        "enum": [
-                            "dnsseckeyalgorithm"
-                        ],
-                        "$ref": "#/components/schemas/GriddnsdnsseckeyparamsZskAlgorithms"
+                        "items": {
+                            "$ref": "#/components/schemas/GriddnsdnsseckeyparamsZskAlgorithms"
+                        }
                     },
                     "zsk_rollover": {
                         "type": "integer",
@@ -16411,6 +18109,10 @@
                     }
                 }
             },
+            "GridDnsRunScavenging": {
+                "type": "object",
+                "properties": {}
+            },
             "GridDnsScavengingSettings": {
                 "type": "object",
                 "properties": {
@@ -16452,18 +18154,18 @@
                         "$ref": "#/components/schemas/GriddnsscavengingsettingsScavengingSchedule"
                     },
                     "expression_list": {
+                        "type": "array",
                         "description": "The expression list. The particular record is treated as reclaimable if expression condition evaluates to 'true' for given record if scavenging hasn't been manually disabled on a given resource record.",
-                        "enum": [
-                            "expressionop"
-                        ],
-                        "$ref": "#/components/schemas/GriddnsscavengingsettingsExpressionList"
+                        "items": {
+                            "$ref": "#/components/schemas/GriddnsscavengingsettingsExpressionList"
+                        }
                     },
                     "ea_expression_list": {
+                        "type": "array",
                         "description": "The extensible attributes expression list. The particular record is treated as reclaimable if extensible attributes expression condition evaluates to 'true' for given record if scavenging hasn't been manually disabled on a given resource record.",
-                        "enum": [
-                            "eaexpressionop"
-                        ],
-                        "$ref": "#/components/schemas/GriddnsscavengingsettingsEaExpressionList"
+                        "items": {
+                            "$ref": "#/components/schemas/GriddnsscavengingsettingsEaExpressionList"
+                        }
                     }
                 }
             },
@@ -16881,6 +18583,9 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
+                    "atp_object_reset": {
+                        "$ref": "#/components/schemas/GridThreatprotectionAtpObjectReset"
+                    },
                     "current_ruleset": {
                         "type": "string",
                         "description": "The current Grid ruleset.",
@@ -16967,8 +18672,15 @@
                     },
                     "scheduled_download": {
                         "$ref": "#/components/schemas/GridThreatprotectionScheduledDownload"
+                    },
+                    "test_atp_server_connectivity": {
+                        "$ref": "#/components/schemas/GridThreatprotectionTestAtpServerConnectivity"
                     }
                 }
+            },
+            "GridThreatprotectionAtpObjectReset": {
+                "type": "object",
+                "properties": {}
             },
             "GridThreatprotectionNatRules": {
                 "type": "object",
@@ -17010,11 +18722,11 @@
                         "example": "Example end_address"
                     },
                     "nat_ports": {
+                        "type": "array",
                         "description": "The NAT port configuration for the threat protection NAT mapping rule.",
-                        "enum": [
-                            "threatprotection:natport"
-                        ],
-                        "$ref": "#/components/schemas/GridthreatprotectionnatrulesNatPorts"
+                        "items": {
+                            "$ref": "#/components/schemas/GridthreatprotectionnatrulesNatPorts"
+                        }
                     }
                 }
             },
@@ -17150,6 +18862,10 @@
                     }
                 }
             },
+            "GridThreatprotectionTestAtpServerConnectivity": {
+                "type": "object",
+                "properties": {}
+            },
             "ListGridThreatprotectionResponse": {
                 "oneOf": [
                     {
@@ -17265,6 +18981,12 @@
                         "format": "int64",
                         "example": 1
                     },
+                    "download_threat_insight_allowlist_update": {
+                        "$ref": "#/components/schemas/GridThreatinsightDownloadThreatInsightAllowlistUpdate"
+                    },
+                    "download_threat_insight_moduleset_update": {
+                        "$ref": "#/components/schemas/GridThreatinsightDownloadThreatInsightModulesetUpdate"
+                    },
                     "enable_allowlist_auto_download": {
                         "type": "boolean",
                         "description": "Indicates whether auto download service is enabled",
@@ -17347,6 +19069,9 @@
                         ],
                         "example": "Example module_update_policy"
                     },
+                    "move_blocklist_rpz_to_allow_list": {
+                        "$ref": "#/components/schemas/GridThreatinsightMoveBlocklistRpzToAllowList"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The Grid name.",
@@ -17358,8 +19083,29 @@
                     },
                     "scheduled_download": {
                         "$ref": "#/components/schemas/GridThreatinsightScheduledDownload"
+                    },
+                    "set_last_uploaded_threat_insight_moduleset": {
+                        "$ref": "#/components/schemas/GridThreatinsightSetLastUploadedThreatInsightModuleset"
+                    },
+                    "test_threat_insight_server_connectivity": {
+                        "$ref": "#/components/schemas/GridThreatinsightTestThreatInsightServerConnectivity"
+                    },
+                    "update_threat_insight_moduleset": {
+                        "$ref": "#/components/schemas/GridThreatinsightUpdateThreatInsightModuleset"
                     }
                 }
+            },
+            "GridThreatinsightDownloadThreatInsightAllowlistUpdate": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridThreatinsightDownloadThreatInsightModulesetUpdate": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridThreatinsightMoveBlocklistRpzToAllowList": {
+                "type": "object",
+                "properties": {}
             },
             "GridThreatinsightScheduledAllowlistDownload": {
                 "type": "object",
@@ -17546,6 +19292,18 @@
                         "example": false
                     }
                 }
+            },
+            "GridThreatinsightSetLastUploadedThreatInsightModuleset": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridThreatinsightTestThreatInsightServerConnectivity": {
+                "type": "object",
+                "properties": {}
+            },
+            "GridThreatinsightUpdateThreatInsightModuleset": {
+                "type": "object",
+                "properties": {}
             },
             "ListGridThreatinsightResponse": {
                 "oneOf": [
@@ -18232,6 +19990,9 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
+                    "allocate_licenses": {
+                        "$ref": "#/components/schemas/GridLicensePoolContainerAllocateLicenses"
+                    },
                     "last_entitlement_update": {
                         "type": "integer",
                         "description": "The timestamp when the last pool licenses were updated.",
@@ -18246,6 +20007,10 @@
                         "example": "Example lpc_uid"
                     }
                 }
+            },
+            "GridLicensePoolContainerAllocateLicenses": {
+                "type": "object",
+                "properties": {}
             },
             "ListGridLicensePoolContainerResponse": {
                 "oneOf": [
@@ -18923,6 +20688,12 @@
                             "$ref": "#/components/schemas/MemberBgpAs"
                         }
                     },
+                    "capture_traffic_control": {
+                        "$ref": "#/components/schemas/MemberCaptureTrafficControl"
+                    },
+                    "capture_traffic_status": {
+                        "$ref": "#/components/schemas/MemberCaptureTrafficStatus"
+                    },
                     "comment": {
                         "type": "string",
                         "description": "A descriptive comment of the Grid member.",
@@ -18937,6 +20708,9 @@
                             "BOTH"
                         ],
                         "example": "Example config_addr_type"
+                    },
+                    "create_token": {
+                        "$ref": "#/components/schemas/MemberCreateToken"
                     },
                     "csp_access_key": {
                         "type": "array",
@@ -19077,6 +20851,9 @@
                         "description": "Determines if a Grid member is a Grid Master Candidate or not. This flag enables the Grid member to assume the role of the Grid Master as a disaster recovery measure.",
                         "example": false
                     },
+                    "member_admin_operation": {
+                        "$ref": "#/components/schemas/MemberMemberAdminOperation"
+                    },
                     "member_service_communication": {
                         "type": "array",
                         "description": "Configure communication type for various services.",
@@ -19155,10 +20932,19 @@
                         "description": "Set this flag to \"true\" to prevent the deletion of the member if any delegated object remains attached to it.",
                         "example": false
                     },
+                    "read_token": {
+                        "$ref": "#/components/schemas/MemberReadToken"
+                    },
                     "remote_console_access_enable": {
                         "type": "boolean",
                         "description": "If set to True, superuser admins can access the Infoblox CLI from a remote location using an SSH (Secure Shell) v2 client.",
                         "example": false
+                    },
+                    "requestrestartservicestatus": {
+                        "$ref": "#/components/schemas/MemberRequestrestartservicestatus"
+                    },
+                    "restartservices": {
+                        "$ref": "#/components/schemas/MemberRestartservices"
                     },
                     "router_id": {
                         "type": "integer",
@@ -19625,11 +21411,11 @@
                         "example": 1
                     },
                     "neighbors": {
+                        "type": "array",
                         "description": "The BGP neighbors for this AS.",
-                        "enum": [
-                            "bgpneighbor"
-                        ],
-                        "$ref": "#/components/schemas/MemberbgpasNeighbors"
+                        "items": {
+                            "$ref": "#/components/schemas/MemberbgpasNeighbors"
+                        }
                     },
                     "link_detect": {
                         "type": "boolean",
@@ -19707,6 +21493,18 @@
                         "example": false
                     }
                 }
+            },
+            "MemberCaptureTrafficControl": {
+                "type": "object",
+                "properties": {}
+            },
+            "MemberCaptureTrafficStatus": {
+                "type": "object",
+                "properties": {}
+            },
+            "MemberCreateToken": {
+                "type": "object",
+                "properties": {}
             },
             "MemberCspMemberSetting": {
                 "type": "object",
@@ -20151,6 +21949,10 @@
                     }
                 }
             },
+            "MemberMemberAdminOperation": {
+                "type": "object",
+                "properties": {}
+            },
             "MemberMemberServiceCommunication": {
                 "type": "object",
                 "properties": {
@@ -20234,12 +22036,11 @@
                 "type": "object",
                 "properties": {
                     "service_status": {
+                        "type": "array",
                         "description": "The service status list of the Grid Member.",
-                        "enum": [
-                            "servicestatus"
-                        ],
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/MembernodeinfoServiceStatus"
+                        "items": {
+                            "$ref": "#/components/schemas/MembernodeinfoServiceStatus"
+                        }
                     },
                     "physical_oid": {
                         "type": "string",
@@ -20701,18 +22502,18 @@
                         "example": false
                     },
                     "ntp_servers": {
+                        "type": "array",
                         "description": "The list of NTP servers configured on a member.",
-                        "enum": [
-                            "ntpserver"
-                        ],
-                        "$ref": "#/components/schemas/MemberntpsettingNtpServers"
+                        "items": {
+                            "$ref": "#/components/schemas/MemberntpsettingNtpServers"
+                        }
                     },
                     "ntp_keys": {
+                        "type": "array",
                         "description": "The list of NTP authentication keys used to authenticate NTP clients.",
-                        "enum": [
-                            "ntpkey"
-                        ],
-                        "$ref": "#/components/schemas/MemberntpsettingNtpKeys"
+                        "items": {
+                            "$ref": "#/components/schemas/MemberntpsettingNtpKeys"
+                        }
                     },
                     "ntp_acl": {
                         "description": "The NTP access control settings.",
@@ -20852,11 +22653,11 @@
                         "example": "Example acl_type"
                     },
                     "ac_list": {
+                        "type": "array",
                         "description": "The list of NTP access control items.",
-                        "enum": [
-                            "ntpac"
-                        ],
-                        "$ref": "#/components/schemas/MemberntpsettingntpaclAcList"
+                        "items": {
+                            "$ref": "#/components/schemas/MemberntpsettingntpaclAcList"
+                        }
                     },
                     "named_acl": {
                         "type": "string",
@@ -21034,11 +22835,11 @@
                 "type": "object",
                 "properties": {
                     "hardware_info": {
+                        "type": "array",
                         "description": "An array of structures that describe the hardware being pre-provisioned.",
-                        "enum": [
-                            "preprovisionhardware"
-                        ],
-                        "$ref": "#/components/schemas/MemberpreprovisioningHardwareInfo"
+                        "items": {
+                            "$ref": "#/components/schemas/MemberpreprovisioningHardwareInfo"
+                        }
                     },
                     "licenses": {
                         "type": "array",
@@ -21104,6 +22905,18 @@
                         "example": "Example hwtype"
                     }
                 }
+            },
+            "MemberReadToken": {
+                "type": "object",
+                "properties": {}
+            },
+            "MemberRequestrestartservicestatus": {
+                "type": "object",
+                "properties": {}
+            },
+            "MemberRestartservices": {
+                "type": "object",
+                "properties": {}
             },
             "MemberServiceStatus": {
                 "type": "object",
@@ -21188,11 +23001,11 @@
                         "example": false
                     },
                     "snmpv3_queries_users": {
+                        "type": "array",
                         "description": "A list of SNMPv3 queries users.",
-                        "enum": [
-                            "queriesuser"
-                        ],
-                        "$ref": "#/components/schemas/MembersnmpsettingSnmpv3QueriesUsers"
+                        "items": {
+                            "$ref": "#/components/schemas/MembersnmpsettingSnmpv3QueriesUsers"
+                        }
                     },
                     "snmpv3_traps_enable": {
                         "type": "boolean",
@@ -21240,11 +23053,11 @@
                         }
                     },
                     "trap_receivers": {
+                        "type": "array",
                         "description": "A list of trap receivers.",
-                        "enum": [
-                            "trapreceiver"
-                        ],
-                        "$ref": "#/components/schemas/MembersnmpsettingTrapReceivers"
+                        "items": {
+                            "$ref": "#/components/schemas/MembersnmpsettingTrapReceivers"
+                        }
                     },
                     "traps_community_string": {
                         "type": "string",
@@ -21376,11 +23189,11 @@
                         "example": 1
                     },
                     "client_acls": {
+                        "type": "array",
                         "description": "This list controls the IP addresses and networks that are allowed to access the syslog proxy.",
-                        "enum": [
-                            "addressac"
-                        ],
-                        "$ref": "#/components/schemas/MembersyslogproxysettingClientAcls"
+                        "items": {
+                            "$ref": "#/components/schemas/MembersyslogproxysettingClientAcls"
+                        }
                     }
                 }
             },
@@ -21744,11 +23557,11 @@
                         "example": "Example rec_dns_latency_listen_on_ip"
                     },
                     "kpi_monitored_domains": {
+                        "type": "array",
                         "description": "List of domains monitored by 'Recursive DNS Latency Threshold' trigger.",
-                        "enum": [
-                            "monitoreddomains"
-                        ],
-                        "$ref": "#/components/schemas/MembertrafficcapturerecdnssettingKpiMonitoredDomains"
+                        "items": {
+                            "$ref": "#/components/schemas/MembertrafficcapturerecdnssettingKpiMonitoredDomains"
+                        }
                     }
                 }
             },
@@ -22065,6 +23878,9 @@
                         "type": "string",
                         "description": "The name of the server on which a boot file is stored. This setting overrides the Grid level setting.",
                         "example": "Example bootserver"
+                    },
+                    "clear_nac_auth_cache": {
+                        "$ref": "#/components/schemas/MemberDhcppropertiesClearNacAuthCache"
                     },
                     "ddns_domainname": {
                         "type": "string",
@@ -22628,6 +24444,9 @@
                         ],
                         "example": "Example prefix_length_mode"
                     },
+                    "purge_ifmap_data": {
+                        "$ref": "#/components/schemas/MemberDhcppropertiesPurgeIfmapData"
+                    },
                     "pxe_lease_time": {
                         "type": "integer",
                         "description": "Specifies the duration of time it takes a host to connect to a boot server, such as a TFTP server, and download the file it needs to boot. A 32-bit unsigned integer that represents the duration, in seconds, for which the update is cached. Zero indicates that the update is not cached.",
@@ -22967,6 +24786,10 @@
                     }
                 }
             },
+            "MemberDhcppropertiesClearNacAuthCache": {
+                "type": "object",
+                "properties": {}
+            },
             "MemberDhcppropertiesDdnsZonePrimaries": {
                 "type": "object",
                 "properties": {
@@ -23111,6 +24934,10 @@
                         "example": false
                     }
                 }
+            },
+            "MemberDhcppropertiesPurgeIfmapData": {
+                "type": "object",
+                "properties": {}
             },
             "ListMemberDhcppropertiesResponse": {
                 "oneOf": [
@@ -23361,6 +25188,9 @@
                         "type": "boolean",
                         "description": "Determines whether the application of BIND check-names for zone transfers and DDNS updates are enabled.",
                         "example": false
+                    },
+                    "clear_dns_cache": {
+                        "$ref": "#/components/schemas/MemberDnsClearDnsCache"
                     },
                     "copy_client_ip_mac_options": {
                         "type": "boolean",
@@ -24851,6 +26681,10 @@
                     }
                 }
             },
+            "MemberDnsClearDnsCache": {
+                "type": "object",
+                "properties": {}
+            },
             "MemberDnsCustomRootNameServers": {
                 "type": "object",
                 "properties": {
@@ -26060,11 +27894,11 @@
                         "example": "Example end_address"
                     },
                     "nat_ports": {
+                        "type": "array",
                         "description": "The NAT port configuration for the threat protection NAT mapping rule.",
-                        "enum": [
-                            "threatprotection:natport"
-                        ],
-                        "$ref": "#/components/schemas/MemberthreatprotectionnatrulesNatPorts"
+                        "items": {
+                            "$ref": "#/components/schemas/MemberthreatprotectionnatrulesNatPorts"
+                        }
                     }
                 }
             },
@@ -26600,6 +28434,9 @@
                         "description": "Group name",
                         "example": "Example name"
                     },
+                    "reconnect_group_now": {
+                        "$ref": "#/components/schemas/GmcgroupReconnectGroupNow"
+                    },
                     "scheduled_time": {
                         "type": "integer",
                         "description": "Absolute time at which the reconnect starts",
@@ -26623,6 +28460,10 @@
                         "example": "Example member"
                     }
                 }
+            },
+            "GmcgroupReconnectGroupNow": {
+                "type": "object",
+                "properties": {}
             },
             "ListGmcgroupResponse": {
                 "oneOf": [

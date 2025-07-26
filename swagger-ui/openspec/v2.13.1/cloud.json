@@ -48,10 +48,130 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "consolidate_zones",
+                        "in": "query",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "consolidated_view",
+                        "in": "query",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this AWS Route53 sync task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the tenant's network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view_mapping_policy",
+                        "in": "query",
+                        "description": "The network view mapping policy.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role_arn",
+                        "in": "query",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_child_accounts",
+                        "in": "query",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "sync_status",
+                        "in": "query",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -100,6 +220,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -138,9 +261,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_awsrte53taskgroup",
-                "x-tf-datasource": "nios_cloud_awsrte53taskgroup"
+                ]
             }
         },
         "/awsrte53taskgroup/{reference}": {
@@ -169,6 +290,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -339,10 +463,76 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "access_key_id",
+                        "in": "query",
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "govcloud_enabled",
+                        "in": "query",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The AWS user name. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nios_user_name",
+                        "in": "query",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Indicate the validity status of this AWS user.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -391,6 +581,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -429,9 +622,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_awsuser",
-                "x-tf-datasource": "nios_cloud_awsuser"
+                ]
             }
         },
         "/awsuser/{reference}": {
@@ -460,6 +651,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -738,42 +932,6 @@
                 "schema": {
                     "type": "boolean"
                 }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
-                }
             }
         },
         "schemas": {
@@ -869,6 +1027,9 @@
                         "readOnly": true,
                         "example": "Example sync_status"
                     },
+                    "task_control": {
+                        "$ref": "#/components/schemas/Awsrte53taskgroupTaskControl"
+                    },
                     "task_list": {
                         "type": "array",
                         "description": "List of AWS Route53 tasks in this group.",
@@ -880,6 +1041,10 @@
                         }
                     }
                 }
+            },
+            "Awsrte53taskgroupTaskControl": {
+                "type": "object",
+                "properties": {}
             },
             "Awsrte53taskgroupTaskList": {
                 "type": "object",

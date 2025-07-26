@@ -52,10 +52,67 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "log_level",
+                        "in": "query",
+                        "description": "The log level for a notification REST endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a notification REST endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outbound_member_type",
+                        "in": "query",
+                        "description": "The outbound member which will generate an event.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uri",
+                        "in": "query",
+                        "description": "The URI of a notification REST endpoint.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_identifier",
+                        "in": "query",
+                        "description": "The vendor identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -104,6 +161,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -142,10 +202,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_notification_notification_rest_endpoint",
-                "x-tf-datasource": "nios_notification_notification_rest_endpoint",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/notification:rest:endpoint/{reference}": {
@@ -174,6 +231,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -272,8 +332,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -345,10 +404,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a notification REST template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outbound_type",
+                        "in": "query",
+                        "description": "The outbound type for the template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -408,6 +497,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -578,10 +670,76 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The notification rule descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "event_priority",
+                        "in": "query",
+                        "description": "Event priority.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "event_type",
+                        "in": "query",
+                        "description": "The notification rule event type.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The notification rule name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "notification_action",
+                        "in": "query",
+                        "description": "The notification rule action is applied if expression list evaluates to True.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "notification_target",
+                        "in": "query",
+                        "description": "The notification target.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -630,6 +788,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -668,9 +829,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_notification_notification_rule",
-                "x-tf-datasource": "nios_notification_notification_rule"
+                ]
             }
         },
         "/notification:rule/{reference}": {
@@ -699,6 +858,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -977,42 +1139,6 @@
                 "schema": {
                     "type": "boolean"
                 }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
-                }
             }
         },
         "schemas": {
@@ -1035,6 +1161,9 @@
                     "_ref": {
                         "type": "string",
                         "description": "The reference to the object."
+                    },
+                    "clear_outbound_worker_log": {
+                        "$ref": "#/components/schemas/NotificationRestEndpointClearOutboundWorkerLog"
                     },
                     "client_certificate_subject": {
                         "type": "string",
@@ -1133,6 +1262,9 @@
                     "template_instance": {
                         "$ref": "#/components/schemas/NotificationRestEndpointTemplateInstance"
                     },
+                    "test_connection": {
+                        "$ref": "#/components/schemas/NotificationRestEndpointTestConnection"
+                    },
                     "timeout": {
                         "type": "integer",
                         "description": "The timeout of session management (in seconds).",
@@ -1167,6 +1299,10 @@
                     }
                 }
             },
+            "NotificationRestEndpointClearOutboundWorkerLog": {
+                "type": "object",
+                "properties": {}
+            },
             "NotificationRestEndpointTemplateInstance": {
                 "type": "object",
                 "properties": {
@@ -1176,11 +1312,11 @@
                         "example": "Example template"
                     },
                     "parameters": {
+                        "type": "array",
                         "description": "The notification REST template parameters.",
-                        "enum": [
-                            "notification:rest:templateparameter"
-                        ],
-                        "$ref": "#/components/schemas/NotificationrestendpointtemplateinstanceParameters"
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationrestendpointtemplateinstanceParameters"
+                        }
                     }
                 }
             },
@@ -1214,6 +1350,10 @@
                         "example": "Example syntax"
                     }
                 }
+            },
+            "NotificationRestEndpointTestConnection": {
+                "type": "object",
+                "properties": {}
             },
             "ListNotificationRestEndpointResponse": {
                 "oneOf": [
@@ -1639,6 +1779,9 @@
                     "template_instance": {
                         "$ref": "#/components/schemas/NotificationRuleTemplateInstance"
                     },
+                    "trigger_outbound": {
+                        "$ref": "#/components/schemas/NotificationRuleTriggerOutbound"
+                    },
                     "use_publish_settings": {
                         "type": "boolean",
                         "description": "Use flag for: publish_settings",
@@ -1881,11 +2024,11 @@
                         "example": "Example template"
                     },
                     "parameters": {
+                        "type": "array",
                         "description": "The notification REST template parameters.",
-                        "enum": [
-                            "notification:rest:templateparameter"
-                        ],
-                        "$ref": "#/components/schemas/NotificationruletemplateinstanceParameters"
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationruletemplateinstanceParameters"
+                        }
                     }
                 }
             },
@@ -1919,6 +2062,10 @@
                         "example": "Example syntax"
                     }
                 }
+            },
+            "NotificationRuleTriggerOutbound": {
+                "type": "object",
+                "properties": {}
             },
             "ListNotificationRuleResponse": {
                 "oneOf": [

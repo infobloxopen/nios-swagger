@@ -96,10 +96,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -159,6 +171,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -168,6 +183,74 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/GetDiscoveryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Discovery"
+                ],
+                "operationId": "DiscoveryUpdate",
+                "summary": "Update a discovery object",
+                "description": "Updates a specific discovery object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the discovery object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Discovery"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateDiscoveryResponse"
                                 }
                             }
                         }
@@ -220,10 +303,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -272,6 +367,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -310,9 +408,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_discovery_discovery_credentialgroup",
-                "x-tf-datasource": "nios_discovery_discovery_credentialgroup"
+                ]
             }
         },
         "/discovery:credentialgroup/{reference}": {
@@ -341,6 +437,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -511,10 +610,103 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The IPv4 Address or IPv6 Address of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "chassis_serial_number",
+                        "in": "query",
+                        "description": "The device chassis serial number.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "description": "The location of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model",
+                        "in": "query",
+                        "description": "The model name of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this device resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "os_version",
+                        "in": "query",
+                        "description": "The Operating System version running on the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor",
+                        "in": "query",
+                        "description": "The vendor name of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -574,6 +766,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -672,8 +867,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/discovery:devicecomponent": {
@@ -704,10 +898,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "description": "A reference to a device, to which this component belongs to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -767,6 +982,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -828,10 +1046,130 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "aggr_interface_name",
+                        "in": "query",
+                        "description": "Name of the port channel current interface belongs to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "The description of the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mac",
+                        "in": "query",
+                        "description": "The MAC address of the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The interface system name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "Th name of the network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "oper_status",
+                        "in": "query",
+                        "description": "Operating state of the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "speed",
+                        "in": "query",
+                        "description": "The interface speed in bps.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vpc_peer",
+                        "in": "query",
+                        "description": "Aggregated interface name of vPC peer device current port is connected to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vrf_description",
+                        "in": "query",
+                        "description": "The description of the Virtual Routing and Forwarding (VRF) associated with the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vrf_name",
+                        "in": "query",
+                        "description": "The name of the Virtual Routing and Forwarding (VRF) associated with the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vrf_rd",
+                        "in": "query",
+                        "description": "The route distinguisher of the Virtual Routing and Forwarding (VRF) associated with the interface.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -891,6 +1229,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -989,8 +1330,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/discovery:deviceneighbor": {
@@ -1021,10 +1361,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "description": "The ref to the device to which the device neighbor belongs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1084,6 +1445,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1145,10 +1509,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The descriptive device name for the device support bundle.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1208,6 +1593,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1310,10 +1698,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "ip_address",
+                        "in": "query",
+                        "description": "The IP address of the discovery diagnostic task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The network view name of the discovery diagnostic task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "task_id",
+                        "in": "query",
+                        "description": "The ID of the discovery diagnostic task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1373,6 +1800,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1502,10 +1932,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1565,6 +2007,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1694,10 +2139,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "discovery_member",
+                        "in": "query",
+                        "description": "The name of the network discovery Grid member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "enable_service",
+                        "in": "query",
+                        "description": "Determines if the discovery service is enabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "is_sa",
+                        "in": "query",
+                        "description": "Determines if the standalone mode for discovery network monitor is enabled or not.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "description": "Discovery member role.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1757,6 +2250,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1886,10 +2382,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the SDN network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view assigned to this SDN network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "source_sdn_config",
+                        "in": "query",
+                        "description": "Name of SDN configuration this network belongs to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1949,6 +2484,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2010,10 +2548,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The IPv4 Address or IPv6 Address of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this device resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2073,6 +2650,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2134,10 +2714,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the VRF.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this VRF resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2197,6 +2807,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2258,10 +2871,301 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "accounts_list",
+                        "in": "query",
+                        "description": "The AWS Account IDs or GCP Project IDs list associated with this task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cdiscovery_file_token",
+                        "in": "query",
+                        "description": "The AWS account IDs or GCP Project IDs file's token.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dns_view_private_ip",
+                        "in": "query",
+                        "description": "The DNS view name for private IPs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dns_view_public_ip",
+                        "in": "query",
+                        "description": "The DNS view name for public IPs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "domain_name",
+                        "in": "query",
+                        "description": "The name of the domain to use with keystone v3.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "driver_type",
+                        "in": "query",
+                        "description": "Type of discovery driver.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "enable_filter",
+                        "in": "query",
+                        "description": "Enable filter for cloud discovery task",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "enabled",
+                        "in": "query",
+                        "description": "Whether to enabled the cloud discovery or not.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "fqdn_or_ip",
+                        "in": "query",
+                        "description": "FQDN or IP of the cloud management platform.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "govcloud_enabled",
+                        "in": "query",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "identity_version",
+                        "in": "query",
+                        "description": "Identity service version.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "Member on which cloud discovery will be run.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "multiple_accounts_sync_policy",
+                        "in": "query",
+                        "description": "Discover all child accounts or Upload child account ids to discover..",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of this cloud discovery task. Uniquely identify a task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_filter",
+                        "in": "query",
+                        "description": "Options to filter the networks in cdiscovery task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "port",
+                        "in": "query",
+                        "description": "Connection port used for connecting to the cloud management platform.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "private_network_view",
+                        "in": "query",
+                        "description": "Network view for private IPs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "private_network_view_mapping_policy",
+                        "in": "query",
+                        "description": "Mapping policy for the network view for private IPs in discovery data.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "protocol",
+                        "in": "query",
+                        "description": "Connection protocol used for connecting to the cloud management platform.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "public_network_view",
+                        "in": "query",
+                        "description": "Network view for public IPs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "public_network_view_mapping_policy",
+                        "in": "query",
+                        "description": "Mapping policy for the network view for public IPs in discovery data.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role_arn",
+                        "in": "query",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "selected_regions",
+                        "in": "query",
+                        "description": "String containing selected regions for discovery in comma separated format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "service_account_file",
+                        "in": "query",
+                        "description": "The service_account_file for GCP.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "service_account_file_token",
+                        "in": "query",
+                        "description": "Service account file's token.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "Current state of this task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_child_accounts",
+                        "in": "query",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "update_dns_view_private_ip",
+                        "in": "query",
+                        "description": "If set to true, the appliance uses a specific DNS view for private IPs.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "update_dns_view_public_ip",
+                        "in": "query",
+                        "description": "If set to true, the appliance uses a specific DNS view for public IPs.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "use_identity",
+                        "in": "query",
+                        "description": "If set true, all keystone connection will use \"/identity\" endpoint and port value will be ignored.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "Username used for connecting to the cloud management platform.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2310,6 +3214,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2348,9 +3255,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_discovery_vdiscoverytask",
-                "x-tf-datasource": "nios_discovery_vdiscoverytask"
+                ]
             }
         },
         "/vdiscoverytask/{reference}": {
@@ -2379,6 +3284,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2657,42 +3565,6 @@
                 "schema": {
                     "type": "boolean"
                 }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
-                }
             }
         },
         "schemas": {
@@ -2715,8 +3587,85 @@
                     "_ref": {
                         "type": "string",
                         "description": "The reference to the object."
+                    },
+                    "clear_network_port_assignment": {
+                        "$ref": "#/components/schemas/DiscoveryClearNetworkPortAssignment"
+                    },
+                    "control_switch_port": {
+                        "$ref": "#/components/schemas/DiscoveryControlSwitchPort"
+                    },
+                    "discovery_data_conversion": {
+                        "$ref": "#/components/schemas/DiscoveryDiscoveryDataConversion"
+                    },
+                    "get_device_support_info": {
+                        "$ref": "#/components/schemas/DiscoveryGetDeviceSupportInfo"
+                    },
+                    "get_job_devices": {
+                        "$ref": "#/components/schemas/DiscoveryGetJobDevices"
+                    },
+                    "get_job_process_details": {
+                        "$ref": "#/components/schemas/DiscoveryGetJobProcessDetails"
+                    },
+                    "import_device_support_bundle": {
+                        "$ref": "#/components/schemas/DiscoveryImportDeviceSupportBundle"
+                    },
+                    "modify_sdn_assignment": {
+                        "$ref": "#/components/schemas/DiscoveryModifySdnAssignment"
+                    },
+                    "modify_vrf_assignment": {
+                        "$ref": "#/components/schemas/DiscoveryModifyVrfAssignment"
+                    },
+                    "provision_network_dhcp_relay": {
+                        "$ref": "#/components/schemas/DiscoveryProvisionNetworkDhcpRelay"
+                    },
+                    "provision_network_port": {
+                        "$ref": "#/components/schemas/DiscoveryProvisionNetworkPort"
                     }
                 }
+            },
+            "DiscoveryClearNetworkPortAssignment": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryControlSwitchPort": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryDiscoveryDataConversion": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryGetDeviceSupportInfo": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryGetJobDevices": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryGetJobProcessDetails": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryImportDeviceSupportBundle": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryModifySdnAssignment": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryModifyVrfAssignment": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryProvisionNetworkDhcpRelay": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryProvisionNetworkPort": {
+                "type": "object",
+                "properties": {}
             },
             "ListDiscoveryResponse": {
                 "oneOf": [
@@ -4351,8 +5300,14 @@
                     "advanced_sdn_polling_settings": {
                         "$ref": "#/components/schemas/DiscoveryGridpropertiesAdvancedSdnPollingSettings"
                     },
+                    "advisor_run_now": {
+                        "$ref": "#/components/schemas/DiscoveryGridpropertiesAdvisorRunNow"
+                    },
                     "advisor_settings": {
                         "$ref": "#/components/schemas/DiscoveryGridpropertiesAdvisorSettings"
+                    },
+                    "advisor_test_connection": {
+                        "$ref": "#/components/schemas/DiscoveryGridpropertiesAdvisorTestConnection"
                     },
                     "auto_conversion_settings": {
                         "type": "array",
@@ -4389,6 +5344,12 @@
                         "items": {
                             "$ref": "#/components/schemas/DiscoveryGridpropertiesDeviceHints"
                         }
+                    },
+                    "diagnostic": {
+                        "$ref": "#/components/schemas/DiscoveryGridpropertiesDiagnostic"
+                    },
+                    "diagnostic_status": {
+                        "$ref": "#/components/schemas/DiscoveryGridpropertiesDiagnosticStatus"
                     },
                     "discovery_blackout_setting": {
                         "$ref": "#/components/schemas/DiscoveryGridpropertiesDiscoveryBlackoutSetting"
@@ -4620,6 +5581,10 @@
                     }
                 }
             },
+            "DiscoveryGridpropertiesAdvisorRunNow": {
+                "type": "object",
+                "properties": {}
+            },
             "DiscoveryGridpropertiesAdvisorSettings": {
                 "type": "object",
                 "properties": {
@@ -4771,6 +5736,10 @@
                         "example": "Example last_run_now_details"
                     }
                 }
+            },
+            "DiscoveryGridpropertiesAdvisorTestConnection": {
+                "type": "object",
+                "properties": {}
             },
             "DiscoveryGridpropertiesAutoConversionSettings": {
                 "type": "object",
@@ -5177,6 +6146,14 @@
                         "example": "Example comment"
                     }
                 }
+            },
+            "DiscoveryGridpropertiesDiagnostic": {
+                "type": "object",
+                "properties": {}
+            },
+            "DiscoveryGridpropertiesDiagnosticStatus": {
+                "type": "object",
+                "properties": {}
             },
             "DiscoveryGridpropertiesDiscoveryBlackoutSetting": {
                 "type": "object",
@@ -6992,6 +7969,9 @@
                         "type": "string",
                         "description": "Username used for connecting to the cloud management platform.",
                         "example": "Example username"
+                    },
+                    "vdiscovery_control": {
+                        "$ref": "#/components/schemas/VdiscoverytaskVdiscoveryControl"
                     }
                 }
             },
@@ -7087,6 +8067,10 @@
                         "example": false
                     }
                 }
+            },
+            "VdiscoverytaskVdiscoveryControl": {
+                "type": "object",
+                "properties": {}
             },
             "ListVdiscoverytaskResponse": {
                 "oneOf": [

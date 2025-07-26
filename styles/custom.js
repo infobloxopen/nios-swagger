@@ -46,7 +46,6 @@
       {url: `${basePath}/discovery.json`, name: "Discovery"},
       {url: `${basePath}/dns.json`, name: "DNS"},
       {url: `${basePath}/dtc.json`, name: "DTC"},
-      // {url: `${basePath}/federatedrealms.json`, name: "Federated Realms"},
       {url: `${basePath}/grid.json`, name: "Grid"},
       {url: `${basePath}/ipam.json`, name: "IPAM"},
       {url: `${basePath}/microsoftserver.json`, name: "Microsoft Server"},
@@ -65,8 +64,6 @@
   if (currentVersion !== 'v2.13.1') {
     specUrls.push({url: `${basePath}/federatedrealms.json`, name: "Federated Realms"});
   }
-
-
     // Sort specs alphabetically if configured
     if (CONFIG.specNamesSorted) {
       specUrls.sort((a, b) => a.name.localeCompare(b.name));

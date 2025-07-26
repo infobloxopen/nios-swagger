@@ -148,10 +148,22 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -211,6 +223,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -272,10 +287,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment about a DHCP failover object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP failover object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -324,6 +369,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -362,10 +410,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_dhcpfailover",
-                "x-tf-datasource": "nios_dhcp_dhcpfailover",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/dhcpfailover/{reference}": {
@@ -394,6 +439,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -492,8 +540,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -565,10 +612,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "The code of a DHCP option definition object. An option code number is used to identify the DHCP option.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP option definition object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "space",
+                        "in": "query",
+                        "description": "The space of a DHCP option definition object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The data type of the Grid DHCP option.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -617,6 +712,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -655,9 +753,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_dhcpoptiondefinition",
-                "x-tf-datasource": "nios_dhcp_dhcpoptiondefinition"
+                ]
             }
         },
         "/dhcpoptiondefinition/{reference}": {
@@ -686,6 +782,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -856,10 +955,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of a DHCP option space object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP option space object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -908,6 +1037,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -946,9 +1078,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_dhcpoptionspace",
-                "x-tf-datasource": "nios_dhcp_dhcpoptionspace"
+                ]
             }
         },
         "/dhcpoptionspace/{reference}": {
@@ -977,6 +1107,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1147,10 +1280,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP Fingerprint Filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1199,6 +1362,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1237,10 +1403,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_filterfingerprint",
-                "x-tf-datasource": "nios_dhcp_filterfingerprint",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/filterfingerprint/{reference}": {
@@ -1269,6 +1432,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1367,8 +1533,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1440,10 +1605,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The descriptive comment of a DHCP MAC Filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP MAC Filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1492,6 +1687,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1530,10 +1728,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_filtermac",
-                "x-tf-datasource": "nios_dhcp_filtermac",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/filtermac/{reference}": {
@@ -1562,6 +1757,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1660,8 +1858,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -1733,10 +1930,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The descriptive comment of a DHCP NAC Filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP NAC Filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1785,6 +2012,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1823,10 +2053,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_filternac",
-                "x-tf-datasource": "nios_dhcp_filternac",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/filternac/{reference}": {
@@ -1855,6 +2082,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1953,8 +2183,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2026,10 +2255,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The descriptive comment of a DHCP filter option object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP option filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2078,6 +2337,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2116,10 +2378,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_filteroption",
-                "x-tf-datasource": "nios_dhcp_filteroption",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/filteroption/{reference}": {
@@ -2148,6 +2407,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2246,8 +2508,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2319,10 +2580,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of a DHCP relay agent filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP relay agent filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2371,6 +2662,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2409,10 +2703,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_filterrelayagent",
-                "x-tf-datasource": "nios_dhcp_filterrelayagent",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/filterrelayagent/{reference}": {
@@ -2441,6 +2732,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2539,8 +2833,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2612,10 +2905,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the Fingerprint; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_class",
+                        "in": "query",
+                        "description": "A class of DHCP Fingerprint object; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the DHCP Fingerprint object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of the DHCP Fingerprint object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2664,6 +3005,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2702,10 +3046,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_fingerprint",
-                "x-tf-datasource": "nios_dhcp_fingerprint",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/fingerprint/{reference}": {
@@ -2734,6 +3075,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2832,8 +3176,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -2905,10 +3248,121 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the fixed address; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_description",
+                        "in": "query",
+                        "description": "The description of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_location",
+                        "in": "query",
+                        "description": "The location of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "query",
+                        "description": "The type of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_vendor",
+                        "in": "query",
+                        "description": "The vendor of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv4addr",
+                        "in": "query",
+                        "description": "The IPv4 Address of the fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mac",
+                        "in": "query",
+                        "description": "The MAC address value for this fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "match_client",
+                        "in": "query",
+                        "description": "The match_client value for this fixed address. Valid values are: \"MAC_ADDRESS\": The fixed IP address is leased to the matching MAC address. \"CLIENT_ID\": The fixed IP address is leased to the matching DHCP client identifier. \"RESERVED\": The fixed IP address is reserved for later use with a MAC address that only has zeros. \"CIRCUIT_ID\": The fixed IP address is leased to the DHCP client with a matching circuit ID. Note that the \"agent_circuit_id\" field must be set in this case. \"REMOTE_ID\": The fixed IP address is leased to the DHCP client with a matching remote ID. Note that the \"agent_remote_id\" field must be set in this case.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ms_server",
+                        "in": "query",
+                        "description": "The Microsoft server associated with this fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network to which this fixed address belongs, in IPv4 Address/CIDR format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this fixed address resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2957,6 +3411,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -2995,14 +3452,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_fixedaddress",
-                "x-tf-datasource": "nios_dhcp_fixedaddress",
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-post-function-call": [
-                    "Ipv4addr"
-                ],
-                "x-tf-function-call": true
+                ]
             }
         },
         "/fixedaddress/{reference}": {
@@ -3031,6 +3481,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3129,12 +3582,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-put-function-call": [
-                    "Ipv4addr"
-                ],
-                "x-tf-function-call": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3206,10 +3654,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of a fixed address template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a fixed address template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3258,6 +3736,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3296,10 +3777,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_fixedaddresstemplate",
-                "x-tf-datasource": "nios_dhcp_fixedaddresstemplate",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/fixedaddresstemplate/{reference}": {
@@ -3328,6 +3806,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3426,8 +3907,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -3499,10 +3979,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "The code of a DHCP IPv6 option definition object. An option code number is used to identify the DHCP option.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP IPv6 option definition object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "space",
+                        "in": "query",
+                        "description": "The space of a DHCP option definition object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The data type of the Grid DHCP IPv6 option.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3551,6 +4079,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3589,9 +4120,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6dhcpoptiondefinition",
-                "x-tf-datasource": "nios_dhcp_ipv6dhcpoptiondefinition"
+                ]
             }
         },
         "/ipv6dhcpoptiondefinition/{reference}": {
@@ -3620,6 +4149,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -3790,10 +4322,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of a DHCP IPv6 option space object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "enterprise_number",
+                        "in": "query",
+                        "description": "The enterprise number of a DHCP IPv6 option space object.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP IPv6 option space object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -3842,6 +4413,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -3880,9 +4454,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6dhcpoptionspace",
-                "x-tf-datasource": "nios_dhcp_ipv6dhcpoptionspace"
+                ]
             }
         },
         "/ipv6dhcpoptionspace/{reference}": {
@@ -3911,6 +4483,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4081,10 +4656,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The descriptive comment of a DHCP IPv6 filter option object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a DHCP IPv6 option filter object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4133,6 +4738,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4171,10 +4779,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6filteroption",
-                "x-tf-datasource": "nios_dhcp_ipv6filteroption",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6filteroption/{reference}": {
@@ -4203,6 +4808,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4301,8 +4909,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -4374,10 +4981,130 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address_type",
+                        "in": "query",
+                        "description": "The address type value for this IPv6 fixed address. When the address type is \"ADDRESS\", a value for the 'ipv6addr' member is required. When the address type is \"PREFIX\", values for 'ipv6prefix' and 'ipv6prefix_bits' are required. When the address type is \"BOTH\", values for 'ipv6addr', 'ipv6prefix', and 'ipv6prefix_bits' are all required.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the fixed address; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_description",
+                        "in": "query",
+                        "description": "The description of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_location",
+                        "in": "query",
+                        "description": "The location of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "query",
+                        "description": "The type of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_vendor",
+                        "in": "query",
+                        "description": "The vendor of the device.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "duid",
+                        "in": "query",
+                        "description": "The DUID value for this IPv6 fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6addr",
+                        "in": "query",
+                        "description": "The IPv6 Address of the DHCP IPv6 fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6prefix",
+                        "in": "query",
+                        "description": "The IPv6 Address prefix of the DHCP IPv6 fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6prefix_bits",
+                        "in": "query",
+                        "description": "Prefix bits of the DHCP IPv6 fixed address.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network to which this IPv6 fixed address belongs, in IPv6 Address/CIDR format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this IPv6 fixed address resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4426,6 +5153,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4464,14 +5194,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6fixedaddress",
-                "x-tf-datasource": "nios_dhcp_ipv6fixedaddress",
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-post-function-call": [
-                    "Ipv6addr"
-                ],
-                "x-tf-function-call": true
+                ]
             }
         },
         "/ipv6fixedaddress/{reference}": {
@@ -4500,6 +5223,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4598,12 +5324,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true,
-                "x-sdk-put-function-call": [
-                    "Ipv6addr"
-                ],
-                "x-tf-function-call": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -4675,10 +5396,40 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of an IPv6 fixed address template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of an IPv6 fixed address template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -4727,6 +5478,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -4765,10 +5519,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6fixedaddresstemplate",
-                "x-tf-datasource": "nios_dhcp_ipv6fixedaddresstemplate",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6fixedaddresstemplate/{reference}": {
@@ -4797,6 +5548,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -4895,8 +5649,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -4968,10 +5721,130 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address_type",
+                        "in": "query",
+                        "description": "Type of a DHCP IPv6 Range object. Valid values are \"ADDRESS\", \"PREFIX\", or \"BOTH\". When the address type is \"ADDRESS\", values for the 'start_addr' and 'end_addr' members are required. When the address type is \"PREFIX\", values for 'ipv6_start_prefix', 'ipv6_end_prefix', and 'ipv6_prefix_bits' are required. When the address type is \"BOTH\", values for 'start_addr', 'end_addr', 'ipv6_start_prefix', 'ipv6_end_prefix', and 'ipv6_prefix_bits' are all required.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the range; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end_addr",
+                        "in": "query",
+                        "description": "The IPv6 Address end address of the DHCP IPv6 range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_end_prefix",
+                        "in": "query",
+                        "description": "The IPv6 Address end prefix of the DHCP IPv6 range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_prefix_bits",
+                        "in": "query",
+                        "description": "Prefix bits of the DHCP IPv6 range.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "ipv6_start_prefix",
+                        "in": "query",
+                        "description": "The IPv6 Address starting prefix of the DHCP IPv6 range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The member that will provide service for this range. {ipv6range:ipv6range} needs to be set to 'MEMBER' if you want the server specified here to serve the range. For searching by this field you should use a HTTP method that contains a body (POST or PUT) with Dhcp Member structure dhcpmember and the request should have option _method=GET.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "This field contains the name of the Microsoft scope.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network this range belongs to, in IPv6 Address/CIDR format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this range resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "server_association_type",
+                        "in": "query",
+                        "description": "The type of server that is going to serve the range. Valid values are: * MEMBER * NONE",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_addr",
+                        "in": "query",
+                        "description": "The IPv6 Address starting address of the DHCP IPv6 range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5020,6 +5893,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -5058,10 +5934,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6range",
-                "x-tf-datasource": "nios_dhcp_ipv6range",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6range/{reference}": {
@@ -5090,6 +5963,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5188,8 +6064,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -5261,10 +6136,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The IPv6 DHCP range template descriptive comment.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The member that will provide service for the IPv6 DHCP range. Set {ipv6rangetemplate:ipv6rangetemplate} to 'MEMBER' if you want the server specified here to serve the range. For searching by this field, use an HTTP method that contains a body (POST or PUT) with MS DHCP server structure msdhcpserver and the request should have option _method=GET.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name of the IPv6 DHCP range template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "server_association_type",
+                        "in": "query",
+                        "description": "The type of server that is going to serve the IPv6 DHCP range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5313,6 +6236,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -5351,9 +6277,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6rangetemplate",
-                "x-tf-datasource": "nios_dhcp_ipv6rangetemplate"
+                ]
             }
         },
         "/ipv6rangetemplate/{reference}": {
@@ -5382,6 +6306,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5552,10 +6479,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the IPv6 shared network, maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the IPv6 Shared Network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this IPv6 shared network resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5604,6 +6570,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -5642,10 +6611,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_ipv6sharednetwork",
-                "x-tf-datasource": "nios_dhcp_ipv6sharednetwork",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/ipv6sharednetwork/{reference}": {
@@ -5674,6 +6640,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -5772,8 +6741,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -5845,10 +6813,121 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "The IPv4 Address or IPv6 Address of the lease.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "client_hostname",
+                        "in": "query",
+                        "description": "The client_hostname of a DHCP Lease object. This field specifies the host name that the DHCP client sends to the Infoblox appliance using DHCP option 12.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fingerprint",
+                        "in": "query",
+                        "description": "DHCP fingerprint for the lease.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hardware",
+                        "in": "query",
+                        "description": "The hardware type of a DHCP Lease object. This field specifies the MAC address of the network interface on which the lease will be used. This field is supported for IPv4 leases, and from NIOS-9.0.6 onwards, also supported for IPv6 leases.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_duid",
+                        "in": "query",
+                        "description": "The DUID value for this lease. This field is only applicable for IPv6 leases.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_prefix_bits",
+                        "in": "query",
+                        "description": "Prefix bits for this lease. This field is for IPv6 leases only.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network, in \"network/netmask\" format, with which this lease is associated.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this lease resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "protocol",
+                        "in": "query",
+                        "description": "This field determines whether the lease is an IPv4 or IPv6 address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "remote_id",
+                        "in": "query",
+                        "description": "This field represents the \"Remote ID\" sub-option of DHCP option 82. Remote ID can be in ASCII form (e.g. ``\"abcd\"``) or in colon-separated HEX form (e.g. ``1:2:ab:cd``). HEX representation is used only when the sub-option value contains unprintable characters. If a remote ID sub-option value is in ASCII form, it is always enclosed in quotes to prevent ambiguous values (e.g. ``\"10:20\"`` - ASCII 5-byte string; ``10:20`` - HEX 2-byte value). * ASCII representation is used if the remote ID sub-option contains only printable ASCII characters (ASCII characters in range ``x20-0x7E``). * The backslash symbol (``\\``) is used as an escape symbol to escape the quote symbol (``\"``) in an ASCII string. * Double backslashes (``\\\\``) are used to represent the backslash symbol (``\\``) in an ASCII string. * HEX representation is used only when the remote ID sub-option value contains unprintable characters and is normalized as follows: * starting zero is removed from digits: ``1``, ``a`` - Valid; ``01``, ``0a`` - Invalid; * lowercase characters are used for symbols: ``fa`` - Valid; ``FA`` - Invalid. NIOS does not support the convertion between HEX and ASCII formats. Searches are performed using the exact same format and value as the sub-option is represented. Query examples assume the following leases are stored in the database: .. tabularcolumns:: |p{1in}|p{3in}|p{2in}| ========= ========================== ============================ Number Option field Extracted remote ID field ========= ========================== ============================ Lease01 agent.remote-id= \"00152654358700\" \"00152654358700\" agent.circuit-id= \"BX1-PORT-003\" Lease02 agent.remote-id=\"Dhcp \"Dhcp Relay 10\" Relay 10\" agent.circuit-id=\"Port008\" Lease03 agent.remote-id=\"00:01:02\" \"00:01:02\" Lease04 agent.remote-id=0:1:2 0:1:2 Lease05 agent.remote-id=02:03 2:3 Lease06 agent.remote-id=10:20 10:20 Lease07 agent.circuit-id= \"no-remote-id\" ========= ========================== ============================ Expected results: .. tabularcolumns:: |p{1.5in}|p{1.5in}|p{3in}| ========================= ==================== ============================= Query Returned leases Comments ========================= ==================== ============================= remote_id=01:02 None EXACT query. No results are expected. remote_id=\"Dhcp Relay 10\" Lease02 EXACT query for an ASCII value. remote_id=0:1:2 Lease04 EXACT query for a HEX value. remote_id=00:01:02 None EXACT query for a HEX value. No results are expected as the search value is not normalized to the same format used in the database. remote_id~=10 Lease02, Lease06 REGEX query. remote_id~=^\".*1 Lease01, Lease02, REGEX query. Only ASCII Lease03 values are expected due to the starting quote (``\"``) in the search value. remote_id~=^[^\"]*2 Lease04, Lease05, REGEX query. Only HEX values Lease06 are expected as the starting quote (``\"``) is excluded from the search value. remote_id=\"\" None EXACT query. No results are expected as no leases that contain an empty remote ID value exist in the database. ID value in the database. remote_id~=\"\" Lease01, Lease02, REGEX query. This query is Lease03, Lease04, expected to match any Lease05, Lease06 lease that contain remote ID set to any value. ========================= ==================== ============================= **NOTE:** Lease07 is not expected to be returned when searching for the remote ID sub-option.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "The user name that the server has associated with a DHCP Lease object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -5908,6 +6987,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6010,10 +7092,184 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "authentication_time",
+                        "in": "query",
+                        "description": "The absolute UNIX time (in seconds) since the address was last authenticated.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the MAC filter address; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "expiration_time",
+                        "in": "query",
+                        "description": "The absolute UNIX time (in seconds) until the address expires.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Name of the MAC filter to which this address belongs.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fingerprint",
+                        "in": "query",
+                        "description": "DHCP fingerprint for the address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_custom_field1",
+                        "in": "query",
+                        "description": "Guest custom field 1.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_custom_field2",
+                        "in": "query",
+                        "description": "Guest custom field 2.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_custom_field3",
+                        "in": "query",
+                        "description": "Guest custom field 3.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_custom_field4",
+                        "in": "query",
+                        "description": "Guest custom field 4.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_email",
+                        "in": "query",
+                        "description": "Guest e-mail.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_first_name",
+                        "in": "query",
+                        "description": "Guest first name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_last_name",
+                        "in": "query",
+                        "description": "Guest last name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_middle_name",
+                        "in": "query",
+                        "description": "Guest middle name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "guest_phone",
+                        "in": "query",
+                        "description": "Guest phone number.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mac",
+                        "in": "query",
+                        "description": "MAC Address.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "never_expires",
+                        "in": "query",
+                        "description": "Determines if MAC address expiration is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "reserved_for_infoblox",
+                        "in": "query",
+                        "description": "Reserved for future use.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "Username for authenticated DHCP purposes.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6062,6 +7318,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -6100,10 +7359,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_macfilteraddress",
-                "x-tf-datasource": "nios_dhcp_macfilteraddress",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/macfilteraddress/{reference}": {
@@ -6132,6 +7388,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6230,8 +7489,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -6303,10 +7561,103 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the range; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end_addr",
+                        "in": "query",
+                        "description": "The IPv4 Address end address of the range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "failover_association",
+                        "in": "query",
+                        "description": "The name of the failover association: the server in this failover association will serve the IPv4 range in case the main server is out of service. {range:range} must be set to 'FAILOVER' or 'FAILOVER_MS' if you want the failover association specified here to serve the range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The member that will provide service for this range. {range:range} needs to be set to 'MEMBER' if you want the server specified here to serve the range. For searching by this field you should use a HTTP method that contains a body (POST or PUT) with Dhcp Member structure dhcpmember and the request should have option _method=GET.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "ms_server",
+                        "in": "query",
+                        "description": "The Microsoft server that will provide service for this range. {range:range} needs to be set to 'MS_SERVER' if you want the server specified here to serve the range. For searching by this field you should use a HTTP method that contains a body (POST or PUT) with MS DHCP server structure msdhcpserver and the request should have option _method=GET.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The network to which this range belongs, in IPv4 Address/CIDR format.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this range resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "server_association_type",
+                        "in": "query",
+                        "description": "The type of server that is going to serve the range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_addr",
+                        "in": "query",
+                        "description": "The IPv4 Address starting address of the range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6355,6 +7706,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -6393,10 +7747,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_range",
-                "x-tf-datasource": "nios_dhcp_range",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/range/{reference}": {
@@ -6425,6 +7776,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6523,8 +7877,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -6596,10 +7949,76 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "A descriptive comment of a range template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "failover_association",
+                        "in": "query",
+                        "description": "The name of the failover association: the server in this failover association will serve the IPv4 range in case the main server is out of service. {rangetemplate:rangetemplate} must be set to 'FAILOVER' or 'FAILOVER_MS' if you want the failover association specified here to serve the range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The member that will provide service for this range. {rangetemplate:rangetemplate} needs to be set to 'MEMBER' if you want the server specified here to serve the range. For searching by this field you should use a HTTP method that contains a body (POST or PUT) with Dhcp Member structure dhcpmember and the request should have option _method=GET.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "ms_server",
+                        "in": "query",
+                        "description": "The Microsoft server that will provide service for this range. {rangetemplate:rangetemplate} needs to be set to 'MS_SERVER' if you want the server specified here to serve the range. For searching by this field you should use a HTTP method that contains a body (POST or PUT) with MS DHCP server structure msdhcpserver and the request should have option _method=GET.",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of a range template object.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "server_association_type",
+                        "in": "query",
+                        "description": "The type of server that is going to serve the range.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6648,6 +8067,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -6686,10 +8108,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_rangetemplate",
-                "x-tf-datasource": "nios_dhcp_rangetemplate",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/rangetemplate/{reference}": {
@@ -6718,6 +8137,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -6816,8 +8238,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -6889,10 +8310,103 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "address_type",
+                        "in": "query",
+                        "description": "The address type for this roaming host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the roaming host; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dhcp_client_identifier",
+                        "in": "query",
+                        "description": "The DHCP client ID for the roaming host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_duid",
+                        "in": "query",
+                        "description": "The DUID value for this roaming host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ipv6_match_option",
+                        "in": "query",
+                        "description": "The identification method for an IPv6 or mixed IPv4/IPv6 roaming host. The supported values for this field are \"DUID\" or \"V6_MAC_ADDRESS\", which specify what option should be used to identify the specific DHCPv6 client.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mac",
+                        "in": "query",
+                        "description": "The MAC address for this roaming host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "match_client",
+                        "in": "query",
+                        "description": "The match-client value for this roaming host. Valid values are: \"MAC_ADDRESS\": The fixed IP address is leased to the matching MAC address. \"CLIENT_ID\": The fixed IP address is leased to the matching DHCP client identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this roaming host.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this roaming host resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -6941,6 +8455,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -6979,10 +8496,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_roaminghost",
-                "x-tf-datasource": "nios_dhcp_roaminghost",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/roaminghost/{reference}": {
@@ -7011,6 +8525,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7109,8 +8626,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -7182,10 +8698,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the shared network, maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the IPv6 Shared Network.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the network view in which this shared network resides.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -7234,6 +8789,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -7272,10 +8830,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_dhcp_sharednetwork",
-                "x-tf-datasource": "nios_dhcp_sharednetwork",
-                "x-sdk-default-ext-attrs": true
+                ]
             }
         },
         "/sharednetwork/{reference}": {
@@ -7304,6 +8859,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7402,8 +8960,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-sdk-default-ext-attrs": true
+                ]
             },
             "delete": {
                 "tags": [
@@ -7475,10 +9032,31 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "network",
+                        "in": "query",
+                        "description": "The reference to the network that contains ranges.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -7538,6 +9116,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -7774,42 +9355,6 @@
                 "required": false,
                 "schema": {
                     "type": "boolean"
-                }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
                 }
             }
         },
@@ -8190,6 +9735,12 @@
                         "readOnly": true,
                         "example": "Example secondary_state"
                     },
+                    "set_dhcp_failover_partner_down": {
+                        "$ref": "#/components/schemas/DhcpfailoverSetDhcpFailoverPartnerDown"
+                    },
+                    "set_dhcp_failover_secondary_recovery": {
+                        "$ref": "#/components/schemas/DhcpfailoverSetDhcpFailoverSecondaryRecovery"
+                    },
                     "use_failover_port": {
                         "type": "boolean",
                         "description": "Use flag for: failover_port",
@@ -8206,6 +9757,14 @@
                         "example": false
                     }
                 }
+            },
+            "DhcpfailoverSetDhcpFailoverPartnerDown": {
+                "type": "object",
+                "properties": {}
+            },
+            "DhcpfailoverSetDhcpFailoverSecondaryRecovery": {
+                "type": "object",
+                "properties": {}
             },
             "ListDhcpfailoverResponse": {
                 "oneOf": [
@@ -9715,9 +11274,6 @@
                             }
                         ]
                     },
-                    "func_call": {
-                        "$ref": "#/components/schemas/FuncCall"
-                    },
                     "is_invalid_mac": {
                         "type": "boolean",
                         "description": "This flag reflects whether the MAC address for this fixed address is invalid.",
@@ -9895,39 +11451,6 @@
                         "type": "boolean",
                         "description": "If set to true, the SNMP credential will override member-level settings.",
                         "example": false
-                    }
-                }
-            },
-            "FuncCall": {
-                "type": "object",
-                "description": "Function Call attribute",
-                "required": [
-                    "attribute_name"
-                ],
-                "properties": {
-                    "attribute_name": {
-                        "type": "string",
-                        "description": "The attribute to be called."
-                    },
-                    "_object_function": {
-                        "type": "string",
-                        "description": "The function to be called."
-                    },
-                    "_parameters": {
-                        "type": "object",
-                        "description": "The parameters for the function."
-                    },
-                    "_result_field": {
-                        "type": "string",
-                        "description": "The result field of the function."
-                    },
-                    "_object": {
-                        "type": "string",
-                        "description": "The object to be called."
-                    },
-                    "_object_parameters": {
-                        "type": "object",
-                        "description": "The parameters for the object."
                     }
                 }
             },
@@ -11812,9 +13335,6 @@
                             }
                         ]
                     },
-                    "func_call": {
-                        "$ref": "#/components/schemas/FuncCall"
-                    },
                     "ipv6prefix": {
                         "type": "string",
                         "description": "The IPv6 Address prefix of the DHCP IPv6 fixed address.",
@@ -13304,6 +14824,9 @@
                         "description": "The name of the network view in which this range resides.",
                         "example": "Example network_view"
                     },
+                    "next_available_ip": {
+                        "$ref": "#/components/schemas/Ipv6rangeNextAvailableIp"
+                    },
                     "option_filter_rules": {
                         "type": "array",
                         "description": "This field contains the Option filters to be applied to this IPv6 range. The appliance uses the matching rules of these filters to select the address range from which it assigns a lease.",
@@ -13812,6 +15335,10 @@
                     }
                 }
             },
+            "Ipv6rangeNextAvailableIp": {
+                "type": "object",
+                "properties": {}
+            },
             "Ipv6rangeOptionFilterRules": {
                 "type": "object",
                 "properties": {
@@ -13967,11 +15494,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/Ipv6rangesubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/Ipv6rangesubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -14748,7 +16275,7 @@
                     },
                     "hardware": {
                         "type": "string",
-                        "description": "The hardware type of a DHCP Lease object. This field specifies the MAC address of the network interface on which the lease will be used. This field is for IPv4 leases only.",
+                        "description": "The hardware type of a DHCP Lease object. This field specifies the MAC address of the network interface on which the lease will be used. This field is supported for IPv4 leases, and from NIOS-9.0.6 onwards, also supported for IPv6 leases.",
                         "readOnly": true,
                         "example": "Example hardware"
                     },
@@ -16151,6 +17678,9 @@
                         "description": "The name of the network view in which this range resides.",
                         "example": "Example network_view"
                     },
+                    "next_available_ip": {
+                        "$ref": "#/components/schemas/RangeNextAvailableIp"
+                    },
                     "nextserver": {
                         "type": "string",
                         "description": "The name in FQDN and/or IPv4 Address of the next server that the host needs to boot.",
@@ -16942,6 +18472,10 @@
                     }
                 }
             },
+            "RangeNextAvailableIp": {
+                "type": "object",
+                "properties": {}
+            },
             "RangeOptionFilterRules": {
                 "type": "object",
                 "properties": {
@@ -17157,11 +18691,11 @@
                         }
                     },
                     "mapped_ea_attributes": {
+                        "type": "array",
                         "description": "The list of NIOS extensible attributes to Cisco ISE attributes mappings.",
-                        "enum": [
-                            "ciscoise:eaassociation"
-                        ],
-                        "$ref": "#/components/schemas/RangesubscribesettingsMappedEaAttributes"
+                        "items": {
+                            "$ref": "#/components/schemas/RangesubscribesettingsMappedEaAttributes"
+                        }
                     }
                 }
             },
@@ -18135,9 +19669,10 @@
                     },
                     "ipv6_match_option": {
                         "type": "string",
-                        "description": "The identification method for an IPv6 or mixed IPv4/IPv6 roaming host. Currently, the only supported value for this field is \"DUID\", which corresponds to identification by DHCPv6 unique ID.",
+                        "description": "The identification method for an IPv6 or mixed IPv4/IPv6 roaming host. The supported values for this field are \"DUID\" or \"V6_MAC_ADDRESS\", which specify what option should be used to identify the specific DHCPv6 client.",
                         "enum": [
-                            "DUID"
+                            "DUID",
+                            "V6_MAC_ADDRESS"
                         ],
                         "example": "Example ipv6_match_option"
                     },

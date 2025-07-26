@@ -7,23 +7,27 @@
         wapi: 'v2.13.6',
         niosSupport: 'NIOS: v9.0.6'
       },
+      {
+        wapi: 'v2.13.1',
+        niosSupport: 'NIOS: v9.0.1 - v9.0.3'
+      }
       // Add future versions here in the same format
     ],
     defaultSpec: 'dns.json',
     specNamesSorted: true, // Sort spec names alphabetically
     showLoadingIndicator: true // Show a loading indicator while specs load
   };
-  
+
   // Get the version from URL parameter or use default
   const urlParams = new URLSearchParams(window.location.search);
   const currentVersion = urlParams.get('version') || CONFIG.defaultVersion;
-  
+
   // Set base path according to selected version
   const basePath = `swagger-ui/openspec/${currentVersion}`;
-  
+
   // Track loaded state
   let swaggerInitialized = false;
-  
+
   // Wait for the original Swagger UI to initialize
   const checkInterval = setInterval(() => {
     if (window.ui) {
@@ -31,7 +35,7 @@
       initializeSwaggerUI();
     }
   }, 10);
-  
+
   // Initialize the Swagger UI with our configuration
   function initializeSwaggerUI() {
     // Create specification URLs
@@ -42,7 +46,6 @@
       {url: `${basePath}/discovery.json`, name: "Discovery"},
       {url: `${basePath}/dns.json`, name: "DNS"},
       {url: `${basePath}/dtc.json`, name: "DTC"},
-      {url: `${basePath}/federatedrealms.json`, name: "Federated Realms"},
       {url: `${basePath}/grid.json`, name: "Grid"},
       {url: `${basePath}/ipam.json`, name: "IPAM"},
       {url: `${basePath}/microsoftserver.json`, name: "Microsoft Server"},
@@ -56,7 +59,11 @@
       {url: `${basePath}/threatinsight.json`, name: "Threat Insight"},
       {url: `${basePath}/threatprotection.json`, name: "Threat Protection"}
     ];
-    
+
+  // Only add Federated Realms for versions other than 2.13.1
+  if (currentVersion !== 'v2.13.1') {
+    specUrls.push({url: `${basePath}/federatedrealms.json`, name: "Federated Realms"});
+  }
     // Sort specs alphabetically if configured
     if (CONFIG.specNamesSorted) {
       specUrls.sort((a, b) => a.name.localeCompare(b.name));
@@ -85,7 +92,7 @@
       });
     } catch (e) {
       console.error("Failed to initialize Swagger UI:", e);
-      document.getElementById('swagger-ui').innerHTML = 
+      document.getElementById('swagger-ui').innerHTML =
         `<div style="padding: 20px; text-align: center;">
           <h3>Error loading API documentation</h3>
           <p>There was a problem loading the specification for ${currentVersion}.</p>
@@ -96,7 +103,7 @@
     // Set up observers for UI elements
     setupUIObservers();
   }
-  
+
   // Setup the MutationObservers for the UI elements
   function setupUIObservers() {
     // Single observer for all UI elements
@@ -108,14 +115,14 @@
         addWapiVersionToTopbar(topbar, currentVersion);
       }
     });
-    
+
     // Start observing with a single observer
-    observer.observe(document.body, { 
-      childList: true, 
-      subtree: true 
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
   }
-  
+
   // Function to add WAPI version to topbar
   function addWapiVersionToTopbar(topbar, currentVersion) {
     // Create HTML for the WAPI version selector
@@ -124,19 +131,19 @@
         <label class="select-label" for="wapi-version-selector">
           <span>WAPI Version</span>
           <select id="wapi-version-selector">
-            ${CONFIG.versions.map(version => 
+            ${CONFIG.versions.map(version =>
               `<option value="${version.wapi}" ${version.wapi === currentVersion ? 'selected' : ''}>${version.wapi} (${version.niosSupport})</option>`
             ).join('')}
           </select>
         </label>
       </div>
     `;
-    
+
     // Check if selector is already added
     if (!document.getElementById('wapi-version-selector')) {
       // Insert after the existing dropdown
       topbar.insertAdjacentHTML('afterend', wapiVersionHTML);
-      
+
       // Add event listener
       document.getElementById('wapi-version-selector').addEventListener('change', (e) => {
         const newVersion = e.target.value;
@@ -146,7 +153,7 @@
       });
     }
   }
-  
+
   // Helper to create version change URL
   function createVersionURL(version) {
     const url = new URL(window.location.href);

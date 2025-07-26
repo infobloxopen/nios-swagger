@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox GRID API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI GRID objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -145,10 +145,6 @@
         {
             "name": "MemberThreatinsight",
             "description": "Operations for member:threatinsight objects"
-        },
-        {
-            "name": "Membercloudsync",
-            "description": "Operations for membercloudsync objects"
         },
         {
             "name": "Memberdfp",
@@ -7648,213 +7644,6 @@
                 ]
             }
         },
-        "/membercloudsync": {
-            "get": {
-                "tags": [
-                    "Membercloudsync"
-                ],
-                "operationId": "MembercloudsyncList",
-                "summary": "Retrieve membercloudsync objects",
-                "description": "Returns a list of membercloudsync objects matching the search criteria",
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/MaxResults"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Paging"
-                    },
-                    {
-                        "$ref": "#/components/parameters/PageId"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ProxySearch"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Schema"
-                    },
-                    {
-                        "$ref": "#/components/parameters/SchemaVersion"
-                    },
-                    {
-                        "$ref": "#/components/parameters/GetDoc"
-                    },
-                    {
-                        "$ref": "#/components/parameters/SchemaSearchable"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Inheritance"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListMembercloudsyncResponse"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
-                    {
-                        "basicAuth": []
-                    }
-                ]
-            }
-        },
-        "/membercloudsync/{reference}": {
-            "get": {
-                "tags": [
-                    "Membercloudsync"
-                ],
-                "operationId": "MembercloudsyncRead",
-                "summary": "Get a specific membercloudsync object",
-                "description": "Returns a specific membercloudsync object by reference",
-                "parameters": [
-                    {
-                        "name": "reference",
-                        "in": "path",
-                        "description": "Reference of the membercloudsync object",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Inheritance"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GetMembercloudsyncResponse"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
-                    {
-                        "basicAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Membercloudsync"
-                ],
-                "operationId": "MembercloudsyncUpdate",
-                "summary": "Update a membercloudsync object",
-                "description": "Updates a specific membercloudsync object by reference",
-                "parameters": [
-                    {
-                        "name": "reference",
-                        "in": "path",
-                        "description": "Reference of the membercloudsync object",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    }
-                ],
-                "requestBody": {
-                    "description": "Object data to update",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Membercloudsync"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Object updated successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/UpdateMembercloudsyncResponse"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
-                    {
-                        "basicAuth": []
-                    }
-                ]
-            }
-        },
         "/memberdfp": {
             "get": {
                 "tags": [
@@ -10448,16 +10237,6 @@
                     "empty_recycle_bin": {
                         "$ref": "#/components/schemas/GridEmptyRecycleBin"
                     },
-                    "enable_federation": {
-                        "type": "boolean",
-                        "description": "Determines if the federation feature is enabled or not. Test Setting will be performed for any change in enable_federation.",
-                        "example": false
-                    },
-                    "enable_force_sync_join_token_to_gmc": {
-                        "type": "boolean",
-                        "description": "Determines if the force sync join token from GM to GMC is enabled or not.",
-                        "example": false
-                    },
                     "enable_gui_api_for_lan_vip": {
                         "type": "boolean",
                         "description": "If set to True, GUI and API access are enabled on the LAN/VIP port and MGMT port (if configured).",
@@ -11021,11 +10800,6 @@
             "GridExternalSyslogBackupServers": {
                 "type": "object",
                 "properties": {
-                    "address_or_fqdn": {
-                        "type": "string",
-                        "description": "The IPv4 or IPv6 address or FQDN of the backup syslog server.",
-                        "example": "Example address_or_fqdn"
-                    },
                     "directory_path": {
                         "type": "string",
                         "description": "The directory path for the replication of the rotated syslog files.",
@@ -11061,6 +10835,11 @@
                         "type": "string",
                         "description": "The username of the backup syslog server.",
                         "example": "Example username"
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The IPv4/IPv6 address or FQDN of the backup syslog server.",
+                        "example": "Example address"
                     }
                 }
             },
@@ -12209,11 +11988,6 @@
             "GridSyslogServers": {
                 "type": "object",
                 "properties": {
-                    "address_or_fqdn": {
-                        "type": "string",
-                        "description": "The server address or FQDN.",
-                        "example": "Example address_or_fqdn"
-                    },
                     "certificate": {
                         "type": "string",
                         "description": "Reference to the underlying X509Certificate object grid:x509certificate.",
@@ -12344,6 +12118,11 @@
                         "type": "boolean",
                         "description": "The list of selected syslog logging categories. The appliance forwards syslog messages that belong to the selected categories.",
                         "example": false
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The server address or FQDN.",
+                        "example": "Example address"
                     }
                 }
             },
@@ -12637,7 +12416,6 @@
                             "Outbound",
                             "AutomatedTrafficCapture",
                             "CloudDNSsync",
-                            "IMCGRPCServer",
                             "IPAMUtilization",
                             "RPZHitRate"
                         ],
@@ -16451,11 +16229,6 @@
                         "description": "Determines whether the response messages need to be forwarded to DNSTAP or not.",
                         "example": false
                     },
-                    "enable_dnstap_violations_tls": {
-                        "type": "boolean",
-                        "description": "Determines whether the violations messages need to be forwarded to DNSTAP or not.",
-                        "example": false
-                    },
                     "enable_excluded_domain_names": {
                         "type": "boolean",
                         "description": "Determines if excluding domain names from captured DNS queries and responses is enabled or disabled.",
@@ -17611,10 +17384,10 @@
             "GridDnsDnstapSetting": {
                 "type": "object",
                 "properties": {
-                    "dnstap_receiver_address_or_fqdn": {
+                    "dnstap_receiver_address": {
                         "type": "string",
                         "description": "Address or FQDN of DNSTAP receiver.",
-                        "example": "Example dnstap_receiver_address_or_fqdn"
+                        "example": "Example dnstap_receiver_address"
                     },
                     "dnstap_receiver_port": {
                         "type": "integer",
@@ -17833,11 +17606,6 @@
                         "description": "The directory to save the captured DNS queries and responses.",
                         "example": "Example directory"
                     },
-                    "server_address_or_fqdn": {
-                        "type": "string",
-                        "description": "The server address or a FQDN name of the destination server for DNS capture transfer.",
-                        "example": "Example server_address_or_fqdn"
-                    },
                     "password": {
                         "type": "string",
                         "description": "The password to access the destination server directory.",
@@ -17864,6 +17632,11 @@
                         "description": "Transfer scp port.",
                         "format": "int64",
                         "example": 1
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "The host name of the destination server for DNS capture transfer.",
+                        "example": "Example host"
                     }
                 }
             },
@@ -20779,21 +20552,6 @@
                         "description": "Determines if external syslog servers should be enabled.",
                         "example": false
                     },
-                    "ha_cloud_platform": {
-                        "type": "string",
-                        "description": "Cloud platform for HA.",
-                        "enum": [
-                            "AWS",
-                            "AZURE",
-                            "GCP"
-                        ],
-                        "example": "Example ha_cloud_platform"
-                    },
-                    "ha_on_cloud": {
-                        "type": "boolean",
-                        "description": "True: HA on cloud. False: HA not on cloud.",
-                        "example": false
-                    },
                     "host_name": {
                         "type": "string",
                         "description": "The host name of the Grid member.",
@@ -20886,7 +20644,7 @@
                     },
                     "node_info": {
                         "type": "array",
-                        "description": "The node information list with detailed status report on the operations of the Grid Member, mgmt_port_setting must be enabled when configuring the MGMT Port using the node_info field.",
+                        "description": "The node information list with detailed status report on the operations of the Grid Member.",
                         "enum": [
                             "nodeinfo"
                         ],
@@ -21621,11 +21379,6 @@
             "MemberExternalSyslogBackupServers": {
                 "type": "object",
                 "properties": {
-                    "address_or_fqdn": {
-                        "type": "string",
-                        "description": "The IPv4 or IPv6 address or FQDN of the backup syslog server.",
-                        "example": "Example address_or_fqdn"
-                    },
                     "directory_path": {
                         "type": "string",
                         "description": "The directory path for the replication of the rotated syslog files.",
@@ -21661,6 +21414,11 @@
                         "type": "string",
                         "description": "The username of the backup syslog server.",
                         "example": "Example username"
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The IPv4/IPv6 address or FQDN of the backup syslog server.",
+                        "example": "Example address"
                     }
                 }
             },
@@ -22871,31 +22629,60 @@
                         "type": "string",
                         "description": "Hardware type.",
                         "enum": [
-                            "IB-815",
-                            "IB-825",
-                            "IB-926",
-                            "IB-1415",
-                            "IB-1425",
-                            "IB-1516",
-                            "IB-1526",
+                            "IB-2210",
+                            "IB-4030-10GE",
+                            "PT-2205",
                             "IB-2215",
-                            "IB-2225",
-                            "IB-2326",
-                            "IB-4015",
+                            "IB-4030",
+                            "PT-4000-10GE",
+                            "IB-4020",
+                            "PT-2200",
                             "IB-4025",
-                            "IB-4126",
-                            "IB-V815",
                             "IB-V825",
-                            "IB-V926",
-                            "IB-V1415",
-                            "IB-V1425",
-                            "IB-V1516",
-                            "IB-V1526",
-                            "IB-V2215",
+                            "PT-4000",
+                            "IB-2220",
+                            "IB-100",
+                            "IB-2225",
+                            "IB-4015",
+                            "IB-1415",
                             "IB-V2225",
-                            "IB-V2326",
-                            "IB-V4015",
+                            "IB-1410",
+                            "IB-V2215",
+                            "IB-V1425",
+                            "IB-4010",
+                            "IB-RSP2",
+                            "IB-VNIOS",
+                            "PT-1405",
+                            "IB-820",
                             "IB-V4025",
+                            "PT-1400",
+                            "IB-V4015",
+                            "IB-825",
+                            "IB-1420",
+                            "IB-810",
+                            "IB-V1415",
+                            "IB-1425",
+                            "IB-815",
+                            "IB-V815",
+                            "IB-906",
+                            "IB-V906",
+                            "IB-926",
+                            "IB-V926",
+                            "IB-1506",
+                            "IB-V1506",
+                            "IB-1516",
+                            "IB-V1516",
+                            "IB-1526",
+                            "IB-V1526",
+                            "IB-1606",
+                            "IB-V1606",
+                            "IB-2306",
+                            "IB-V2306",
+                            "IB-2326",
+                            "IB-V2326",
+                            "IB-4106",
+                            "IB-V4106",
+                            "IB-4126",
                             "IB-V4126",
                             "IB-FLEX",
                             "CP-V805",
@@ -22903,6 +22690,27 @@
                             "CP-V2205"
                         ],
                         "example": "Example hwtype"
+                    },
+                    "hwmodel": {
+                        "type": "string",
+                        "description": "Hardware model - for IB-4010 are Rev1, Rev2; for IB-4030 are Rev1, Rev2; for PT-4000 is Rev2; for IB-VNIOS are IB-VM-100, IB-VM-810, IB-VM-820, IB-VM-RSP, IB-VM-1410, IB-VM-1420, IB-VM-2210, IB-VM-2220, IB-VM-4010, CP-V800, CP-V1400, CP-V2200. Note that you cannot specify hwmodel for following hardware types: IB-FLEX, IB-V2215, IB-V1425, IB-V4025, IB-V4015, IB-V1415, IB-V815, IB-V825, IB-V2225, CP-V805, CP-V1405, CP-V2205, IB-2215, IB-2225.",
+                        "enum": [
+                            "Rev1",
+                            "Rev2",
+                            "IB-VM-100",
+                            "IB-VM-810",
+                            "IB-VM-820",
+                            "IB-VM-RSP",
+                            "IB-VM-1410",
+                            "IB-VM-1420",
+                            "IB-VM-2210",
+                            "IB-VM-2220",
+                            "IB-VM-4010",
+                            "CP-V800",
+                            "CP-V1400",
+                            "CP-V2200"
+                        ],
+                        "example": "Example hwmodel"
                     }
                 }
             },
@@ -23243,11 +23051,6 @@
             "MemberSyslogServers": {
                 "type": "object",
                 "properties": {
-                    "address_or_fqdn": {
-                        "type": "string",
-                        "description": "The server address or FQDN.",
-                        "example": "Example address_or_fqdn"
-                    },
                     "certificate": {
                         "type": "string",
                         "description": "Reference to the underlying X509Certificate object grid:x509certificate.",
@@ -23378,6 +23181,11 @@
                         "type": "boolean",
                         "description": "The list of selected syslog logging categories. The appliance forwards syslog messages that belong to the selected categories.",
                         "example": false
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "The server address or FQDN.",
+                        "example": "Example address"
                     }
                 }
             },
@@ -23675,7 +23483,6 @@
                             "Outbound",
                             "AutomatedTrafficCapture",
                             "CloudDNSsync",
-                            "IMCGRPCServer",
                             "IPAMUtilization",
                             "RPZHitRate"
                         ],
@@ -25499,11 +25306,6 @@
                         "description": "Determines whether the response messages need to be forwarded to DNSTAP or not.",
                         "example": false
                     },
-                    "enable_dnstap_violations_tls": {
-                        "type": "boolean",
-                        "description": "Determines whether the violations messages need to be forwarded to DNSTAP or not.",
-                        "example": false
-                    },
                     "enable_excluded_domain_names": {
                         "type": "boolean",
                         "description": "The flag that indicates whether excluding domain names from captured DNS queries and responses is enabled or disabled.",
@@ -25947,16 +25749,6 @@
                         "description": "The number of maximum concurrent transfers per member for the member.",
                         "format": "int64",
                         "example": 1
-                    },
-                    "upstream_address_family_preference": {
-                        "type": "string",
-                        "description": "Upstream address family preference when dual mode is configured.",
-                        "enum": [
-                            "IPV4",
-                            "IPV6",
-                            "ANY"
-                        ],
-                        "example": "Example upstream_address_family_preference"
                     },
                     "use_add_client_ip_mac_options": {
                         "type": "boolean",
@@ -26850,10 +26642,10 @@
             "MemberDnsDnstapSetting": {
                 "type": "object",
                 "properties": {
-                    "dnstap_receiver_address_or_fqdn": {
+                    "dnstap_receiver_address": {
                         "type": "string",
                         "description": "Address or FQDN of DNSTAP receiver.",
-                        "example": "Example dnstap_receiver_address_or_fqdn"
+                        "example": "Example dnstap_receiver_address"
                     },
                     "dnstap_receiver_port": {
                         "type": "integer",
@@ -26883,11 +26675,6 @@
                         "description": "The directory to save the captured DNS queries and responses.",
                         "example": "Example directory"
                     },
-                    "server_address_or_fqdn": {
-                        "type": "string",
-                        "description": "The server address or a FQDN name of the destination server for DNS capture transfer.",
-                        "example": "Example server_address_or_fqdn"
-                    },
                     "password": {
                         "type": "string",
                         "description": "The password to access the destination server directory.",
@@ -26914,6 +26701,11 @@
                         "description": "Transfer scp port.",
                         "format": "int64",
                         "example": 1
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "The host name of the destination server for DNS capture transfer.",
+                        "example": "Example host"
                     }
                 }
             },
@@ -28197,89 +27989,6 @@
                         "description": "The response format to update __MemberThreatinsight__ .",
                         "type": "string",
                         "title": "UpdateMemberThreatinsightResponse"
-                    }
-                ]
-            },
-            "Membercloudsync": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "_ref": {
-                        "type": "string",
-                        "description": "The reference to the object."
-                    },
-                    "cloud_sync_enabled": {
-                        "type": "boolean",
-                        "description": "Option to enable/disable Cloud Sync.",
-                        "example": false
-                    },
-                    "host_name": {
-                        "type": "string",
-                        "description": "Host name of the parent Member",
-                        "readOnly": true,
-                        "example": "Example host_name"
-                    }
-                }
-            },
-            "ListMembercloudsyncResponse": {
-                "oneOf": [
-                    {
-                        "description": "The response format to retrieve __Membercloudsync__ objects.",
-                        "type": "array",
-                        "title": "ListMembercloudsyncResponseArray",
-                        "items": {
-                            "$ref": "#/components/schemas/Membercloudsync"
-                        }
-                    },
-                    {
-                        "description": "The response format to retrieve __Membercloudsync__ objects.",
-                        "type": "object",
-                        "title": "ListMembercloudsyncResponseObject",
-                        "properties": {
-                            "result": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/Membercloudsync"
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            "GetMembercloudsyncResponse": {
-                "oneOf": [
-                    {
-                        "$ref": "#/components/schemas/Membercloudsync"
-                    },
-                    {
-                        "description": "The response format to retrieve __Membercloudsync__ objects.",
-                        "type": "object",
-                        "additionalProperties": false,
-                        "title": "GetMembercloudsyncResponseObjectAsResult",
-                        "properties": {
-                            "result": {
-                                "$ref": "#/components/schemas/Membercloudsync"
-                            }
-                        }
-                    }
-                ]
-            },
-            "UpdateMembercloudsyncResponse": {
-                "oneOf": [
-                    {
-                        "description": "The response format to update __Membercloudsync__ in object format.",
-                        "type": "object",
-                        "title": "UpdateMembercloudsyncResponseAsObject",
-                        "properties": {
-                            "result": {
-                                "$ref": "#/components/schemas/Membercloudsync"
-                            }
-                        }
-                    },
-                    {
-                        "description": "The response format to update __Membercloudsync__ .",
-                        "type": "string",
-                        "title": "UpdateMembercloudsyncResponse"
                     }
                 ]
             },

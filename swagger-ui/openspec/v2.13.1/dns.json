@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox DNS API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI DNS objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -7790,24 +7790,6 @@
                         }
                     },
                     {
-                        "name": "mac",
-                        "in": "query",
-                        "description": "The MAC address for this host address.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "match_client",
-                        "in": "query",
-                        "description": "The match_client value for this fixed address. Valid values are: \"DUID\": The host IP address is leased to the matching DUID. \"MAC_ADDRESS\": The host IP address is leased to the matching MAC address.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "network_view",
                         "in": "query",
                         "description": "The name of the network view in which the host address resides.",
@@ -8321,15 +8303,6 @@
                         "required": true,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "remove_subzones",
-                        "in": "query",
-                        "description": "Remove subzones delete option. Determines whether all child objects should be removed alongside with the parent zone or child objects should be assigned to another parental zone. By default child objects are deleted with the parent zone.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean"
                         }
                     }
                 ],
@@ -26582,18 +26555,9 @@
                             "$ref": "#/components/schemas/RecordHostIpv6addrLogicFilterRules"
                         }
                     },
-                    "mac": {
-                        "type": "string",
-                        "description": "The MAC address for this host address.",
-                        "example": "Example mac"
-                    },
                     "match_client": {
                         "type": "string",
-                        "description": "The match_client value for this fixed address. Valid values are: \"DUID\": The host IP address is leased to the matching DUID. \"MAC_ADDRESS\": The host IP address is leased to the matching MAC address.",
-                        "enum": [
-                            "DUID",
-                            "MAC_ADDRESS"
-                        ],
+                        "description": "Set this to 'DUID' to assign the IP address to the selected host, provided that the DUID of the requesting host matches the DUID that you specify in the field. Set this to 'RESERVED' to reserve this particular IP address for future use, or if the IP address is statically configured on a system (the Infoblox server does not assign the address from a DHCP request).",
                         "example": "Example match_client"
                     },
                     "ms_ad_user_data": {
@@ -27983,11 +27947,6 @@
                         "type": "boolean",
                         "description": "Determines if this zone is also monitoring resource records.",
                         "readOnly": true,
-                        "example": false
-                    },
-                    "remove_subzones": {
-                        "type": "boolean",
-                        "description": "Remove subzones delete option. Determines whether all child objects should be removed alongside with the parent zone or child objects should be assigned to another parental zone. By default child objects are deleted with the parent zone.",
                         "example": false
                     },
                     "restart_if_needed": {
@@ -33572,28 +33531,13 @@
                     },
                     "zone_associations": {
                         "type": "array",
-                        "description": "The list of zones associated with this shared record group. Starting from NIOS-9.0.6, this field has been updated to a structure that includes FQDN and DNS view details.",
+                        "description": "The list of zones associated with this shared record group.",
                         "enum": [
-                            "zoneassociations"
+                            "string"
                         ],
                         "items": {
-                            "$ref": "#/components/schemas/SharedrecordgroupZoneAssociations"
+                            "type": "string"
                         }
-                    }
-                }
-            },
-            "SharedrecordgroupZoneAssociations": {
-                "type": "object",
-                "properties": {
-                    "fqdn": {
-                        "type": "string",
-                        "description": "The FQDN of the authoritative forward zone.",
-                        "example": "Example fqdn"
-                    },
-                    "view": {
-                        "type": "string",
-                        "description": "The view to which the zone belongs. If a view is not specified, the default view is used.",
-                        "example": "Example view"
                     }
                 }
             },

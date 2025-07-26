@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox IPAM API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI IPAM objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -8628,11 +8628,6 @@
                     "cloud_info": {
                         "$ref": "#/components/schemas/NetworkCloudInfo"
                     },
-                    "cloud_shared": {
-                        "type": "boolean",
-                        "description": "Boolean flag to indicate if the network is shared with cloud.",
-                        "example": false
-                    },
                     "comment": {
                         "type": "string",
                         "description": "Comment for the network, maximum 256 characters.",
@@ -8874,16 +8869,6 @@
                         "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
                         "additionalProperties": {
                             "$ref": "#/components/schemas/ExtAttrs"
-                        }
-                    },
-                    "federated_realms": {
-                        "type": "array",
-                        "description": "This field contains the federated realms associated to this network",
-                        "enum": [
-                            "federatedrealm"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/NetworkFederatedRealms"
                         }
                     },
                     "high_water_mark": {
@@ -9549,16 +9534,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -9774,21 +9749,6 @@
             "NetworkExpandNetwork": {
                 "type": "object",
                 "properties": {}
-            },
-            "NetworkFederatedRealms": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The federated realm name",
-                        "example": "Example name"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The federated realm id",
-                        "example": "Example id"
-                    }
-                }
             },
             "NetworkIpamThresholdSettings": {
                 "type": "object",
@@ -10399,16 +10359,6 @@
                             "$ref": "#/components/schemas/ExtAttrs"
                         }
                     },
-                    "federated_realms": {
-                        "type": "array",
-                        "description": "This field contains the federated realms associated to this network container.",
-                        "enum": [
-                            "federatedrealm"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/NetworkcontainerFederatedRealms"
-                        }
-                    },
                     "high_water_mark": {
                         "type": "integer",
                         "description": "The percentage of DHCP network container usage threshold above which network container usage is not expected and may warrant your attention. When the high watermark is reached, the Infoblox appliance generates a syslog message and sends a warning (if enabled). A number that specifies the percentage of allocated addresses. The range is from 1 to 100.",
@@ -10998,16 +10948,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -11217,21 +11157,6 @@
                         "type": "boolean",
                         "description": "If set to True, the scheduled task is disabled.",
                         "example": false
-                    }
-                }
-            },
-            "NetworkcontainerFederatedRealms": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The federated realm name",
-                        "example": "Example name"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The federated realm id",
-                        "example": "Example id"
                     }
                 }
             },
@@ -12275,16 +12200,6 @@
                             "$ref": "#/components/schemas/ExtAttrs"
                         }
                     },
-                    "federated_realms": {
-                        "type": "array",
-                        "description": "This field contains the federated realms associated to this network view",
-                        "enum": [
-                            "federatedrealm"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/NetworkviewFederatedRealms"
-                        }
-                    },
                     "internal_forward_zones": {
                         "type": "array",
                         "description": "The list of linked authoritative DNS zones.",
@@ -12485,21 +12400,6 @@
                         "type": "string",
                         "description": "The IP address of the External server. Valid when zone_match is \"EXTERNAL\" or \"ANY_EXTERNAL\".",
                         "example": "Example dns_ext_primary"
-                    }
-                }
-            },
-            "NetworkviewFederatedRealms": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The federated realm name",
-                        "example": "Example name"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The federated realm id",
-                        "example": "Example id"
                     }
                 }
             },
@@ -12904,16 +12804,6 @@
                         "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
                         "additionalProperties": {
                             "$ref": "#/components/schemas/ExtAttrs"
-                        }
-                    },
-                    "federated_realms": {
-                        "type": "array",
-                        "description": "This field contains the federated realms associated to this network",
-                        "enum": [
-                            "federatedrealm"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/Ipv6networkFederatedRealms"
                         }
                     },
                     "last_rir_registration_update_sent": {
@@ -13383,16 +13273,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -13608,21 +13488,6 @@
             "Ipv6networkExpandNetwork": {
                 "type": "object",
                 "properties": {}
-            },
-            "Ipv6networkFederatedRealms": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The federated realm name",
-                        "example": "Example name"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The federated realm id",
-                        "example": "Example id"
-                    }
-                }
             },
             "Ipv6networkLogicFilterRules": {
                 "type": "object",
@@ -14152,16 +14017,6 @@
                             "$ref": "#/components/schemas/ExtAttrs"
                         }
                     },
-                    "federated_realms": {
-                        "type": "array",
-                        "description": "This field contains the federated realms associated to this network container.",
-                        "enum": [
-                            "federatedrealm"
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/Ipv6networkcontainerFederatedRealms"
-                        }
-                    },
                     "last_rir_registration_update_sent": {
                         "type": "integer",
                         "description": "The timestamp when the last RIR registration update was sent.",
@@ -14579,16 +14434,6 @@
                         "type": "string",
                         "description": "Credential group.",
                         "example": "Example credential_group"
-                    },
-                    "polling_frequency_modifier": {
-                        "type": "string",
-                        "description": "Polling Frequency Modifier.",
-                        "example": "Example polling_frequency_modifier"
-                    },
-                    "use_global_polling_frequency_modifier": {
-                        "type": "boolean",
-                        "description": "Use Global Polling Frequency Modifier.",
-                        "example": false
                     }
                 }
             },
@@ -14798,21 +14643,6 @@
                         "type": "boolean",
                         "description": "If set to True, the scheduled task is disabled.",
                         "example": false
-                    }
-                }
-            },
-            "Ipv6networkcontainerFederatedRealms": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The federated realm name",
-                        "example": "Example name"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The federated realm id",
-                        "example": "Example id"
                     }
                 }
             },

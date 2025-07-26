@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Infoblox FEDERATEDREALMS API",
-        "description": "OpenAPI specification for Infoblox NIOS WAPI FEDERATEDREALMS objects",
-        "version": "2.13.6",
+        "title": "Infoblox RIR API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI RIR objects",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"
@@ -11,23 +11,23 @@
     },
     "tags": [
         {
-            "name": "Federatedrealms",
-            "description": "Operations for federatedrealms objects"
+            "name": "Rir",
+            "description": "Operations for rir objects"
         },
         {
-            "name": "Fedipamop",
-            "description": "Operations for fedipamop objects"
+            "name": "RirOrganization",
+            "description": "Operations for rir:organization objects"
         }
     ],
     "paths": {
-        "/federatedrealms": {
+        "/rir": {
             "get": {
                 "tags": [
-                    "Federatedrealms"
+                    "Rir"
                 ],
-                "operationId": "FederatedrealmsList",
-                "summary": "Retrieve federatedrealms objects",
-                "description": "Returns a list of federatedrealms objects matching the search criteria",
+                "operationId": "RirList",
+                "summary": "Retrieve rir objects",
+                "description": "Returns a list of rir objects matching the search criteria",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/ReturnFields"
@@ -64,6 +64,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of RIR.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -72,7 +81,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ListFederatedrealmsResponse"
+                                    "$ref": "#/components/schemas/ListRirResponse"
                                 }
                             }
                         }
@@ -97,19 +106,19 @@
                 ]
             }
         },
-        "/federatedrealms/{reference}": {
+        "/rir/{reference}": {
             "get": {
                 "tags": [
-                    "Federatedrealms"
+                    "Rir"
                 ],
-                "operationId": "FederatedrealmsRead",
-                "summary": "Get a specific federatedrealms object",
-                "description": "Returns a specific federatedrealms object by reference",
+                "operationId": "RirRead",
+                "summary": "Get a specific rir object",
+                "description": "Returns a specific rir object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the federatedrealms object",
+                        "description": "Reference of the rir object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -134,146 +143,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetFederatedrealmsResponse"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
-                    {
-                        "basicAuth": []
-                    }
-                ]
-            }
-        },
-        "/fedipamop": {
-            "get": {
-                "tags": [
-                    "Fedipamop"
-                ],
-                "operationId": "FedipamopList",
-                "summary": "Retrieve fedipamop objects",
-                "description": "Returns a list of fedipamop objects matching the search criteria",
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/MaxResults"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Paging"
-                    },
-                    {
-                        "$ref": "#/components/parameters/PageId"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ProxySearch"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Schema"
-                    },
-                    {
-                        "$ref": "#/components/parameters/SchemaVersion"
-                    },
-                    {
-                        "$ref": "#/components/parameters/GetDoc"
-                    },
-                    {
-                        "$ref": "#/components/parameters/SchemaSearchable"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Inheritance"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListFedipamopResponse"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not found"
-                    }
-                },
-                "security": [
-                    {
-                        "basicAuth": []
-                    }
-                ]
-            }
-        },
-        "/fedipamop/{reference}": {
-            "get": {
-                "tags": [
-                    "Fedipamop"
-                ],
-                "operationId": "FedipamopRead",
-                "summary": "Get a specific fedipamop object",
-                "description": "Returns a specific fedipamop object by reference",
-                "parameters": [
-                    {
-                        "name": "reference",
-                        "in": "path",
-                        "description": "Reference of the fedipamop object",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFields"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnFieldsPlus"
-                    },
-                    {
-                        "$ref": "#/components/parameters/ReturnAsObject"
-                    },
-                    {
-                        "$ref": "#/components/parameters/Inheritance"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GetFedipamopResponse"
+                                    "$ref": "#/components/schemas/GetRirResponse"
                                 }
                             }
                         }
@@ -299,16 +169,16 @@
             },
             "put": {
                 "tags": [
-                    "Fedipamop"
+                    "Rir"
                 ],
-                "operationId": "FedipamopUpdate",
-                "summary": "Update a fedipamop object",
-                "description": "Updates a specific fedipamop object by reference",
+                "operationId": "RirUpdate",
+                "summary": "Update a rir object",
+                "description": "Updates a specific rir object by reference",
                 "parameters": [
                     {
                         "name": "reference",
                         "in": "path",
-                        "description": "Reference of the fedipamop object",
+                        "description": "Reference of the rir object",
                         "required": true,
                         "schema": {
                             "type": "string"
@@ -330,7 +200,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Fedipamop"
+                                "$ref": "#/components/schemas/Rir"
                             }
                         }
                     }
@@ -341,10 +211,362 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateFedipamopResponse"
+                                    "$ref": "#/components/schemas/UpdateRirResponse"
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/rir:organization": {
+            "get": {
+                "tags": [
+                    "RirOrganization"
+                ],
+                "operationId": "RirOrganizationList",
+                "summary": "Retrieve rir:organization objects",
+                "description": "Returns a list of rir:organization objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The RIR organization identifier.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "maintainer",
+                        "in": "query",
+                        "description": "The RIR organization maintainer.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The RIR organization name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rir",
+                        "in": "query",
+                        "description": "The RIR associated with RIR organization.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sender_email",
+                        "in": "query",
+                        "description": "The sender e-mail address for RIR organization.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListRirOrganizationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "RirOrganization"
+                ],
+                "operationId": "RirOrganizationCreate",
+                "summary": "Create a rir:organization object",
+                "description": "Creates a new rir:organization object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RirOrganization"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateRirOrganizationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/rir:organization/{reference}": {
+            "get": {
+                "tags": [
+                    "RirOrganization"
+                ],
+                "operationId": "RirOrganizationRead",
+                "summary": "Get a specific rir:organization object",
+                "description": "Returns a specific rir:organization object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the rir:organization object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRirOrganizationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "RirOrganization"
+                ],
+                "operationId": "RirOrganizationUpdate",
+                "summary": "Update a rir:organization object",
+                "description": "Updates a specific rir:organization object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the rir:organization object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RirOrganization"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateRirOrganizationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "RirOrganization"
+                ],
+                "operationId": "RirOrganizationDelete",
+                "summary": "Delete a rir:organization object",
+                "description": "Deletes a specific rir:organization object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the rir:organization object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
                     },
                     "400": {
                         "description": "Bad request"
@@ -517,7 +739,7 @@
                 ],
                 "description": "Extensible attributes associated with the object."
             },
-            "Federatedrealms": {
+            "Rir": {
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
@@ -525,83 +747,109 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
-                    "id": {
+                    "communication_mode": {
                         "type": "string",
-                        "description": "Federated realm id.",
-                        "readOnly": true,
-                        "example": "Example id"
+                        "description": "The communication mode for RIR.",
+                        "enum": [
+                            "EMAIL",
+                            "API",
+                            "NONE"
+                        ],
+                        "example": "Example communication_mode"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The e-mail address for RIR.",
+                        "example": "Example email"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Federated realm name.",
-                        "readOnly": true,
+                        "description": "The name of RIR.",
+                        "enum": [
+                            "RIPE"
+                        ],
                         "example": "Example name"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The WebAPI URL for RIR.",
+                        "example": "Example url"
+                    },
+                    "use_email": {
+                        "type": "boolean",
+                        "description": "Use flag for: email",
+                        "example": false
+                    },
+                    "use_url": {
+                        "type": "boolean",
+                        "description": "Use flag for: url",
+                        "example": false
                     }
                 }
             },
-            "ListFederatedrealmsResponse": {
+            "ListRirResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to retrieve __Federatedrealms__ objects.",
+                        "description": "The response format to retrieve __Rir__ objects.",
                         "type": "array",
-                        "title": "ListFederatedrealmsResponseArray",
+                        "title": "ListRirResponseArray",
                         "items": {
-                            "$ref": "#/components/schemas/Federatedrealms"
+                            "$ref": "#/components/schemas/Rir"
                         }
                     },
                     {
-                        "description": "The response format to retrieve __Federatedrealms__ objects.",
+                        "description": "The response format to retrieve __Rir__ objects.",
                         "type": "object",
-                        "title": "ListFederatedrealmsResponseObject",
+                        "title": "ListRirResponseObject",
                         "properties": {
                             "result": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/Federatedrealms"
+                                    "$ref": "#/components/schemas/Rir"
                                 }
                             }
                         }
                     }
                 ]
             },
-            "GetFederatedrealmsResponse": {
+            "GetRirResponse": {
                 "oneOf": [
                     {
-                        "$ref": "#/components/schemas/Federatedrealms"
+                        "$ref": "#/components/schemas/Rir"
                     },
                     {
-                        "description": "The response format to retrieve __Federatedrealms__ objects.",
+                        "description": "The response format to retrieve __Rir__ objects.",
                         "type": "object",
                         "additionalProperties": false,
-                        "title": "GetFederatedrealmsResponseObjectAsResult",
+                        "title": "GetRirResponseObjectAsResult",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/Federatedrealms"
+                                "$ref": "#/components/schemas/Rir"
                             }
                         }
                     }
                 ]
             },
-            "UpdateFederatedrealmsResponse": {
+            "UpdateRirResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to update __Federatedrealms__ in object format.",
+                        "description": "The response format to update __Rir__ in object format.",
                         "type": "object",
-                        "title": "UpdateFederatedrealmsResponseAsObject",
+                        "title": "UpdateRirResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/Federatedrealms"
+                                "$ref": "#/components/schemas/Rir"
                             }
                         }
                     },
                     {
-                        "description": "The response format to update __Federatedrealms__ .",
+                        "description": "The response format to update __Rir__ .",
                         "type": "string",
-                        "title": "UpdateFederatedrealmsResponse"
+                        "title": "UpdateRirResponse"
                     }
                 ]
             },
-            "Fedipamop": {
+            "RirOrganization": {
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
@@ -609,74 +857,124 @@
                         "type": "string",
                         "description": "The reference to the object."
                     },
-                    "get_ancestor_federated_realms": {
-                        "$ref": "#/components/schemas/FedipamopGetAncestorFederatedRealms"
+                    "extattrs": {
+                        "type": "object",
+                        "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ExtAttrs"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The RIR organization identifier.",
+                        "example": "Example id"
+                    },
+                    "maintainer": {
+                        "type": "string",
+                        "description": "The RIR organization maintainer.",
+                        "example": "Example maintainer"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The RIR organization name.",
+                        "example": "Example name"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password for the maintainer of RIR organization.",
+                        "writeOnly": true,
+                        "example": "Example password"
+                    },
+                    "rir": {
+                        "type": "string",
+                        "description": "The RIR associated with RIR organization.",
+                        "example": "Example rir"
+                    },
+                    "sender_email": {
+                        "type": "string",
+                        "description": "The sender e-mail address for RIR organization.",
+                        "example": "Example sender_email"
                     }
                 }
             },
-            "FedipamopGetAncestorFederatedRealms": {
-                "type": "object",
-                "properties": {}
-            },
-            "ListFedipamopResponse": {
+            "ListRirOrganizationResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to retrieve __Fedipamop__ objects.",
+                        "description": "The response format to retrieve __RirOrganization__ objects.",
                         "type": "array",
-                        "title": "ListFedipamopResponseArray",
+                        "title": "ListRirOrganizationResponseArray",
                         "items": {
-                            "$ref": "#/components/schemas/Fedipamop"
+                            "$ref": "#/components/schemas/RirOrganization"
                         }
                     },
                     {
-                        "description": "The response format to retrieve __Fedipamop__ objects.",
+                        "description": "The response format to retrieve __RirOrganization__ objects.",
                         "type": "object",
-                        "title": "ListFedipamopResponseObject",
+                        "title": "ListRirOrganizationResponseObject",
                         "properties": {
                             "result": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/Fedipamop"
+                                    "$ref": "#/components/schemas/RirOrganization"
                                 }
                             }
                         }
                     }
                 ]
             },
-            "GetFedipamopResponse": {
+            "CreateRirOrganizationResponse": {
                 "oneOf": [
                     {
-                        "$ref": "#/components/schemas/Fedipamop"
-                    },
-                    {
-                        "description": "The response format to retrieve __Fedipamop__ objects.",
+                        "description": "The response format to create __RirOrganization__ in object format.",
                         "type": "object",
-                        "additionalProperties": false,
-                        "title": "GetFedipamopResponseObjectAsResult",
+                        "title": "CreateRirOrganizationResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/Fedipamop"
+                                "$ref": "#/components/schemas/RirOrganization"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __RirOrganization__.",
+                        "type": "string",
+                        "title": "CreateRirOrganizationResponse"
+                    }
+                ]
+            },
+            "GetRirOrganizationResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/RirOrganization"
+                    },
+                    {
+                        "description": "The response format to retrieve __RirOrganization__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetRirOrganizationResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/RirOrganization"
                             }
                         }
                     }
                 ]
             },
-            "UpdateFedipamopResponse": {
+            "UpdateRirOrganizationResponse": {
                 "oneOf": [
                     {
-                        "description": "The response format to update __Fedipamop__ in object format.",
+                        "description": "The response format to update __RirOrganization__ in object format.",
                         "type": "object",
-                        "title": "UpdateFedipamopResponseAsObject",
+                        "title": "UpdateRirOrganizationResponseAsObject",
                         "properties": {
                             "result": {
-                                "$ref": "#/components/schemas/Fedipamop"
+                                "$ref": "#/components/schemas/RirOrganization"
                             }
                         }
                     },
                     {
-                        "description": "The response format to update __Fedipamop__ .",
+                        "description": "The response format to update __RirOrganization__ .",
                         "type": "string",
-                        "title": "UpdateFedipamopResponse"
+                        "title": "UpdateRirOrganizationResponse"
                     }
                 ]
             }

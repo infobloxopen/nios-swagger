@@ -3,7 +3,7 @@
     "info": {
         "title": "Infoblox RPZ API",
         "description": "OpenAPI specification for Infoblox NIOS WAPI RPZ objects",
-        "version": "2.13.6",
+        "version": "2.13.1",
         "contact": {
             "name": "Infoblox",
             "url": "https://www.infoblox.com"

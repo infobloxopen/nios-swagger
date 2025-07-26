@@ -68,10 +68,157 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "accounts_list",
+                        "in": "query",
+                        "description": "The AWS Account IDs list associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "aws_account_ids_file_token",
+                        "in": "query",
+                        "description": "The AWS account IDs file's token.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "consolidate_zones",
+                        "in": "query",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "consolidated_view",
+                        "in": "query",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "multiple_accounts_sync_policy",
+                        "in": "query",
+                        "description": "Discover all child accounts or Upload child account ids to discover..",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this AWS Route53 sync task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the tenant's network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view_mapping_policy",
+                        "in": "query",
+                        "description": "The network view mapping policy.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role_arn",
+                        "in": "query",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_child_accounts",
+                        "in": "query",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "sync_status",
+                        "in": "query",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -120,6 +267,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -158,9 +308,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_awsrte53taskgroup",
-                "x-tf-datasource": "nios_cloud_awsrte53taskgroup"
+                ]
             }
         },
         "/awsrte53taskgroup/{reference}": {
@@ -189,6 +337,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -359,10 +510,76 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "access_key_id",
+                        "in": "query",
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "govcloud_enabled",
+                        "in": "query",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The AWS user name. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nios_user_name",
+                        "in": "query",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Indicate the validity status of this AWS user.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -411,6 +628,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -449,9 +669,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_awsuser",
-                "x-tf-datasource": "nios_cloud_awsuser"
+                ]
             }
         },
         "/awsuser/{reference}": {
@@ -480,6 +698,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -650,10 +871,139 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "azure_subscription_ids_file_token",
+                        "in": "query",
+                        "description": "The Azure Subscription IDs file's token.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "consolidate_zones",
+                        "in": "query",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "consolidated_view",
+                        "in": "query",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "multiple_subscriptions_sync_policy",
+                        "in": "query",
+                        "description": "Discover all child subscriptions or Upload child subscription ids to discover.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this Azure DNS sync task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the tenant's network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view_mapping_policy",
+                        "in": "query",
+                        "description": "The network view mapping policy.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subscriptions_list",
+                        "in": "query",
+                        "description": "The Azure Subscription IDs list associated with this task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_status",
+                        "in": "query",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tenant_id",
+                        "in": "query",
+                        "description": "The Azure tenant ID associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -702,6 +1052,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -740,9 +1093,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_azurednstaskgroup",
-                "x-tf-datasource": "nios_cloud_azurednstaskgroup"
+                ]
             }
         },
         "/azurednstaskgroup/{reference}": {
@@ -771,6 +1122,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -941,10 +1295,58 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "description": "The unique Client ID of this Azure user. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The Azure user name. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Indicate the validity status of this Azure user.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tenant_id",
+                        "in": "query",
+                        "description": "The Azure Tenant ID of this Azure user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -993,6 +1395,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1031,9 +1436,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_azureuser",
-                "x-tf-datasource": "nios_cloud_azureuser"
+                ]
             }
         },
         "/azureuser/{reference}": {
@@ -1062,6 +1465,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1232,10 +1638,148 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "consolidate_zones",
+                        "in": "query",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "consolidated_view",
+                        "in": "query",
+                        "description": "Consolidate all zones into one view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "gcp_project_ids_file_token",
+                        "in": "query",
+                        "description": "The Gcp project IDs file's token.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "Grid member configured to run this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "multiple_projects_sync_policy",
+                        "in": "query",
+                        "description": "Discover all child projects or Upload child project ids to discover.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this Gcp DNS sync task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the tenant's network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view_mapping_policy",
+                        "in": "query",
+                        "description": "The network view mapping policy.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "query",
+                        "description": "The Gcp project ID associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "projects_list",
+                        "in": "query",
+                        "description": "The Gcp Project IDs list associated with this task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_child_projects",
+                        "in": "query",
+                        "description": "Synchronizing child projects is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "sync_status",
+                        "in": "query",
+                        "description": "Sync status for this task.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1284,6 +1828,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1322,9 +1869,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_gcpdnstaskgroup",
-                "x-tf-datasource": "nios_cloud_gcpdnstaskgroup"
+                ]
             }
         },
         "/gcpdnstaskgroup/{reference}": {
@@ -1353,6 +1898,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1523,10 +2071,130 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "auth_provider_x509_cert_url",
+                        "in": "query",
+                        "description": "The URL where the public key certificates provided by the authentication provider can be retrieved.. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "auth_uri",
+                        "in": "query",
+                        "description": "The URI where authentication requests should be directed.. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "client_email",
+                        "in": "query",
+                        "description": "The email address associated with the service account. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "description": "The unique identifier for the service account. Maximum 64 characts.er",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "client_x509_cert_url",
+                        "in": "query",
+                        "description": "The URL where the public key certificate for the service account can be retrieved. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "file_name",
+                        "in": "query",
+                        "description": "GCP client credentials file name.. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "private_key_id",
+                        "in": "query",
+                        "description": "The identifier for the private key associated with the service account. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "query",
+                        "description": "The ID of the GCP project associated with the service account. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Indicate the validity status of this GCP user.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "token_uri",
+                        "in": "query",
+                        "description": "The URI where token requests should be directed.. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Specifies the type of the credential. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_name",
+                        "in": "query",
+                        "description": "The GCP client's user name. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1575,6 +2243,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "requestBody": {
@@ -1613,9 +2284,7 @@
                     {
                         "basicAuth": []
                     }
-                ],
-                "x-tf-resource": "nios_cloud_gcpuser",
-                "x-tf-datasource": "nios_cloud_gcpuser"
+                ]
             }
         },
         "/gcpuser/{reference}": {
@@ -1644,6 +2313,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -1814,10 +2486,49 @@
                         "$ref": "#/components/parameters/PageId"
                     },
                     {
-                        "$ref": "#/components/parameters/filters"
+                        "$ref": "#/components/parameters/ProxySearch"
                     },
                     {
-                        "$ref": "#/components/parameters/ExtAttrFilters"
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "cloud_platform",
+                        "in": "query",
+                        "description": "Type of cloud_platform to get the supported regions.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "govcloud_regions",
+                        "in": "query",
+                        "description": "Comma separated sting containing only GovCloud supported regions.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "regions",
+                        "in": "query",
+                        "description": "Comma separated string which contains all supported regions.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1877,6 +2588,9 @@
                     },
                     {
                         "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
                     }
                 ],
                 "responses": {
@@ -2114,42 +2828,6 @@
                 "schema": {
                     "type": "boolean"
                 }
-            },
-            "filters": {
-                "name": "filters",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "ExtAttrFilters": {
-                "name": "extattrfilter",
-                "in": "query",
-                "schema": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "style": "form",
-                "explode": false
-            },
-            "Method": {
-                "name": "_method",
-                "in": "query",
-                "description": "Enter the method type for the request",
-                "required": false,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "Body": {
-                "name": "body",
-                "in": "query",
-                "schema": {
-                    "type": "object"
-                }
             }
         },
         "schemas": {
@@ -2266,6 +2944,9 @@
                         "readOnly": true,
                         "example": "Example sync_status"
                     },
+                    "task_control": {
+                        "$ref": "#/components/schemas/Awsrte53taskgroupTaskControl"
+                    },
                     "task_list": {
                         "type": "array",
                         "description": "List of AWS Route53 tasks in this group.",
@@ -2277,6 +2958,10 @@
                         }
                     }
                 }
+            },
+            "Awsrte53taskgroupTaskControl": {
+                "type": "object",
+                "properties": {}
             },
             "Awsrte53taskgroupTaskList": {
                 "type": "object",
@@ -2685,6 +3370,9 @@
                         "readOnly": true,
                         "example": "Example sync_status"
                     },
+                    "task_control": {
+                        "$ref": "#/components/schemas/AzurednstaskgroupTaskControl"
+                    },
                     "task_list": {
                         "type": "array",
                         "description": "List of Azure DNS tasks in this group.",
@@ -2702,6 +3390,10 @@
                         "example": "Example tenant_id"
                     }
                 }
+            },
+            "AzurednstaskgroupTaskControl": {
+                "type": "object",
+                "properties": {}
             },
             "AzurednstaskgroupTaskList": {
                 "type": "object",
@@ -3112,6 +3804,9 @@
                         "readOnly": true,
                         "example": "Example sync_status"
                     },
+                    "task_control": {
+                        "$ref": "#/components/schemas/GcpdnstaskgroupTaskControl"
+                    },
                     "task_list": {
                         "type": "array",
                         "description": "List of Gcp DNS tasks in this group.",
@@ -3123,6 +3818,10 @@
                         }
                     }
                 }
+            },
+            "GcpdnstaskgroupTaskControl": {
+                "type": "object",
+                "properties": {}
             },
             "GcpdnstaskgroupTaskList": {
                 "type": "object",

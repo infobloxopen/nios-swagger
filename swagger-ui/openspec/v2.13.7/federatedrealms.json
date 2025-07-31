@@ -1,0 +1,685 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox FEDERATEDREALMS API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI FEDERATEDREALMS objects",
+        "version": "2.13.7",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "Federatedrealms",
+            "description": "Operations for federatedrealms objects"
+        },
+        {
+            "name": "Fedipamop",
+            "description": "Operations for fedipamop objects"
+        }
+    ],
+    "paths": {
+        "/federatedrealms": {
+            "get": {
+                "tags": [
+                    "Federatedrealms"
+                ],
+                "operationId": "FederatedrealmsList",
+                "summary": "Retrieve federatedrealms objects",
+                "description": "Returns a list of federatedrealms objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListFederatedrealmsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/federatedrealms/{reference}": {
+            "get": {
+                "tags": [
+                    "Federatedrealms"
+                ],
+                "operationId": "FederatedrealmsRead",
+                "summary": "Get a specific federatedrealms object",
+                "description": "Returns a specific federatedrealms object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the federatedrealms object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFederatedrealmsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/fedipamop": {
+            "get": {
+                "tags": [
+                    "Fedipamop"
+                ],
+                "operationId": "FedipamopList",
+                "summary": "Retrieve fedipamop objects",
+                "description": "Returns a list of fedipamop objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListFedipamopResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/fedipamop/{reference}": {
+            "get": {
+                "tags": [
+                    "Fedipamop"
+                ],
+                "operationId": "FedipamopRead",
+                "summary": "Get a specific fedipamop object",
+                "description": "Returns a specific fedipamop object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the fedipamop object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFedipamopResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Fedipamop"
+                ],
+                "operationId": "FedipamopUpdate",
+                "summary": "Update a fedipamop object",
+                "description": "Updates a specific fedipamop object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the fedipamop object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Fedipamop"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateFedipamopResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "Federatedrealms": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Federated realm id.",
+                        "readOnly": true,
+                        "example": "Example id"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Federated realm name.",
+                        "readOnly": true,
+                        "example": "Example name"
+                    }
+                }
+            },
+            "ListFederatedrealmsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Federatedrealms__ objects.",
+                        "type": "array",
+                        "title": "ListFederatedrealmsResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Federatedrealms"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Federatedrealms__ objects.",
+                        "type": "object",
+                        "title": "ListFederatedrealmsResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Federatedrealms"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetFederatedrealmsResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Federatedrealms"
+                    },
+                    {
+                        "description": "The response format to retrieve __Federatedrealms__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetFederatedrealmsResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Federatedrealms"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateFederatedrealmsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Federatedrealms__ in object format.",
+                        "type": "object",
+                        "title": "UpdateFederatedrealmsResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Federatedrealms"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Federatedrealms__ .",
+                        "type": "string",
+                        "title": "UpdateFederatedrealmsResponse"
+                    }
+                ]
+            },
+            "Fedipamop": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "get_ancestor_federated_realms": {
+                        "$ref": "#/components/schemas/FedipamopGetAncestorFederatedRealms"
+                    }
+                }
+            },
+            "FedipamopGetAncestorFederatedRealms": {
+                "type": "object",
+                "properties": {}
+            },
+            "ListFedipamopResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Fedipamop__ objects.",
+                        "type": "array",
+                        "title": "ListFedipamopResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Fedipamop"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Fedipamop__ objects.",
+                        "type": "object",
+                        "title": "ListFedipamopResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Fedipamop"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetFedipamopResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Fedipamop"
+                    },
+                    {
+                        "description": "The response format to retrieve __Fedipamop__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetFedipamopResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Fedipamop"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateFedipamopResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Fedipamop__ in object format.",
+                        "type": "object",
+                        "title": "UpdateFedipamopResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Fedipamop"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Fedipamop__ .",
+                        "type": "string",
+                        "title": "UpdateFedipamopResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

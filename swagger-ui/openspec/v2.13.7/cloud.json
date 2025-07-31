@@ -1,0 +1,1422 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox CLOUD API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI CLOUD objects",
+        "version": "2.13.7",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "Awsrte53taskgroup",
+            "description": "Operations for awsrte53taskgroup objects"
+        },
+        {
+            "name": "Awsuser",
+            "description": "Operations for awsuser objects"
+        }
+    ],
+    "paths": {
+        "/awsrte53taskgroup": {
+            "get": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupList",
+                "summary": "Retrieve awsrte53taskgroup objects",
+                "description": "Returns a list of awsrte53taskgroup objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "accounts_list",
+                        "in": "query",
+                        "description": "The AWS Account IDs list associated with this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "aws_account_ids_file_token",
+                        "in": "query",
+                        "description": "The AWS account IDs file's token.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "consolidate_zones",
+                        "in": "query",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "consolidated_view",
+                        "in": "query",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disabled",
+                        "in": "query",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "grid_member",
+                        "in": "query",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "multiple_accounts_sync_policy",
+                        "in": "query",
+                        "description": "Discover all child accounts or Upload child account ids to discover..",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of this AWS Route53 sync task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view",
+                        "in": "query",
+                        "description": "The name of the tenant's network view.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "network_view_mapping_policy",
+                        "in": "query",
+                        "description": "The network view mapping policy.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role_arn",
+                        "in": "query",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sync_child_accounts",
+                        "in": "query",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "sync_status",
+                        "in": "query",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupCreate",
+                "summary": "Create a awsrte53taskgroup object",
+                "description": "Creates a new awsrte53taskgroup object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/awsrte53taskgroup/{reference}": {
+            "get": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupRead",
+                "summary": "Get a specific awsrte53taskgroup object",
+                "description": "Returns a specific awsrte53taskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsrte53taskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupUpdate",
+                "summary": "Update a awsrte53taskgroup object",
+                "description": "Updates a specific awsrte53taskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsrte53taskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAwsrte53taskgroupResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Awsrte53taskgroup"
+                ],
+                "operationId": "Awsrte53taskgroupDelete",
+                "summary": "Delete a awsrte53taskgroup object",
+                "description": "Deletes a specific awsrte53taskgroup object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsrte53taskgroup object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/awsuser": {
+            "get": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserList",
+                "summary": "Retrieve awsuser objects",
+                "description": "Returns a list of awsuser objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "access_key_id",
+                        "in": "query",
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "govcloud_enabled",
+                        "in": "query",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The AWS user name. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nios_user_name",
+                        "in": "query",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Indicate the validity status of this AWS user.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserCreate",
+                "summary": "Create a awsuser object",
+                "description": "Creates a new awsuser object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/awsuser/{reference}": {
+            "get": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserRead",
+                "summary": "Get a specific awsuser object",
+                "description": "Returns a specific awsuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserUpdate",
+                "summary": "Update a awsuser object",
+                "description": "Updates a specific awsuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAwsuserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Awsuser"
+                ],
+                "operationId": "AwsuserDelete",
+                "summary": "Delete a awsuser object",
+                "description": "Deletes a specific awsuser object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the awsuser object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "Awsrte53taskgroup": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The AWS Account ID associated with this task group.",
+                        "readOnly": true,
+                        "example": "Example account_id"
+                    },
+                    "accounts_list": {
+                        "type": "string",
+                        "description": "The AWS Account IDs list associated with this task group.",
+                        "readOnly": true,
+                        "example": "Example accounts_list"
+                    },
+                    "aws_account_ids_file_token": {
+                        "type": "string",
+                        "description": "The AWS account IDs file's token.",
+                        "example": "Example aws_account_ids_file_token"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Comment for the task group; maximum 256 characters.",
+                        "example": "Example comment"
+                    },
+                    "consolidate_zones": {
+                        "type": "boolean",
+                        "description": "Indicates if all zones need to be saved into a single view.",
+                        "example": false
+                    },
+                    "consolidated_view": {
+                        "type": "string",
+                        "description": "The name of the DNS view for consolidating zones.",
+                        "example": "Example consolidated_view"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task group is enabled or disabled.",
+                        "example": false
+                    },
+                    "grid_member": {
+                        "type": "string",
+                        "description": "Member on which the tasks in this task group will be run.",
+                        "example": "Example grid_member"
+                    },
+                    "multiple_accounts_sync_policy": {
+                        "type": "string",
+                        "description": "Discover all child accounts or Upload child account ids to discover..",
+                        "enum": [
+                            "NONE",
+                            "DISCOVER_CHILDREN",
+                            "UPLOAD_CHILDREN"
+                        ],
+                        "example": "Example multiple_accounts_sync_policy"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this AWS Route53 sync task group.",
+                        "example": "Example name"
+                    },
+                    "network_view": {
+                        "type": "string",
+                        "description": "The name of the tenant's network view.",
+                        "example": "Example network_view"
+                    },
+                    "network_view_mapping_policy": {
+                        "type": "string",
+                        "description": "The network view mapping policy.",
+                        "enum": [
+                            "AUTO_CREATE",
+                            "DIRECT"
+                        ],
+                        "example": "Example network_view_mapping_policy"
+                    },
+                    "role_arn": {
+                        "type": "string",
+                        "description": "Role ARN for syncing child accounts; maximum 128 characters.",
+                        "example": "Example role_arn"
+                    },
+                    "sync_child_accounts": {
+                        "type": "boolean",
+                        "description": "Synchronizing child accounts is enabled or disabled.",
+                        "example": false
+                    },
+                    "sync_status": {
+                        "type": "string",
+                        "description": "Indicate the overall sync status of this task group.",
+                        "enum": [
+                            "NEW",
+                            "OK",
+                            "WARNING",
+                            "ERROR"
+                        ],
+                        "readOnly": true,
+                        "example": "Example sync_status"
+                    },
+                    "task_control": {
+                        "$ref": "#/components/schemas/Awsrte53taskgroupTaskControl"
+                    },
+                    "task_list": {
+                        "type": "array",
+                        "description": "List of AWS Route53 tasks in this group.",
+                        "enum": [
+                            "awsrte53task"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/Awsrte53taskgroupTaskList"
+                        }
+                    }
+                }
+            },
+            "Awsrte53taskgroupTaskControl": {
+                "type": "object",
+                "properties": {}
+            },
+            "Awsrte53taskgroupTaskList": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of this task.",
+                        "example": "Example name"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the task is enabled or disabled.",
+                        "example": false
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Indicate the sync status of this task.",
+                        "enum": [
+                            "IDLE",
+                            "READY",
+                            "RUNNING",
+                            "PARTIALLY_COMPLETED",
+                            "COMPLETED",
+                            "FAILED",
+                            "CANCELED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example state"
+                    },
+                    "state_msg": {
+                        "type": "string",
+                        "description": "State message for the task.",
+                        "readOnly": true,
+                        "example": "Example state_msg"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Filter for this task.",
+                        "example": "Example filter"
+                    },
+                    "schedule_interval": {
+                        "type": "integer",
+                        "description": "Periodic interval for this task.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "schedule_units": {
+                        "type": "string",
+                        "description": "Units for the schedule interval.",
+                        "enum": [
+                            "MINS",
+                            "HOURS",
+                            "DAYS"
+                        ],
+                        "example": "Example schedule_units"
+                    },
+                    "aws_user": {
+                        "type": "string",
+                        "description": "Reference to associated AWS user whose credentials are to be used for this task.",
+                        "example": "Example aws_user"
+                    },
+                    "status_timestamp": {
+                        "type": "integer",
+                        "description": "The timestamp when the last state was logged.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_run": {
+                        "type": "integer",
+                        "description": "The timestamp when the task was started last.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "sync_public_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether public zones are synchronized.",
+                        "example": false
+                    },
+                    "sync_private_zones": {
+                        "type": "boolean",
+                        "description": "Indicates whether private zones are synchronized.",
+                        "example": false
+                    },
+                    "zone_count": {
+                        "type": "integer",
+                        "description": "The number of zones synchronized by this task.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "credentials_type": {
+                        "type": "string",
+                        "description": "Credentials type used for connecting to the cloud management platform.",
+                        "enum": [
+                            "DIRECT",
+                            "INDIRECT"
+                        ],
+                        "example": "Example credentials_type"
+                    }
+                }
+            },
+            "ListAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
+                        "type": "array",
+                        "title": "ListAwsrte53taskgroupResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Awsrte53taskgroup"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
+                        "type": "object",
+                        "title": "ListAwsrte53taskgroupResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Awsrte53taskgroup"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Awsrte53taskgroup__ in object format.",
+                        "type": "object",
+                        "title": "CreateAwsrte53taskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Awsrte53taskgroup__.",
+                        "type": "string",
+                        "title": "CreateAwsrte53taskgroupResponse"
+                    }
+                ]
+            },
+            "GetAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Awsrte53taskgroup"
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsrte53taskgroup__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAwsrte53taskgroupResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAwsrte53taskgroupResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Awsrte53taskgroup__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAwsrte53taskgroupResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsrte53taskgroup"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Awsrte53taskgroup__ .",
+                        "type": "string",
+                        "title": "UpdateAwsrte53taskgroupResponse"
+                    }
+                ]
+            },
+            "Awsuser": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "access_key_id": {
+                        "type": "string",
+                        "description": "The unique Access Key ID of this AWS user. Maximum 255 characters.",
+                        "example": "Example access_key_id"
+                    },
+                    "account_id": {
+                        "type": "string",
+                        "description": "The AWS Account ID of this AWS user. Maximum 64 characters.",
+                        "example": "Example account_id"
+                    },
+                    "govcloud_enabled": {
+                        "type": "boolean",
+                        "description": "Indicates if gov cloud is enabled or disabled.",
+                        "example": false
+                    },
+                    "last_used": {
+                        "type": "integer",
+                        "description": "The timestamp when this AWS user credentials was last used.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The AWS user name. Maximum 64 characters.",
+                        "example": "Example name"
+                    },
+                    "nios_user_name": {
+                        "type": "string",
+                        "description": "The NIOS user name mapped to this AWS user. Maximum 64 characters.",
+                        "example": "Example nios_user_name"
+                    },
+                    "secret_access_key": {
+                        "type": "string",
+                        "description": "The Secret Access Key for the Access Key ID of this user. Maximum 255 characters.",
+                        "writeOnly": true,
+                        "example": "Example secret_access_key"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Indicate the validity status of this AWS user.",
+                        "enum": [
+                            "UNUSED",
+                            "SUCCESSFUL",
+                            "UNSUCCESSFUL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    }
+                }
+            },
+            "ListAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __Awsuser__ objects.",
+                        "type": "array",
+                        "title": "ListAwsuserResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/Awsuser"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsuser__ objects.",
+                        "type": "object",
+                        "title": "ListAwsuserResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Awsuser"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __Awsuser__ in object format.",
+                        "type": "object",
+                        "title": "CreateAwsuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __Awsuser__.",
+                        "type": "string",
+                        "title": "CreateAwsuserResponse"
+                    }
+                ]
+            },
+            "GetAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Awsuser"
+                    },
+                    {
+                        "description": "The response format to retrieve __Awsuser__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAwsuserResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAwsuserResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __Awsuser__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAwsuserResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/Awsuser"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __Awsuser__ .",
+                        "type": "string",
+                        "title": "UpdateAwsuserResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

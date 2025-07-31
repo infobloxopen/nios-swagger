@@ -1,0 +1,3543 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox THREATPROTECTION API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI THREATPROTECTION objects",
+        "version": "2.13.7",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "ThreatprotectionGridRule",
+            "description": "Operations for threatprotection:grid:rule objects"
+        },
+        {
+            "name": "ThreatprotectionProfile",
+            "description": "Operations for threatprotection:profile objects"
+        },
+        {
+            "name": "ThreatprotectionProfileRule",
+            "description": "Operations for threatprotection:profile:rule objects"
+        },
+        {
+            "name": "ThreatprotectionRule",
+            "description": "Operations for threatprotection:rule objects"
+        },
+        {
+            "name": "ThreatprotectionRulecategory",
+            "description": "Operations for threatprotection:rulecategory objects"
+        },
+        {
+            "name": "ThreatprotectionRuleset",
+            "description": "Operations for threatprotection:ruleset objects"
+        },
+        {
+            "name": "ThreatprotectionRuletemplate",
+            "description": "Operations for threatprotection:ruletemplate objects"
+        },
+        {
+            "name": "ThreatprotectionStatistics",
+            "description": "Operations for threatprotection:statistics objects"
+        }
+    ],
+    "paths": {
+        "/threatprotection:grid:rule": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionGridRule"
+                ],
+                "operationId": "ThreatprotectionGridRuleList",
+                "summary": "Retrieve threatprotection:grid:rule objects",
+                "description": "Returns a list of threatprotection:grid:rule objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "The rule category the custom rule assigned to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The human readable comment for the custom rule.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "The description of the custom rule.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the rule custom rule concatenated with its rule config parameters.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ruleset",
+                        "in": "query",
+                        "description": "The version of the ruleset the custom rule assigned to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sid",
+                        "in": "query",
+                        "description": "The Rule ID.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "template",
+                        "in": "query",
+                        "description": "The threat protection rule template used to create this rule.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of the custom rule.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionGridRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ThreatprotectionGridRule"
+                ],
+                "operationId": "ThreatprotectionGridRuleCreate",
+                "summary": "Create a threatprotection:grid:rule object",
+                "description": "Creates a new threatprotection:grid:rule object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateThreatprotectionGridRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:grid:rule/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionGridRule"
+                ],
+                "operationId": "ThreatprotectionGridRuleRead",
+                "summary": "Get a specific threatprotection:grid:rule object",
+                "description": "Returns a specific threatprotection:grid:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:grid:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionGridRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatprotectionGridRule"
+                ],
+                "operationId": "ThreatprotectionGridRuleUpdate",
+                "summary": "Update a threatprotection:grid:rule object",
+                "description": "Updates a specific threatprotection:grid:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:grid:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatprotectionGridRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ThreatprotectionGridRule"
+                ],
+                "operationId": "ThreatprotectionGridRuleDelete",
+                "summary": "Delete a threatprotection:grid:rule object",
+                "description": "Deletes a specific threatprotection:grid:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:grid:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:profile": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionProfile"
+                ],
+                "operationId": "ThreatprotectionProfileList",
+                "summary": "Retrieve threatprotection:profile objects",
+                "description": "Returns a list of threatprotection:profile objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The comment for the Threat Protection profile.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "current_ruleset",
+                        "in": "query",
+                        "description": "The current Threat Protection profile ruleset.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "disable_multiple_dns_tcp_request",
+                        "in": "query",
+                        "description": "Determines if multiple BIND responses via TCP connection are disabled.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "events_per_second_per_rule",
+                        "in": "query",
+                        "description": "The number of events logged per second per rule.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the Threat Protection profile.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ThreatprotectionProfile"
+                ],
+                "operationId": "ThreatprotectionProfileCreate",
+                "summary": "Create a threatprotection:profile object",
+                "description": "Creates a new threatprotection:profile object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateThreatprotectionProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:profile/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionProfile"
+                ],
+                "operationId": "ThreatprotectionProfileRead",
+                "summary": "Get a specific threatprotection:profile object",
+                "description": "Returns a specific threatprotection:profile object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:profile object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatprotectionProfile"
+                ],
+                "operationId": "ThreatprotectionProfileUpdate",
+                "summary": "Update a threatprotection:profile object",
+                "description": "Updates a specific threatprotection:profile object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:profile object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatprotectionProfileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ThreatprotectionProfile"
+                ],
+                "operationId": "ThreatprotectionProfileDelete",
+                "summary": "Delete a threatprotection:profile object",
+                "description": "Deletes a specific threatprotection:profile object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:profile object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:profile:rule": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionProfileRule"
+                ],
+                "operationId": "ThreatprotectionProfileRuleList",
+                "summary": "Retrieve threatprotection:profile:rule objects",
+                "description": "Returns a list of threatprotection:profile:rule objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "query",
+                        "description": "The name of the Threat protection profile.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rule",
+                        "in": "query",
+                        "description": "The rule object name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sid",
+                        "in": "query",
+                        "description": "The snort rule ID.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionProfileRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:profile:rule/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionProfileRule"
+                ],
+                "operationId": "ThreatprotectionProfileRuleRead",
+                "summary": "Get a specific threatprotection:profile:rule object",
+                "description": "Returns a specific threatprotection:profile:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:profile:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionProfileRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatprotectionProfileRule"
+                ],
+                "operationId": "ThreatprotectionProfileRuleUpdate",
+                "summary": "Update a threatprotection:profile:rule object",
+                "description": "Updates a specific threatprotection:profile:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:profile:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfileRule"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatprotectionProfileRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:rule": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRule"
+                ],
+                "operationId": "ThreatprotectionRuleList",
+                "summary": "Retrieve threatprotection:rule objects",
+                "description": "Returns a list of threatprotection:rule objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The name of the Threat protection member.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rule",
+                        "in": "query",
+                        "description": "The rule object name.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sid",
+                        "in": "query",
+                        "description": "The Rule ID.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:rule/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRule"
+                ],
+                "operationId": "ThreatprotectionRuleRead",
+                "summary": "Get a specific threatprotection:rule object",
+                "description": "Returns a specific threatprotection:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatprotectionRule"
+                ],
+                "operationId": "ThreatprotectionRuleUpdate",
+                "summary": "Update a threatprotection:rule object",
+                "description": "Updates a specific threatprotection:rule object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:rule object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionRule"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatprotectionRuleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:rulecategory": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRulecategory"
+                ],
+                "operationId": "ThreatprotectionRulecategoryList",
+                "summary": "Retrieve threatprotection:rulecategory objects",
+                "description": "Returns a list of threatprotection:rulecategory objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the rule category.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ruleset",
+                        "in": "query",
+                        "description": "The version of the ruleset the category assigned to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionRulecategoryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:rulecategory/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRulecategory"
+                ],
+                "operationId": "ThreatprotectionRulecategoryRead",
+                "summary": "Get a specific threatprotection:rulecategory object",
+                "description": "Returns a specific threatprotection:rulecategory object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:rulecategory object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionRulecategoryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:ruleset": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRuleset"
+                ],
+                "operationId": "ThreatprotectionRulesetList",
+                "summary": "Retrieve threatprotection:ruleset objects",
+                "description": "Returns a list of threatprotection:ruleset objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "add_type",
+                        "in": "query",
+                        "description": "Determines the way the ruleset was added.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "comment",
+                        "in": "query",
+                        "description": "The human readable comment for the ruleset.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "version",
+                        "in": "query",
+                        "description": "The ruleset version.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionRulesetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:ruleset/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRuleset"
+                ],
+                "operationId": "ThreatprotectionRulesetRead",
+                "summary": "Get a specific threatprotection:ruleset object",
+                "description": "Returns a specific threatprotection:ruleset object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:ruleset object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionRulesetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ThreatprotectionRuleset"
+                ],
+                "operationId": "ThreatprotectionRulesetUpdate",
+                "summary": "Update a threatprotection:ruleset object",
+                "description": "Updates a specific threatprotection:ruleset object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:ruleset object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThreatprotectionRuleset"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateThreatprotectionRulesetResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ThreatprotectionRuleset"
+                ],
+                "operationId": "ThreatprotectionRulesetDelete",
+                "summary": "Delete a threatprotection:ruleset object",
+                "description": "Deletes a specific threatprotection:ruleset object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:ruleset object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:ruletemplate": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRuletemplate"
+                ],
+                "operationId": "ThreatprotectionRuletemplateList",
+                "summary": "Retrieve threatprotection:ruletemplate objects",
+                "description": "Returns a list of threatprotection:ruletemplate objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "The rule category this template assigned to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "The description of the rule template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the rule template.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ruleset",
+                        "in": "query",
+                        "description": "The version of the ruleset the template assigned to.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sid",
+                        "in": "query",
+                        "description": "The Rule ID.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionRuletemplateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:ruletemplate/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionRuletemplate"
+                ],
+                "operationId": "ThreatprotectionRuletemplateRead",
+                "summary": "Get a specific threatprotection:ruletemplate object",
+                "description": "Returns a specific threatprotection:ruletemplate object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:ruletemplate object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionRuletemplateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:statistics": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionStatistics"
+                ],
+                "operationId": "ThreatprotectionStatisticsList",
+                "summary": "Retrieve threatprotection:statistics objects",
+                "description": "Returns a list of threatprotection:statistics objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ProxySearch"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Schema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaVersion"
+                    },
+                    {
+                        "$ref": "#/components/parameters/GetDoc"
+                    },
+                    {
+                        "$ref": "#/components/parameters/SchemaSearchable"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    },
+                    {
+                        "name": "member",
+                        "in": "query",
+                        "description": "The Grid member name to get threat protection statistics. If nothing is specified then event statistics is returned for the Grid.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListThreatprotectionStatisticsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/threatprotection:statistics/{reference}": {
+            "get": {
+                "tags": [
+                    "ThreatprotectionStatistics"
+                ],
+                "operationId": "ThreatprotectionStatisticsRead",
+                "summary": "Get a specific threatprotection:statistics object",
+                "description": "Returns a specific threatprotection:statistics object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the threatprotection:statistics object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Inheritance"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetThreatprotectionStatisticsResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "ThreatprotectionGridRule": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "allowed_actions": {
+                        "type": "array",
+                        "description": "The list of allowed actions of the custom rule.",
+                        "enum": [
+                            "ALERT",
+                            "PASS",
+                            "DROP"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "The rule category the custom rule assigned to.",
+                        "readOnly": true,
+                        "example": "Example category"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The human readable comment for the custom rule.",
+                        "example": "Example comment"
+                    },
+                    "config": {
+                        "$ref": "#/components/schemas/ThreatprotectionGridRuleConfig"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the custom rule.",
+                        "readOnly": true,
+                        "example": "Example description"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Determines if the custom rule is disabled.",
+                        "example": false
+                    },
+                    "is_factory_reset_enabled": {
+                        "type": "boolean",
+                        "description": "Determines if factory reset is enabled for the custom rule.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule custom rule concatenated with its rule config parameters.",
+                        "readOnly": true,
+                        "example": "Example name"
+                    },
+                    "ruleset": {
+                        "type": "string",
+                        "description": "The version of the ruleset the custom rule assigned to.",
+                        "readOnly": true,
+                        "example": "Example ruleset"
+                    },
+                    "sid": {
+                        "type": "integer",
+                        "description": "The Rule ID.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "The threat protection rule template used to create this rule.",
+                        "example": "Example template"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the custom rule.",
+                        "enum": [
+                            "SYSTEM",
+                            "AUTO",
+                            "CUSTOM"
+                        ],
+                        "readOnly": true,
+                        "example": "Example type"
+                    }
+                }
+            },
+            "ThreatprotectionGridRuleConfig": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "The rule action.",
+                        "enum": [
+                            "ALERT",
+                            "DROP",
+                            "PASS"
+                        ],
+                        "example": "Example action"
+                    },
+                    "log_severity": {
+                        "type": "string",
+                        "description": "The rule log severity.",
+                        "enum": [
+                            "CRITICAL",
+                            "MAJOR",
+                            "WARNING",
+                            "INFORMATIONAL"
+                        ],
+                        "example": "Example log_severity"
+                    },
+                    "params": {
+                        "type": "array",
+                        "description": "The threat protection rule parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectiongridruleconfigParams"
+                        }
+                    }
+                }
+            },
+            "ThreatprotectiongridruleconfigParams": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The rule parameter name.",
+                        "example": "Example name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The rule parameter description.",
+                        "readOnly": true,
+                        "example": "Example description"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The rule parameter syntax.",
+                        "readOnly": true,
+                        "example": "Example syntax"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The rule parameter value.",
+                        "example": "Example value"
+                    },
+                    "min": {
+                        "type": "integer",
+                        "description": "The rule parameter minimum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "max": {
+                        "type": "integer",
+                        "description": "The rule parameter maximum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Determines if parameter value is editable at member level.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "enum_values": {
+                        "type": "array",
+                        "description": "The rule parameter enum values.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ListThreatprotectionGridRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionGridRule__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionGridRuleResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionGridRule__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionGridRuleResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateThreatprotectionGridRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ThreatprotectionGridRule__ in object format.",
+                        "type": "object",
+                        "title": "CreateThreatprotectionGridRuleResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ThreatprotectionGridRule__.",
+                        "type": "string",
+                        "title": "CreateThreatprotectionGridRuleResponse"
+                    }
+                ]
+            },
+            "GetThreatprotectionGridRuleResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionGridRule__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionGridRuleResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionGridRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionGridRule__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionGridRuleResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionGridRule"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionGridRule__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionGridRuleResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionProfile": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The comment for the Threat Protection profile.",
+                        "example": "Example comment"
+                    },
+                    "current_ruleset": {
+                        "type": "string",
+                        "description": "The current Threat Protection profile ruleset.",
+                        "example": "Example current_ruleset"
+                    },
+                    "disable_multiple_dns_tcp_request": {
+                        "type": "boolean",
+                        "description": "Determines if multiple BIND responses via TCP connection are disabled.",
+                        "example": false
+                    },
+                    "events_per_second_per_rule": {
+                        "type": "integer",
+                        "description": "The number of events logged per second per rule.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "extattrs": {
+                        "type": "object",
+                        "description": "Extensible attributes associated with the object. For valid values for extensible attributes, see {extattrs:values}.",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ExtAttrs"
+                        }
+                    },
+                    "members": {
+                        "type": "array",
+                        "description": "The list of members that are associated with the profile.",
+                        "enum": [
+                            "string"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Threat Protection profile.",
+                        "example": "Example name"
+                    },
+                    "source_member": {
+                        "type": "string",
+                        "description": "The source member. It can be used only during the create operation for cloning a profile from an existing member.",
+                        "writeOnly": true,
+                        "example": "Example source_member"
+                    },
+                    "source_profile": {
+                        "type": "string",
+                        "description": "The source profile. It can be used only during the create operation for cloning a profile from an existing profile.",
+                        "writeOnly": true,
+                        "example": "Example source_profile"
+                    },
+                    "use_current_ruleset": {
+                        "type": "boolean",
+                        "description": "Use flag for: current_ruleset",
+                        "example": false
+                    },
+                    "use_disable_multiple_dns_tcp_request": {
+                        "type": "boolean",
+                        "description": "Use flag for: disable_multiple_dns_tcp_request",
+                        "example": false
+                    },
+                    "use_events_per_second_per_rule": {
+                        "type": "boolean",
+                        "description": "Use flag for: events_per_second_per_rule",
+                        "example": false
+                    }
+                }
+            },
+            "ListThreatprotectionProfileResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionProfile__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionProfileResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionProfile"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionProfile__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionProfileResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionProfile"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateThreatprotectionProfileResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __ThreatprotectionProfile__ in object format.",
+                        "type": "object",
+                        "title": "CreateThreatprotectionProfileResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfile"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __ThreatprotectionProfile__.",
+                        "type": "string",
+                        "title": "CreateThreatprotectionProfileResponse"
+                    }
+                ]
+            },
+            "GetThreatprotectionProfileResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionProfile"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionProfile__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionProfileResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfile"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionProfileResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionProfile__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionProfileResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfile"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionProfile__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionProfileResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionProfileRule": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "config": {
+                        "$ref": "#/components/schemas/ThreatprotectionProfileRuleConfig"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Determines if the rule is enabled or not for the profile.",
+                        "example": false
+                    },
+                    "profile": {
+                        "type": "string",
+                        "description": "The name of the Threat protection profile.",
+                        "readOnly": true,
+                        "example": "Example profile"
+                    },
+                    "rule": {
+                        "type": "string",
+                        "description": "The rule object name.",
+                        "readOnly": true,
+                        "example": "Example rule"
+                    },
+                    "sid": {
+                        "type": "integer",
+                        "description": "The snort rule ID.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "use_config": {
+                        "type": "boolean",
+                        "description": "Use flag for: config",
+                        "example": false
+                    },
+                    "use_disable": {
+                        "type": "boolean",
+                        "description": "Use flag for: disable",
+                        "example": false
+                    }
+                }
+            },
+            "ThreatprotectionProfileRuleConfig": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "The rule action.",
+                        "enum": [
+                            "ALERT",
+                            "DROP",
+                            "PASS"
+                        ],
+                        "example": "Example action"
+                    },
+                    "log_severity": {
+                        "type": "string",
+                        "description": "The rule log severity.",
+                        "enum": [
+                            "CRITICAL",
+                            "MAJOR",
+                            "WARNING",
+                            "INFORMATIONAL"
+                        ],
+                        "example": "Example log_severity"
+                    },
+                    "params": {
+                        "type": "array",
+                        "description": "The threat protection rule parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionprofileruleconfigParams"
+                        }
+                    }
+                }
+            },
+            "ThreatprotectionprofileruleconfigParams": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The rule parameter name.",
+                        "example": "Example name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The rule parameter description.",
+                        "readOnly": true,
+                        "example": "Example description"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The rule parameter syntax.",
+                        "readOnly": true,
+                        "example": "Example syntax"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The rule parameter value.",
+                        "example": "Example value"
+                    },
+                    "min": {
+                        "type": "integer",
+                        "description": "The rule parameter minimum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "max": {
+                        "type": "integer",
+                        "description": "The rule parameter maximum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Determines if parameter value is editable at member level.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "enum_values": {
+                        "type": "array",
+                        "description": "The rule parameter enum values.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ListThreatprotectionProfileRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionProfileRule__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionProfileRuleResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionProfileRule"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionProfileRule__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionProfileRuleResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionProfileRule"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatprotectionProfileRuleResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionProfileRule"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionProfileRule__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionProfileRuleResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfileRule"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionProfileRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionProfileRule__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionProfileRuleResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionProfileRule"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionProfileRule__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionProfileRuleResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionRule": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "config": {
+                        "$ref": "#/components/schemas/ThreatprotectionRuleConfig"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Determines if the rule is enabled or not for the member.",
+                        "example": false
+                    },
+                    "member": {
+                        "type": "string",
+                        "description": "The name of the Threat protection member.",
+                        "readOnly": true,
+                        "example": "Example member"
+                    },
+                    "rule": {
+                        "type": "string",
+                        "description": "The rule object name.",
+                        "readOnly": true,
+                        "example": "Example rule"
+                    },
+                    "sid": {
+                        "type": "integer",
+                        "description": "The Rule ID.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "use_config": {
+                        "type": "boolean",
+                        "description": "Use flag for: config",
+                        "example": false
+                    },
+                    "use_disable": {
+                        "type": "boolean",
+                        "description": "Use flag for: disable",
+                        "example": false
+                    }
+                }
+            },
+            "ThreatprotectionRuleConfig": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "The rule action.",
+                        "enum": [
+                            "ALERT",
+                            "DROP",
+                            "PASS"
+                        ],
+                        "example": "Example action"
+                    },
+                    "log_severity": {
+                        "type": "string",
+                        "description": "The rule log severity.",
+                        "enum": [
+                            "CRITICAL",
+                            "MAJOR",
+                            "WARNING",
+                            "INFORMATIONAL"
+                        ],
+                        "example": "Example log_severity"
+                    },
+                    "params": {
+                        "type": "array",
+                        "description": "The threat protection rule parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionruleconfigParams"
+                        }
+                    }
+                }
+            },
+            "ThreatprotectionruleconfigParams": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The rule parameter name.",
+                        "example": "Example name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The rule parameter description.",
+                        "readOnly": true,
+                        "example": "Example description"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The rule parameter syntax.",
+                        "readOnly": true,
+                        "example": "Example syntax"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The rule parameter value.",
+                        "example": "Example value"
+                    },
+                    "min": {
+                        "type": "integer",
+                        "description": "The rule parameter minimum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "max": {
+                        "type": "integer",
+                        "description": "The rule parameter maximum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Determines if parameter value is editable at member level.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "enum_values": {
+                        "type": "array",
+                        "description": "The rule parameter enum values.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ListThreatprotectionRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRule__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionRuleResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionRule"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRule__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionRuleResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionRule"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatprotectionRuleResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionRule"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRule__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionRuleResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRule"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionRuleResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionRule__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionRuleResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRule"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionRule__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionRuleResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionRulecategory": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "is_factory_reset_enabled": {
+                        "type": "boolean",
+                        "description": "Determines if factory reset is enabled for this rule category.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule category.",
+                        "readOnly": true,
+                        "example": "Example name"
+                    },
+                    "ruleset": {
+                        "type": "string",
+                        "description": "The version of the ruleset the category assigned to.",
+                        "readOnly": true,
+                        "example": "Example ruleset"
+                    }
+                }
+            },
+            "ListThreatprotectionRulecategoryResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRulecategory__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionRulecategoryResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionRulecategory"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRulecategory__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionRulecategoryResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionRulecategory"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatprotectionRulecategoryResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionRulecategory"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRulecategory__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionRulecategoryResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRulecategory"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionRulecategoryResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionRulecategory__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionRulecategoryResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRulecategory"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionRulecategory__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionRulecategoryResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionRuleset": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "add_type": {
+                        "type": "string",
+                        "description": "Determines the way the ruleset was added.",
+                        "enum": [
+                            "AUTOMATIC",
+                            "MANUAL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example add_type"
+                    },
+                    "added_time": {
+                        "type": "integer",
+                        "description": "The time when the ruleset was added.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "The human readable comment for the ruleset.",
+                        "example": "Example comment"
+                    },
+                    "do_not_delete": {
+                        "type": "boolean",
+                        "description": "Determines if the ruleset will not be deleted during upgrade.",
+                        "example": false
+                    },
+                    "is_factory_reset_enabled": {
+                        "type": "boolean",
+                        "description": "Determines if factory reset is enabled for this ruleset.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "used_by": {
+                        "type": "array",
+                        "description": "The users of the ruleset.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The ruleset version.",
+                        "readOnly": true,
+                        "example": "Example version"
+                    }
+                }
+            },
+            "ListThreatprotectionRulesetResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRuleset__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionRulesetResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionRuleset"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRuleset__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionRulesetResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionRuleset"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatprotectionRulesetResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionRuleset"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRuleset__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionRulesetResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRuleset"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionRulesetResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionRuleset__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionRulesetResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRuleset"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionRuleset__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionRulesetResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionRuletemplate": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "allowed_actions": {
+                        "type": "array",
+                        "description": "The list of allowed actions of rhe rule template.",
+                        "enum": [
+                            "ALERT",
+                            "PASS",
+                            "DROP"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "The rule category this template assigned to.",
+                        "readOnly": true,
+                        "example": "Example category"
+                    },
+                    "default_config": {
+                        "$ref": "#/components/schemas/ThreatprotectionRuletemplateDefaultConfig"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the rule template.",
+                        "readOnly": true,
+                        "example": "Example description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule template.",
+                        "readOnly": true,
+                        "example": "Example name"
+                    },
+                    "ruleset": {
+                        "type": "string",
+                        "description": "The version of the ruleset the template assigned to.",
+                        "readOnly": true,
+                        "example": "Example ruleset"
+                    },
+                    "sid": {
+                        "type": "integer",
+                        "description": "The Rule ID.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    }
+                }
+            },
+            "ThreatprotectionRuletemplateDefaultConfig": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "description": "The rule action.",
+                        "enum": [
+                            "ALERT",
+                            "DROP",
+                            "PASS"
+                        ],
+                        "example": "Example action"
+                    },
+                    "log_severity": {
+                        "type": "string",
+                        "description": "The rule log severity.",
+                        "enum": [
+                            "CRITICAL",
+                            "MAJOR",
+                            "WARNING",
+                            "INFORMATIONAL"
+                        ],
+                        "example": "Example log_severity"
+                    },
+                    "params": {
+                        "type": "array",
+                        "description": "The threat protection rule parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionruletemplatedefaultconfigParams"
+                        }
+                    }
+                }
+            },
+            "ThreatprotectionruletemplatedefaultconfigParams": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The rule parameter name.",
+                        "example": "Example name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The rule parameter description.",
+                        "readOnly": true,
+                        "example": "Example description"
+                    },
+                    "syntax": {
+                        "type": "string",
+                        "description": "The rule parameter syntax.",
+                        "readOnly": true,
+                        "example": "Example syntax"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The rule parameter value.",
+                        "example": "Example value"
+                    },
+                    "min": {
+                        "type": "integer",
+                        "description": "The rule parameter minimum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "max": {
+                        "type": "integer",
+                        "description": "The rule parameter maximum.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "read_only": {
+                        "type": "boolean",
+                        "description": "Determines if parameter value is editable at member level.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "enum_values": {
+                        "type": "array",
+                        "description": "The rule parameter enum values.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ListThreatprotectionRuletemplateResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRuletemplate__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionRuletemplateResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionRuletemplate"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRuletemplate__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionRuletemplateResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionRuletemplate"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatprotectionRuletemplateResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionRuletemplate"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionRuletemplate__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionRuletemplateResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRuletemplate"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionRuletemplateResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionRuletemplate__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionRuletemplateResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionRuletemplate"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionRuletemplate__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionRuletemplateResponse"
+                    }
+                ]
+            },
+            "ThreatprotectionStatistics": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "member": {
+                        "type": "string",
+                        "description": "The Grid member name to get threat protection statistics. If nothing is specified then event statistics is returned for the Grid.",
+                        "readOnly": true,
+                        "example": "Example member"
+                    },
+                    "stat_infos": {
+                        "type": "array",
+                        "description": "The list of event statistical information for the Grid or particular members.",
+                        "enum": [
+                            "threatprotection:statinfo"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionStatisticsStatInfos"
+                        }
+                    }
+                }
+            },
+            "ThreatprotectionStatisticsStatInfos": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "type": "integer",
+                        "description": "The timestamp when data was collected.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "critical": {
+                        "type": "object",
+                        "description": "The number of critical events.",
+                        "enum": [
+                            "unsigned long integer"
+                        ]
+                    },
+                    "major": {
+                        "type": "object",
+                        "description": "The number of major events.",
+                        "enum": [
+                            "unsigned long integer"
+                        ]
+                    },
+                    "warning": {
+                        "type": "object",
+                        "description": "The number of warning events.",
+                        "enum": [
+                            "unsigned long integer"
+                        ]
+                    },
+                    "informational": {
+                        "type": "object",
+                        "description": "The number of informational events.",
+                        "enum": [
+                            "unsigned long integer"
+                        ]
+                    },
+                    "total": {
+                        "type": "object",
+                        "description": "The total number of events.",
+                        "enum": [
+                            "unsigned long integer"
+                        ]
+                    }
+                }
+            },
+            "ListThreatprotectionStatisticsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionStatistics__ objects.",
+                        "type": "array",
+                        "title": "ListThreatprotectionStatisticsResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/ThreatprotectionStatistics"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionStatistics__ objects.",
+                        "type": "object",
+                        "title": "ListThreatprotectionStatisticsResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/ThreatprotectionStatistics"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetThreatprotectionStatisticsResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ThreatprotectionStatistics"
+                    },
+                    {
+                        "description": "The response format to retrieve __ThreatprotectionStatistics__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetThreatprotectionStatisticsResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionStatistics"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateThreatprotectionStatisticsResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __ThreatprotectionStatistics__ in object format.",
+                        "type": "object",
+                        "title": "UpdateThreatprotectionStatisticsResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/ThreatprotectionStatistics"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __ThreatprotectionStatistics__ .",
+                        "type": "string",
+                        "title": "UpdateThreatprotectionStatisticsResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

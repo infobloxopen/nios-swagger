@@ -9,6 +9,18 @@
             "url": "https://www.infoblox.com"
         }
     },
+    "servers": [
+        {
+            "url": "{baseUrl}/wapi/v2.13.6",
+            "description": "Infoblox NIOS WAPI server",
+            "variables": {
+                "baseUrl": {
+                    "default": "https://localhost",
+                    "description": "The base URL of your Infoblox NIOS server"
+                }
+            }
+        }
+    ],
     "tags": [
         {
             "name": "Ipv4address",

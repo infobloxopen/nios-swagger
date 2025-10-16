@@ -89,7 +89,6 @@
           SwaggerUIBundle.plugins.DownloadUrl
         ],
         layout: "StandaloneLayout",
-        supportedSubmitMethods: [],
         onComplete: function() {
           // UI fully rendered
           swaggerInitialized = true;

@@ -1670,6 +1670,13 @@
         }
     },
     "components": {
+        "securitySchemes": {
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic",
+                "description": "HTTP Basic Authentication. Use your Infoblox NIOS credentials."
+            }
+        },
         "parameters": {
             "ReturnFields": {
                 "name": "_return_fields",

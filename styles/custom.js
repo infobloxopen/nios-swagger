@@ -27,8 +27,8 @@
     showLoadingIndicator: true // Show a loading indicator while specs load
   };
 
-  // LocalStorage key for persisting server baseUrl
-  const STORAGE_KEY = 'nios-swagger-server-baseUrl';
+  // LocalStorage key for persisting server NIOS_Grid_IP
+  const STORAGE_KEY = 'nios-swagger-server-NIOS_Grid_IP';
 
   // Functions to manage server URL persistence
   function saveServerUrl(baseUrl) {
@@ -91,8 +91,8 @@
 
                   // Update the server variable default
                   if (specObj && specObj.servers && specObj.servers[0] &&
-                      specObj.servers[0].variables && specObj.servers[0].variables.baseUrl) {
-                    specObj.servers[0].variables.baseUrl.default = savedUrl;
+                      specObj.servers[0].variables && specObj.servers[0].variables.NIOS_Grid_IP) {
+                    specObj.servers[0].variables.NIOS_Grid_IP.default = savedUrl;
 
                     // Convert back to string if needed
                     spec = isString ? JSON.stringify(specObj) : specObj;
@@ -134,7 +134,7 @@
             if (system.oas3Actions.setServerVariableValue) {
               system.oas3Actions.setServerVariableValue({
                 server: serverUrl,
-                key: 'baseUrl',
+                key: 'NIOS_Grid_IP',
                 val: savedUrl
               });
             }
@@ -181,7 +181,7 @@
                   const serverUrl = specJson.servers[0].url;
                   window.ui.oas3Actions.setServerVariableValue({
                     server: serverUrl,
-                    key: 'baseUrl',
+                    key: 'NIOS_Grid_IP',
                     val: newValue
                   });
                 }
@@ -200,7 +200,7 @@
     // Function to check and setup all server inputs
     function checkServerInputs() {
       // Look for the server variable input field
-      const serverInputs = document.querySelectorAll('.servers input[type="text"], input[placeholder*="baseUrl"], input[aria-label*="baseUrl"]');
+      const serverInputs = document.querySelectorAll('.servers input[type="text"], input[placeholder*="NIOS_Grid_IP"], input[aria-label*="NIOS_Grid_IP"]');
 
       serverInputs.forEach(input => {
         setupServerInput(input);

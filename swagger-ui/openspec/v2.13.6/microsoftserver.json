@@ -11,12 +11,12 @@
     },
     "servers": [
         {
-            "url": "{baseUrl}/wapi/v2.13.6",
-            "description": "Infoblox NIOS WAPI server",
+            "url": "https://{NIOS_Grid_IP}/wapi/v2.13.6",
+            "description": "Your NIOS Server",
             "variables": {
-                "baseUrl": {
-                    "default": "https://localhost",
-                    "description": "The base URL of your Infoblox NIOS server"
+                "NIOS_Grid_IP": {
+                    "default": "127.0.0.1",
+                    "description": "Enter your NIOS server IP or hostname"
                 }
             }
         }

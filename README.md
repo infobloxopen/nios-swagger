@@ -64,6 +64,7 @@ You can access and interact with the NIOS API documentation in two ways:
 
 1. Browse the available API categories in the navigation panel
 2. Expand operations to see detailed request parameters and response models
+3. Try it out - fill out the request parameter fields and hit "Execute" to see the full URI and an example curl command
 
 ## Repository Structure
 

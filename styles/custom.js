@@ -23,6 +23,27 @@
     showLoadingIndicator: true // Show a loading indicator while specs load
   };
 
+  // LocalStorage key for persisting server baseUrl
+  const STORAGE_KEY = 'nios-swagger-server-baseUrl';
+
+  // Functions to manage server URL persistence
+  function saveServerUrl(baseUrl) {
+    try {
+      localStorage.setItem(STORAGE_KEY, baseUrl);
+    } catch (e) {
+      console.warn('Failed to save server URL to localStorage:', e);
+    }
+  }
+
+  function getSavedServerUrl() {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      console.warn('Failed to retrieve server URL from localStorage:', e);
+      return null;
+    }
+  }
+
   // Get the version from URL parameter or use default
   const urlParams = new URLSearchParams(window.location.search);
   const currentVersion = urlParams.get('version') || CONFIG.defaultVersion;
@@ -40,6 +61,190 @@
       initializeSwaggerUI();
     }
   }, 10);
+
+  // Create a plugin to persist server variables
+  const ServerPersistencePlugin = function() {
+    return {
+      statePlugins: {
+        spec: {
+          wrapActions: {
+            updateSpec: (oriAction) => (spec) => {
+              // Modify the spec to include our saved server URL before processing
+              const savedUrl = getSavedServerUrl();
+
+              if (savedUrl) {
+                try {
+                  let specObj;
+                  let isString = typeof spec === 'string';
+
+                  // Parse spec if it's a string
+                  if (isString) {
+                    specObj = JSON.parse(spec);
+                  } else if (spec && typeof spec === 'object') {
+                    // Clone the object to avoid mutating the original
+                    specObj = JSON.parse(JSON.stringify(spec));
+                  }
+
+                  // Update the server variable default
+                  if (specObj && specObj.servers && specObj.servers[0] &&
+                      specObj.servers[0].variables && specObj.servers[0].variables.baseUrl) {
+                    specObj.servers[0].variables.baseUrl.default = savedUrl;
+
+                    // Convert back to string if needed
+                    spec = isString ? JSON.stringify(specObj) : specObj;
+                  }
+                } catch (e) {
+                  console.warn('[ServerPersistence] Failed to modify spec:', e);
+                }
+              }
+              // Call original action with modified spec
+              return oriAction(spec);
+            }
+          }
+        }
+      }
+    };
+  };
+
+  // Function to restore the saved server URL in the UI
+  function restoreServerUrl(system) {
+    const savedUrl = getSavedServerUrl();
+
+    if (!savedUrl || !system) {
+      return;
+    }
+
+    try {
+      // Use the oas3 actions to set the server variable
+      if (system.oas3Actions && system.oas3Actions.setSelectedServer) {
+        const spec = system.specSelectors.spec();
+        if (spec && spec.toJS) {
+          const specJson = spec.toJS();
+          if (specJson.servers && specJson.servers[0]) {
+            const serverUrl = specJson.servers[0].url;
+
+            // Set the selected server
+            system.oas3Actions.setSelectedServer(serverUrl);
+
+            // Set the server variable value
+            if (system.oas3Actions.setServerVariableValue) {
+              system.oas3Actions.setServerVariableValue({
+                server: serverUrl,
+                key: 'baseUrl',
+                val: savedUrl
+              });
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('[ServerPersistence] Failed to restore server URL in UI:', e);
+    }
+  }
+
+  // Function to monitor and manage the server input field
+  function monitorServerInput() {
+    const processedInputs = new WeakSet();
+
+    // Function to setup input field
+    function setupServerInput(input) {
+      // Avoid re-processing the same input
+      if (processedInputs.has(input)) return;
+      processedInputs.add(input);
+
+      // Restore saved value
+      const savedUrl = getSavedServerUrl();
+      if (savedUrl && input.value !== savedUrl) {
+        input.value = savedUrl;
+        // Trigger input event to update Swagger UI's state
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+
+      // Listen for changes and save to localStorage
+      const saveHandler = () => {
+        const newValue = input.value;
+        if (newValue && newValue.trim() !== '') {
+          saveServerUrl(newValue);
+
+          // Also update Swagger UI state when user changes value
+          try {
+            if (window.ui && window.ui.oas3Actions) {
+              const spec = window.ui.specSelectors.spec();
+              if (spec && spec.toJS) {
+                const specJson = spec.toJS();
+                if (specJson.servers && specJson.servers[0]) {
+                  const serverUrl = specJson.servers[0].url;
+                  window.ui.oas3Actions.setServerVariableValue({
+                    server: serverUrl,
+                    key: 'baseUrl',
+                    val: newValue
+                  });
+                }
+              }
+            }
+          } catch (e) {
+            console.warn('Failed to update server variable:', e);
+          }
+        }
+      };
+
+      input.addEventListener('change', saveHandler);
+      input.addEventListener('blur', saveHandler);
+    }
+
+    // Function to check and setup all server inputs
+    function checkServerInputs() {
+      // Look for the server variable input field
+      const serverInputs = document.querySelectorAll('.servers input[type="text"], input[placeholder*="baseUrl"], input[aria-label*="baseUrl"]');
+
+      serverInputs.forEach(input => {
+        setupServerInput(input);
+      });
+
+      // Also check for any input in the servers wrapper
+      const serversWrapper = document.querySelector('.servers');
+      if (serversWrapper) {
+        const inputs = serversWrapper.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => {
+          setupServerInput(input);
+        });
+      }
+    }
+
+    // Create observer to watch for server input field and spec changes
+    const observer = new MutationObserver(() => {
+      checkServerInputs();
+    });
+
+    // Start observing
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    // Monitor the spec selector dropdown for changes
+    const checkSpecSelector = setInterval(() => {
+      const specSelector = document.querySelector('.download-url-wrapper select');
+      if (specSelector && !specSelector.hasAttribute('data-monitored')) {
+        specSelector.setAttribute('data-monitored', 'true');
+        specSelector.addEventListener('change', () => {
+          // When spec changes, wait for it to load then restore
+          setTimeout(() => {
+            restoreServerUrl(window.ui);
+            checkServerInputs();
+          }, 500);
+        });
+        // Clear the interval once we've found and setup the selector
+        clearInterval(checkSpecSelector);
+      }
+    }, 500);
+
+    // Check immediately
+    setTimeout(checkServerInputs, 500);
+    setTimeout(checkServerInputs, 1000);
+    setTimeout(checkServerInputs, 2000);
+  }
 
   // Initialize the Swagger UI with our configuration
   function initializeSwaggerUI() {
@@ -86,13 +291,17 @@
           SwaggerUIStandalonePreset
         ],
         plugins: [
-          SwaggerUIBundle.plugins.DownloadUrl
+          SwaggerUIBundle.plugins.DownloadUrl,
+          ServerPersistencePlugin
         ],
         layout: "StandaloneLayout",
-        supportedSubmitMethods: [],
         onComplete: function() {
           // UI fully rendered
           swaggerInitialized = true;
+          // Restore saved server URL when UI is ready
+          restoreServerUrl(window.ui);
+          // Start monitoring server input field
+          monitorServerInput();
         }
       });
     } catch (e) {

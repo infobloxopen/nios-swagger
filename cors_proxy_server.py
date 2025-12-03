@@ -4,12 +4,12 @@
 import os
 import re
 import ssl
-import sys
+import json
+import atexit
 import logging
 import argparse
 import urllib.request
 import urllib.error
-from urllib.parse import urlparse
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 # Simple logging setup
@@ -38,29 +38,39 @@ class NIOSProxyHandler(SimpleHTTPRequestHandler):
             self.send_header(header, value)
         super().end_headers()
 
-    def do_OPTIONS(self):
+    def do_OPTIONS(self):  # pylint: disable=invalid-name
         """Handle preflight OPTIONS requests."""
         self.send_response(200)
         self.end_headers()
 
     def do_GET(self):
         """Handle GET requests."""
-        if self._is_wapi_request():
+        # Serve proxy configuration endpoint
+        if self.path == '/proxy-config':
+            self._serve_proxy_config_json()
+        elif self._is_wapi_request():
             self._proxy_request()
         else:
             super().do_GET()
 
-    def do_POST(self):
+    def do_POST(self):  # pylint: disable=invalid-name
         """Handle POST requests."""
-        self._proxy_request() if self._is_wapi_request() else self.send_error(405)
+        self._handle_wapi_or_error()
 
-    def do_PUT(self):
+    def do_PUT(self):  # pylint: disable=invalid-name
         """Handle PUT requests."""
-        self._proxy_request() if self._is_wapi_request() else self.send_error(405)
+        self._handle_wapi_or_error()
 
-    def do_DELETE(self):
+    def do_DELETE(self):  # pylint: disable=invalid-name
         """Handle DELETE requests."""
-        self._proxy_request() if self._is_wapi_request() else self.send_error(405)
+        self._handle_wapi_or_error()
+
+    def _handle_wapi_or_error(self):
+        """Handle WAPI request or return 405 error."""
+        if self._is_wapi_request():
+            self._proxy_request()
+        else:
+            self.send_error(405)
 
     def _is_wapi_request(self):
         """Check if this is a WAPI request."""
@@ -69,12 +79,15 @@ class NIOSProxyHandler(SimpleHTTPRequestHandler):
     def _get_target_server(self):
         """Extract target server from path or query."""
         match = self.WAPI_PATTERN.match(self.path)
-        if match and match.group(1):
-            return match.group(1)
+        if match:
+            server = match.group(1)
+            if server:
+                return server
 
         # Check query parameter
-        if '?' in self.path and 'target=' in self.path:
-            start = self.path.find('target=') + 7
+        target_param = 'target='
+        if target_param in self.path:
+            start = self.path.find(target_param) + len(target_param)
             end = self.path.find('&', start)
             return self.path[start:end] if end != -1 else self.path[start:]
 
@@ -108,7 +121,8 @@ class NIOSProxyHandler(SimpleHTTPRequestHandler):
 
             # Copy important headers
             for header in ['Content-Type', 'Accept', 'Authorization']:
-                if value := self.headers.get(header):
+                value = self.headers.get(header)
+                if value:
                     req.add_header(header, value)
 
             # Make request
@@ -128,33 +142,67 @@ class NIOSProxyHandler(SimpleHTTPRequestHandler):
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(e.read())
-        except Exception as e:
-            logger.error(f"Proxy error: {e}")
+        except (urllib.error.URLError, ConnectionError, OSError) as e:
+            logger.error("Proxy error: %s", e)
             self.send_error(502, f"Proxy error: {e}")
+
+    def _serve_proxy_config_json(self):
+        """Serve proxy configuration as JSON for custom.js."""
+        # Return the request's host as the proxy URL
+        proxy_url = f"http://{self.headers.get('Host', 'localhost:9000')}"
+        config = {"proxyUrl": proxy_url}
+        config_json = json.dumps(config)
+
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', len(config_json))
+        self.end_headers()
+        self.wfile.write(config_json.encode('utf-8'))
+
+def cleanup_proxy_init():
+    """Remove proxy-init.js on server shutdown."""
+    try:
+        if os.path.exists('styles/proxy-init.js'):
+            os.remove('styles/proxy-init.js')
+            logger.info("Cleaned up styles/proxy-init.js")
+    except OSError as e:
+        logger.warning("Could not remove proxy-init.js: %s", e)
 
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(description='Minimal CORS proxy for NIOS WAPI')
-    parser.add_argument('--host', default='localhost', help='Server host')
     parser.add_argument('--port', type=int, default=9000, help='Server port')
     args = parser.parse_args()
 
-    # Update custom.js if it exists
+    # Bind to all interfaces for VPN/network access
+    host = '0.0.0.0'
+
+    # Generate proxy-init.js file for custom.js to load
+    # Note: This uses localhost as custom.js will fetch /proxy-config to get the actual URL
+    proxy_init_content = (
+        "// Auto-generated by cors_proxy_server.py - DO NOT EDIT MANUALLY\n"
+        "// custom.js will fetch the actual proxy URL from /proxy-config endpoint\n"
+        "window.PROXY_CONFIG_URL = window.location.origin + '/proxy-config';\n"
+    )
+
     try:
-        with open('styles/custom.js', 'r+', encoding='utf-8') as f:
-            content = f.read()
-            content = content.replace('http://localhost:9000', f'http://{args.host}:{args.port}')
-            f.seek(0)
-            f.write(content)
-            f.truncate()
-    except FileNotFoundError:
-        pass
+        with open('styles/proxy-init.js', 'w', encoding='utf-8') as f:
+            f.write(proxy_init_content)
+        logger.info("Generated styles/proxy-init.js")
+        # Register cleanup function to remove file on exit
+        atexit.register(cleanup_proxy_init)
+    except OSError as e:
+        logger.warning("Could not generate styles/proxy-init.js: %s", e)
+        logger.warning("Proxy detection may not work until file is created")
 
     # Start server
-    server = HTTPServer((args.host, args.port), NIOSProxyHandler)
+    server = HTTPServer((host, args.port), NIOSProxyHandler)
 
-    print(f"CORS Proxy Server running on http://{args.host}:{args.port}/")
+    print("WARNING: SSL certificate verification is DISABLED (development only)")
+    print(f"CORS Proxy Server running on http://{host}:{args.port}/ (listening on all interfaces)")
+    print(f"To access from another machine, use: http://<this-machine-ip>:{args.port}/")
     print("Set NIOS_Grid_IP variable in Swagger UI to your NIOS server IP")
+    print("Press Ctrl+C to stop\n")
 
     try:
         server.serve_forever()

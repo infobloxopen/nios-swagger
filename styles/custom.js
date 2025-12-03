@@ -1,14 +1,64 @@
 (function() {
-  // CORS Proxy Configuration - can be overridden by server/environment
-  const CORS_PROXY = {
-    enabled: window.CORS_PROXY_CONFIG?.enabled ?? true,
-    proxyUrl: window.CORS_PROXY_CONFIG?.proxyUrl ?? 'http://localhost:8000',
+  // CORS Proxy Configuration - fetched dynamically from proxy server
+  let CORS_PROXY = {
+    enabled: true,
+    proxyUrl: 'http://localhost:9000', // Default, will be updated dynamically
     // Patterns to match NIOS requests
     niosPatterns: [
       /^https?:\/\/[\d.]+\/wapi\//,           // IP addresses
       /^https?:\/\/[^\/]+\/wapi\//            // Hostnames
     ]
   };
+
+  // Dynamically load proxy-init.js if it exists (optional CORS proxy support)
+  // Check if file exists first to avoid 404 errors in console
+  (function loadProxyInit() {
+    fetch('./styles/proxy-init.js', { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          // File exists, load it
+          const script = document.createElement('script');
+          script.src = './styles/proxy-init.js';
+          script.charset = 'UTF-8';
+          script.onload = function() {
+            console.log('[CORS Proxy] Proxy init loaded, fetching full configuration...');
+            fetchProxyConfig();
+          };
+          script.onerror = function() {
+            console.warn('[CORS Proxy] Failed to load proxy-init.js');
+            CORS_PROXY.enabled = false;
+          };
+          document.head.appendChild(script);
+        } else {
+          // File doesn't exist
+          console.log('[CORS Proxy] Not configured - direct connections will be used');
+          CORS_PROXY.enabled = false;
+        }
+      })
+      .catch(() => {
+        // Network error or file doesn't exist
+        console.log('[CORS Proxy] Not configured - direct connections will be used');
+        CORS_PROXY.enabled = false;
+      });
+  })();
+
+  // Fetch proxy configuration from the server
+  function fetchProxyConfig() {
+    // window.PROXY_CONFIG_URL is set by proxy-init.js
+    const proxyConfigUrl = window.PROXY_CONFIG_URL || 'http://localhost:9000/proxy-config';
+
+    fetch(proxyConfigUrl)
+      .then(res => res.json())
+      .then(config => {
+        CORS_PROXY.proxyUrl = config.proxyUrl;
+        CORS_PROXY.enabled = true;
+        console.log('[CORS Proxy] Configuration loaded:', config.proxyUrl);
+      })
+      .catch(err => {
+        console.warn('[CORS Proxy] Failed to load config, disabling proxy:', err.message);
+        CORS_PROXY.enabled = false;
+      });
+  }
 
   // Function to check if URL should be proxied
   function shouldProxy(url) {

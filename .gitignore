@@ -49,6 +49,9 @@ coverage.xml
 # OS specific files
 .DS_Store
 .DS_Store?
+
+# Auto-generated proxy configuration
+styles/proxy-init.js
 ._*
 .Spotlight-V100
 .Trashes

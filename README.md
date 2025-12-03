@@ -11,7 +11,8 @@ A comprehensive tool for serving Swagger/OpenAPI documentation for Infoblox NIOS
 This repository provides:
 
 - Interactive API documentation using Swagger UI v5.27.0
-- Pre-compiled OpenAPI specifications for all NIOS APIs (v2.13.1, v2.13.6, v2.13.7)
+- Pre-compiled OpenAPI specifications for all NIOS APIs (v2.13.1, v2.13.6, v2.13.7, v2.13.8)
+- CORS proxy server with zero dependencies (Python standard library only)
 - Easy browsing of API endpoints, request/response models, and examples
 - Automated workflows for continuous integration and deployment
 
@@ -21,6 +22,7 @@ This repository provides:
 
 - Web browser (Chrome, Firefox, Safari, Edge)
 - Git (for local installation)
+- Python 3.7+ (for CORS proxy server, no external dependencies needed)
 
 ### Installation
 
@@ -34,31 +36,18 @@ This repository provides:
    # Navigate to the project directory
    cd nios-swagger
 
-   # Start a local web server
-   # Using Python 3
+   # Option A: Start with CORS proxy (recommended for API testing)
+   python3 cors_proxy_server.py
+   # Access at http://localhost:9000
+
+   # Option B: Start a simple HTTP server (view only)
    python3 -m http.server 8080
    # or using Node.js
    npx http-server -p 8080
-
-   # Access in your browser
-   # Visit http://localhost:8080
+   # Access at http://localhost:8080
    ```
 
 ## Usage
-
-### Viewing Documentation
-
-You can access and interact with the NIOS API documentation in two ways:
-
-1. **Online**: Visit our GitHub Pages site at [https://infobloxopen.github.io/nios-swagger/](https://infobloxopen.github.io/nios-swagger/)
-   - Always updated with the latest documentation
-   - No installation required
-   - Accessible from any device with a web browser
-
-2. **Local**: Open `index.html` in your web browser after cloning the repository
-   - Works offline
-   - Can be customized for your needs
-   - Use local development environment
 
 ### Exploring APIs
 
@@ -72,14 +61,19 @@ To execute API calls directly from Swagger UI against your NIOS appliance, use t
 
 **Quick Start:**
 ```bash
-# Install dependencies
-pip install -r requirements.txt
+# Start the proxy server (no dependencies to install!)
+python3 cors_proxy_server.py
 
-# Start the proxy
-python cors_proxy_server.py
+# Or specify a custom port
+python3 cors_proxy_server.py --port 8080
 ```
 
+**Access the UI:**
+- Local: `http://localhost:9000`
+- Network/VPN: `http://<your-ip>:9000`
+
 Then configure your NIOS Grid IP in Swagger UI and use the "Authorize" button to authenticate.
+
 For detailed setup instructions, configuration options, and troubleshooting, see [CORS_PROXY_GUIDE.md](CORS_PROXY_GUIDE.md).
 
 ## Repository Structure

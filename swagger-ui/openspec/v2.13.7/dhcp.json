@@ -12,11 +12,11 @@
     "servers": [
         {
             "url": "https://{NIOS_Grid_IP}/wapi/v2.13.7",
-            "description": "Your NIOS Server",
+            "description": "Infoblox NIOS Grid",
             "variables": {
                 "NIOS_Grid_IP": {
                     "default": "127.0.0.1",
-                    "description": "Enter your NIOS server IP or hostname"
+                    "description": "NIOS Grid IP or hostname"
                 }
             }
         }

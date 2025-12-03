@@ -1,4 +1,72 @@
 (function() {
+  // CORS Proxy Configuration - can be overridden by server/environment
+  const CORS_PROXY = {
+    enabled: window.CORS_PROXY_CONFIG?.enabled ?? true,
+    proxyUrl: window.CORS_PROXY_CONFIG?.proxyUrl ?? 'http://localhost:8000',
+    // Patterns to match NIOS requests
+    niosPatterns: [
+      /^https?:\/\/[\d.]+\/wapi\//,           // IP addresses
+      /^https?:\/\/[^\/]+\/wapi\//            // Hostnames
+    ]
+  };
+
+  // Function to check if URL should be proxied
+  function shouldProxy(url) {
+    if (!CORS_PROXY.enabled) return false;
+    return CORS_PROXY.niosPatterns.some(pattern => pattern.test(url));
+  }
+
+  // Function to convert NIOS URL to proxy URL
+  function convertToProxyUrl(originalUrl) {
+    if (!shouldProxy(originalUrl)) return originalUrl;
+
+    try {
+      const url = new URL(originalUrl);
+      const NIOS_Grid_IP = url.hostname;
+      const path = url.pathname + url.search;
+
+      // Convert https://localhost/wapi/v2.13.6/namedacl
+      // To: http://localhost:8001/localhost/wapi/v2.13.6/namedacl
+      return `${CORS_PROXY.proxyUrl}/${NIOS_Grid_IP}${path}`;
+    } catch (e) {
+      console.warn('Failed to convert URL to proxy:', originalUrl, e);
+      return originalUrl;
+    }
+  }
+
+  // Intercept fetch requests
+  const originalFetch = window.fetch;
+  window.fetch = function(resource, options = {}) {
+    const url = typeof resource === 'string' ? resource : resource.url;
+    const proxyUrl = convertToProxyUrl(url);
+
+    if (url !== proxyUrl) {
+      console.log(`[CORS Proxy] Routing ${url} -> ${proxyUrl}`);
+
+      // Update the resource with proxy URL
+      if (typeof resource === 'string') {
+        resource = proxyUrl;
+      } else {
+        resource = new Request(proxyUrl, resource);
+      }
+    }
+
+    return originalFetch.call(this, resource, options);
+  };
+
+  // Intercept XMLHttpRequest
+  const originalXHROpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method, url, ...args) {
+    const proxyUrl = convertToProxyUrl(url);
+
+    if (url !== proxyUrl) {
+      console.log(`[CORS Proxy] Routing XMLHttpRequest ${url} -> ${proxyUrl}`);
+      url = proxyUrl;
+    }
+
+    return originalXHROpen.call(this, method, url, ...args);
+  };
+
   // Configuration
   const CONFIG = {
     defaultVersion: 'v2.13.8',

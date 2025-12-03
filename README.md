@@ -1,7 +1,7 @@
 # NIOS Swagger
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-brightgreen)](https://infobloxopen.github.io/nios-swagger/)
-[![Last Updated](https://img.shields.io/badge/last%20updated-June%202025-blue.svg)](https://github.com/infobloxopen/nios-swagger)
+[![Last Updated](https://img.shields.io/badge/last%20updated-December%202025-blue.svg)](https://github.com/infobloxopen/nios-swagger)
 [![Swagger UI](https://img.shields.io/badge/Swagger_UI-v5.27.0-orange.svg)](https://github.com/swagger-api/swagger-ui/releases/tag/v5.27.0)
 
 A comprehensive tool for serving Swagger/OpenAPI documentation for Infoblox NIOS APIs. This repository hosts interactive API documentation that allows users to explore and test NIOS APIs directly from their browser.
@@ -58,21 +58,6 @@ This repository provides:
 ### Testing APIs with "Try it out"
 
 To execute API calls directly from Swagger UI against your NIOS appliance, use the included CORS proxy server. The proxy handles Cross-Origin Resource Sharing (CORS) restrictions and routes requests between your browser and NIOS.
-
-**Quick Start:**
-```bash
-# Start the proxy server (no dependencies to install!)
-python3 cors_proxy_server.py
-
-# Or specify a custom port
-python3 cors_proxy_server.py --port 8080
-```
-
-**Access the UI:**
-- Local: `http://localhost:9000`
-- Network/VPN: `http://<your-ip>:9000`
-
-Then configure your NIOS Grid IP in Swagger UI and use the "Authorize" button to authenticate.
 
 For detailed setup instructions, configuration options, and troubleshooting, see [CORS_PROXY_GUIDE.md](CORS_PROXY_GUIDE.md).
 

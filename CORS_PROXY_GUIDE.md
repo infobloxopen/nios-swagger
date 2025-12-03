@@ -23,7 +23,7 @@ python cors_proxy_server.py --host 0.0.0.0 --port 8000
 Set the **NIOS_Grid_IP** variable in Swagger UI to your NIOS server IP/hostname:
 - Example: `192.168.1.100` or `nios.company.com`
 
-### 3. Authenticate
+### 3. Authenticate (Swagger UI Authentication Only)
 
 Use the **"Authorize"** button in Swagger UI to enter your NIOS credentials.
 
@@ -31,18 +31,8 @@ Use the **"Authorize"** button in Swagger UI to enter your NIOS credentials.
 
 | Option | Required | Default | Description |
 |--------|----------|---------|-------------|
-| `--host` | No | `localhost` | Proxy server host |
 | `--port` | No | `9000` | Proxy server port |
 
-## Authentication Method
-
-The minimal proxy uses a simplified authentication approach:
-
-### Swagger UI Authentication (Only Method)
-- Use the **"Authorize"** button in Swagger UI
-- Enter your NIOS username and password
-- Authentication headers are automatically forwarded to NIOS
-- No CLI authentication options (keeps the script minimal)
 
 ## Usage Examples
 
@@ -58,8 +48,8 @@ python cors_proxy_server.py
 
 ### Custom Host/Port
 ```bash
-# Use different host/port
-python cors_proxy_server.py --host 0.0.0.0 --port 8000
+# Use different port
+python cors_proxy_server.py --port 8000
 
 # Then update NIOS_Grid_IP in Swagger UI accordingly
 ```
@@ -135,7 +125,7 @@ graph LR
 2. **Network connectivity:**
    ```bash
    # Test direct connection to NIOS
-   curl -k https://your-nios-server.com/wapi/v2.13/zone_auth
+   curl -k https://your-nios-server.com/wapi/v2.13.8/zone_auth
    ```
 
 ### CORS Errors
@@ -219,22 +209,17 @@ Then configure each Swagger UI instance with:
 ---
 ## FAQ
 
-**Q: Why can't I connect directly to NIOS from Swagger UI?**
-
+**Q: Why can't I connect directly to NIOS from Swagger UI?** <br>
 **A:** NIOS appliances don't send CORS headers, which browsers require for cross-origin requests.
 
-**Q: Is my authentication data secure?** 
-
+**Q: Is my authentication data secure?** <br>
 **A:** The proxy uses HTTPS to connect to NIOS. For CLI auth, credentials may be visible in process lists.
 
-**Q: Can I use this in production?** 
-
+**Q: Can I use this in production?** <br>
 **A:** This is designed for development. For production, implement additional security measures.
 
-**Q: Does this work with all NIOS versions?** 
-
+**Q: Does this work with all NIOS versions?** <br>
 **A:** Yes, the proxy works with any NIOS version that supports WAPI.
 
-**Q: Can I run multiple proxy instances?** 
-
+**Q: Can I run multiple proxy instances?** <br>
 **A:** Yes, use different ports for each instance.

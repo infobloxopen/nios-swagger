@@ -220,16 +220,21 @@ Then configure each Swagger UI instance with:
 ## FAQ
 
 **Q: Why can't I connect directly to NIOS from Swagger UI?**
-A: NIOS appliances don't send CORS headers, which browsers require for cross-origin requests.
 
-**Q: Is my authentication data secure?**
-A: The proxy uses HTTPS to connect to NIOS. For CLI auth, credentials may be visible in process lists.
+**A:** NIOS appliances don't send CORS headers, which browsers require for cross-origin requests.
 
-**Q: Can I use this in production?**
-A: This is designed for development. For production, implement additional security measures.
+**Q: Is my authentication data secure?** 
 
-**Q: Does this work with all NIOS versions?**
-A: Yes, the proxy works with any NIOS version that supports WAPI.
+**A:** The proxy uses HTTPS to connect to NIOS. For CLI auth, credentials may be visible in process lists.
 
-**Q: Can I run multiple proxy instances?**
-A: Yes, use different ports for each instance.
+**Q: Can I use this in production?** 
+
+**A:** This is designed for development. For production, implement additional security measures.
+
+**Q: Does this work with all NIOS versions?** 
+
+**A:** Yes, the proxy works with any NIOS version that supports WAPI.
+
+**Q: Can I run multiple proxy instances?** 
+
+**A:** Yes, use different ports for each instance.

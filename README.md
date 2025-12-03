@@ -66,20 +66,43 @@ You can access and interact with the NIOS API documentation in two ways:
 2. Expand operations to see detailed request parameters and response models
 3. Try it out - fill out the request parameter fields and hit "Execute" to see the full URI and an example curl command
 
+### Testing APIs with "Try it out"
+
+To execute API calls directly from Swagger UI against your NIOS appliance, use the included CORS proxy server. The proxy handles Cross-Origin Resource Sharing (CORS) restrictions and routes requests between your browser and NIOS.
+
+**Quick Start:**
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the proxy
+python cors_proxy_server.py
+```
+
+Then configure your NIOS Grid IP in Swagger UI and use the "Authorize" button to authenticate.
+For detailed setup instructions, configuration options, and troubleshooting, see [CORS_PROXY_GUIDE.md](CORS_PROXY_GUIDE.md).
+
 ## Repository Structure
 
 ```
 nios-swagger/
 ├── .github/                 # GitHub configuration files
 ├── index.html               # Main Swagger UI page
+├── README.md                # This file
+├── CORS_PROXY_GUIDE.md      # Detailed CORS proxy documentation
+├── cors_proxy_server.py     # CORS proxy server script
+├── requirements.txt         # Python dependencies for CORS proxy
 ├── styles/                  # Custom styling
 │   ├── custom.css           # Custom CSS styling
-│   └── custom.js            # Custom JavaScript
+│   └── custom.js            # Custom JavaScript with CORS proxy support
 └── swagger-ui/              # Swagger UI resources
-    ├── swagger-ui.version   # Swagger UI version information (v5.24.0)
+    ├── swagger-ui.version   # Swagger UI version information (v5.27.0)
     ├── dist/                # Swagger UI distribution files
     └── openspec/            # OpenAPI specifications
-        └── v2.13.6/         # API version specific specs
+        ├── v2.13.1/         # NIOS v9.0.1-v9.0.3 API specs
+        ├── v2.13.6/         # NIOS v9.0.6 API specs
+        ├── v2.13.7/         # NIOS v9.0.7 API specs
+        └── v2.13.8/         # NIOS v9.0.8 API specs
 ```
 
 ### Important Note

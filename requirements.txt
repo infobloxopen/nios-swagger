@@ -1,3 +1,2 @@
-requests>=2.28.0
-PyYAML>=6.0
-urllib3>=1.26.0
+# No external dependencies required
+# cors_proxy_server.py uses only Python standard library

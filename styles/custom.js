@@ -1,8 +1,130 @@
 (function() {
+  // CORS Proxy Configuration - fetched dynamically from proxy server
+  let CORS_PROXY = {
+    enabled: true,
+    proxyUrl: 'http://localhost:9000', // Default, will be updated dynamically
+    // Patterns to match NIOS requests
+    niosPatterns: [
+      /^https?:\/\/[\d.]+\/wapi\//,           // IP addresses
+      /^https?:\/\/[^\/]+\/wapi\//            // Hostnames
+    ]
+  };
+
+  // Dynamically load proxy-init.js if it exists (optional CORS proxy support)
+  // Check if file exists first to avoid 404 errors in console
+  (function loadProxyInit() {
+    fetch('./styles/proxy-init.js', { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          // File exists, load it
+          const script = document.createElement('script');
+          script.src = './styles/proxy-init.js';
+          script.charset = 'UTF-8';
+          script.onload = function() {
+            console.log('[CORS Proxy] Proxy init loaded, fetching full configuration...');
+            fetchProxyConfig();
+          };
+          script.onerror = function() {
+            console.warn('[CORS Proxy] Failed to load proxy-init.js');
+            CORS_PROXY.enabled = false;
+          };
+          document.head.appendChild(script);
+        } else {
+          // File doesn't exist
+          console.log('[CORS Proxy] Not configured - direct connections will be used');
+          CORS_PROXY.enabled = false;
+        }
+      })
+      .catch(() => {
+        // Network error or file doesn't exist
+        console.log('[CORS Proxy] Not configured - direct connections will be used');
+        CORS_PROXY.enabled = false;
+      });
+  })();
+
+  // Fetch proxy configuration from the server
+  function fetchProxyConfig() {
+    // window.PROXY_CONFIG_URL is set by proxy-init.js
+    const proxyConfigUrl = window.PROXY_CONFIG_URL || 'http://localhost:9000/proxy-config';
+
+    fetch(proxyConfigUrl)
+      .then(res => res.json())
+      .then(config => {
+        CORS_PROXY.proxyUrl = config.proxyUrl;
+        CORS_PROXY.enabled = true;
+        console.log('[CORS Proxy] Configuration loaded:', config.proxyUrl);
+      })
+      .catch(err => {
+        console.warn('[CORS Proxy] Failed to load config, disabling proxy:', err.message);
+        CORS_PROXY.enabled = false;
+      });
+  }
+
+  // Function to check if URL should be proxied
+  function shouldProxy(url) {
+    if (!CORS_PROXY.enabled) return false;
+    return CORS_PROXY.niosPatterns.some(pattern => pattern.test(url));
+  }
+
+  // Function to convert NIOS URL to proxy URL
+  function convertToProxyUrl(originalUrl) {
+    if (!shouldProxy(originalUrl)) return originalUrl;
+
+    try {
+      const url = new URL(originalUrl);
+      const NIOS_Grid_IP = url.hostname;
+      const path = url.pathname + url.search;
+
+      // Convert https://localhost/wapi/v2.13.6/namedacl
+      // To: http://localhost:8001/localhost/wapi/v2.13.6/namedacl
+      return `${CORS_PROXY.proxyUrl}/${NIOS_Grid_IP}${path}`;
+    } catch (e) {
+      console.warn('Failed to convert URL to proxy:', originalUrl, e);
+      return originalUrl;
+    }
+  }
+
+  // Intercept fetch requests
+  const originalFetch = window.fetch;
+  window.fetch = function(resource, options = {}) {
+    const url = typeof resource === 'string' ? resource : resource.url;
+    const proxyUrl = convertToProxyUrl(url);
+
+    if (url !== proxyUrl) {
+      console.log(`[CORS Proxy] Routing ${url} -> ${proxyUrl}`);
+
+      // Update the resource with proxy URL
+      if (typeof resource === 'string') {
+        resource = proxyUrl;
+      } else {
+        resource = new Request(proxyUrl, resource);
+      }
+    }
+
+    return originalFetch.call(this, resource, options);
+  };
+
+  // Intercept XMLHttpRequest
+  const originalXHROpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method, url, ...args) {
+    const proxyUrl = convertToProxyUrl(url);
+
+    if (url !== proxyUrl) {
+      console.log(`[CORS Proxy] Routing XMLHttpRequest ${url} -> ${proxyUrl}`);
+      url = proxyUrl;
+    }
+
+    return originalXHROpen.call(this, method, url, ...args);
+  };
+
   // Configuration
   const CONFIG = {
-    defaultVersion: 'v2.13.7',
+    defaultVersion: 'v2.13.8',
     versions: [
+      {
+        wapi: 'v2.13.8',
+        niosSupport: 'NIOS: v9.0.8'
+      },
       {
         wapi: 'v2.13.7',
         niosSupport: 'NIOS: v9.0.7'
@@ -23,8 +145,8 @@
     showLoadingIndicator: true // Show a loading indicator while specs load
   };
 
-  // LocalStorage key for persisting server baseUrl
-  const STORAGE_KEY = 'nios-swagger-server-baseUrl';
+  // LocalStorage key for persisting server NIOS_Grid_IP
+  const STORAGE_KEY = 'nios-swagger-server-NIOS_Grid_IP';
 
   // Functions to manage server URL persistence
   function saveServerUrl(baseUrl) {
@@ -87,8 +209,8 @@
 
                   // Update the server variable default
                   if (specObj && specObj.servers && specObj.servers[0] &&
-                      specObj.servers[0].variables && specObj.servers[0].variables.baseUrl) {
-                    specObj.servers[0].variables.baseUrl.default = savedUrl;
+                      specObj.servers[0].variables && specObj.servers[0].variables.NIOS_Grid_IP) {
+                    specObj.servers[0].variables.NIOS_Grid_IP.default = savedUrl;
 
                     // Convert back to string if needed
                     spec = isString ? JSON.stringify(specObj) : specObj;
@@ -130,7 +252,7 @@
             if (system.oas3Actions.setServerVariableValue) {
               system.oas3Actions.setServerVariableValue({
                 server: serverUrl,
-                key: 'baseUrl',
+                key: 'NIOS_Grid_IP',
                 val: savedUrl
               });
             }
@@ -177,7 +299,7 @@
                   const serverUrl = specJson.servers[0].url;
                   window.ui.oas3Actions.setServerVariableValue({
                     server: serverUrl,
-                    key: 'baseUrl',
+                    key: 'NIOS_Grid_IP',
                     val: newValue
                   });
                 }
@@ -196,7 +318,7 @@
     // Function to check and setup all server inputs
     function checkServerInputs() {
       // Look for the server variable input field
-      const serverInputs = document.querySelectorAll('.servers input[type="text"], input[placeholder*="baseUrl"], input[aria-label*="baseUrl"]');
+      const serverInputs = document.querySelectorAll('.servers input[type="text"], input[placeholder*="NIOS_Grid_IP"], input[aria-label*="NIOS_Grid_IP"]');
 
       serverInputs.forEach(input => {
         setupServerInput(input);

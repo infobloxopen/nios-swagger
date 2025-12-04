@@ -15,7 +15,7 @@ This lightweight proxy server acts as a bridge between your browser and the NIOS
 python cors_proxy_server.py
 
 # Custom host and port
-python cors_proxy_server.py --host 0.0.0.0 --port 8000
+python cors_proxy_server.py --port 8000
 ```
 
 ### 2. Configure NIOS Server in Swagger UI

@@ -119,7 +119,7 @@
 
   // Configuration
   const CONFIG = {
-    defaultVersion: 'v2.13.8',
+    defaultVersion: 'v2.14',
     versions: [
       {
         wapi: 'v2.13.8',
@@ -136,6 +136,11 @@
       {
         wapi: 'v2.13.1',
         niosSupport: 'NIOS: v9.0.1 - v9.0.3'
+
+      },
+      {
+        wapi: 'v2.14',
+        niosSupport: 'NIOS: v9.1.0'
 
       }
       // Add future versions here in the same format

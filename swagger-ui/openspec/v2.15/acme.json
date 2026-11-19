@@ -1,0 +1,1873 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox ACME API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI ACME objects",
+        "version": "2.15",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "/wapi/v2.15",
+            "description": "NIOS WAPI server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "AcmeCertificate",
+            "description": "Operations for acme:certificate objects"
+        },
+        {
+            "name": "AcmeCertificateprofile",
+            "description": "Operations for acme:certificateprofile objects"
+        },
+        {
+            "name": "AcmeOperationlog",
+            "description": "Operations for acme:operationlog objects"
+        },
+        {
+            "name": "AcmeServer",
+            "description": "Operations for acme:server objects"
+        }
+    ],
+    "paths": {
+        "/acme:certificate": {
+            "get": {
+                "tags": [
+                    "AcmeCertificate"
+                ],
+                "operationId": "AcmeCertificateList",
+                "summary": "Retrieve acme:certificate objects",
+                "description": "Returns a list of acme:certificate objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAcmeCertificateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/acme:certificate/{reference}": {
+            "get": {
+                "tags": [
+                    "AcmeCertificate"
+                ],
+                "operationId": "AcmeCertificateRead",
+                "summary": "Get a specific acme:certificate object",
+                "description": "Returns a specific acme:certificate object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:certificate object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAcmeCertificateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/acme:certificateprofile": {
+            "get": {
+                "tags": [
+                    "AcmeCertificateprofile"
+                ],
+                "operationId": "AcmeCertificateprofileList",
+                "summary": "Retrieve acme:certificateprofile objects",
+                "description": "Returns a list of acme:certificateprofile objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAcmeCertificateprofileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "AcmeCertificateprofile"
+                ],
+                "operationId": "AcmeCertificateprofileCreate",
+                "summary": "Create a acme:certificateprofile object",
+                "description": "Creates a new acme:certificateprofile object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AcmeCertificateprofile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAcmeCertificateprofileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "acme_acme_certificateprofile",
+                "x-tf-datasource": "acme_acme_certificateprofile"
+            }
+        },
+        "/acme:certificateprofile/{reference}": {
+            "get": {
+                "tags": [
+                    "AcmeCertificateprofile"
+                ],
+                "operationId": "AcmeCertificateprofileRead",
+                "summary": "Get a specific acme:certificateprofile object",
+                "description": "Returns a specific acme:certificateprofile object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:certificateprofile object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAcmeCertificateprofileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "AcmeCertificateprofile"
+                ],
+                "operationId": "AcmeCertificateprofileUpdate",
+                "summary": "Update a acme:certificateprofile object",
+                "description": "Updates a specific acme:certificateprofile object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:certificateprofile object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AcmeCertificateprofile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAcmeCertificateprofileResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "AcmeCertificateprofile"
+                ],
+                "operationId": "AcmeCertificateprofileDelete",
+                "summary": "Delete a acme:certificateprofile object",
+                "description": "Deletes a specific acme:certificateprofile object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:certificateprofile object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/acme:operationlog": {
+            "get": {
+                "tags": [
+                    "AcmeOperationlog"
+                ],
+                "operationId": "AcmeOperationlogList",
+                "summary": "Retrieve acme:operationlog objects",
+                "description": "Returns a list of acme:operationlog objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAcmeOperationlogResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/acme:operationlog/{reference}": {
+            "get": {
+                "tags": [
+                    "AcmeOperationlog"
+                ],
+                "operationId": "AcmeOperationlogRead",
+                "summary": "Get a specific acme:operationlog object",
+                "description": "Returns a specific acme:operationlog object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:operationlog object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAcmeOperationlogResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/acme:server": {
+            "get": {
+                "tags": [
+                    "AcmeServer"
+                ],
+                "operationId": "AcmeServerList",
+                "summary": "Retrieve acme:server objects",
+                "description": "Returns a list of acme:server objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListAcmeServerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "AcmeServer"
+                ],
+                "operationId": "AcmeServerCreate",
+                "summary": "Create a acme:server object",
+                "description": "Creates a new acme:server object",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AcmeServer"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Object created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateAcmeServerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "x-tf-resource": "acme_acme_server",
+                "x-tf-datasource": "acme_acme_server"
+            }
+        },
+        "/acme:server/{reference}": {
+            "get": {
+                "tags": [
+                    "AcmeServer"
+                ],
+                "operationId": "AcmeServerRead",
+                "summary": "Get a specific acme:server object",
+                "description": "Returns a specific acme:server object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:server object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAcmeServerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "AcmeServer"
+                ],
+                "operationId": "AcmeServerUpdate",
+                "summary": "Update a acme:server object",
+                "description": "Updates a specific acme:server object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:server object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Object data to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AcmeServer"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Object updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateAcmeServerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "AcmeServer"
+                ],
+                "operationId": "AcmeServerDelete",
+                "summary": "Delete a acme:server object",
+                "description": "Deletes a specific acme:server object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the acme:server object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Object deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        },
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "AcmeCertificate": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "acme_certificate_url": {
+                        "type": "string",
+                        "description": "ACME certificate URL from which the issued certificate was fetched.",
+                        "readOnly": true,
+                        "example": "Example acme_certificate_url"
+                    },
+                    "acme_order_url": {
+                        "type": "string",
+                        "description": "ACME order URL for this certificate.",
+                        "readOnly": true,
+                        "example": "Example acme_order_url"
+                    },
+                    "cert_use": {
+                        "type": "string",
+                        "description": "Intended use of the certificate (denormalized from profile).",
+                        "enum": [
+                            "ADMIN",
+                            "DOT",
+                            "DOH"
+                        ],
+                        "readOnly": true,
+                        "example": "Example cert_use"
+                    },
+                    "issuer": {
+                        "type": "string",
+                        "description": "Certificate issuer Distinguished Name.",
+                        "readOnly": true,
+                        "example": "Example issuer"
+                    },
+                    "managed_by": {
+                        "type": "string",
+                        "description": "How the certificate currently occupying this certificate's (member, cert_use) slot is provisioned: ACME (still managed by this ACME certificate) or MANUAL (the slot has been overwritten by a manual certificate upload since this certificate was issued).",
+                        "enum": [
+                            "ACME",
+                            "MANUAL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example managed_by"
+                    },
+                    "member": {
+                        "type": "string",
+                        "description": "Grid member this certificate is bound to (denormalized from profile).",
+                        "readOnly": true,
+                        "example": "Example member"
+                    },
+                    "member_name": {
+                        "type": "string",
+                        "description": "Grid member host name (denormalized from member). A searchable string mirror of the member reference: object references support only exact search (search='='), so this plain string field is what lets the ACME Certificates grid filter members with the full string operator set (begins with / does not begin with / equals / contains), the same way 'subject' does.",
+                        "readOnly": true,
+                        "example": "Example member_name"
+                    },
+                    "next_renewal_time": {
+                        "type": "integer",
+                        "description": "Computed time of the next scheduled renewal.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "not_after": {
+                        "type": "integer",
+                        "description": "Certificate validity end time.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "not_before": {
+                        "type": "integer",
+                        "description": "Certificate validity start time.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "profile": {
+                        "type": "string",
+                        "description": "Reference to the certificate profile that governs this certificate.",
+                        "readOnly": true,
+                        "example": "Example profile"
+                    },
+                    "profile_name": {
+                        "type": "string",
+                        "description": "Certificate profile name (denormalized from profile). Searchable string mirror of the profile reference, for the same reason as member_name.",
+                        "readOnly": true,
+                        "example": "Example profile_name"
+                    },
+                    "renewal_attempts": {
+                        "type": "integer",
+                        "description": "Number of consecutive renewal attempts in the current cycle.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "serial_number": {
+                        "type": "string",
+                        "description": "Serial number of this certificate, in hex.",
+                        "readOnly": true,
+                        "example": "Example serial_number"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Lifecycle status of this certificate.",
+                        "enum": [
+                            "ISSUED",
+                            "RENEWING",
+                            "REVOKED",
+                            "EXPIRED",
+                            "SUPERSEDED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "subject": {
+                        "type": "string",
+                        "description": "Certificate subject Distinguished Name.",
+                        "readOnly": true,
+                        "example": "Example subject"
+                    },
+                    "subject_alt_names": {
+                        "type": "string",
+                        "description": "Certificate Subject Alternative Names, comma-separated. Modern ACME CAs (Let's Encrypt/Boulder, Pebble) issue leaf certificates with an empty Subject DN and convey identity via SAN only, so 'subject' above is legitimately blank for them; this field is where that identity information actually lives.",
+                        "readOnly": true,
+                        "example": "Example subject_alt_names"
+                    }
+                }
+            },
+            "ListAcmeCertificateResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __AcmeCertificate__ objects.",
+                        "type": "array",
+                        "title": "ListAcmeCertificateResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/AcmeCertificate"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeCertificate__ objects.",
+                        "type": "object",
+                        "title": "ListAcmeCertificateResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AcmeCertificate"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetAcmeCertificateResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/AcmeCertificate"
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeCertificate__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAcmeCertificateResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeCertificate"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAcmeCertificateResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __AcmeCertificate__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAcmeCertificateResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeCertificate"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __AcmeCertificate__ .",
+                        "type": "string",
+                        "title": "UpdateAcmeCertificateResponse"
+                    }
+                ]
+            },
+            "AcmeCertificateprofile": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "acme_server": {
+                        "type": "string",
+                        "description": "The name of the ACME server used for certificate operations. Also accepts the ACME server's '_ref'.",
+                        "example": "Example acme_server"
+                    },
+                    "acme_server_name": {
+                        "type": "string",
+                        "description": "ACME server name (denormalized from acme_server). Searchable string mirror of the acme_server reference (object references support only exact search), so the ACME Certificate Profiles grid can filter by ACME server with the full string operator set. Kept in sync with acme_server on create and update.",
+                        "readOnly": true,
+                        "example": "Example acme_server_name"
+                    },
+                    "auto_renewal_enabled": {
+                        "type": "boolean",
+                        "description": "Enable or disable automatic certificate renewal.",
+                        "example": false
+                    },
+                    "cert_use": {
+                        "type": "string",
+                        "description": "Intended use of the certificate.",
+                        "enum": [
+                            "ADMIN",
+                            "DOT",
+                            "DOH"
+                        ],
+                        "example": "Example cert_use"
+                    },
+                    "challenge_type": {
+                        "type": "string",
+                        "description": "ACME challenge type used for domain validation.",
+                        "enum": [
+                            "HTTP-01",
+                            "DNS-01"
+                        ],
+                        "example": "Example challenge_type"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Descriptive comment for this ACME certificate profile.",
+                        "example": "Example comment"
+                    },
+                    "common_name": {
+                        "type": "string",
+                        "description": "Common name (CN) for the certificate subject. Required at creation, matching the WebUI wizard's existing requirement (NIOSRFE-10409) -- a profile always has a usable identifier as soon as it's created; additional names can still be added afterward via ``update_sans``.",
+                        "example": "Example common_name"
+                    },
+                    "csr_pinned": {
+                        "type": "boolean",
+                        "description": "True when a CSR is pinned on this profile (i.e. ``pinned_csr_pem`` is non-empty). Useful for filtering profiles that have a pinned CSR in list requests.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Enable or disable this certificate profile.",
+                        "example": false
+                    },
+                    "dns_propagation_delay": {
+                        "type": "integer",
+                        "description": "Seconds to wait after provisioning the DNS-01 TXT record before notifying the CA that it should validate the challenge. Allows tuning per-profile for environments with slow DNS propagation. Range 0\u2013300. Default 20. Applies to DNS-01 challenge only. HTTP-01 profiles always return null/None for this field.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "dns_view": {
+                        "type": "string",
+                        "description": "NIOS DNS view in which the DNS-01 challenge TXT record should be created. Applies to DNS-01 challenge only. Empty/unset uses the default view.",
+                        "example": "Example dns_view"
+                    },
+                    "expiry_warning_days": {
+                        "type": "integer",
+                        "description": "Number of days before certificate expiry at which the widest expiry-warning trap/email begins firing (0..365). Fixed 7-day and 1-day reminders also fire once the certificate falls inside this window. Set to 0 to disable expiry warnings for this profile entirely, including the 7-day and 1-day reminders. Default 30.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "key_algorithm": {
+                        "type": "string",
+                        "description": "Key algorithm for the certificate key pair.",
+                        "enum": [
+                            "RSA",
+                            "ECDSA"
+                        ],
+                        "example": "Example key_algorithm"
+                    },
+                    "key_size": {
+                        "type": "integer",
+                        "description": "Key size in bits (e.g. 2048, 4096 for RSA; 256, 384 for ECDSA).",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "last_error": {
+                        "type": "string",
+                        "description": "Error message from the last failed operation, if any.",
+                        "readOnly": true,
+                        "example": "Example last_error"
+                    },
+                    "last_renewal_attempt": {
+                        "type": "integer",
+                        "description": "Timestamp of the most recent renewal attempt.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "member": {
+                        "type": "string",
+                        "description": "Grid member for which this certificate profile applies. Also accepts the member object's '_ref'.",
+                        "example": "Example member"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name for this ACME certificate profile.",
+                        "example": "Example name"
+                    },
+                    "pending_order_url": {
+                        "type": "string",
+                        "description": "ACME order URL of an in-flight issuance, persisted so the renewal scheduler can resume from ``poll_authorizations`` after a daemon restart instead of issuing a fresh ``newOrder``. Cleared automatically on completion; operators normally do not edit this field.",
+                        "readOnly": true,
+                        "example": "Example pending_order_url"
+                    },
+                    "pinned_csr_common_name": {
+                        "type": "string",
+                        "description": "Subject common name (CN) parsed from ``pinned_csr_pem``. Empty when no CSR is pinned or the pinned CSR has no CN.",
+                        "readOnly": true,
+                        "example": "Example pinned_csr_common_name"
+                    },
+                    "pinned_csr_key_fingerprint": {
+                        "type": "string",
+                        "description": "SHA-256 fingerprint (colon-separated uppercase hex) of the public key in ``pinned_csr_pem``. Empty when no CSR is pinned.",
+                        "readOnly": true,
+                        "example": "Example pinned_csr_key_fingerprint"
+                    },
+                    "pinned_csr_pem": {
+                        "type": "string",
+                        "description": "Optional pinned CSR PEM. When set, the manager skips CSR regeneration on every renewal and resubmits these bytes verbatim. Use the ``pin_csr`` function call to set or clear this field; reading it back returns the persisted bytes.",
+                        "readOnly": true,
+                        "example": "Example pinned_csr_pem"
+                    },
+                    "pinned_csr_sans": {
+                        "type": "string",
+                        "description": "Subject Alternative Names parsed from ``pinned_csr_pem``, as a list of strings. Empty when no CSR is pinned.",
+                        "readOnly": true,
+                        "example": "Example pinned_csr_sans"
+                    },
+                    "prefer_chain": {
+                        "type": "string",
+                        "description": "Issuer Common Name substring (case-insensitive) used to select a preferred alternative certificate chain when the CA offers more than one (RFC 8555 Section 7.4.2). When set the manager fetches all alternate chains advertised by the CA and picks the first chain in which any certificate's issuer CN contains this substring. Empty string keeps the CA default chain.",
+                        "example": "Example prefer_chain"
+                    },
+                    "renewal_window_days": {
+                        "type": "integer",
+                        "description": "Number of days before certificate expiry at which to trigger a fixed-day renewal, honored only when ``use_renewal_window_days`` is true. Must be 1..365 in any create or update that supplies this field while the resulting mode is fixed-days (whether or not that same call also switches the toggles); 0 is rejected in that case. When ``use_renewal_window_percentage`` is true instead, supplying this field always resets it to 0 regardless of the value sent. Defaults to 0.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "renewal_window_percentage": {
+                        "type": "integer",
+                        "description": "Percentage of certificate lifetime at which automatic renewal is triggered (1..99).",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Lifecycle status of this certificate profile.",
+                        "enum": [
+                            "INITIAL",
+                            "PENDING",
+                            "PENDING_ORDER",
+                            "PENDING_VALIDATION",
+                            "PENDING_ISSUANCE",
+                            "ISSUED",
+                            "ACTIVE",
+                            "RENEWING",
+                            "RENEWAL_FAILED",
+                            "EXPIRING_SOON",
+                            "EXPIRED",
+                            "REVOKED",
+                            "FAILED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "subject_alternative_names": {
+                        "type": "string",
+                        "description": "Subject Alternative Names (SANs) currently configured on this profile, each an object with ``type`` (``DNS``, ``IP``, ``URI``, or ``EMAIL``) and ``value``. Use the ``update_sans`` function call to set or clear SANs.",
+                        "readOnly": true,
+                        "example": "Example subject_alternative_names"
+                    },
+                    "use_renewal_window_days": {
+                        "type": "boolean",
+                        "description": "When true, ``renewal_window_days`` governs renewal timing. Mutually exclusive with ``use_renewal_window_percentage``: exactly one of the two must be true. Defaults to false.",
+                        "example": false
+                    },
+                    "use_renewal_window_percentage": {
+                        "type": "boolean",
+                        "description": "When true, ``renewal_window_percentage`` governs renewal timing. Mutually exclusive with ``use_renewal_window_days``: exactly one of the two must be true. Defaults to true.",
+                        "example": false
+                    }
+                }
+            },
+            "ListAcmeCertificateprofileResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __AcmeCertificateprofile__ objects.",
+                        "type": "array",
+                        "title": "ListAcmeCertificateprofileResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/AcmeCertificateprofile"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeCertificateprofile__ objects.",
+                        "type": "object",
+                        "title": "ListAcmeCertificateprofileResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AcmeCertificateprofile"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAcmeCertificateprofileResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __AcmeCertificateprofile__ in object format.",
+                        "type": "object",
+                        "title": "CreateAcmeCertificateprofileResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeCertificateprofile"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __AcmeCertificateprofile__.",
+                        "type": "string",
+                        "title": "CreateAcmeCertificateprofileResponse"
+                    }
+                ]
+            },
+            "GetAcmeCertificateprofileResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/AcmeCertificateprofile"
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeCertificateprofile__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAcmeCertificateprofileResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeCertificateprofile"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAcmeCertificateprofileResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __AcmeCertificateprofile__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAcmeCertificateprofileResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeCertificateprofile"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __AcmeCertificateprofile__ .",
+                        "type": "string",
+                        "title": "UpdateAcmeCertificateprofileResponse"
+                    }
+                ]
+            },
+            "AcmeOperationlog": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "details": {
+                        "type": "string",
+                        "description": "Additional context: order URL, challenge type, certificate serial, or other operation-specific information.",
+                        "readOnly": true,
+                        "example": "Example details"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "Error detail when status is FAILURE. Empty on success.",
+                        "readOnly": true,
+                        "example": "Example error_message"
+                    },
+                    "member": {
+                        "type": "string",
+                        "description": "Grid member this log entry is associated with (denormalized from profile).",
+                        "readOnly": true,
+                        "example": "Example member"
+                    },
+                    "operation_type": {
+                        "type": "string",
+                        "description": "Free-form string describing the type of operation. Common values include ENROLL, RENEW, REVOKE, ENROLL_BEGIN, CERTIFICATE_ISSUED, DEPLOY, RENEW_SUCCESS, RENEW_FAILED, EXPIRY_WARNING, EXPIRED, PERMANENT_FAILURE, MANUAL_OVERRIDE, and RESET_FOR_REENROLLMENT. New values may be added without a schema change.",
+                        "readOnly": true,
+                        "example": "Example operation_type"
+                    },
+                    "operator_name": {
+                        "type": "string",
+                        "description": "Username of the operator who initiated the action, if known.",
+                        "readOnly": true,
+                        "example": "Example operator_name"
+                    },
+                    "profile": {
+                        "type": "string",
+                        "description": "Reference to the certificate profile this log entry belongs to.",
+                        "readOnly": true,
+                        "example": "Example profile"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Outcome of the operation.",
+                        "enum": [
+                            "SUCCESS",
+                            "FAILURE"
+                        ],
+                        "readOnly": true,
+                        "example": "Example status"
+                    },
+                    "timestamp": {
+                        "type": "integer",
+                        "description": "Time at which the operation was recorded.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    }
+                }
+            },
+            "ListAcmeOperationlogResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __AcmeOperationlog__ objects.",
+                        "type": "array",
+                        "title": "ListAcmeOperationlogResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/AcmeOperationlog"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeOperationlog__ objects.",
+                        "type": "object",
+                        "title": "ListAcmeOperationlogResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AcmeOperationlog"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetAcmeOperationlogResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/AcmeOperationlog"
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeOperationlog__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAcmeOperationlogResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeOperationlog"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAcmeOperationlogResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __AcmeOperationlog__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAcmeOperationlogResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeOperationlog"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __AcmeOperationlog__ .",
+                        "type": "string",
+                        "title": "UpdateAcmeOperationlogResponse"
+                    }
+                ]
+            },
+            "AcmeServer": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "account_deactivated_time": {
+                        "type": "integer",
+                        "description": "Timestamp of ACME account deactivation, if applicable.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "account_email": {
+                        "type": "string",
+                        "description": "Contact email address for the ACME account registered with this server.",
+                        "example": "Example account_email"
+                    },
+                    "account_key_rotation_enabled": {
+                        "type": "boolean",
+                        "description": "Enable automatic periodic rotation of the ACME account key.",
+                        "example": false
+                    },
+                    "account_key_rotation_interval_days": {
+                        "type": "integer",
+                        "description": "Interval, in days, between automatic ACME account key rotations. Only used when ``account_key_rotation_enabled`` is true. Valid range is 1 to 365 days.",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "account_key_type": {
+                        "type": "string",
+                        "description": "Key algorithm used for the ACME account key.",
+                        "enum": [
+                            "RSA",
+                            "EC"
+                        ],
+                        "example": "Example account_key_type"
+                    },
+                    "account_status": {
+                        "type": "string",
+                        "description": "Lifecycle status of the ACME account registered with this server. Set to ``DEACTIVATED`` only via the ``deactivate_account`` function call; cannot be set directly. Defaults to ``ACTIVE``.",
+                        "enum": [
+                            "ACTIVE",
+                            "DEACTIVATED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example account_status"
+                    },
+                    "account_uri": {
+                        "type": "string",
+                        "description": "Account URI returned by the ACME server after registration.",
+                        "readOnly": true,
+                        "example": "Example account_uri"
+                    },
+                    "ca_cert": {
+                        "type": "string",
+                        "description": "Reference to a CA certificate trusted when validating this ACME server's TLS certificate. Required for private servers whose root is not in the system trust store.",
+                        "example": "Example ca_cert"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Descriptive comment for this ACME server configuration.",
+                        "example": "Example comment"
+                    },
+                    "directory_url": {
+                        "type": "string",
+                        "description": "ACME directory endpoint URL. Defaults to ``server_url`` when not set.",
+                        "example": "Example directory_url"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Enable or disable this ACME server configuration.",
+                        "example": false
+                    },
+                    "eab_hmac_key": {
+                        "type": "string",
+                        "description": "External Account Binding HMAC key, base64url-encoded. Required when ``external_account_binding`` is true. Stored encrypted.",
+                        "writeOnly": true,
+                        "example": "Example eab_hmac_key"
+                    },
+                    "eab_kid": {
+                        "type": "string",
+                        "description": "External Account Binding key identifier. Required when ``external_account_binding`` is true.",
+                        "example": "Example eab_kid"
+                    },
+                    "external_account_binding": {
+                        "type": "boolean",
+                        "description": "Enable External Account Binding (EAB) for ACME providers that require it (RFC 8555 \u00a77.3.4).",
+                        "example": false
+                    },
+                    "last_key_rotation": {
+                        "type": "integer",
+                        "description": "Timestamp of the most recent ACME account key rotation (manual or automatic).",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name for this ACME server configuration.",
+                        "example": "Example name"
+                    },
+                    "server_type": {
+                        "type": "string",
+                        "description": "Whether this is a public or private ACME server.",
+                        "enum": [
+                            "PUBLIC",
+                            "PRIVATE"
+                        ],
+                        "example": "Example server_type"
+                    },
+                    "server_url": {
+                        "type": "string",
+                        "description": "Base URL of the ACME server (typically the directory endpoint, e.g. ``https://acme-v02.api.letsencrypt.org/directory``).",
+                        "example": "Example server_url"
+                    }
+                }
+            },
+            "ListAcmeServerResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __AcmeServer__ objects.",
+                        "type": "array",
+                        "title": "ListAcmeServerResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/AcmeServer"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeServer__ objects.",
+                        "type": "object",
+                        "title": "ListAcmeServerResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AcmeServer"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "CreateAcmeServerResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to create __AcmeServer__ in object format.",
+                        "type": "object",
+                        "title": "CreateAcmeServerResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeServer"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to create __AcmeServer__.",
+                        "type": "string",
+                        "title": "CreateAcmeServerResponse"
+                    }
+                ]
+            },
+            "GetAcmeServerResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/AcmeServer"
+                    },
+                    {
+                        "description": "The response format to retrieve __AcmeServer__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetAcmeServerResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeServer"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateAcmeServerResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __AcmeServer__ in object format.",
+                        "type": "object",
+                        "title": "UpdateAcmeServerResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/AcmeServer"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __AcmeServer__ .",
+                        "type": "string",
+                        "title": "UpdateAcmeServerResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

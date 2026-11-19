@@ -1,0 +1,1805 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Infoblox IPC API",
+        "description": "OpenAPI specification for Infoblox NIOS WAPI IPC objects",
+        "version": "2.15",
+        "termsOfService": "https://www.infoblox.com",
+        "contact": {
+            "name": "Infoblox",
+            "url": "https://www.infoblox.com"
+        },
+        "license": {
+            "name": "Infoblox License",
+            "url": "https://www.infoblox.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "/wapi/v2.15",
+            "description": "NIOS WAPI server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "GridIpcPool",
+            "description": "Operations for grid:ipc_pool objects"
+        },
+        {
+            "name": "MemberIpc",
+            "description": "Operations for member:ipc objects"
+        },
+        {
+            "name": "IpcAuditLog",
+            "description": "Operations for ipc:audit_log objects"
+        },
+        {
+            "name": "IpcGridwide",
+            "description": "Operations for ipc:gridwide objects"
+        },
+        {
+            "name": "IpcOverage",
+            "description": "Operations for ipc:overage objects"
+        },
+        {
+            "name": "IpcSyncStatus",
+            "description": "Operations for ipc:sync_status objects"
+        }
+    ],
+    "paths": {
+        "/grid:ipc_pool": {
+            "get": {
+                "tags": [
+                    "GridIpcPool"
+                ],
+                "operationId": "GridIpcPoolList",
+                "summary": "Retrieve grid:ipc_pool objects",
+                "description": "Returns a list of grid:ipc_pool objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListGridIpcPoolResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/grid:ipc_pool/{reference}": {
+            "get": {
+                "tags": [
+                    "GridIpcPool"
+                ],
+                "operationId": "GridIpcPoolRead",
+                "summary": "Get a specific grid:ipc_pool object",
+                "description": "Returns a specific grid:ipc_pool object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the grid:ipc_pool object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGridIpcPoolResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/member:ipc": {
+            "get": {
+                "tags": [
+                    "MemberIpc"
+                ],
+                "operationId": "MemberIpcList",
+                "summary": "Retrieve member:ipc objects",
+                "description": "Returns a list of member:ipc objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMemberIpcResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/member:ipc/{reference}": {
+            "get": {
+                "tags": [
+                    "MemberIpc"
+                ],
+                "operationId": "MemberIpcRead",
+                "summary": "Get a specific member:ipc object",
+                "description": "Returns a specific member:ipc object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the member:ipc object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMemberIpcResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:audit_log": {
+            "get": {
+                "tags": [
+                    "IpcAuditLog"
+                ],
+                "operationId": "IpcAuditLogList",
+                "summary": "Retrieve ipc:audit_log objects",
+                "description": "Returns a list of ipc:audit_log objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListIpcAuditLogResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:audit_log/{reference}": {
+            "get": {
+                "tags": [
+                    "IpcAuditLog"
+                ],
+                "operationId": "IpcAuditLogRead",
+                "summary": "Get a specific ipc:audit_log object",
+                "description": "Returns a specific ipc:audit_log object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the ipc:audit_log object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetIpcAuditLogResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:gridwide": {
+            "get": {
+                "tags": [
+                    "IpcGridwide"
+                ],
+                "operationId": "IpcGridwideList",
+                "summary": "Retrieve ipc:gridwide objects",
+                "description": "Returns a list of ipc:gridwide objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListIpcGridwideResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:gridwide/{reference}": {
+            "get": {
+                "tags": [
+                    "IpcGridwide"
+                ],
+                "operationId": "IpcGridwideRead",
+                "summary": "Get a specific ipc:gridwide object",
+                "description": "Returns a specific ipc:gridwide object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the ipc:gridwide object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetIpcGridwideResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:overage": {
+            "get": {
+                "tags": [
+                    "IpcOverage"
+                ],
+                "operationId": "IpcOverageList",
+                "summary": "Retrieve ipc:overage objects",
+                "description": "Returns a list of ipc:overage objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListIpcOverageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:overage/{reference}": {
+            "get": {
+                "tags": [
+                    "IpcOverage"
+                ],
+                "operationId": "IpcOverageRead",
+                "summary": "Get a specific ipc:overage object",
+                "description": "Returns a specific ipc:overage object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the ipc:overage object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetIpcOverageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:sync_status": {
+            "get": {
+                "tags": [
+                    "IpcSyncStatus"
+                ],
+                "operationId": "IpcSyncStatusList",
+                "summary": "Retrieve ipc:sync_status objects",
+                "description": "Returns a list of ipc:sync_status objects matching the search criteria",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/MaxResults"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Paging"
+                    },
+                    {
+                        "$ref": "#/components/parameters/PageId"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ExtAttrFilters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListIpcSyncStatusResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/ipc:sync_status/{reference}": {
+            "get": {
+                "tags": [
+                    "IpcSyncStatus"
+                ],
+                "operationId": "IpcSyncStatusRead",
+                "summary": "Get a specific ipc:sync_status object",
+                "description": "Returns a specific ipc:sync_status object by reference",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Reference of the ipc:sync_status object",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnFieldsPlus"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ReturnAsObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetIpcSyncStatusResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        },
+        "parameters": {
+            "ReturnFields": {
+                "name": "_return_fields",
+                "in": "query",
+                "description": "Enter the field names followed by comma",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ReturnFieldsPlus": {
+                "name": "_return_fields+",
+                "in": "query",
+                "description": "Enter the field names followed by comma, this returns the required fields along with the default fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "MaxResults": {
+                "name": "_max_results",
+                "in": "query",
+                "description": "Enter the number of results to be fetched",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 1
+                }
+            },
+            "ReturnAsObject": {
+                "name": "_return_as_object",
+                "in": "query",
+                "description": "Select 1 if result is required as an object",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Paging": {
+                "name": "_paging",
+                "in": "query",
+                "description": "Control paging of results",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "PageId": {
+                "name": "_page_id",
+                "in": "query",
+                "description": "Page id for retrieving next page of results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProxySearch": {
+                "name": "_proxy_search",
+                "in": "query",
+                "description": "Search Grid members for data",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Schema": {
+                "name": "_schema",
+                "in": "query",
+                "description": "Return schema for this object type",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaVersion": {
+                "name": "_schema_version",
+                "in": "query",
+                "description": "Schema version to use",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        2
+                    ]
+                }
+            },
+            "GetDoc": {
+                "name": "_get_doc",
+                "in": "query",
+                "description": "Return documentation with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "SchemaSearchable": {
+                "name": "_schema_searchable",
+                "in": "query",
+                "description": "Return searchable fields with schema",
+                "required": false,
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        1
+                    ]
+                }
+            },
+            "Inheritance": {
+                "name": "_inheritance",
+                "in": "query",
+                "description": "If this option is set to True, fields which support inheritance, will display data properly.",
+                "required": false,
+                "schema": {
+                    "type": "boolean"
+                }
+            },
+            "filters": {
+                "name": "filters",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "ExtAttrFilters": {
+                "name": "extattrfilter",
+                "in": "query",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "style": "form",
+                "explode": false
+            },
+            "Method": {
+                "name": "_method",
+                "in": "query",
+                "description": "Enter the method type for the request",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Body": {
+                "name": "body",
+                "in": "query",
+                "schema": {
+                    "type": "object"
+                }
+            }
+        },
+        "schemas": {
+            "ExtAttrs": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "The value of the extensible attribute."
+                    }
+                },
+                "required": [
+                    "value"
+                ],
+                "description": "Extensible attributes associated with the object."
+            },
+            "GridIpcPool": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "allocated": {
+                        "type": "integer",
+                        "description": "IPcs allocated/consumed for this type.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "available": {
+                        "type": "integer",
+                        "description": "Grid-wide IPcs remaining in the shared pool. Same value on every row. total - sum(allocated across all types), clamped at 0.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_updated_timestamp": {
+                        "type": "string",
+                        "description": "Timestamp of the last IPc stats refresh, as an ISO 8601 string.",
+                        "readOnly": true,
+                        "example": "Example last_updated_timestamp"
+                    },
+                    "total": {
+                        "type": "integer",
+                        "description": "Grid-wide licensed IPc capacity. Same value on every row. Zero for air-gapped grids with no TAB imported.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The IPc type.",
+                        "enum": [
+                            "ADD_ON_SERVICES",
+                            "CP",
+                            "ND",
+                            "REPORTING",
+                            "SERVERS",
+                            "UNASSIGNED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example type"
+                    }
+                }
+            },
+            "ListGridIpcPoolResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __GridIpcPool__ objects.",
+                        "type": "array",
+                        "title": "ListGridIpcPoolResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/GridIpcPool"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __GridIpcPool__ objects.",
+                        "type": "object",
+                        "title": "ListGridIpcPoolResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/GridIpcPool"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetGridIpcPoolResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/GridIpcPool"
+                    },
+                    {
+                        "description": "The response format to retrieve __GridIpcPool__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetGridIpcPoolResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/GridIpcPool"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateGridIpcPoolResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __GridIpcPool__ in object format.",
+                        "type": "object",
+                        "title": "UpdateGridIpcPoolResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/GridIpcPool"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __GridIpcPool__ .",
+                        "type": "string",
+                        "title": "UpdateGridIpcPoolResponse"
+                    }
+                ]
+            },
+            "MemberIpc": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "add_on_service": {
+                        "type": "string",
+                        "description": "Comma-separated list of add-on services enabled on the member (e.g. \"ADP, DCA, TI\"). Empty string when no add-on services are enabled.",
+                        "readOnly": true,
+                        "example": "Example add_on_service"
+                    },
+                    "allocated_ipcs": {
+                        "type": "integer",
+                        "description": "IPcs currently consumed (allocated) for this member.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "exceeding_capacity_type": {
+                        "type": "string",
+                        "description": "Type of capacity the member is exceeding, if any (e.g. NONE, QPS, LPS, OBJECTS).",
+                        "readOnly": true,
+                        "example": "Example exceeding_capacity_type"
+                    },
+                    "expiry_date": {
+                        "type": "string",
+                        "description": "Expiry date of the bundle covering this member (YYYY-MM-DD), sourced from the IPc allocation bundle (tab.json).",
+                        "readOnly": true,
+                        "example": "Example expiry_date"
+                    },
+                    "hardware_model": {
+                        "type": "string",
+                        "description": "Appliance hardware model of the member (e.g. IB-1425, TE-1425, IB-V1425).",
+                        "readOnly": true,
+                        "example": "Example hardware_model"
+                    },
+                    "host_name": {
+                        "type": "string",
+                        "description": "The host name of the member.",
+                        "readOnly": true,
+                        "example": "Example host_name"
+                    },
+                    "ipc_auto_assigned": {
+                        "type": "boolean",
+                        "description": "Whether the member's IPcs were auto-assigned by the system.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "member_ref": {
+                        "type": "string",
+                        "description": "Reference string for the member object. Allows filtering by member reference.",
+                        "readOnly": true,
+                        "example": "Example member_ref"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Optional human-readable message related to the member's status.",
+                        "readOnly": true,
+                        "example": "Example message"
+                    },
+                    "services": {
+                        "type": "array",
+                        "description": "List of active services on this member with their current status. Each entry has service (e.g. DNS, DHCP) and status (e.g. WORKING, WARNING). Services with INACTIVE or UNKNOWN status are excluded.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the member's IPc allocation (e.g. OK, UNKNOWN).",
+                        "readOnly": true,
+                        "example": "Example status"
+                    }
+                }
+            },
+            "ListMemberIpcResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __MemberIpc__ objects.",
+                        "type": "array",
+                        "title": "ListMemberIpcResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/MemberIpc"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __MemberIpc__ objects.",
+                        "type": "object",
+                        "title": "ListMemberIpcResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MemberIpc"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetMemberIpcResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/MemberIpc"
+                    },
+                    {
+                        "description": "The response format to retrieve __MemberIpc__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetMemberIpcResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MemberIpc"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateMemberIpcResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __MemberIpc__ in object format.",
+                        "type": "object",
+                        "title": "UpdateMemberIpcResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/MemberIpc"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __MemberIpc__ .",
+                        "type": "string",
+                        "title": "UpdateMemberIpcResponse"
+                    }
+                ]
+            },
+            "IpcAuditLog": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "admin": {
+                        "type": "string",
+                        "description": "Username of the administrator who performed the action.",
+                        "readOnly": true,
+                        "example": "Example admin"
+                    },
+                    "event_type": {
+                        "type": "string",
+                        "description": "Type of the IPc audit event. Possible values include: THRESHOLD_CHANGE, TOKEN_MODE_CHANGE, MODIFIED, CREATED, DELETED, CALLED, MESSAGE. THRESHOLD_CHANGE is reported for Grid changes to ipc_alerting_setting.credit_usage_threshold.",
+                        "readOnly": true,
+                        "example": "Example event_type"
+                    },
+                    "member": {
+                        "type": "string",
+                        "description": "Host name of the member associated with the event, if applicable.",
+                        "readOnly": true,
+                        "example": "Example member"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Human-readable description of the audit event.",
+                        "readOnly": true,
+                        "example": "Example message"
+                    },
+                    "new_value": {
+                        "type": "string",
+                        "description": "New value after the change (empty string if not applicable).",
+                        "readOnly": true,
+                        "example": "Example new_value"
+                    },
+                    "previous_value": {
+                        "type": "string",
+                        "description": "Previous value before the change (empty string if not applicable).",
+                        "readOnly": true,
+                        "example": "Example previous_value"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "description": "ISO timestamp of the audit event (e.g. 2026-01-15T10:30:00). Supports range filtering with >= and <= operators for time-bounded queries.",
+                        "readOnly": true,
+                        "example": "Example timestamp"
+                    },
+                    "token_name": {
+                        "type": "string",
+                        "description": "Name of the affected IPc field or configuration item (e.g. credit_usage_threshold).",
+                        "readOnly": true,
+                        "example": "Example token_name"
+                    }
+                }
+            },
+            "ListIpcAuditLogResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __IpcAuditLog__ objects.",
+                        "type": "array",
+                        "title": "ListIpcAuditLogResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/IpcAuditLog"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcAuditLog__ objects.",
+                        "type": "object",
+                        "title": "ListIpcAuditLogResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/IpcAuditLog"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetIpcAuditLogResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/IpcAuditLog"
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcAuditLog__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetIpcAuditLogResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcAuditLog"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateIpcAuditLogResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __IpcAuditLog__ in object format.",
+                        "type": "object",
+                        "title": "UpdateIpcAuditLogResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcAuditLog"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __IpcAuditLog__ .",
+                        "type": "string",
+                        "title": "UpdateIpcAuditLogResponse"
+                    }
+                ]
+            },
+            "IpcGridwide": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "consumed": {
+                        "type": "integer",
+                        "description": "IPcs currently consumed for this type.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "expiration_status": {
+                        "type": "string",
+                        "description": "IPc expiration status: ACTIVE, EXPIRING_SOON, or EXPIRED. Derived from expiry_date using the same logic as the GM IPc Dashboard.",
+                        "enum": [
+                            "ACTIVE",
+                            "EXPIRED",
+                            "EXPIRING_SOON"
+                        ],
+                        "readOnly": true,
+                        "example": "Example expiration_status"
+                    },
+                    "expiry_date": {
+                        "type": "string",
+                        "description": "IPc validity expiration (TAB validUntil) as an ISO 8601 string. Same value across all rows. Empty for air-gapped grids with no TAB imported.",
+                        "readOnly": true,
+                        "example": "Example expiry_date"
+                    },
+                    "last_updated_timestamp": {
+                        "type": "string",
+                        "description": "Timestamp of the last IPc stats refresh, as an ISO 8601 string.",
+                        "readOnly": true,
+                        "example": "Example last_updated_timestamp"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Licensed IPc capacity. NIOS IPc allocation is grid-wide rather than per-type, so all rows report the same value. Zero for air-gapped grids with no TAB imported.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "overage": {
+                        "type": "boolean",
+                        "description": "True when consumed exceeds the licensed limit, or when the grid is in overage mode per the IPc allocation upsize status.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "percentage": {
+                        "type": "integer",
+                        "description": "Consumed as a percentage of limit (0-100+).",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The IPc type.",
+                        "enum": [
+                            "ADD_ON_SERVICES",
+                            "CP",
+                            "ND",
+                            "REPORTING",
+                            "SERVERS",
+                            "UNASSIGNED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example type"
+                    }
+                }
+            },
+            "ListIpcGridwideResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __IpcGridwide__ objects.",
+                        "type": "array",
+                        "title": "ListIpcGridwideResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/IpcGridwide"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcGridwide__ objects.",
+                        "type": "object",
+                        "title": "ListIpcGridwideResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/IpcGridwide"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetIpcGridwideResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/IpcGridwide"
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcGridwide__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetIpcGridwideResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcGridwide"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateIpcGridwideResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __IpcGridwide__ in object format.",
+                        "type": "object",
+                        "title": "UpdateIpcGridwideResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcGridwide"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __IpcGridwide__ .",
+                        "type": "string",
+                        "title": "UpdateIpcGridwideResponse"
+                    }
+                ]
+            },
+            "IpcOverage": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "consumed": {
+                        "type": "integer",
+                        "description": "IPcs currently consumed for this type.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "ipcs_over": {
+                        "type": "integer",
+                        "description": "How many IPcs over the limit this type is currently consuming (max(0, consumed - limit)).",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "last_updated_timestamp": {
+                        "type": "string",
+                        "description": "Timestamp of the last IPc stats refresh, as an ISO 8601 string.",
+                        "readOnly": true,
+                        "example": "Example last_updated_timestamp"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Licensed IPc capacity. Grid-wide (same on every row). Zero for air-gapped grids with no TAB imported.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "overage": {
+                        "type": "boolean",
+                        "description": "True when this type is over its limit, or when the grid is in overage mode.",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "overage_status": {
+                        "type": "string",
+                        "description": "Overage classification: NONE, OVERAGE (per-type), or GRID_OVERAGE (grid-wide signal).",
+                        "enum": [
+                            "GRID_OVERAGE",
+                            "NONE",
+                            "OVERAGE"
+                        ],
+                        "readOnly": true,
+                        "example": "Example overage_status"
+                    },
+                    "rolling_average_3mo": {
+                        "type": "integer",
+                        "description": "3-month rolling average IPc consumption. Currently grid-wide in the source data, so the same value appears on every row.",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "true_forward_history": {
+                        "type": "array",
+                        "description": "List of past upsize events. Each entry has status, timestamp, and ipcs_added. NIOS source data exposes only the most recent event today, so this list is at most one entry.",
+                        "enum": [
+                            "string"
+                        ],
+                        "readOnly": true,
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The IPc type.",
+                        "enum": [
+                            "ADD_ON_SERVICES",
+                            "CP",
+                            "ND",
+                            "REPORTING",
+                            "SERVERS",
+                            "UNASSIGNED"
+                        ],
+                        "readOnly": true,
+                        "example": "Example type"
+                    }
+                }
+            },
+            "ListIpcOverageResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __IpcOverage__ objects.",
+                        "type": "array",
+                        "title": "ListIpcOverageResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/IpcOverage"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcOverage__ objects.",
+                        "type": "object",
+                        "title": "ListIpcOverageResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/IpcOverage"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetIpcOverageResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/IpcOverage"
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcOverage__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetIpcOverageResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcOverage"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateIpcOverageResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __IpcOverage__ in object format.",
+                        "type": "object",
+                        "title": "UpdateIpcOverageResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcOverage"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __IpcOverage__ .",
+                        "type": "string",
+                        "title": "UpdateIpcOverageResponse"
+                    }
+                ]
+            },
+            "IpcSyncStatus": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "_ref": {
+                        "type": "string",
+                        "description": "The reference to the object."
+                    },
+                    "air_gapped": {
+                        "type": "boolean",
+                        "description": "True if the grid is not cloud-connected (cluster.token_grid_mode is False).",
+                        "readOnly": true,
+                        "example": false
+                    },
+                    "auth": {
+                        "type": "string",
+                        "description": "Authentication mode: WEAK or STRONG. UNKNOWN when connectivity status is unavailable.",
+                        "enum": [
+                            "STRONG",
+                            "UNKNOWN",
+                            "WEAK"
+                        ],
+                        "readOnly": true,
+                        "example": "Example auth"
+                    },
+                    "connectivity_status": {
+                        "type": "string",
+                        "description": "Overall CSP connectivity status: CONNECTED, DISCONNECTED, or UNKNOWN. Sourced from the blox.noa connectivity API.",
+                        "enum": [
+                            "CONNECTED",
+                            "DISCONNECTED",
+                            "UNKNOWN"
+                        ],
+                        "readOnly": true,
+                        "example": "Example connectivity_status"
+                    },
+                    "cp_noa_status": {
+                        "type": "string",
+                        "description": "Connectivity status for the cp.noa.infoblox.com endpoint. CONNECTED, DISCONNECTED, or UNKNOWN.",
+                        "enum": [
+                            "CONNECTED",
+                            "DISCONNECTED",
+                            "UNKNOWN"
+                        ],
+                        "readOnly": true,
+                        "example": "Example cp_noa_status"
+                    },
+                    "csp_status": {
+                        "type": "string",
+                        "description": "Connectivity status for the csp.infoblox.com endpoint. CONNECTED, DISCONNECTED, or UNKNOWN.",
+                        "enum": [
+                            "CONNECTED",
+                            "DISCONNECTED",
+                            "UNKNOWN"
+                        ],
+                        "readOnly": true,
+                        "example": "Example csp_status"
+                    },
+                    "grpc_csp_status": {
+                        "type": "string",
+                        "description": "Connectivity status for the grpc.csp.infoblox.com endpoint. CONNECTED, DISCONNECTED, or UNKNOWN.",
+                        "enum": [
+                            "CONNECTED",
+                            "DISCONNECTED",
+                            "UNKNOWN"
+                        ],
+                        "readOnly": true,
+                        "example": "Example grpc_csp_status"
+                    },
+                    "last_sync_time": {
+                        "type": "string",
+                        "description": "ISO 8601 timestamp of the last successful portal sync. Empty for air-gapped grids.",
+                        "readOnly": true,
+                        "example": "Example last_sync_time"
+                    },
+                    "next_scheduled_sync": {
+                        "type": "string",
+                        "description": "ISO 8601 timestamp of the next expected portal sync. Computed as last_sync_time plus the polling interval (60s). Empty for air-gapped grids.",
+                        "readOnly": true,
+                        "example": "Example next_scheduled_sync"
+                    },
+                    "sync_mode": {
+                        "type": "string",
+                        "description": "Sync mode: AUTO (daemon-driven). Empty for air-gapped grids.",
+                        "enum": [
+                            "AUTO",
+                            "MANUAL"
+                        ],
+                        "readOnly": true,
+                        "example": "Example sync_mode"
+                    }
+                }
+            },
+            "ListIpcSyncStatusResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to retrieve __IpcSyncStatus__ objects.",
+                        "type": "array",
+                        "title": "ListIpcSyncStatusResponseArray",
+                        "items": {
+                            "$ref": "#/components/schemas/IpcSyncStatus"
+                        }
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcSyncStatus__ objects.",
+                        "type": "object",
+                        "title": "ListIpcSyncStatusResponseObject",
+                        "properties": {
+                            "result": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/IpcSyncStatus"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "GetIpcSyncStatusResponse": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/IpcSyncStatus"
+                    },
+                    {
+                        "description": "The response format to retrieve __IpcSyncStatus__ objects.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "title": "GetIpcSyncStatusResponseObjectAsResult",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcSyncStatus"
+                            }
+                        }
+                    }
+                ]
+            },
+            "UpdateIpcSyncStatusResponse": {
+                "oneOf": [
+                    {
+                        "description": "The response format to update __IpcSyncStatus__ in object format.",
+                        "type": "object",
+                        "title": "UpdateIpcSyncStatusResponseAsObject",
+                        "properties": {
+                            "result": {
+                                "$ref": "#/components/schemas/IpcSyncStatus"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The response format to update __IpcSyncStatus__ .",
+                        "type": "string",
+                        "title": "UpdateIpcSyncStatusResponse"
+                    }
+                ]
+            }
+        }
+    }
+}

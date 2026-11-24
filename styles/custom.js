@@ -119,7 +119,7 @@
 
   // Configuration
   const CONFIG = {
-    defaultVersion: 'v2.14',
+    defaultVersion: 'v2.15',
     versions: [
       {
         wapi: 'v2.13.8',
@@ -141,6 +141,11 @@
       {
         wapi: 'v2.14',
         niosSupport: 'NIOS: v9.1.0'
+
+      },
+      {
+        wapi: 'v2.15',
+        niosSupport: 'NIOS: v9.2.0'
 
       }
       // Add future versions here in the same format
@@ -400,6 +405,12 @@
   // Only add Federated Realms for versions other than 2.13.1
   if (currentVersion !== 'v2.13.1') {
     specUrls.push({url: `${basePath}/federatedrealms.json`, name: "Federated Realms"});
+  }
+
+  // ACME and IPC specs are only available from WAPI v2.15 (NIOS v9.2.0)
+  if (currentVersion === 'v2.15') {
+    specUrls.push({url: `${basePath}/acme.json`, name: "ACME"});
+    specUrls.push({url: `${basePath}/ipc.json`, name: "IPC"});
   }
     // Sort specs alphabetically if configured
     if (CONFIG.specNamesSorted) {

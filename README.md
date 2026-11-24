@@ -11,7 +11,7 @@ A comprehensive tool for serving Swagger/OpenAPI documentation for Infoblox NIOS
 This repository provides:
 
 - Interactive API documentation using Swagger UI v5.27.0
-- Pre-compiled OpenAPI specifications for all NIOS APIs (v2.13.1, v2.13.6, v2.13.7, v2.13.8)
+- Pre-compiled OpenAPI specifications for all NIOS APIs (v2.13.1, v2.13.6, v2.13.7, v2.13.8, v2.14, v2.15)
 - CORS proxy server with zero dependencies (Python standard library only)
 - Easy browsing of API endpoints, request/response models, and examples
 - Automated workflows for continuous integration and deployment
@@ -81,7 +81,9 @@ nios-swagger/
         ├── v2.13.1/         # NIOS v9.0.1-v9.0.3 API specs
         ├── v2.13.6/         # NIOS v9.0.6 API specs
         ├── v2.13.7/         # NIOS v9.0.7 API specs
-        └── v2.13.8/         # NIOS v9.0.8 API specs
+        ├── v2.13.8/         # NIOS v9.0.8 API specs
+        ├── v2.14/           # NIOS v9.1.0 API specs
+        └── v2.15/           # NIOS v9.2.0 API specs (adds ACME and IPC)
 ```
 
 ### Important Note
